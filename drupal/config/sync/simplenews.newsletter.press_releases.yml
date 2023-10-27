@@ -1,0 +1,20 @@
+uuid: 0e480bc4-8480-498d-b236-2cdf8d43376a
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Y2qE4TXTKonW7r-A1vHWIYHBjEKWAsjBE58T5AjwaAQ
+name: 'Press releases'
+id: press_releases
+description: 'This is the press release.'
+format: plain
+priority: 0
+receipt: false
+from_name: 'Drush Site-Install'
+subject: '[[simplenews-newsletter:name]] [node:title]'
+from_address: admin@example.com
+hyperlinks: true
+allowed_handlers: {  }
+new_account: none
+access: default
+weight: 0
