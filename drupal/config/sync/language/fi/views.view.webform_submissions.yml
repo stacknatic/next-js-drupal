@@ -1,0 +1,34 @@
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          reset_button_label: Palauta
+      fields:
+        created:
+          label: Luotu
+        view_webform_submission:
+          label: Toimenpiteet
+  embed_administer:
+    display_options:
+      fields:
+        created:
+          label: Luotu
+        operations:
+          label: Toimenpiteet
+  embed_manage:
+    display_options:
+      fields:
+        created:
+          label: Luotu
+        view_webform_submission:
+          label: Toimenpiteet
+        edit_webform_submission:
+          label: Toimenpiteet
+  embed_review:
+    display_options:
+      fields:
+        created:
+          label: Luotu
+        view_webform_submission:
+          label: Toimenpiteet
