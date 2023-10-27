@@ -1,0 +1,21 @@
+display:
+  default:
+    display_title: Oletus
+    display_options:
+      fields:
+        filename:
+          label: Nimi
+        status:
+          label: Tila
+      exposed_form:
+        options:
+          reset_button_label: Palauta
+      filters:
+        status:
+          expose:
+            label: Tila
+  page_2:
+    display_options:
+      fields:
+        entity_label:
+          label: Entiteetti

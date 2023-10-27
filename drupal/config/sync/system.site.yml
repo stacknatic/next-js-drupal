@@ -1,0 +1,14 @@
+_core:
+  default_config_hash: l58O_yEXSo-SeJi19LXdzTU1tNJG3lmnIhCitRkM1tk
+langcode: en
+uuid: 37174038-0a43-48b4-9ea7-0a36dd9056d0
+name: 'Drush Site-Install'
+mail: michael@stacknatic.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /admin/content
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en
