@@ -43,7 +43,7 @@ export default function DashboardPage({
           </tr>
         </thead>
         <tbody className="bg-white text-sm text-steelgray">
-          {submissions?.map((submission) => (
+          {submissions.map((submission) => (
             <tr
               key={submission.uuid[0]["value"]}
               className="border border-graysuit"
@@ -66,7 +66,7 @@ export default function DashboardPage({
             </tr>
           ))}
 
-          {submissions?.length === 0 && (
+          {submissions.length === 0 && (
             <tr className="border border-graysuit">
               <td colSpan={3} className="p-3">
                 {t("no-submissions-yet")}
