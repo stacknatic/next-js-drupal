@@ -48,17 +48,16 @@ export const getStaticProps = async (context) => {
   const events = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
     "node--events",
     context,
-    //   {
-    // params: {
-    //   "filter[status]": 1,
-    //   "filter[langcode]": context.locale,
-    //   "filter[promote]": 1,
-    //   "fields[node--article]": "title,path,field_image,uid,created",
-    //   include: "field_image,uid",
-    //   sort: "-sticky,-created",
-    //   "page[limit]": 3,
-    // },
-    //   }
+    {
+      params: {
+        "filter[status]": 1,
+        "filter[langcode]": context.locale,
+        "fields[node--events]":
+          "title,path,body,field_start_date,field_image,uid",
+        include: "field_image,uid",
+        sort: "-field_start_date",
+      },
+    },
   );
 
   return {
