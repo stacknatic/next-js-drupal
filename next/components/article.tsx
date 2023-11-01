@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 
 import { FormattedText } from "@/components/formatted-text";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { HeadingPage } from "@/components/heading--page";
 import { absoluteUrl } from "@/lib/drupal/absolute-url";
 import { formatDate } from "@/lib/utils";
@@ -17,7 +18,18 @@ export function Article({ article, ...props }: ArticleProps) {
   const router = useRouter();
   return (
     <article {...props}>
-      <HeadingPage>{article.title}</HeadingPage>
+      <Breadcrumbs
+        items={[
+          {
+            title: t("articles"),
+            url: "/all-articles",
+          },
+          {
+            title: article.title,
+          },
+        ]}
+      />
+      <HeadingPage>{article.title}</HeadingPage> 
       {article.field_excerpt && (
         <div className="my-4 text-xl">{article.field_excerpt}</div>
       )}
