@@ -2,7 +2,6 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { DrupalNode, DrupalTranslatedPath } from "next-drupal";
 
 import { Meta } from "@/components/meta";
-import { Page } from "@/components/page";
 import {
   createLanguageLinks,
   LanguageLinks,
@@ -15,23 +14,15 @@ import {
   CommonPageProps,
   getCommonPageProps,
 } from "@/lib/get-common-page-props";
-import {
-  Article as ArticleType,
-  validateAndCleanupArticle,
-} from "@/lib/zod/article";
-import { Page as PageType, validateAndCleanupPage } from "@/lib/zod/page";
+import EventSingle from "@/components/events/event-single";
 
-export default function EventSingle({
-  resource,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Event({ resource }) {
   if (!resource) return null;
-  console.log(resource);
 
   return (
     <>
       <Meta title={resource.title} metatags={resource.metatag} />
-      {/* {resource.type === "node--article" && <Article article={resource} />}
-      {resource.type === "node--page" && <Page page={resource} />} */}
+      <EventSingle event={resource} />
     </>
   );
 }
@@ -45,7 +36,7 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
 };
 
 interface PageProps extends CommonPageProps {
-  resource: PageType | ArticleType;
+  // resource: PageType | ArticleType;
   languageLinks: LanguageLinks;
 }
 
@@ -53,7 +44,6 @@ export const getStaticProps = async (context) => {
   const path = await drupal.translatePathFromContext(context, {
     pathPrefix: "/events",
   });
-  console.log("PATH", path);
   if (!path) {
     return {
       notFound: true,
