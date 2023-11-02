@@ -27,17 +27,12 @@ interface IndexPageProps extends LayoutProps {
 
 export default function Events({ events }) {
   const { t } = useTranslation();
-
   console.log(events);
   return (
     <>
-      <h1>Hello from events</h1>
-      {/* <Meta title={frontpage?.title} metatags={frontpage?.metatag} /> */}
+      <Meta title={events?.title} metatags={events?.metatag} />
 
-      {/* <EventsCards
-        articles={promotedArticleTeasers}
-        heading={t("promoted-articles")}
-      /> */}
+      <EventsCards events={events} heading={t("Events")} />
       {/* <ContactList /> */}
       {/* <LogoStrip /> */}
     </>
@@ -53,8 +48,8 @@ export const getStaticProps = async (context) => {
         "filter[status]": 1,
         "filter[langcode]": context.locale,
         "fields[node--events]":
-          "title,path,body,field_start_date,field_image,uid",
-        include: "field_image,uid",
+          "id,title,path,field_excerpt,field_start_date,field_image,field_organizers",
+        include: "field_image,field_organizers",
         sort: "-field_start_date",
       },
     },
