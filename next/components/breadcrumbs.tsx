@@ -32,10 +32,10 @@ export function Breadcrumbs({ items, ...props }: BreadcrumbsProps) {
           <li key={index} className="flex items-center leading-none truncate">
             {item.url ? (
               <Link href={item.url} passHref legacyBehavior={true}>
-                <a className="underline text-link">{item.title}</a>
-              </Link>
+                  <a className="underline text-link">{item.title.charAt(0).toUpperCase() + item.title.slice(1)}</a>
+                </Link>
             ) : (
-              item.title
+                `${item.title.charAt(0).toUpperCase()}${item.title.slice(1)}`
             )}
             {index !== items.length - 1 && (
               <svg
