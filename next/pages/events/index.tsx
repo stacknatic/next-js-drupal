@@ -27,17 +27,12 @@ interface IndexPageProps extends LayoutProps {
 
 export default function Events({ events }) {
   const { t } = useTranslation();
-
   console.log(events);
   return (
     <>
-      <h1>Hello from events</h1>
-      {/* <Meta title={frontpage?.title} metatags={frontpage?.metatag} /> */}
+      <Meta title={events?.title} metatags={events?.metatag} />
 
-      {/* <EventsCards
-        articles={promotedArticleTeasers}
-        heading={t("promoted-articles")}
-      /> */}
+      <EventsCards events={events} heading={t("Events")} />
       {/* <ContactList /> */}
       {/* <LogoStrip /> */}
     </>
@@ -48,17 +43,16 @@ export const getStaticProps = async (context) => {
   const events = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
     "node--events",
     context,
-    //   {
-    // params: {
-    //   "filter[status]": 1,
-    //   "filter[langcode]": context.locale,
-    //   "filter[promote]": 1,
-    //   "fields[node--article]": "title,path,field_image,uid,created",
-    //   include: "field_image,uid",
-    //   sort: "-sticky,-created",
-    //   "page[limit]": 3,
-    // },
-    //   }
+    {
+      params: {
+        "filter[status]": 1,
+        "filter[langcode]": context.locale,
+        "fields[node--events]":
+          "id,title,path,field_excerpt,field_start_date,field_image,field_organizers",
+        include: "field_image,field_organizers",
+        sort: "-field_start_date",
+      },
+    },
   );
 
   return {

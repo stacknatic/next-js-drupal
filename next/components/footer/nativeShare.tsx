@@ -1,17 +1,20 @@
-import React from 'react';
-import styles from '../../styles/nativeShare.module.css';
+import styles from "../../styles/nativeShare.module.css";
 
-const ShareButton: React.FC<{ title: string; url: string }> = ({ title, url }) => {
+const ShareButton: React.FC<{ title: string; url: string }> = ({
+  title,
+  url,
+}) => {
   const handleShare = () => {
     if (navigator.share) {
-      navigator.share({
-        title: title,
-        url: url,
-      })
-        .then(() => console.log('Successfully shared'))
-        .catch((error) => console.log('Error sharing:', error));
+      navigator
+        .share({
+          title: title,
+          url: url,
+        })
+        .then(() => console.log("Successfully shared"))
+        .catch((error) => console.log("Error sharing:", error));
     } else {
-      console.log('Web Share API not supported');
+      console.log("Web Share API not supported");
     }
   };
 
