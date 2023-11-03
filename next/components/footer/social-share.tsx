@@ -62,7 +62,7 @@ export function SocialShare() {
             ))}
           </ul>
         ) : (
-          <ShareButton title="demo title" url='http://localhost:3000' />
+          <ShareButton title="demo title" url="http://localhost:3000" />
         )}
       </div>
     </>
