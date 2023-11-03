@@ -2,7 +2,11 @@ import { DrupalJsonApiParams } from "drupal-jsonapi-params";
 
 import { env } from "@/env";
 
-export type ResourceType = "node--frontpage" | "node--page" | "node--article";
+export type ResourceType =
+  | "node--frontpage"
+  | "node--page"
+  | "node--article"
+  | "node--events";
 
 export function getNodePageJsonApiParams(resourceType: ResourceType) {
   const apiParams = new DrupalJsonApiParams().addFilter(
@@ -65,6 +69,28 @@ export function getNodePageJsonApiParams(resourceType: ResourceType) {
       "field_excerpt",
       "path",
       "sticky",
+    ]);
+  }
+
+  if (resourceType === "node--events") {
+    apiParams.addInclude([
+      "field_image",
+      "field_organizers",
+      "field_speakers",
+      "uid",
+    ]);
+    apiParams.addFields(resourceType, [
+      "title",
+      "body",
+      "uid",
+      "field_image",
+      "status",
+      "metatag",
+      "path",
+      "field_start_date",
+      "field_end_date",
+      "field_organizers",
+      "field_speakers",
     ]);
   }
 
