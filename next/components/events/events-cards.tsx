@@ -7,6 +7,7 @@ import { ArticleTeaser as ArticleTeaserType } from "@/lib/zod/article-teaser";
 import ArrowIcon from "@/styles/icons/arrow-down.svg";
 
 import { buttonVariants } from "@/ui/button";
+import { Breadcrumbs } from "../breadcrumbs";
 
 interface LatestArticlesProps {
   articles?: ArticleTeaserType[];
@@ -17,6 +18,13 @@ export function EventsCards({ events, heading }) {
   const { t } = useTranslation();
   return (
     <div className="grid justify-center">
+       <Breadcrumbs
+        items={[
+          {
+            title: t("events")
+          }
+        ]}
+      />
       <h2 className="pb-6 md:pb-8 text-center text-heading-sm font-bold md:text-heading-md">
         {heading}
       </h2>

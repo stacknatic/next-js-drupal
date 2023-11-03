@@ -7,6 +7,7 @@ import { formatDate } from "@/lib/utils";
 import { FormattedText } from "../formatted-text";
 import EventOrganizer from "./event-profile";
 import CalenderIcon from "@/styles/icons/calendar.svg";
+import { Breadcrumbs } from "../breadcrumbs";
 
 function EventSingle({ event, ...props }) {
   console.log(event);
@@ -17,6 +18,17 @@ function EventSingle({ event, ...props }) {
   return (
     <article className="grid md:grid-cols-2 md:gap-1 gap-2 px-4">
       <div className="grid grid-cols-1 content-start h-full rounded-md  overflow-hidden transition-all row-span-2">
+      <Breadcrumbs
+        items={[
+          {
+            title: t("events"),
+            url: "/events",
+          },
+          {
+            title: event.title,
+          },
+        ]}
+      />
         <h2 className="text-heading-lg font-bold">{event.title}</h2>
         <div className="text-xl  flex items-center gap-x-2 mt-4">
           <CalenderIcon className="h-6 w-6 text-primary-400" />
