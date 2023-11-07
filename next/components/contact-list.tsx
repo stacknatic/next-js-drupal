@@ -1,3 +1,6 @@
+"use client";
+
+import React, { useState } from "react";
 import NextImage from "next/image";
 import { useTranslation } from "next-i18next";
 
@@ -38,6 +41,27 @@ const contacts: Contact[] = [
 ];
 
 export function ContactList() {
+  const [email, setEmail] = useState("");
+  // made an newsletter email validation and form submission
+  const [isEmailValid, setIsEmailValid] = useState(true);
+  // 't' is the translation function from react-i18next
+
+  function handleInput(event) {
+    setEmail(event.target.value);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    if (email === "" || !/\S+@\S+\.\S+/.test(email)) {
+      setIsEmailValid(false);
+    } else {
+      setIsEmailValid(true);
+      alert(`Thank you for subscribing with ${email}`);
+      setEmail("");
+    }
+  }
+
   const { t } = useTranslation();
   return (
     <section className="py-8">
@@ -77,6 +101,46 @@ export function ContactList() {
           </li>
         ))}
       </ul>
+      {!isEmailValid ? <p>Please enter a valid email address</p> : null}
+      <section
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <h2 style={{ color: "#FFFFFF" }}>Subscribe to our newsletter!</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            placeholder="Enter your email address here"
+            value={email}
+            onChange={handleInput}
+            style={{
+              padding: "10px",
+              fontSize: "16px",
+              border: "2px solid #ddd",
+              borderRadius: "5px",
+            }}
+          />
+          <button
+            type="submit"
+            style={{
+              margin: "10px",
+              padding: "10px",
+              backgroundColor: "#5B37BF",
+              border: "none",
+              color: "white",
+              fontSize: "16px",
+              borderRadius: "5px",
+              cursor: "pointer",
+            }}
+          >
+            Subscribe
+          </button>
+        </form>
+      </section>
     </section>
   );
 }
