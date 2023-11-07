@@ -19,7 +19,7 @@ const ShareButton: React.FC<{ title: string; url: string }> = ({
   };
 
   return (
-    <button onClick={handleShare} className={styles.button}>
+    <button onClick={handleShare} className="bg-primary-500 p-2 text-white rounded-3xl">
       Share
     </button>
   );
