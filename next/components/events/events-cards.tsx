@@ -1,28 +1,22 @@
-import Link from "next/link";
 import { useTranslation } from "next-i18next";
-import clsx from "clsx";
-
 import { EventCard } from "@/components/events/events-card";
-import { ArticleTeaser as ArticleTeaserType } from "@/lib/zod/article-teaser";
-import ArrowIcon from "@/styles/icons/arrow-down.svg";
-
-import { buttonVariants } from "@/ui/button";
 import { Breadcrumbs } from "../breadcrumbs";
+import { EventCardType } from "@/lib/zod/event-card";
 
-interface LatestArticlesProps {
-  articles?: ArticleTeaserType[];
+interface EventsCardsPropsType {
+  events: EventCardType[];
   heading: string;
 }
 
-export function EventsCards({ events, heading }) {
+export function EventsCards({ events, heading }: EventsCardsPropsType) {
   const { t } = useTranslation();
   return (
     <div className="grid justify-center">
-       <Breadcrumbs
+      <Breadcrumbs
         items={[
           {
-            title: t("events")
-          }
+            title: t("events"),
+          },
         ]}
       />
       <h2 className="pb-6 md:pb-8 text-center text-heading-sm font-bold md:text-heading-md">
