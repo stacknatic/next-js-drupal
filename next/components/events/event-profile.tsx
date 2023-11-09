@@ -5,7 +5,7 @@ import LinkedInIcon from "@/styles/icons/linkedin.svg";
 import TwitterIcon from "@/styles/icons/twitter.svg";
 import InstagramIcon from "@/styles/icons/instagram.svg";
 
-function EventProfile({ profiles, type }) {
+function EventProfile({ profiles }) {
   return (
     <>
       {profiles.map((profile) => (
