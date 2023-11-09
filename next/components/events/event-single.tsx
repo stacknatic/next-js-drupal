@@ -8,11 +8,14 @@ import { FormattedText } from "../formatted-text";
 import EventProfile from "./event-profile";
 import CalenderIcon from "@/styles/icons/calendar.svg";
 import { Breadcrumbs } from "../breadcrumbs";
+import { EventSingleType } from "@/lib/zod/event-single";
 
-function EventSingle({ event, ...props }) {
+function EventSingle({ event }: { event: EventSingleType }) {
   const { t } = useTranslation();
   const router = useRouter();
-  const date = formatDate(event.field_start_date, router.locale);
+  const date = event.field_start_date
+    ? formatDate(event.field_start_date, router.locale)
+    : false;
 
   return (
     <article className="grid md:grid-cols-2 md:gap-1 gap-2 px-4">
@@ -29,10 +32,12 @@ function EventSingle({ event, ...props }) {
           ]}
         />
         <h2 className="text-heading-lg font-bold">{event.title}</h2>
-        <div className="text-xl  flex items-center gap-x-2 mt-4">
-          <CalenderIcon className="h-6 w-6 text-primary-400" />
-          <time>{date}</time>
-        </div>
+        {date && (
+          <div className="text-xl  flex items-center gap-x-2 mt-4">
+            <CalenderIcon className="h-6 w-6 text-primary-400" />
+            <time>{date}</time>
+          </div>
+        )}
         {event.field_organizers.length > 0 && (
           <div className=" mb-4 md:mb-8">
             {/* some event might not have organizers */}
@@ -66,10 +71,12 @@ function EventSingle({ event, ...props }) {
           className="w-full object-cover rounded-md"
         />
       )}
-      <FormattedText
-        className="mt-4 text-md/xl text-scapaflow sm:text-lg "
-        html={event.body?.processed}
-      />
+      {event.body && (
+        <FormattedText
+          className="mt-4 text-md/xl text-scapaflow sm:text-lg "
+          html={event.body.processed}
+        />
+      )}
     </article>
   );
 }
