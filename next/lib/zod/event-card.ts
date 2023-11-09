@@ -10,13 +10,14 @@ export const WebSiteSchema = z.object({
 export const OrganizerSchema = z.object({
   type: z.literal("paragraph--organizer_detail"),
   field_organizer_name: z.string(),
-  field_website: z.array(WebSiteSchema).optional(),
-  field_email: z.array(z.string().email()).optional(),
-  field_facebook: z.object({ full_url: z.string().url() }).optional(),
-  field_instagram: z.object({ full_url: z.string().url() }).optional(),
-  field_linkedin: z.object({ full_url: z.string().url() }).optional(),
-  field_twitter: z.object({ full_url: z.string().url() }).optional(),
-  field_youtube: z.object({ full_url: z.string().url() }).optional(),
+  id: z.string(),
+  field_website: z.array(WebSiteSchema).nullable(),
+  field_email: z.array(z.string().email()).nullable(),
+  field_facebook: z.object({ full_url: z.string().url() }).nullable(),
+  field_instagram: z.object({ full_url: z.string().url() }).nullable(),
+  field_linkedin: z.object({ full_url: z.string().url() }).nullable(),
+  field_twitter: z.object({ full_url: z.string().url() }).nullable(),
+  field_youtube: z.object({ full_url: z.string().url() }).nullable(),
 });
 
 export const EventCardSchema = z.object({
@@ -24,8 +25,10 @@ export const EventCardSchema = z.object({
   id: z.string(),
   title: z.string(),
   path: z.object({ alias: z.string() }),
-  field_start_date: z.string(),
+  field_start_date: z.string().nullable(),
   field_image: ImageShape.nullable(),
   field_excerpt: z.string().optional().nullable(),
-  field_organizers: z.array(OrganizerSchema),
+  field_organizers: z.array(OrganizerSchema).nullable(),
 });
+
+export type EventCardType = z.infer<typeof EventCardSchema>;
