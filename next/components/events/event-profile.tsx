@@ -15,11 +15,11 @@ function EventProfile({ profiles }) {
               ? profile.field_organizer_name
               : profile.field_speaker}
           </p>
-          {profile.field_website.length > 0 && (
+          {profile.field_website && (
             <ul className="flex flex-wrap grap-2">
-              {profile.field_website.map((item) => (
+              {profile.field_website.map((item, index) => (
                 <li
-                  key={item.title}
+                  key={item.title + index}
                   className="font-bold p-1 rounded-md text-primary-400"
                 >
                   <a href={item.full_url}>{item.title}</a>
