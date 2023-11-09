@@ -5,12 +5,11 @@ import Image from "next/image";
 import { absoluteUrl } from "@/lib/drupal/absolute-url";
 import { formatDate } from "@/lib/utils";
 import { FormattedText } from "../formatted-text";
-import EventOrganizer from "./event-profile";
+import EventProfile from "./event-profile";
 import CalenderIcon from "@/styles/icons/calendar.svg";
 import { Breadcrumbs } from "../breadcrumbs";
 
 function EventSingle({ event, ...props }) {
-  console.log(event);
   const { t } = useTranslation();
   const router = useRouter();
   const date = formatDate(event.field_start_date, router.locale);
@@ -18,17 +17,17 @@ function EventSingle({ event, ...props }) {
   return (
     <article className="grid md:grid-cols-2 md:gap-1 gap-2 px-4">
       <div className="grid grid-cols-1 content-start h-full rounded-md  overflow-hidden transition-all row-span-2">
-      <Breadcrumbs
-        items={[
-          {
-            title: t("events"),
-            url: "/events",
-          },
-          {
-            title: event.title,
-          },
-        ]}
-      />
+        <Breadcrumbs
+          items={[
+            {
+              title: t("events"),
+              url: "/events",
+            },
+            {
+              title: event.title,
+            },
+          ]}
+        />
         <h2 className="text-heading-lg font-bold">{event.title}</h2>
         <div className="text-xl  flex items-center gap-x-2 mt-4">
           <CalenderIcon className="h-6 w-6 text-primary-400" />
@@ -39,7 +38,7 @@ function EventSingle({ event, ...props }) {
             {/* some event might not have organizers */}
             <h3 className="text-heading-sm mt-8 ">Organizers</h3>
             <ul className="text-heading-xs mt-4">
-              <EventOrganizer profiles={event.field_organizers} />
+              <EventProfile profiles={event.field_organizers} />
             </ul>
           </div>
         )}
@@ -49,7 +48,7 @@ function EventSingle({ event, ...props }) {
             {/* some event might not have organizers */}
             <h3 className="text-heading-sm mt-8 ">Speakers</h3>
             <ul className="text-heading-xs mt-4">
-              <EventOrganizer profiles={event.field_speakers} />
+              <EventProfile profiles={event.field_speakers} />
             </ul>
           </div>
         )}
