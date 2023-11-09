@@ -17,6 +17,7 @@ import {
   ArticleTeaser as ArticleTeaserType,
   validateAndCleanupArticleTeaser,
 } from "@/lib/zod/article-teaser";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 
 interface AllArticlesPageProps extends LayoutProps {
   articleTeasers: ArticleTeaserType[];
@@ -34,6 +35,13 @@ export default function AllArticlesPage({
     <>
       <Meta title={t("all-articles")} metatags={[]} />
       <div ref={focusRef} tabIndex={-1} />
+      <Breadcrumbs
+        items={[
+          {
+            title: t("all-articles")
+          }
+        ]}
+      />
       <HeadingPage>{t("all-articles")}</HeadingPage>
       <ul className="mt-4">
         {articleTeasers?.map((article) => (
