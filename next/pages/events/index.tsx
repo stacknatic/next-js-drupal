@@ -1,45 +1,33 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { DrupalNode } from "next-drupal";
 import { useTranslation } from "next-i18next";
-
-import { ArticleTeasers } from "@/components/article-teasers";
-import { ContactForm } from "@/components/contact-form";
 import { ContactList } from "@/components/contact-list";
-import { LayoutProps } from "@/components/layout";
 import { LogoStrip } from "@/components/logo-strip";
-import { Meta } from "@/components/meta";
-import { Paragraph } from "@/components/paragraph";
+// import { Meta } from "@/components/meta";
 import { drupal } from "@/lib/drupal/drupal-client";
-import { getNodePageJsonApiParams } from "@/lib/drupal/get-node-page-json-api-params";
 import { getCommonPageProps } from "@/lib/get-common-page-props";
-import {
-  ArticleTeaser,
-  validateAndCleanupArticleTeaser,
-} from "@/lib/zod/article-teaser";
-import { Frontpage, validateAndCleanupFrontpage } from "@/lib/zod/frontpage";
-
-import { Divider } from "@/ui/divider";
 import { EventsCards } from "@/components/events/events-cards";
+import { EventCardSchema, EventCardType } from "@/lib/zod/event-card";
 
-interface IndexPageProps extends LayoutProps {
-  promotedArticleTeasers: ArticleTeaser[];
+interface EventCardsPropsType {
+  events: EventCardType[];
 }
 
-export default function Events({ events }) {
+export default function Events({ events }: EventCardsPropsType) {
   const { t } = useTranslation();
-  console.log(events);
   return (
     <>
-      <Meta title={events?.title} metatags={events?.metatag} />
-
+      {/* <Meta title={events?.title} metatags={events?.metatag} /> */}
       <EventsCards events={events} heading={t("Events")} />
-      {/* <ContactList /> */}
-      {/* <LogoStrip /> */}
+      <ContactList />
+      <LogoStrip />
     </>
   );
 }
 
-export const getStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps<EventCardsPropsType> = async (
+  context,
+) => {
   const events = await drupal.getResourceCollectionFromContext<DrupalNode[]>(
     "node--events",
     context,
@@ -54,11 +42,23 @@ export const getStaticProps = async (context) => {
       },
     },
   );
+  // validating each event based on EventCardSchema, if some event fails validation, that events will be left out and can not break the whole app
+  const validatedEventsCards = events.reduce(
+    (acc: EventCardType[], event: any) => {
+      const validData = EventCardSchema.safeParse(event);
+      if (validData.success) {
+        return [...acc, validData.data];
+      } else {
+        return acc;
+      }
+    },
+    [],
+  );
 
   return {
     props: {
       ...(await getCommonPageProps(context)),
-      events: events,
+      events: validatedEventsCards,
     },
     revalidate: 60,
   };
