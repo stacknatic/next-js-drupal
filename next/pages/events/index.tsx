@@ -43,14 +43,17 @@ export const getStaticProps: GetStaticProps<EventCardsPropsType> = async (
     },
   );
   // validating each event based on EventCardSchema, if some event fails validation, that events will be left out and can not break the whole app
-  const validatedEventsCards = events.reduce((acc, event) => {
-    const validData = EventCardSchema.safeParse(event);
-    if (validData.success) {
-      return [...acc, validData.data];
-    } else {
-      return acc;
-    }
-  }, []);
+  const validatedEventsCards = events.reduce(
+    (acc: EventCardType[], event: any) => {
+      const validData = EventCardSchema.safeParse(event);
+      if (validData.success) {
+        return [...acc, validData.data];
+      } else {
+        return acc;
+      }
+    },
+    [],
+  );
 
   return {
     props: {
