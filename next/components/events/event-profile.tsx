@@ -5,7 +5,7 @@ import LinkedInIcon from "@/styles/icons/linkedin.svg";
 import TwitterIcon from "@/styles/icons/twitter.svg";
 import InstagramIcon from "@/styles/icons/instagram.svg";
 
-function EventProfile({ profiles, type }) {
+function EventProfile({ profiles }) {
   return (
     <>
       {profiles.map((profile) => (
@@ -15,11 +15,11 @@ function EventProfile({ profiles, type }) {
               ? profile.field_organizer_name
               : profile.field_speaker}
           </p>
-          {profile.field_website.length > 0 && (
+          {profile.field_website && (
             <ul className="flex flex-wrap grap-2">
-              {profile.field_website.map((item) => (
+              {profile.field_website.map((item, index) => (
                 <li
-                  key={item.title}
+                  key={item.title + index}
                   className="font-bold p-1 rounded-md text-primary-400"
                 >
                   <a href={item.full_url}>{item.title}</a>

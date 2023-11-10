@@ -33,8 +33,7 @@
 /web/sites/*/settings.local.php
 
 # Ignore Drupal's file directory
-#/web/sites/*/files/
-
+/web/sites/default/files/php
 # Ignore testing directories.
 /web/sites/simpletest
 /web/tmp

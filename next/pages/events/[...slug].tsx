@@ -15,8 +15,19 @@ import {
   getCommonPageProps,
 } from "@/lib/get-common-page-props";
 import EventSingle from "@/components/events/event-single";
+import {
+  EventSingleSchema,
+  EventSingleType,
+  SpeakerSchema,
+  SpeakerType,
+} from "@/lib/zod/event-single";
+import { OrganizerSchema, OrganizerType } from "@/lib/zod/event-card";
 
-export default function Event({ resource }) {
+interface PageProps extends CommonPageProps {
+  resource: EventSingleType;
+  languageLinks: LanguageLinks;
+}
+export default function Event({ resource }: PageProps) {
   if (!resource) return null;
 
   return (
@@ -35,12 +46,7 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
   };
 };
 
-interface PageProps extends CommonPageProps {
-  // resource: PageType | ArticleType;
-  languageLinks: LanguageLinks;
-}
-
-export const getStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps<PageProps> = async (context) => {
   const path = await drupal.translatePathFromContext(context, {
     pathPrefix: "/events",
   });
@@ -68,14 +74,6 @@ export const getStaticProps = async (context) => {
     throw new Error(`Failed to fetch resource: ${path.jsonapi.individual}`);
   }
 
-  // If we're not in preview mode and the resource is not published,
-  // Return page not found.
-  if (!context.preview && resource?.status === false) {
-    return {
-      notFound: true,
-    };
-  }
-
   // Add information about possible other language versions of this node.
   const nodeTranslations = await getNodeTranslatedVersions(
     resource,
@@ -83,18 +81,42 @@ export const getStaticProps = async (context) => {
     drupal,
   );
   const languageLinks = createLanguageLinks(nodeTranslations);
+  // event data validation. Organizer and Speaker valideation will be done seperately so that failaing any of these does not fail whole event
+  const validatedEventTopLevel = EventSingleSchema.omit({
+    field_organizers: true,
+    field_speakers: true,
+  }).parse(resource);
 
-  // const validatedResource =
-  //   type === "node--article"
-  //     ? validateAndCleanupArticle(resource)
-  //     : type === "node--page"
-  //     ? validateAndCleanupPage(resource)
-  //     : null;
+  const validateOrganizers = resource.field_organizers.reduce(
+    (acc: OrganizerType[], org: any) => {
+      const validOrg = OrganizerSchema.safeParse(org);
+      if (validOrg.success) {
+        return [...acc, validOrg.data];
+      }
+    },
+    [],
+  );
+
+  const validateSpeakers = resource.field_speakers.reduce(
+    (acc: SpeakerType[], spk: any) => {
+      const validSpk = SpeakerSchema.safeParse(spk);
+      if (validSpk.success) {
+        return [...acc, validSpk.data];
+      }
+    },
+    [],
+  );
+  // creating whole validated Event object
+  const validatedEvent = {
+    ...validatedEventTopLevel,
+    field_organizers: validateOrganizers,
+    field_speakers: validateSpeakers,
+  };
 
   return {
     props: {
       ...(await getCommonPageProps(context)),
-      resource: resource,
+      resource: validatedEvent,
       languageLinks,
     },
     revalidate: 60,
