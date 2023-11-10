@@ -17,6 +17,18 @@ interface HeaderProps {
 
 export function Header({ menu }: HeaderProps) {
   const [isMainMenuOpen, setIsMainMenuOpen] = useState(false);
+  // ADDED contact us form in the header section
+  const [textArea, setTextArea] = useState("");
+
+  const handleTextChange = (event) => {
+    setTextArea(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // You can handle form submission here, e.g., send the 'text' state to a server
+    console.log("Submitted text:", textArea);
+  };
 
   return (
     <header className="z-50 flex-shrink-0 border-b border-finnishwinter bg-white text-primary-600 md:sticky md:top-0">
@@ -27,6 +39,34 @@ export function Header({ menu }: HeaderProps) {
           <UserMenu />
           <LanguageSwitcher />
           <MenuToggle isOpen={isMainMenuOpen} setIsOpen={setIsMainMenuOpen} />
+          <span style={{ position: "relative", left: "3em" }}>Contact us</span>
+          <form onSubmit={handleSubmit} style={{ display: "contents" }}>
+            <label htmlFor="text"></label>
+            <textarea
+              id="text"
+              name="text"
+              value={textArea}
+              onChange={handleTextChange}
+              placeholder="Enter text here"
+              style={{
+                backgroundColor: "#5B37BF",
+                color: "white",
+                borderRadius: "0.5em",
+                padding: "0.5em",
+              }}
+            ></textarea>
+            <button
+              type="submit"
+              style={{
+                backgroundColor: "#5B37BF",
+                color: "white",
+                padding: "0.5em",
+                borderRadius: "0.5em",
+              }}
+            >
+              Submit
+            </button>
+          </form>
         </div>
       </nav>
       <MainMenu
