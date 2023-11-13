@@ -17,7 +17,7 @@ export const LogoLinkSchema = z.object({
 });
 
 export const LogosSchema = z.object({
-  type: z.literal("node--customer_logos"),
+  type: z.literal("node--customer_logos").or(z.literal("node--partners_logos")),
   title: z.string(),
   field_logos: z.array(LogoLinkSchema),
 });
