@@ -1,0 +1,61 @@
+uuid: 06881a5f-7cfc-4077-a08f-09a521a7c35e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_organizers
+    - node.type.events
+    - paragraphs.paragraphs_type.organizer_detail
+  module:
+    - entity_reference_revisions
+id: node.events.field_organizers
+field_name: field_organizers
+entity_type: node
+bundle: events
+label: Organizers
+description: 'This field is used to input detail info about a organizer'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      organizer_detail: organizer_detail
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 13
+        enabled: false
+      accordion_item:
+        weight: 14
+        enabled: false
+      file_attachments:
+        weight: 15
+        enabled: false
+      formatted_text:
+        weight: 16
+        enabled: false
+      hero:
+        weight: 17
+        enabled: false
+      image:
+        weight: 18
+        enabled: false
+      links:
+        weight: 19
+        enabled: false
+      listing_articles:
+        weight: 20
+        enabled: false
+      organizer_detail:
+        weight: 21
+        enabled: true
+      speaker_detail:
+        weight: 12
+        enabled: false
+      video:
+        weight: 22
+        enabled: false
+field_type: entity_reference_revisions

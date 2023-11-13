@@ -5,6 +5,7 @@ module:
   admin_toolbar: 0
   automated_cron: 0
   block: 0
+  block_content: 0
   breakpoint: 0
   ckeditor5: 0
   config: 0
@@ -14,9 +15,12 @@ module:
   datetime_range: 0
   dblog: 0
   decoupled_router: 0
+  devel: 0
+  devel_generate: 0
   dynamic_page_cache: 0
   editor: 0
   entity_reference_revisions: 0
+  entity_type_clone: 0
   field: 0
   field_ui: 0
   file: 0

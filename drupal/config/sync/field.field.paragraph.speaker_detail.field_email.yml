@@ -1,0 +1,19 @@
+uuid: 7abb5771-1b89-49c6-a743-0d9a8f189c2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_email
+    - paragraphs.paragraphs_type.speaker_detail
+id: paragraph.speaker_detail.field_email
+field_name: field_email
+entity_type: paragraph
+bundle: speaker_detail
+label: Emails
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

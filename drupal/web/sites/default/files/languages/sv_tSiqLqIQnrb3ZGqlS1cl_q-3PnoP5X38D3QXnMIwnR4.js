@@ -1,0 +1,1 @@
+window.drupalTranslations = {"strings":{"":{"Edit":"Redigera","Save":"Spara","Cancel":"Avbryt"}},"pluralFormula":{"1":0,"default":1}};
