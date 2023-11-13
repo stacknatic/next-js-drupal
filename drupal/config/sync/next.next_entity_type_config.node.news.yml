@@ -1,0 +1,14 @@
+uuid: 61cf9eb2-d948-4cb4-9be4-88389168d9b7
+langcode: en
+status: true
+dependencies: {  }
+id: node.news
+site_resolver: site_selector
+configuration:
+  sites:
+    frontend: frontend
+  field_name: {  }
+revalidator: path
+revalidator_configuration:
+  revalidate_page: true
+  additional_paths: ''

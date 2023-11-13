@@ -1,0 +1,23 @@
+uuid: 285df061-8f19-4df6-966a-083aaa850658
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_instagram
+    - paragraphs.paragraphs_type.speaker_detail
+  module:
+    - link
+id: paragraph.speaker_detail.field_instagram
+field_name: field_instagram
+entity_type: paragraph
+bundle: speaker_detail
+label: Instagram
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link
