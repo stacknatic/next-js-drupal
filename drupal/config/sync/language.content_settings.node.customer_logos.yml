@@ -1,0 +1,16 @@
+uuid: a34ff820-4352-4734-ae61-35b93bfe5620
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.customer_logos
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.customer_logos
+target_entity_type_id: node
+target_bundle: customer_logos
+default_langcode: site_default
+language_alterable: false

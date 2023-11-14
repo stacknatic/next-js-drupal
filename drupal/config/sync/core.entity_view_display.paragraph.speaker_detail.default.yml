@@ -1,0 +1,122 @@
+uuid: 1b8bc281-315c-4fb9-a445-321145f8d137
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.speaker_detail.field_email
+    - field.field.paragraph.speaker_detail.field_facebook
+    - field.field.paragraph.speaker_detail.field_instagram
+    - field.field.paragraph.speaker_detail.field_linkedin
+    - field.field.paragraph.speaker_detail.field_social_links
+    - field.field.paragraph.speaker_detail.field_speaker
+    - field.field.paragraph.speaker_detail.field_twitter
+    - field.field.paragraph.speaker_detail.field_website
+    - field.field.paragraph.speaker_detail.field_youtube
+    - paragraphs.paragraphs_type.speaker_detail
+  module:
+    - link
+id: paragraph.speaker_detail.default
+targetEntityType: paragraph
+bundle: speaker_detail
+mode: default
+content:
+  field_email:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_facebook:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_instagram:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_linkedin:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_social_links:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_speaker:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_twitter:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_website:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_youtube:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 9
+    region: content
+hidden: {  }
