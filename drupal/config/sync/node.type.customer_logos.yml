@@ -1,0 +1,17 @@
+uuid: 12f485d4-7ef3-4650-8858-5a117ab3c86d
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Customer_logos
+type: customer_logos
+description: 'This content type contains logs and links of customers. Only one content is allowed to be created from this content type.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

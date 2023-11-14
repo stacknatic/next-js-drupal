@@ -1,0 +1,23 @@
+uuid: 96d7dd2d-3dd0-4613-afc7-8c43840764f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.customer_logos.field_logos
+    - node.type.customer_logos
+  module:
+    - user
+id: node.customer_logos.teaser
+targetEntityType: node
+bundle: customer_logos
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_logos: true
+  langcode: true

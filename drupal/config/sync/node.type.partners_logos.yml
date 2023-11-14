@@ -1,0 +1,17 @@
+uuid: 8de4c1e5-92cf-4a91-a044-40955e378331
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Partner_logos
+type: partners_logos
+description: 'This content type contains logs and links of Partners. Only one content is allowed to be created from this content type.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

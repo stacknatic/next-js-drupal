@@ -1,0 +1,35 @@
+uuid: 9d6d8677-8e51-4094-b587-fbced99ebd3d
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: customer_logos_path
+label: 'Customer logos path'
+type: 'canonical_entities:node'
+pattern: 'customer_logos/[node:title]'
+selection_criteria:
+  235f3dbe-b824-4cbc-ac80-53ac176283f9:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 235f3dbe-b824-4cbc-ac80-53ac176283f9
+    context_mapping:
+      node: node
+    bundles:
+      customer_logos: customer_logos
+  ad92281b-45e0-4bb4-90b6-eee7b7d182c9:
+    id: language
+    negate: false
+    uuid: ad92281b-45e0-4bb4-90b6-eee7b7d182c9
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      en: en
+      fi: fi
+      sv: sv
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language
