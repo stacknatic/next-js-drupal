@@ -1,0 +1,16 @@
+uuid: 9f3f24e6-e30e-4399-8ef5-34762bebd42f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.partners_logos
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.partners_logos
+target_entity_type_id: node
+target_bundle: partners_logos
+default_langcode: site_default
+language_alterable: false

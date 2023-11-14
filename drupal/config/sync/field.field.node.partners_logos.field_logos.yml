@@ -1,0 +1,64 @@
+uuid: 8f171789-13c2-405b-8889-0bb97780690b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_logos
+    - node.type.partners_logos
+    - paragraphs.paragraphs_type.logolink
+  module:
+    - entity_reference_revisions
+id: node.partners_logos.field_logos
+field_name: field_logos
+entity_type: node
+bundle: partners_logos
+label: logos
+description: "Please add logo of 200x200px and link of the customer's website"
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      logolink: logolink
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 13
+        enabled: false
+      accordion_item:
+        weight: 14
+        enabled: false
+      file_attachments:
+        weight: 15
+        enabled: false
+      formatted_text:
+        weight: 16
+        enabled: false
+      hero:
+        weight: 17
+        enabled: false
+      image:
+        weight: 18
+        enabled: false
+      links:
+        weight: 19
+        enabled: false
+      listing_articles:
+        weight: 20
+        enabled: false
+      logolink:
+        weight: 21
+        enabled: true
+      organizer_detail:
+        weight: 22
+        enabled: false
+      speaker_detail:
+        weight: 23
+        enabled: false
+      video:
+        weight: 24
+        enabled: false
+field_type: entity_reference_revisions
