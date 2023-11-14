@@ -1,0 +1,23 @@
+uuid: fecf0427-d148-4311-9b58-7c9ecfffa502
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_twitter
+    - paragraphs.paragraphs_type.organizer_detail
+  module:
+    - link
+id: paragraph.organizer_detail.field_twitter
+field_name: field_twitter
+entity_type: paragraph
+bundle: organizer_detail
+label: Twitter
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

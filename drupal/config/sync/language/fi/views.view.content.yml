@@ -5,14 +5,20 @@ display:
     display_options:
       title: Sisältö
       fields:
+        type:
+          label: Sisältötyyppi
         status:
           label: Tila
         operations:
           label: Toimenpiteet
       exposed_form:
         options:
+          submit_button: Suodatus
           reset_button_label: Palauta
       filters:
+        type:
+          expose:
+            label: Sisältötyyppi
         status:
           expose:
             label: Tila
