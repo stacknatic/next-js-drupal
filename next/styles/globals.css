@@ -8,7 +8,8 @@
 
 @layer components {
   .hyperlink {
-    @apply flex items-center text-primary-600 visited:text-secondary-900 hover:underline;
+    @apply flex items-center text-primary-600;
+
 
     &[href^="https://"]::after {
       @apply ml-1 inline-block h-[1em] w-[1em];
