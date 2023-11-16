@@ -1,0 +1,10 @@
+uuid: e6d67906-85bb-4207-b02f-d47e510695ea
+langcode: en
+status: true
+dependencies: {  }
+id: contact_person
+label: 'Contact Person'
+icon_uuid: null
+icon_default: null
+description: 'This paragraph holds information about a single contact person.'
+behavior_plugins: {  }
