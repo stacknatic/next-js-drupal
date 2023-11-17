@@ -1,7 +1,9 @@
+label: Media
 display:
   default:
     display_title: Oletus
     display_options:
+      title: Media
       fields:
         bundle:
           label: Tyyppi
@@ -20,3 +22,8 @@ display:
         langcode:
           expose:
             label: Kieli
+  media_page_list:
+    display_title: Media
+    display_options:
+      menu:
+        title: Media
