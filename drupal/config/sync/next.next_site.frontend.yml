@@ -6,8 +6,8 @@ _core:
   default_config_hash: vUTyg2YBTf8jUw9MJkYIAeacYhZNFYe5PbkAaLxPy9w
 id: frontend
 label: 'Next.js frontend'
-base_url: 'http://localhost:3000'
-preview_url: 'http://localhost:3000/api/preview'
-preview_secret: null
-revalidate_url: 'http://localhost:3000/api/revalidate'
-revalidate_secret: null
+base_url: 'https://frontend.lndo.site'
+preview_url: 'https://frontend.lndo.site/api/preview'
+preview_secret: ''
+revalidate_url: 'https://frontend.lndo.site/api/revalidate'
+revalidate_secret: revalidate_secret_not_secure_used_only_locally

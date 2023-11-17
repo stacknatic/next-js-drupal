@@ -8,10 +8,10 @@ dependencies:
     - field.field.paragraph.contact_person.field_contact_name
     - field.field.paragraph.contact_person.field_contact_phone
     - field.field.paragraph.contact_person.field_position
-    - image.style.thumbnail
+    - image.style.medium
     - paragraphs.paragraphs_type.contact_person
   module:
-    - image
+    - svg_image
 id: paragraph.contact_person.default
 targetEntityType: paragraph
 bundle: contact_person
@@ -31,7 +31,7 @@ content:
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: medium
     third_party_settings: {  }
   field_contact_name:
     type: string_textfield
