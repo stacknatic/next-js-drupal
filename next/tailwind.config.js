@@ -68,6 +68,14 @@ module.exports = {
       "heading-xl": ["3.8rem", { lineHeight: "1.25" }],
       "heading-2xl": ["4.75rem", { lineHeight: "1.25" }],
     },
+    screens: {
+      xs: "480px",
+      ss: '620px',
+      sm: '768px',
+      md: '1060px',
+      lg: '1200px',
+      xl: '1700px',
+    },
     fontWeight: {
       light: "300",
       regular: "400",

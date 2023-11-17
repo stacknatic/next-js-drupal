@@ -30,29 +30,29 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos }) => {
         }
         return (
             <div>
-                <section className=' bg-stone pb-5 text-white'>
-                    <div className='pt-5 pl-10 tracking-wider'>
-                        <p className="text-2xl w-1/2 leading-normal">
+                <section className=' bg-stone md:pb-5 pb-2 text-white'>
+                    <div className='md:pt-5 pt-2 md:pl-10 pl-2 tracking-wider'>
+                        <p className="md:text-2xl text-md md:w-1/2 leading-normal">
                             Our mission is to accelerate the development of Web applications
                         </p>
                     </div>
-                    <div className='mt-10 w-[60vw] text-md pl-10 leading-loose'>
+                    <div className='md:mt-10 md:w-[60vw] md:text-md text-xs px-3 mt-5 md:pl-10 leading-loose'>
                         <p>
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta eos consequatur fugit dolorum quia amet sunt, nulla quibusdam ex est reprehenderit labore harum excepturi quis suscipit dolorem autem. Nam illo et sed tempore excepturi iusto eaque quidem doloremque, laborum eum est libero, maxime quia at labore quae quos ipsa laboriosam repudiandae aliquam adipisci nesciunt laudantium ullam! Iste ullam, quibusdam amet sed itaque, odit corporis molestiae distinctio perspiciatis tempore commodi ipsa?
                         </p>
                     </div>
                 </section>
                 <section>
-                    <div className=' mt-[7vh]'>
-                        <h1 className='text-2xl text-primary-600 font-bold tracking-[.25em] flex justify-center'>
+                    <div className=' md:mt-[7vh] mt-[2vh]'>
+                        <h1 className='md:text-2xl text-lg text-primary-600 font-bold tracking-[.25em] flex justify-center'>
                             Helsinki
                         </h1>
-                        <p className='text-xs flex justify-center font-semibold'>
+                        <p className='md:text-xs text-[5px] flex justify-center font-semibold'>
                             HEADQUARTERS
                         </p>
                     </div>
-                    <div className='bg-fog rounded-2xl mt-10 py-10'>
-                        <p className='text-center text-md leading-md mb-10 tracking-widest '>OTHER LOCATIONS</p>
+                    <div className='bg-fog rounded-2xl md:mt-10 md:py-10 mt-5 py-5'>
+                        <p className='text-center md:text-md text-xs leading-md md:mb-10 mb-5 md:tracking-widest tracking-tight '>OTHER LOCATIONS</p>
                         <div className='flex justify-around'>
                             <div>
                                 <h1 className='text-md font-medium tracking-tighter pb-2'>Tallinn</h1>
@@ -60,6 +60,7 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos }) => {
                                     src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC7J7v9zG1JaOmycYRI8APKIPgg4nKfLLE&q=Tallinn,Estonia"
                                     width={200}
                                     height={200}
+                                    className="hidden md:block"
                                 >
                                 </iframe>
                             </div>
@@ -69,6 +70,7 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos }) => {
                                     src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC7J7v9zG1JaOmycYRI8APKIPgg4nKfLLE&q=Madrid,Spain"
                                     width={200}
                                     height={200}
+                                    className="hidden md:block"
                                 >
                                 </iframe>
                             </div>
@@ -78,6 +80,7 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos }) => {
                                     src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC7J7v9zG1JaOmycYRI8APKIPgg4nKfLLE&q=Poland"
                                     width={200}
                                     height={200}
+                                    className="hidden md:block"
                                 >
                                 </iframe>
                             </div>
