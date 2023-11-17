@@ -42,6 +42,7 @@
         "drupal/simple_sitemap": "^4.1",
         "drupal/simplei": "^2.0@beta",
         "drupal/simplenews": "^3.0@beta",
+        "drupal/svg_image": "^3.0",
         "drupal/symfony_mailer": "^1.4",
         "drupal/webform": "^6.2@beta",
         "drupal/webform_rest": "^4.0",
