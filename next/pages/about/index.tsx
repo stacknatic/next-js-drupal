@@ -1,6 +1,7 @@
 import React from 'react';
 import { getValidatedCustomerLogos } from '@/lib/drupal/get-customer-logos';
 import { getValidatedPartnerLogos } from '@/lib/drupal/get-partner-logos';
+import OfficeMap from '@/components/offices-map/offices-map';
 import { getCommonPageProps } from '@/lib/get-common-page-props';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -29,7 +30,7 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos }) => {
 
         }
         return (
-            <div>
+            <div className=''>
                 <section className=' bg-stone md:pb-5 pb-2 text-white'>
                     <div className='md:pt-5 pt-2 md:pl-10 pl-2 tracking-wider'>
                         <p className="md:text-2xl text-md md:w-1/2 leading-normal">
@@ -43,7 +44,7 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos }) => {
                     </div>
                 </section>
                 <section>
-                    <div className=' md:mt-[7vh] mt-[2vh]'>
+                    {/* <div className=' md:mt-[7vh] mt-[2vh]'>
                         <h1 className='md:text-2xl text-lg text-primary-600 font-bold tracking-[.25em] flex justify-center'>
                             Helsinki
                         </h1>
@@ -54,95 +55,70 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos }) => {
                     <div className='bg-fog rounded-2xl md:mt-10 md:py-10 mt-5 py-5'>
                         <p className='text-center md:text-md text-xs leading-md md:mb-10 mb-5 md:tracking-widest tracking-tight '>OTHER LOCATIONS</p>
                         <div className='flex justify-around'>
-                            <div>
-                                <h1 className='text-md font-medium tracking-tighter pb-2'>Tallinn</h1>
-                                <iframe
-                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC7J7v9zG1JaOmycYRI8APKIPgg4nKfLLE&q=Tallinn,Estonia"
-                                    width={200}
-                                    height={200}
-                                    className="hidden md:block"
-                                >
-                                </iframe>
-                            </div>
-                            <div>
-                                <h1 className='text-md font-medium tracking-tighter pb-2'>Madrid</h1>
-                                <iframe
-                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC7J7v9zG1JaOmycYRI8APKIPgg4nKfLLE&q=Madrid,Spain"
-                                    width={200}
-                                    height={200}
-                                    className="hidden md:block"
-                                >
-                                </iframe>
-                            </div>
-                            <div>
-                                <h1 className='text-md font-medium tracking-tighter pb-2'>Warsaw</h1>
-                                <iframe
-                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC7J7v9zG1JaOmycYRI8APKIPgg4nKfLLE&q=Poland"
-                                    width={200}
-                                    height={200}
-                                    className="hidden md:block"
-                                >
-                                </iframe>
-                            </div>
+                            <OfficeMap />
+
                         </div>
-                    </div>
+                    </div> */}
 
 
-                    <p className='text-lg pl-12 mt-[10vh] font-semibold'>
+                    <p className='md:text-lg text-xs md:pl-12 md:mt-[10vh] mt-9 font-semibold'>
                         WUNDER IN NUMBERS
                     </p>
-                    <div className='flex bg-tranquil justify-around text-center py-10 mt-9'>
-                        <div>
-                            <p className='text-[3em] text-primary-600 font-bold'>
-                                100+
-                            </p>
-                            <small className='tracking-widest text-error mt-1'>WUNDERERS</small>
-                        </div>
-                        <div>
-                            <p className='text-[3em] text-primary-600 font-bold'>
-                                15
-                            </p>
-                            <small className='tracking-widest text-error mt-1'>LANGUAGES</small>
-                        </div>
-                        <div>
-                            <p className='text-[3em] text-primary-600 font-bold'>
-                                60+
-                            </p>
-                            <small className='tracking-widest text-error mt-1'>CLIENTS</small>
-                        </div>
-                        <div>
-                            <p className='text-[3em] text-primary-600 font-bold'>
-                                7x
-                            </p>
-                            <small className='tracking-widest text-error mt-1'>GREAT PLACE TO WORK</small>
-                        </div>
-                        <div>
-                            <p className='text-[3em] text-primary-600 font-bold'>
-                                2010
-                            </p>
-                            <small className='tracking-widest text-error mt-1'>FOUNDED IN</small>
+                    <div className='ss:flex grid gap-y-5 bg-tranquil justify-around text-center md:py-10 md:mt-9 py-2 mt-4 overflow-hidden'>
+                        <div className='flex flex-col justify-around animate-marquee'>
+                            <div className=''>
+                                <p className='md:text-[3em] text-primary-600 font-bold text-xl'>
+                                    100+
+                                </p>
+                                <p className='md:tracking-widest tracking-tighter text-error md:text-xs text-[8px] md:mt-1'>WUNDERERS</p>
+                            </div>
+                            <div className=''>
+                                <p className='md:text-[3em] text-primary-600 font-bold text-xl'>
+                                    15
+                                </p>
+                                <p className='md:tracking-widest tracking-tighter text-error md:text-xs text-[8px] md:mt-1'>LANGUAGES</p>
+                            </div>
+                            <div className=''>
+                                <p className='md:text-[3em] text-primary-600 font-bold text-xl'>
+                                    60+
+                                </p>
+                                <p className='md:tracking-widest tracking-tighter text-error md:text-xs text-[8px] md:mt-1'>CLIENTS</p>
+                            </div>
+                            <div className=''>
+                                <p className='md:text-[3em] text-primary-600 font-bold text-xl'>
+                                    7x
+                                </p>
+                                <p className='md:tracking-widest tracking-tighter text-error md:text-xs text-[8px] md:mt-1'>GREAT PLACE TO WORK</p>
+                            </div>
+                            <div className=''>
+                                <p className='md:text-[3em] text-primary-600 font-bold text-xl'>
+                                    2010
+                                </p>
+                                <p className='md:tracking-widest tracking-tighter text-error md:text-xs text-[8px] md:mt-1'>FOUNDED IN</p>
+                            </div>
+
                         </div>
                     </div>
                 </section>
                 <section className='pb-10'>
-                    <div className='mt-[10vh]'>
-                        <p className='text-lg pl-12 mt-[10vh] font-semibold'>
+                    <div>
+                        <p className='md:text-lg text-xs md:pl-12 md:mt-[10vh] mt-9 font-semibold'>
                             OUR CUSTOMERS
                         </p>
-                        <div className='border rounded-2xl bg-green-200 mt-10 py-10'>
-                            <p className='px-9'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores labore sequi velit esse quis suscipit cum fugiat, excepturi hic, voluptate quo in facilis cupiditate, sed fuga consectetur minima cumque voluptatem. Sit optio numquam, repellat facilis sint sapiente aliquam inventore. Voluptate! </p>
-                            <div className='flex justify-around mt-8 '>
+                        <div className='rounded-2xl bg-primary-100 md:mt-10 mt-5 md:py-10 py-5'>
+                            <p className='md:px-9 md:text-sm text-xs leading-loose px-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores labore sequi velit esse quis suscipit cum fugiat, excepturi hic, voluptate quo in facilis cupiditate, sed fuga consectetur minima cumque voluptatem. Sit optio numquam, repellat facilis sint sapiente aliquam inventore. Voluptate! </p>
+                            <div className='md:flex grid grid-cols-2 ss:grid-cols-4 gap-y-2 gap-x-2  md:justify-around md:mt-8 px-5 mt-7'>
                                 {logoElements}
                             </div>
                         </div>
                     </div>
                     <div className='mt-[10vh]'>
-                        <p className='text-lg pl-12 mt-[10vh] font-semibold'>
+                        <p className='md:text-lg text-xs md:pl-12 md:mt-[10vh] mt-9 font-semibold'>
                             OUR PARTNERS
                         </p>
-                        <div className='border rounded-2xl bg-blue-200 mt-10 py-10'>
-                            <p className='px-9'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores labore sequi velit esse quis suscipit cum fugiat, excepturi hic, voluptate quo in facilis cupiditate, sed fuga consectetur minima cumque voluptatem. Sit optio numquam, repellat facilis sint sapiente aliquam inventore. Voluptate! </p>
-                            <div className='flex justify-around mt-8 '>
+                        <div className='rounded-2xl bg-primary-100 md:mt-10 mt-5 md:py-10 py-5'>
+                            <p className='md:px-9 md:text-sm text-xs leading-loose px-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores labore sequi velit esse quis suscipit cum fugiat, excepturi hic, voluptate quo in facilis cupiditate, sed fuga consectetur minima cumque voluptatem. Sit optio numquam, repellat facilis sint sapiente aliquam inventore. Voluptate! </p>
+                            <div className='md:flex grid grid-cols-2 ss:grid-cols-4 gap-y-2 gap-x-2  md:justify-around md:mt-8 px-5 mt-7'>
                                 {logoElements}
                             </div>
 
@@ -151,25 +127,28 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos }) => {
                     </div>
                 </section>
                 <article className='pb-[10em]'>
-                    <p className='text-lg pl-12 mt-[10vh] font-semibold mb-9'>
-                        TESTIMONIALS
-                    </p>
-                    <div className='flex justify-around gap-x-10 '>
-                        <div className='border rounded-lg flex flex-col items-center'>
-                            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className='w-[100px] rounded-full mt-5 mb-5' />
-                            <p className='px-5 text-center mb-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, neque natus! Dignissimos vel consequatur aliquid aut deserunt eveniet nobis reiciendis.
-                            </p>
+                    <div className=''>
+                        <p className='md:text-lg text-xs md:pl-12 md:mt-[10vh] mt-2 font-semibold'>
+                            TESTIMONIALS
+                        </p>
+                        <div className='md:flex grid ss:grid-cols-3 gap-x-5 md:justify-around md:gap-x-10 mt-5 gap-y-5 '>
+                            <div className='bg-finnishwinter rounded-lg flex flex-col items-center'>
+                                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className='md:w-[100px] md:h-[100px] w-[90px] h-[90px] rounded-full md:mt-5 md:mb-5 mt-2 mb-2' />
+                                <p className='md:px-9 md:text-sm text-xs leading-loose px-3 text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, neque natus! Dignissimos vel consequatur aliquid aut deserunt eveniet nobis reiciendis.
+                                </p>
+                            </div>
+                            <div className='bg-finnishwinter rounded-lg flex flex-col items-center'>
+                                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className='md:w-[100px] md:h-[100px] w-[90px] h-[90px] rounded-full md:mt-5 md:mb-5 mt-2 mb-2' />
+                                <p className='md:px-9 md:text-sm text-xs leading-loose px-3 text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, neque natus! Dignissimos vel consequatur aliquid aut deserunt eveniet nobis reiciendis.
+                                </p>
+                            </div>
+                            <div className='bg-finnishwinter rounded-lg flex flex-col items-center'>
+                                <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className='md:w-[100px] md:h-[100px] w-[90px] h-[90px] rounded-full md:mt-5 md:mb-5 mt-2 mb-2' />
+                                <p className='md:px-9 md:text-sm text-xs leading-loose px-3 text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, neque natus! Dignissimos vel consequatur aliquid aut deserunt eveniet nobis reiciendis.
+                                </p>
+                            </div>
                         </div>
-                        <div className='border rounded-lg flex flex-col items-center'>
-                            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className='w-[100px] rounded-full mt-5 mb-5' />
-                            <p className='px-5 text-center mb-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, neque natus! Dignissimos vel consequatur aliquid aut deserunt eveniet nobis reiciendis.
-                            </p>
-                        </div>
-                        <div className='border rounded-lg flex flex-col items-center'>
-                            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className='w-[100px] rounded-full mt-5 mb-5' />
-                            <p className='px-5 text-center mb-8'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, neque natus! Dignissimos vel consequatur aliquid aut deserunt eveniet nobis reiciendis.
-                            </p>
-                        </div>
+
                     </div>
                 </article>
             </div>
