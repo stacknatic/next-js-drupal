@@ -5,10 +5,11 @@ dependencies:
   config:
     - field.field.paragraph.logolink.field_link
     - field.field.paragraph.logolink.field_logo
+    - image.style.medium
     - paragraphs.paragraphs_type.logolink
   module:
-    - image
     - link
+    - svg_image
 id: paragraph.logolink.default
 targetEntityType: paragraph
 bundle: logolink
@@ -31,9 +32,13 @@ content:
     label: above
     settings:
       image_link: ''
-      image_style: ''
+      image_style: medium
       image_loading:
         attribute: lazy
+      svg_attributes:
+        width: 250
+        height: 250
+      svg_render_as_image: true
     third_party_settings: {  }
     weight: 0
     region: content
