@@ -22,3 +22,6 @@
     clip-path: circle();
   }
 }
+body {
+  overscroll-behavior: contain;
+}

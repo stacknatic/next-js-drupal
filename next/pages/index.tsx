@@ -40,14 +40,14 @@ export default function IndexPage({
         ))}
       </div>
       <Divider className="max-w-4xl" />
-      <ContactForm />
       <Divider className="max-w-4xl" />
       <ArticleTeasers
         articles={promotedArticleTeasers}
         heading={t("promoted-articles")}
       />
       <ContactList />
-      <LogoStrip />
+      {/* <LogoStrip /> */}
+      <ContactForm />
     </>
   );
 }
