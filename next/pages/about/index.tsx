@@ -44,28 +44,11 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos }) => {
                     </div>
                 </section>
                 <section>
-                    {/* <div className=' md:mt-[7vh] mt-[2vh]'>
-                        <h1 className='md:text-2xl text-lg text-primary-600 font-bold tracking-[.25em] flex justify-center'>
-                            Helsinki
-                        </h1>
-                        <p className='md:text-xs text-[5px] flex justify-center font-semibold'>
-                            HEADQUARTERS
-                        </p>
-                    </div>
-                    <div className='bg-fog rounded-2xl md:mt-10 md:py-10 mt-5 py-5'>
-                        <p className='text-center md:text-md text-xs leading-md md:mb-10 mb-5 md:tracking-widest tracking-tight '>OTHER LOCATIONS</p>
-                        <div className='flex justify-around'>
-                            <OfficeMap />
-
-                        </div>
-                    </div> */}
-
-
-                    <p className='md:text-lg text-xs md:pl-12 md:mt-[10vh] mt-9 font-semibold'>
+                    <p className='md:text-lg text-xs md:pl-12 md:mt-[10vh] mt-9 font-semibold text-center md:text-left'>
                         WUNDER IN NUMBERS
                     </p>
                     <div className='bg-tranquil overflow-hidden mt-4 md:py-10 md:mt-9'>
-                        <div className='ss:flex grid gap-y-5 justify-around text-center  animate-marquee animate-marquee '>
+                        <div className='flex justify-around text-center  animate-marquee animate-marquee space-x-6 '>
                             <div className=''>
                                 <p className='md:text-[3em] text-primary-600 font-bold text-xl'>
                                     100+
@@ -102,7 +85,7 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos }) => {
                 </section>
                 <section className='pb-10'>
                     <div>
-                        <p className='md:text-lg text-xs md:pl-12 md:mt-[10vh] mt-9 font-semibold'>
+                        <p className='md:text-lg text-xs md:pl-12 md:mt-[10vh] mt-9 font-semibold text-center md:text-left'>
                             OUR CUSTOMERS
                         </p>
                         <div className='rounded-2xl bg-primary-100 md:mt-10 mt-5 md:py-10 py-5'>
@@ -113,7 +96,7 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos }) => {
                         </div>
                     </div>
                     <div className='mt-[10vh]'>
-                        <p className='md:text-lg text-xs md:pl-12 md:mt-[10vh] mt-9 font-semibold'>
+                        <p className='md:text-lg text-xs md:pl-12 md:mt-[10vh] mt-9 font-semibold text-center md:text-left'>
                             OUR PARTNERS
                         </p>
                         <div className='rounded-2xl bg-primary-100 md:mt-10 mt-5 md:py-10 py-5'>
@@ -128,11 +111,11 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos }) => {
                 </section>
                 <article className='pb-[10em]'>
                     <div className=''>
-                        <p className='md:text-lg text-xs md:pl-12 md:mt-[10vh] mt-2 font-semibold'>
+                        <p className='md:text-lg text-xs md:pl-12 md:mt-[10vh] mt-2 font-semibold text-center md:text-left'>
                             TESTIMONIALS
                         </p>
                         <div className='md:flex grid ss:grid-cols-3 gap-x-5 md:justify-around md:gap-x-10 mt-5 gap-y-5 '>
-                            <div className='bg-finnishwinter rounded-lg flex flex-col items-center'>
+                            <div className='bg-finnishwinter rounded-lg flex flex-col items-center pb-4'>
                                 <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className='md:w-[100px] md:h-[100px] w-[90px] h-[90px] rounded-full md:mt-5 md:mb-5 mt-2 mb-2' />
                                 <p className='md:px-9 md:text-sm text-xs leading-loose px-3 text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, neque natus! Dignissimos vel consequatur aliquid aut deserunt eveniet nobis reiciendis.
                                 </p>
