@@ -64,8 +64,8 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos }) => {
                     <p className='md:text-lg text-xs md:pl-12 md:mt-[10vh] mt-9 font-semibold'>
                         WUNDER IN NUMBERS
                     </p>
-                    <div className='ss:flex grid gap-y-5 bg-tranquil justify-around text-center md:py-10 md:mt-9 py-2 mt-4 overflow-hidden'>
-                        <div className='flex flex-col justify-around animate-marquee'>
+                    <div className='bg-tranquil overflow-hidden mt-4 md:py-10 md:mt-9'>
+                        <div className='ss:flex grid gap-y-5 justify-around text-center  animate-marquee animate-marquee '>
                             <div className=''>
                                 <p className='md:text-[3em] text-primary-600 font-bold text-xl'>
                                     100+
@@ -96,9 +96,9 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos }) => {
                                 </p>
                                 <p className='md:tracking-widest tracking-tighter text-error md:text-xs text-[8px] md:mt-1'>FOUNDED IN</p>
                             </div>
-
                         </div>
                     </div>
+
                 </section>
                 <section className='pb-10'>
                     <div>
