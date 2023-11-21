@@ -1,84 +1,190 @@
 import React from 'react'
+import { ImLocation2 } from 'react-icons/im'
+import { AiOutlineWhatsApp } from 'react-icons/ai'
+import { LiaLinkedinIn } from 'react-icons/lia'
+import { FaGithub } from 'react-icons/fa'
+import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
+import { useForm } from "react-hook-form";
 
 
-const ContactFormMap = () => {
+import { StatusMessage } from "@/ui/status-message";
+
+
+type Inputs = {
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+};
+
+
+const ContactForm = () => {
+    const router = useRouter();
     const { t } = useTranslation();
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { isSubmitSuccessful },
+    } = useForm<Inputs>();
+
+    const onSubmit = async (data: Inputs) => {
+        const response = await fetch(`/api/contact`, {
+            method: "POST",
+            body: JSON.stringify({
+                name: data.name,
+                email: data.email,
+                message: data.message,
+                subject: data.subject,
+            }),
+            // This will record the submission with the right language:
+            headers: {
+                "accept-language": router.locale,
+            },
+        });
+
+        if (!response.ok) {
+            alert("Error!");
+        }
+    };
+
+    const onErrors = (errors) => console.error(errors);
+
+    if (isSubmitSuccessful) {
+        return (
+            <StatusMessage level="success" className="mx-auto w-full max-w-3xl">
+                <p className="mb-4">{t("form-thank-you-message")}</p>
+                <button type="button" onClick={() => reset()}>
+                    {t("form-send-another-message")}
+                </button>
+            </StatusMessage>
+        );
+    }
 
     return (
         <div>
-            <p className='text-center text-md leading-md mb-10 tracking-widest '>OUR LOCATIONS</p>
-            <div id='default-carousel' className='relative w-full' data-carousel='slide'>
-                <div className='relative h-56 overflow-hidden rounded-lg md:h-96'>                        
-                            <div className='hidden duration-700 ease-in-out' data-carousel-item>
-                                {/* <h1 className='text-md font-medium tracking-tighter pb-2'>Helsinki</h1> */}
+                <div className='w-full'>
+                    <div className='max-w-6xl mx-auto flex-col'>
+                        <h1 className='text-xl mb-5'>Contact Form</h1>
+                        <p className='mb-5 max-w-md'>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum explicabo, sed eius dicta quod neque? Ratione porro rerum illo. Aperiam ex dolor soluta repellendus eligendi!
+                        </p>
+                        <h2 className='my-10'>Social Links</h2>
+                        <div className='mt-10 flex '>
+                            <div className='w-1/8 flex flex-col items-center justify-center text-center'>
+                                <a href='' className='flex flex-col items-center justify-center text-center'>
+                                    <ImLocation2
+                                        size={40}
+                                    />
+                                    {/* <p className='hidden sm:block'>
+                                        Helsinki, Finland
+                                    </p> */}
+                                </a>
+                            </div>
+                            <div className='w-1/8 flex flex-col items-center justify-center text-center'>
+                                <a href='' target='_blank' className='flex flex-col items-center justify-center text-center'>
+                                    <FaGithub
+                                        size={40}
+                                    />
+                                    {/* <p className='hidden sm:block'>
+                                        Github
+                                    </p> */}
+                                </a>
+                            </div>
+                            <div className='w-1/8 flex flex-col items-center justify-center text-center'>
+                                <a href='' target='_blank' className='flex flex-col items-center justify-center text-center '>
+                                    <LiaLinkedinIn
+                                        size={40}
+                                    />
+                                    {/* <p className='hidden sm:block'>
+                                        LinkedIn
+                                    </p> */}
+                                </a>
+                            </div>
+                            <div className='w-1/8 flex flex-col items-center justify-center text-center'>
+                                <a href='' target='_blank' className='flex flex-col items-center justify-center text-center '>
+                                    <AiOutlineWhatsApp
+                                        size={40}
+                                    />
+                                    {/* <p className='hidden sm:block'>
+                                        WhatsApp
+                                    </p> */}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div className='grid-cols-1 text-ss bg-slate-800'>
+                            <div className=''>
+                                <form className='max-w-6xl mx-auto my-10' onSubmit={handleSubmit(onSubmit, onErrors)} >
+                                    <h1 className='text-md mb-10 flex justify-center'>Get In Touch</h1>
+                                    <div className='grid grid-cols-2 gap-4 pb-8 '>
+                                        <div className='w-full'>
+                                            <input
+                                                type='text'
+                                                id='name'
+                                                placeholder='Full Name'
+                                                className='w-full p-2 rounded-lg'
+                                                {...register("name", {
+                                                    required: true,
+                                                })}
+                                            />
+                                        </div>
+                                        <div className='w-full'>
+                                            <input
+                                                type='email'
+                                                id='email'
+                                                placeholder='Email Address'
+                                                className='w-full p-2 rounded-lg'
+                                                {...register("email", {
+                                                    required: true,
+                                                })}
+                                            />
+
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <input
+                                            type='text'
+                                            id='subject'
+                                            placeholder='Subject'
+                                            className='w-full p-2 rounded-lg outline-none'
+                                            {...register("subject", {
+                                                required: true,
+                                            })}
+                                        />
+                                    </div>
+                                    <div className='mt-8 mb-10'>
+                                        <textarea
+                                            placeholder='Type in your message'
+                                            id='message'
+                                            rows={10}
+                                            cols={55}
+                                            className='w-full p-2 rounded-lg'
+                                            {...register("message", {
+                                                required: true,
+                                            })}
+                                        />
+                                    </div>
+                                    <div className='text-right'>
+                                    <button className='bg-primary-500 text-white p-3 rounded-lg' type='submit'>Send Message</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div className='justify-center items-center hidden sm:block'>
                                 <iframe
                                     src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC7J7v9zG1JaOmycYRI8APKIPgg4nKfLLE&q=Helsinki,Finland"
-                                    width={200}
-                                    height={200}
-                                    className='absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
+                                    className='w-full h-96'
                                 >
                                 </iframe>
                             </div>
-                            <div className='hidden duration-700 ease-in-out' data-carousel-item>
-                                {/* <h1 className='text-md font-medium tracking-tighter pb-2'>Tallinn</h1> */}
-                                <iframe
-                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC7J7v9zG1JaOmycYRI8APKIPgg4nKfLLE&q=Tallinn,Estonia"
-                                    width={200}
-                                    height={200}
-                                    className='absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
-
-                                >
-                                </iframe>
-                            </div>
-                            <div className='hidden duration-700 ease-in-out' data-carousel-item>
-                                {/* <h1 className='text-md font-medium tracking-tighter pb-2'>Madrid</h1> */}
-                                <iframe
-                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC7J7v9zG1JaOmycYRI8APKIPgg4nKfLLE&q=Madrid,Spain"
-                                    width={200}
-                                    height={200}
-                                    className='absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
-
-                                >
-                                </iframe>
-                            </div>
-                            <div className='hidden duration-700 ease-in-out' data-carousel-item>
-                                {/* <h1 className='text-md font-medium tracking-tighter pb-2'>Warsaw</h1> */}
-                                <iframe
-                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC7J7v9zG1JaOmycYRI8APKIPgg4nKfLLE&q=Poland"
-                                    width={200}
-                                    height={200}
-                                    className='absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'
-
-                                >
-                                </iframe>
-                            </div>
-                            <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-        <button type="button" className="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-        <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-        <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-        <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-    </div>
-    <button type="button" className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-            </svg>
-            <span className="sr-only">Previous</span>
-        </span>
-    </button>
-    <button type="button" className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-        <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-            </svg>
-            <span className="sr-only">Next</span>
-        </span>
-    </button>
                         </div>
-            </div>
+                    </div>
+                </div>
+           
         </div >
     )
 }
 
-export default ContactFormMap
+export default ContactForm
