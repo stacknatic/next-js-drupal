@@ -11,6 +11,7 @@ import {
 import { Menu } from "@/lib/zod/menu";
 
 import { SkipToContentLink } from "@/ui/skip-to-content-link";
+import CookieBanner from "./cookieBanner";
 
 export interface LayoutProps {
   menus: {
@@ -40,6 +41,7 @@ export function Layout({ menus, children }: LayoutProps) {
           <div className="mx-auto max-w-6xl px-6 py-8">{children}</div>
         </main>
         <Footer menu={menus.footer} />
+        <CookieBanner />
       </div>
       <PreviewBanner isVisible={isPreviewVisible} />
     </>

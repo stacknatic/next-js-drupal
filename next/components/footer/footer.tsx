@@ -7,6 +7,9 @@ import Facebook from "@/styles/icons/facebook.svg";
 import LinkedIn from "@/styles/icons/linkedin.svg";
 import Twitter from "@/styles/icons/twitter.svg";
 import WunderCarrot from "@/styles/icons/wunder-carrot.svg";
+import NativeShare from "./nativeShare";
+import CookieBanner from "../cookieBanner";
+
 
 interface FooterProps {
   menu: Menu;
@@ -34,10 +37,22 @@ export function Footer({ menu }: FooterProps) {
               );
             })}
           </ul>
-          <SocialShare />
-          <FooterLink href="https://next-drupal.org" newTab>
+          <div className="hidden sm:block social-share-buttons" >
+            <span className="social-share-bottons">
+            <SocialShare />
+            </span>
+          </div>
+          <div className="sm:hidden native-share-button">
+
+          <span className="native-share-button">
+
+          <NativeShare title="Next.js for Drupal" url="https://next-drupal.org"/>
+          </span>
+          </div>
+          {/* <FooterLink href="https://next-drupal.org" newTab>
             Next.js for Drupal
-          </FooterLink>
+          </FooterLink> */}
+          <Link href="#" className="text-primary-500">Privacy Policy</Link>
         </nav>
       </div>
     </footer>

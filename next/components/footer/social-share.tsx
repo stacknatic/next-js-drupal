@@ -5,21 +5,11 @@ import FacebookIcon from "@/styles/icons/facebook.svg";
 import LinkedInIcon from "@/styles/icons/linkedin.svg";
 import TwitterIcon from "@/styles/icons/twitter.svg";
 
-import ShareButton from "./nativeShare";
+import NativeShare from "./nativeShare";
 
 export function SocialShare() {
   const [pageUrl, setPageUrl] = useState<string>("");
   const { t } = useTranslation();
-  const [isMobile, setIsMobile] = useState(false); // new state variable
-
-  useEffect(() => {
-    const currentUrl = encodeURIComponent(window.location.href);
-    setPageUrl(currentUrl);
-    const screenSize = window.innerWidth;
-    if (screenSize <= 475) {
-      setIsMobile(true); // set to true if width is <= 375px
-    }
-  }, []);
 
   const data = [
     {
@@ -46,7 +36,6 @@ export function SocialShare() {
     <>
       <div className="flex flex-col items-center justify-center">
         <p className="text-center">{t("share-page")}</p>
-        {!isMobile ? (
           <ul className="flex flex-wrap justify-center">
             {data?.map(({ id, url, icon, location }) => (
               <li className="m-4" key={id}>
@@ -61,9 +50,6 @@ export function SocialShare() {
               </li>
             ))}
           </ul>
-        ) : (
-          <ShareButton title="demo title" url="http://localhost:3000" />
-        )}
       </div>
     </>
   );
