@@ -2,6 +2,7 @@ display:
   default:
     display_title: Förvald
     display_options:
+      title: Media
       exposed_form:
         options:
           reset_button_label: Återställ
@@ -9,6 +10,11 @@ display:
         name:
           expose:
             label: Namn
+        bundle:
+          expose:
+            label: Mediatyp
+          group_info:
+            label: Mediatyp
         langcode:
           expose:
             label: Språk

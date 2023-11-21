@@ -1,0 +1,10 @@
+uuid: a523308c-4f77-42e6-bb8a-1e1afe3abcaa
+langcode: en
+status: true
+dependencies: {  }
+id: organizer_detail
+label: 'Organizer detail'
+icon_uuid: null
+icon_default: null
+description: 'This paragraph will store information about organizer.'
+behavior_plugins: {  }

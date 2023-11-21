@@ -4,8 +4,6 @@ status: false
 dependencies:
   module:
     - simplenews
-  theme:
-    - starterkit_theme
 _core:
   default_config_hash: dn5HMSUPcQau_HymiyBf7VrdN2kK8Xvs9otLQ-6Oe2k
 id: simplenewssubscription_all
@@ -19,7 +17,6 @@ settings:
   label: 'Simplenews multiple subscriptions'
   label_display: visible
   provider: simplenews
-  show_manage: true
   newsletters:
     weekly_content_update: weekly_content_update
     special_offers: special_offers
@@ -27,5 +24,6 @@ settings:
     default: default
   default_newsletters: {  }
   message: 'Stay informed - subscribe to our newsletters.'
+  show_manage: true
   unique_id: d74b88af-9f36-4c5b-8122-34538c6b172c
 visibility: {  }

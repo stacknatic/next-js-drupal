@@ -5,14 +5,25 @@ display:
     display_options:
       title: Innehåll
       fields:
+        title:
+          label: Titel
+        type:
+          label: Innehållstyp
         status:
           label: Status
         operations:
           label: Funktioner
       exposed_form:
         options:
+          submit_button: Filtrera
           reset_button_label: Återställ
       filters:
+        title:
+          expose:
+            label: Titel
+        type:
+          expose:
+            label: Innehållstyp
         status:
           expose:
             label: Status

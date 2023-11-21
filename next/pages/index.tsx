@@ -33,6 +33,7 @@ export default function IndexPage({
 
   return (
     <>
+      
       <Meta title={frontpage?.title} metatags={frontpage?.metatag} />
       <div className="grid gap-4">
         {frontpage?.field_content_elements?.map((paragraph) => (

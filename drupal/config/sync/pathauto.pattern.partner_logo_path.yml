@@ -1,0 +1,35 @@
+uuid: dd87ef1f-b4e9-4322-b0c0-012553414936
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: partner_logo_path
+label: 'Partner logo path'
+type: 'canonical_entities:node'
+pattern: 'partner_logos/[node:title]'
+selection_criteria:
+  4e80e606-b8b5-4070-aa08-ac7692557d9e:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 4e80e606-b8b5-4070-aa08-ac7692557d9e
+    context_mapping:
+      node: node
+    bundles:
+      partners_logos: partners_logos
+  4c0711a5-3302-4615-944c-b46bb5aa45d1:
+    id: language
+    negate: false
+    uuid: 4c0711a5-3302-4615-944c-b46bb5aa45d1
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      en: en
+      fi: fi
+      sv: sv
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language

@@ -1,7 +1,9 @@
+label: Media
 display:
   default:
     display_title: Förvald
     display_options:
+      title: Media
       fields:
         bundle:
           label: Typ
@@ -11,6 +13,7 @@ display:
           label: Funktioner
       exposed_form:
         options:
+          submit_button: Filtrera
           reset_button_label: Återställ
       filters:
         bundle:
@@ -19,3 +22,8 @@ display:
         langcode:
           expose:
             label: Språk
+  media_page_list:
+    display_title: Media
+    display_options:
+      menu:
+        title: Media

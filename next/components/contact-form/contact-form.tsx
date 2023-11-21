@@ -70,8 +70,8 @@ const ContactForm = () => {
                             <div className=''>
                                 <form className='max-w-6xl mx-auto my-10' onSubmit={handleSubmit(onSubmit, onErrors)} >
                                     <h1 className='text-md mb-10 flex justify-center'>Get In Touch</h1>
-                                    <div className='grid grid-cols-2 gap-4 pb-8 '>
-                                        <div className='w-full'>
+                                    <div className='grid lg:grid-cols-2 md:grid-col-1 gap-4 pb-8 md:justify-center'>
+                                        <div className='w-full '>
                                             <input
                                                 type='text'
                                                 id='name'
@@ -118,7 +118,7 @@ const ContactForm = () => {
                                             })}
                                         />
                                     </div>
-                                    <div className='text-right'>
+                                    <div className='text-center'>
                                     <button className='bg-primary-500 text-white p-3 rounded-lg' type='submit'>Send Message</button>
                                     </div>
                                 </form>

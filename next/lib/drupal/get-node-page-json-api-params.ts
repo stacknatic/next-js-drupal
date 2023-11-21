@@ -5,8 +5,11 @@ import { env } from "@/env";
 export type ResourceType =
   | "node--frontpage"
   | "node--page"
+  | "node--news"
   | "node--article"
-  | "node--events";
+  | "node--events"
+
+
 
 export function getNodePageJsonApiParams(resourceType: ResourceType) {
   const apiParams = new DrupalJsonApiParams().addFilter(
@@ -57,6 +60,22 @@ export function getNodePageJsonApiParams(resourceType: ResourceType) {
 
   // The article content type has an image field, and author information:
   if (resourceType === "node--article") {
+    apiParams.addInclude(["field_image", "uid"]);
+    apiParams.addFields(resourceType, [
+      "title",
+      "body",
+      "uid",
+      "created",
+      "field_image",
+      "status",
+      "metatag",
+      "field_excerpt",
+      "path",
+      "sticky",
+    ]);
+  }
+
+  if (resourceType === "node--news") {
     apiParams.addInclude(["field_image", "uid"]);
     apiParams.addFields(resourceType, [
       "title",

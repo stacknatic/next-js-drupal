@@ -1,0 +1,67 @@
+uuid: bddd3b0b-9667-496d-bdb9-fbc679fbac17
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contact_person
+    - node.type.contact_persons
+    - paragraphs.paragraphs_type.contact_person
+  module:
+    - entity_reference_revisions
+id: node.contact_persons.field_contact_person
+field_name: field_contact_person
+entity_type: node
+bundle: contact_persons
+label: 'Contact Person'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      contact_person: contact_person
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 14
+        enabled: false
+      accordion_item:
+        weight: 15
+        enabled: false
+      contact_person:
+        weight: 16
+        enabled: true
+      file_attachments:
+        weight: 17
+        enabled: false
+      formatted_text:
+        weight: 18
+        enabled: false
+      hero:
+        weight: 19
+        enabled: false
+      image:
+        weight: 20
+        enabled: false
+      links:
+        weight: 21
+        enabled: false
+      listing_articles:
+        weight: 22
+        enabled: false
+      logolink:
+        weight: 23
+        enabled: false
+      organizer_detail:
+        weight: 24
+        enabled: false
+      speaker_detail:
+        weight: 25
+        enabled: false
+      video:
+        weight: 26
+        enabled: false
+field_type: entity_reference_revisions

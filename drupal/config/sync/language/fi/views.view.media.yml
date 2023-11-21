@@ -1,7 +1,9 @@
+label: Media
 display:
   default:
     display_title: Oletus
     display_options:
+      title: Media
       fields:
         bundle:
           label: Tyyppi
@@ -11,6 +13,7 @@ display:
           label: Toimenpiteet
       exposed_form:
         options:
+          submit_button: Suodatus
           reset_button_label: Palauta
       filters:
         bundle:
@@ -19,3 +22,8 @@ display:
         langcode:
           expose:
             label: Kieli
+  media_page_list:
+    display_title: Media
+    display_options:
+      menu:
+        title: Media

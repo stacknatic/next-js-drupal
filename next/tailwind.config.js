@@ -3,7 +3,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 /** @type {import("tailwindcss").Config} */
 module.exports = {
   content: ["./{components,lib,pages,stories,styles,ui}/**/*"],
- 
+
   theme: {
     colors: {
       transparent: "transparent",
@@ -17,6 +17,8 @@ module.exports = {
       finnishwinter: "#e7e6eb",
       mischka: "#f7f7f8",
       white: "#ffffff",
+      fog: "#baa2ff",
+      tranquil: "#f7ffff",
 
       info: "#221f2d",
       success: "#007f6c",
@@ -97,6 +99,7 @@ module.exports = {
   corePlugins: {
     aspectRatio: false,
   },
+
   plugins: [
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/typography"),
