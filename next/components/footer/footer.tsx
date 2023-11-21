@@ -54,7 +54,7 @@ export function Footer({ menu }: FooterProps) {
           <Link href="#" className="text-primary-500">Privacy Policy</Link> 
           <div>
 
-        <Link href="#" className="text-primary-500">Code of Conduct</Link> | <Link href="#" className="text-primary-500">Whistleblow</Link>
+        <Link href="#" className="text-primary-500">Code of Conduct</Link> | <Link href="#" className="text-primary-500">Whistleblowing</Link>
           </div>
         </nav>
       </div>
