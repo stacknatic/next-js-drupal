@@ -23,3 +23,20 @@
     clip-path: circle();
   }
 }
+
+/* In your CSS file or inline styles */
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+  /* Adjust the duration as needed */
+}
