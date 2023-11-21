@@ -8,7 +8,6 @@ import LinkedIn from "@/styles/icons/linkedin.svg";
 import Twitter from "@/styles/icons/twitter.svg";
 import WunderCarrot from "@/styles/icons/wunder-carrot.svg";
 import NativeShare from "./nativeShare";
-import CookieBanner from "../cookieBanner";
 
 
 interface FooterProps {
@@ -52,7 +51,11 @@ export function Footer({ menu }: FooterProps) {
           {/* <FooterLink href="https://next-drupal.org" newTab>
             Next.js for Drupal
           </FooterLink> */}
-          <Link href="#" className="text-primary-500">Privacy Policy</Link>
+          <Link href="#" className="text-primary-500">Privacy Policy</Link> 
+          <div>
+
+        <Link href="#" className="text-primary-500">Code of Conduct</Link> | <Link href="#" className="text-primary-500">Whistleblowing</Link>
+          </div>
         </nav>
       </div>
     </footer>
