@@ -1,0 +1,21 @@
+uuid: 2cdbfc8e-e452-491b-acbd-12a97d65433f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_mission_statement
+field_name: field_mission_statement
+entity_type: node
+type: string
+settings:
+  max_length: 1000
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

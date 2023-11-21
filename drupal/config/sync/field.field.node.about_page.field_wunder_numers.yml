@@ -1,0 +1,73 @@
+uuid: a3781f49-97b8-45af-b197-f69e689db2a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_wunder_numers
+    - node.type.about_page
+    - paragraphs.paragraphs_type.numbers
+  module:
+    - entity_reference_revisions
+id: node.about_page.field_wunder_numers
+field_name: field_wunder_numers
+entity_type: node
+bundle: about_page
+label: 'Wunder numers'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      numbers: numbers
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 17
+        enabled: false
+      accordion_item:
+        weight: 18
+        enabled: false
+      contact_person:
+        weight: 19
+        enabled: false
+      file_attachments:
+        weight: 20
+        enabled: false
+      formatted_text:
+        weight: 21
+        enabled: false
+      hero:
+        weight: 22
+        enabled: false
+      image:
+        weight: 23
+        enabled: false
+      links:
+        weight: 24
+        enabled: false
+      listing_articles:
+        weight: 25
+        enabled: false
+      logolink:
+        weight: 26
+        enabled: false
+      numbers:
+        weight: 16
+        enabled: true
+      organizer_detail:
+        weight: 27
+        enabled: false
+      speaker_detail:
+        weight: 28
+        enabled: false
+      testimonials:
+        weight: 29
+        enabled: false
+      video:
+        weight: 30
+        enabled: false
+field_type: entity_reference_revisions
