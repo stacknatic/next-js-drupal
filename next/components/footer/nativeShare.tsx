@@ -1,6 +1,8 @@
 import styles from "../../styles/nativeShare.module.css";
+import { LuShare2 } from "react-icons/lu";
 
-const ShareButton: React.FC<{ title: string; url: string }> = ({
+
+const NativeShare: React.FC<{ title: string; url: string }> = ({
   title,
   url,
 }) => {
@@ -19,10 +21,13 @@ const ShareButton: React.FC<{ title: string; url: string }> = ({
   };
 
   return (
-    <button onClick={handleShare} className="bg-primary-500 p-2 text-white rounded-3xl">
-      Share
-    </button>
+    
+<div className="flex items-center">
+  <span className="text-dark text-xxl mr-2">Share</span>
+  <LuShare2 onClick={handleShare} className="bg-primary-500 p-2 text-white rounded-lg" size={32} />
+</div>
+
   );
 };
 
-export default ShareButton;
+export default NativeShare;

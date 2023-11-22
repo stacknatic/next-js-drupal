@@ -1,0 +1,19 @@
+uuid: 8040398a-596c-40b6-960a-8cec94af04e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mission_statement
+    - node.type.about_page
+id: node.about_page.field_mission_statement
+field_name: field_mission_statement
+entity_type: node
+bundle: about_page
+label: 'Mission statement'
+description: 'Mission statement in the about page.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
