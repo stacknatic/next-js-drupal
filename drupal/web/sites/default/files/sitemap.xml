@@ -334,7 +334,15 @@
  <url>
   <loc>https://frontend.lndo.site/en/events/in</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/events/in"/>
-  <lastmod>2023-11-02T23:38:34+00:00</lastmod>
+  <xhtml:link rel="alternate" hreflang="fi" href="https://frontend.lndo.site/fi/events/in"/>
+  <lastmod>2023-11-09T18:24:24+00:00</lastmod>
+  <priority>0.5</priority>
+ </url>
+ <url>
+  <loc>https://frontend.lndo.site/fi/events/in</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/events/in"/>
+  <xhtml:link rel="alternate" hreflang="fi" href="https://frontend.lndo.site/fi/events/in"/>
+  <lastmod>2023-11-09T18:24:24+00:00</lastmod>
   <priority>0.5</priority>
  </url>
  <url>
