@@ -33,16 +33,16 @@ export default function AllNewsPage({
   const focusRef = useRef<HTMLDivElement>(null);
   return (
     <>
-      <Meta title={t("all-news")} metatags={[]} />
+      <Meta title={t("All News")} metatags={[]} />
       <div ref={focusRef} tabIndex={-1} />
       <Breadcrumbs
         items={[
           {
-            title: t("all-news")
+            title: t("All News")
           }
         ]}
       />
-      <HeadingPage>{t("all-news")}</HeadingPage>
+      <HeadingPage>{t("All News")}</HeadingPage>
       <ul className="mt-4">
         {newsTeasers?.map((news) => (
           <li key={news.id}>
