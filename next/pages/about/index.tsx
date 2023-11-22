@@ -131,7 +131,6 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos }) => {
                                 </p>
                             </div>
                         </div>
-
                     </div>
                 </article>
             </div>
