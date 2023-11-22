@@ -23,6 +23,7 @@ export function Header({ menu }: HeaderProps) {
       <nav className="mx-auto flex max-w-6xl flex-row items-center justify-between px-6 py-4">
         <HomeLink />
         <div className="flex flex-row items-center justify-end gap-6 sm:gap-8">
+          <ContactLink />
           <SearchLink />
           <UserMenu />
           <LanguageSwitcher />
@@ -56,6 +57,19 @@ function SearchLink() {
     <Link href="/search" locale={locale} className="hover:underline">
       <span className="sr-only sm:not-sr-only sm:mr-2 sm:inline">
         {t("search")}
+      </span>
+      <SearchIcon className="inline-block h-6 w-6" aria-hidden="true" />
+    </Link>
+  );
+}
+
+function ContactLink() {
+  const { locale } = useRouter();
+  const { t } = useTranslation();
+  return (
+    <Link href="/contacts" locale={locale} className="hover:underline">
+      <span className="sr-only sm:not-sr-only sm:mr-2 sm:inline">
+        {t("Contact Us")}
       </span>
       <SearchIcon className="inline-block h-6 w-6" aria-hidden="true" />
     </Link>

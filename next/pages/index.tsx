@@ -46,9 +46,8 @@ export default function IndexPage({
         articles={promotedArticleTeasers}
         heading={t("promoted-articles")}
       />
-      <ContactList />
+      {/* <ContactList /> */}
       {/* <LogoStrip /> */}
-      <ContactForm />
     </>
   );
 }

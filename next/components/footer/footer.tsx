@@ -27,7 +27,7 @@ export function Footer({ menu }: FooterProps) {
                 : link.options.attributes.icon;
               return (
                 <li key={link.id}>
-                  <FooterLink href={link.url} icon={icon}>
+                  <FooterLink href={link.url} >
                     {link.title}
                   </FooterLink>
                 </li>

@@ -44,18 +44,6 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos }) => {
                     </div>
                 </section>
                 <section>
-                    <div className=' mt-[7vh]'>
-                        <h1 className='text-2xl text-primary-600 font-bold tracking-[.25em] flex justify-center'>
-                            Helsinki
-                        </h1>
-                        <p className='text-xs flex justify-center font-semibold'>
-                            HEADQUARTERS
-                        </p>
-                    </div>
-                    
-
-
-                    <p className='text-lg pl-12 mt-[10vh] font-semibold'>
                     <p className='md:text-lg text-xs md:pl-12 md:mt-[10vh] mt-9 font-semibold text-center md:text-left'>
                         WUNDER IN NUMBERS
                     </p>
