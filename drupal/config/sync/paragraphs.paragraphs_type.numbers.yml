@@ -1,0 +1,10 @@
+uuid: 43e28d08-7958-4b8e-9bcc-6bf3785898f9
+langcode: en
+status: true
+dependencies: {  }
+id: numbers
+label: Numbers
+icon_uuid: null
+icon_default: null
+description: 'This paragraph contains information as topic: value pair to express some ideal in numbers. Such as Coustomers: 100+, Countries: 5, etc.'
+behavior_plugins: {  }

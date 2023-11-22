@@ -1,0 +1,10 @@
+uuid: c10f777d-79e2-4288-b748-8c4a4d52847a
+langcode: en
+status: true
+dependencies: {  }
+id: testimonials
+label: Testimonials
+icon_uuid: null
+icon_default: null
+description: 'This paragraph contains one image and a description field of a testimonial.'
+behavior_plugins: {  }

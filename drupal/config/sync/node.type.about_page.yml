@@ -1,0 +1,18 @@
+uuid: 22541333-c6b0-4b49-b05c-4a857be18f29
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'About Page'
+type: about_page
+description: 'This content type holds information on the About page. Only one content of this type is allowed.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false
