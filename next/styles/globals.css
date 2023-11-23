@@ -36,7 +36,6 @@
 }
 
 .animate-marquee {
-  display: inline-block;
   white-space: nowrap;
   animation: marquee 10s linear infinite;
   /* Adjust the duration as needed */

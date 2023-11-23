@@ -45,6 +45,7 @@ export default function IndexPage({
         articles={promotedArticleTeasers}
         heading={t("promoted-articles")}
       />
+      <div id="anchor"></div>
       <Divider className="max-w-4xl" />
       {/* <ContactList /> */}
       {/* <LogoStrip /> */}
