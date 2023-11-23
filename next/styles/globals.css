@@ -37,9 +37,10 @@
 
 .animate-marquee {
   white-space: nowrap;
-  animation: marquee 20s linear infinite;
+  animation: marquee 10s linear infinite;
   /* Adjust the duration as needed */
 }
+
 
 /***** COOKIE BANNER *****/
 .cookie-banner {
