@@ -1,14 +1,15 @@
 import React from 'react';
 import { getValidatedCustomerLogos } from '@/lib/drupal/get-customer-logos';
 import { getValidatedPartnerLogos } from '@/lib/drupal/get-partner-logos';
-import OfficeMap from '@/components/offices-map/offices-map';
+import { getValidatedCleanAboutPage } from '@/lib/drupal/get-about-page';
 import { getCommonPageProps } from '@/lib/get-common-page-props';
 import Link from 'next/link';
 import Image from 'next/image';
 import { absoluteUrl } from '@/lib/drupal/absolute-url';
-const Page = ({ validatedCustomerLogos, validatedPartnerLogos }) => {
+const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPage }) => {
     // console.log(validatedCustomerLogos)
     console.log("partners", validatedPartnerLogos)
+    console.log("aboutpage", validatedAboutPage)
 
 
     // Check if field_logos is an array before mapping over it
@@ -145,12 +146,15 @@ export async function getStaticProps(context) {
     try {
         const validatedCustomerLogos = await getValidatedCustomerLogos(context);
         const validatedPartnerLogos = await getValidatedPartnerLogos(context);
+        const validatedAboutPage = await getValidatedCleanAboutPage(context);
+
 
         return {
             props: {
                 ...(await getCommonPageProps(context)),
                 validatedCustomerLogos: validatedCustomerLogos,
                 validatedPartnerLogos: validatedPartnerLogos,
+                validatedAboutPage: validatedAboutPage,
             },
         };
     } catch (error) {
