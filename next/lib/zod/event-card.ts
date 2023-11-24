@@ -32,3 +32,4 @@ export const EventCardSchema = z.object({
 });
 
 export type EventCardType = z.infer<typeof EventCardSchema>;
+export type OrganizerType= z.infer<typeof OrganizerSchema>
