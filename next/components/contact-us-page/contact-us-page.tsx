@@ -1,7 +1,7 @@
 import React from 'react'
 import ContactForm from '../contact-form/contact-form'
 import ContactFormSocial from '../contact-form/contact-form-social'
-import MapsCarousel from '../contact-form/carousel'
+import MapsCarousel from '../contact-form/carousel-maps'
 import { ContactList } from '../contact-list'
 
 export default function ContactUsPage() {

@@ -27,14 +27,14 @@ export function ArticleTeasers({ articles, heading }: LatestArticlesProps) {
           </li>
         ))}
       </ul>
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-start mx-10 mb-24">
         {!articles?.length && <p className="py-4">{t("no-content-found")}</p>}
         {articles?.length && (
           <Link
             href="/all-articles"
             className={clsx(
               buttonVariants({ variant: "primary" }),
-              "text-base mr-4 mt-4 inline-flex px-5 py-3",
+              "text-base mr-4 my-5 inline-flex px-5 py-3",
             )}
           >
             {t("all-articles")}

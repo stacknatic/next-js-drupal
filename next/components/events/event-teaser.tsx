@@ -15,7 +15,7 @@ export function EventTeaser({ event }: any) {
   return (
     <Link
       href={event.path.alias}
-      className="grid h-full p-4 transition-all hover:shadow-md"
+      className="grid h-full transition-all hover:shadow-md"
     >
       {event.field_image && (
         <Image

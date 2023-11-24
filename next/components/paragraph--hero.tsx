@@ -12,7 +12,7 @@ export function ParagraphHero({ paragraph }: { paragraph: HeroType }) {
   return (
     <section id="hero" className="bg-secondary-50">
       <div className="mx-auto flex relative ">
-        <div className="ml-36 mb-36 place-self-center px-8 py-8 lg:col-span-6 lg:py-16 absolute">
+        <div className="ml-36 mb-48 place-self-center px-8 py-8 lg:col-span-6 lg:py-16 absolute">
           {paragraph.field_heading && (
             <h1 className="leading-none mb-4 max-w-2xl text-left text-heading-md font-bold tracking-tight text-primary-600 md:text-heading-lg">
               {paragraph.field_heading}
@@ -25,7 +25,7 @@ export function ParagraphHero({ paragraph }: { paragraph: HeroType }) {
               paragraph.field_heading && "mt-4",
             )}
           />
-          <div className="gap-4 text-">
+          <div className="gap-4 text-left">
             {paragraph.field_primary_link && (
               <Link
                 href={paragraph.field_primary_link.full_url}

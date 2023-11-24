@@ -8,6 +8,12 @@ import ArrowIcon from "@/styles/icons/arrow-down.svg";
 
 import { buttonVariants } from "@/ui/button";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/bundle";
+import { Navigation, Pagination, Autoplay} from "swiper/modules";
+
+
 // interface LatestEventsProps {
 //   events?: ArticleTeaserType[];
 //   heading: string;
@@ -20,14 +26,22 @@ export function EventTeasers({ events, heading }: any) {
       <h2 className="text-heading-sm font-bold md:text-heading-md">
         {heading}
       </h2>
-      <ul className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-        {events?.map((event) => (
-          <li key={event.id}>
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        navigation
+        // pagination={{ clickable: true }}
+        loop={true}
+        autoplay={{ delay: 3000, disableOnInteraction: false }}
+        spaceBetween={0}
+        slidesPerView={3}
+      >
+        {events?.map((event, index) => (
+          <SwiperSlide key={index}>
             <EventTeaser event={event} />
-          </li>
+          </SwiperSlide>
         ))}
-      </ul>
-      <div className="flex items-center justify-center">
+      </Swiper>
+      <div className="flex items-center justify-start mx-10 mb-24">
         {!events?.length && <p className="py-4">{t("no-content-found")}</p>}
         {events?.length && (
           <Link
@@ -37,7 +51,7 @@ export function EventTeasers({ events, heading }: any) {
               "text-base mr-4 mt-4 inline-flex px-5 py-3",
             )}
           >
-            {t("all-events")}
+            {t("All-events")}
             <ArrowIcon aria-hidden className="ml-3 h-6 w-6 -rotate-90" />
           </Link>
         )}

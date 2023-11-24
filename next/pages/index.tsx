@@ -17,12 +17,14 @@ import { getValidatedCustomerLogos } from "@/lib/drupal/get-customer-logos";
 import { getValidatedPartnerLogos } from "@/lib/drupal/get-partner-logos";
 
 import { EventTeasers } from "@/components/events/event-teasers";
+import { validatedEventsTeaser } from "@/lib/drupal/get-event-teasers";
 
 interface IndexPageProps extends LayoutProps {
   frontpage: Frontpage | null;
   promotedArticleTeasers: ArticleTeaser[];
   validatedCustomerLogos: any;
   validatedPartnerLogos: any;
+  events: any;
 }
 
 export default function IndexPage({
@@ -30,6 +32,7 @@ export default function IndexPage({
   promotedArticleTeasers,
   validatedCustomerLogos,
   validatedPartnerLogos,
+  events,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { t } = useTranslation();
 
@@ -47,7 +50,7 @@ export default function IndexPage({
         articles={promotedArticleTeasers}
         heading={t("promoted-articles")}
       />
-      <EventTeasers/>
+      <EventTeasers events={events}/>
       <Divider className="max-w-4xl" />
       <CustomersPartners
         validatedCustomerLogos={validatedCustomerLogos}
@@ -86,6 +89,7 @@ export const getStaticProps: GetStaticProps<IndexPageProps> = async (
 
   const validatedCustomerLogos = await getValidatedCustomerLogos(context);
   const validatedPartnerLogos = await getValidatedPartnerLogos(context);
+  const validatedEventTeasers = await validatedEventsTeaser(context);
 
   return {
     props: {
@@ -96,6 +100,7 @@ export const getStaticProps: GetStaticProps<IndexPageProps> = async (
       ),
       validatedCustomerLogos: validatedCustomerLogos,
       validatedPartnerLogos: validatedPartnerLogos,
+      events: validatedEventTeasers,
     },
     revalidate: 60,
   };
