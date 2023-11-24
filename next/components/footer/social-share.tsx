@@ -35,7 +35,7 @@ export function SocialShare() {
   return (
     <>
       <div className="flex flex-col items-center justify-center">
-        <p className="text-center">{t("share-page")}</p>
+        {/* <p className="text-center">{t("share-page")}</p> */}
           <ul className="flex flex-wrap justify-center">
             {data?.map(({ id, url, icon, location }) => (
               <li className="m-4" key={id}>

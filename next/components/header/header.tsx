@@ -6,6 +6,7 @@ import { useState } from "react";
 import { MainMenu, MenuToggle } from "@/components/main-menu/main-menu";
 import { Menu } from "@/lib/zod/menu";
 import SearchIcon from "@/styles/icons/search.svg";
+import PencilIcon from "@/styles/icons/pencil.svg";
 import WunderIcon from "@/styles/icons/wunder.svg";
 
 import { LanguageSwitcher } from "./language-switcher";
@@ -19,10 +20,11 @@ export function Header({ menu }: HeaderProps) {
   const [isMainMenuOpen, setIsMainMenuOpen] = useState(false);
 
   return (
-    <header className="z-50 flex-shrink-0 border-b border-finnishwinter bg-white text-primary-600 md:sticky md:top-0">
-      <nav className="mx-auto flex max-w-6xl flex-row items-center justify-between px-6 py-4">
+    <header className="z-50 flex-shrink-0 border-finnishwinter bg-primary-600 text-white md:sticky md:top-0">
+      <nav className="mx-auto flex max-w-full flex-row items-center justify-between px-10 py-4">
         <HomeLink />
         <div className="flex flex-row items-center justify-end gap-6 sm:gap-8">
+          <ContactLink />
           <SearchLink />
           <UserMenu />
           <LanguageSwitcher />
@@ -58,6 +60,19 @@ function SearchLink() {
         {t("search")}
       </span>
       <SearchIcon className="inline-block h-6 w-6" aria-hidden="true" />
+    </Link>
+  );
+}
+
+function ContactLink() {
+  const { locale } = useRouter();
+  const { t } = useTranslation();
+  return (
+    <Link href="/contacts" locale={locale} className="hover:underline">
+      <span className="sr-only sm:not-sr-only sm:mr-2 sm:inline">
+        {t("Contact Us")}
+      </span>
+      <PencilIcon className="inline-block h-6 w-6" aria-hidden="true" />
     </Link>
   );
 }
