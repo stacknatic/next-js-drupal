@@ -116,6 +116,7 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
                             )) :
                                 <p>No data available for TESTIMONIALS.</p>}
                         </div>
+
                     </div>
                 </article>
             </div>
