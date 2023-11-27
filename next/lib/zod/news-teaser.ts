@@ -16,7 +16,7 @@ export function validateAndCleanupNewsTeaser(
     return NewsTeaserSchema.parse(newsTeaser);
   } catch (error) {
     const { name = "ZodError", issues = [] } = error;
-    console.log(JSON.stringify({ name, issues, newsTeaser }, null, 2));
+    console.log('news teaser error', JSON.stringify({ name, issues, newsTeaser }, null, 2));
     return null;
   }
 }
