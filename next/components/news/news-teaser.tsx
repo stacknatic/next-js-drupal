@@ -11,7 +11,7 @@ interface NewsTeaserProps {
   news: NewsTeaser;
 }
 
-export function NewsTeaser({ news }: NewsTeaserProps) {
+export function TheNewsTeaser({ news }: NewsTeaserProps) {
   const { t } = useTranslation();
   const author = news.uid?.display_name;
   const router = useRouter();
