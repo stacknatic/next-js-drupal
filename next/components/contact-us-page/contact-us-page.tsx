@@ -3,6 +3,7 @@ import ContactForm from '../contact-form/contact-form'
 import ContactFormSocial from '../contact-form/contact-form-social'
 import MapsCarousel from '../contact-form/carousel-maps'
 import { ContactList } from '../contact-list'
+import BranchMap from '../branch-maps/branchmap'
 
 export default function ContactUsPage() {
   return (
@@ -18,6 +19,7 @@ export default function ContactUsPage() {
             </div>
             <div>
                 <ContactList />
+                <BranchMap />
             </div>
         </div>
   )
