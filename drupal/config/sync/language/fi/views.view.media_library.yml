@@ -31,6 +31,9 @@ display:
         name:
           expose:
             label: Nimi
+      header:
+        display_link_table:
+          label: Table
   widget_table:
     display_options:
       fields:
@@ -40,3 +43,6 @@ display:
         name:
           expose:
             label: Nimi
+      header:
+        display_link_table:
+          label: Table
