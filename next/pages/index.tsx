@@ -57,6 +57,7 @@ export default function IndexPage({
       <Divider className="max-w-4xl" />
 
       <NewsTeasers news={promotedNewsTeasers} heading={"Recent News"} />
+      <Divider className="max-w-4xl" />
       <EventTeasers events={events}/>
       <Divider className="max-w-4xl" />
       <CustomersPartners
