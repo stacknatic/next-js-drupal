@@ -60,9 +60,11 @@ export function News({ news, ...props }: NewsProps) {
           )}
         </figure>
       )}
+        {news.field_anchor_nav && (
+          <TableOfContent postContent={news.body?.processed} />
+          )}
       {news.body?.processed && (
         <>
-        <TableOfContent postContent={news.body?.processed} />
         <FormattedText
         className="mt-4 text-md/xl text-scapaflow sm:text-lg"
         html={news.body?.processed}
