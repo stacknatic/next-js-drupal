@@ -1,5 +1,6 @@
-// components/TableOfContents.tsx use existing ids
 import React, { useEffect, useState } from 'react';
+import { FaCaretDown } from "react-icons/fa";
+import { GrNavigate } from "react-icons/gr";
 
 interface TableOfContentsProps {
   postContent: string;
@@ -7,7 +8,7 @@ interface TableOfContentsProps {
 
 interface TOCElement {
   id: string;
-  children: JSX.Element[];
+  children: JSX.Element;
 }
 
 const TableOfContents: React.FC<TableOfContentsProps> = ({ postContent }) => {
@@ -28,7 +29,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ postContent }) => {
     const toc: TOCElement[] = [];
 
     headings.forEach((heading) => {
-      const text = heading.textContent || '';
+      const text = heading.textContent.toUpperCase() || '';
       const id = heading.id;
 
       const anchor = id || text.toLowerCase().replace(/\s+/g, '-');
@@ -37,7 +38,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ postContent }) => {
         id: anchor,
         children: (
           <li key={anchor}>
-            <a href={`#${anchor}`}>{text}</a>
+            <a href={`#${anchor}`}>{text} <FaCaretDown className='inline'/></a>
           </li>
         ),
       });
@@ -49,10 +50,13 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ postContent }) => {
   return (
     <nav className="mt-4">
       <h2 className="text-lg font-semibold mb-2">JUMP TO:</h2>
-      <ul className="list-none text-primary-500">{createTableOfContents(headings)}</ul>
+      <ul className="list-none text-primary-500">
+        {createTableOfContents(headings).map((element, index) => (
+          <React.Fragment key={index}>{element}</React.Fragment>
+        ))}
+      </ul>
     </nav>
   );
 };
 
 export default TableOfContents;
-
