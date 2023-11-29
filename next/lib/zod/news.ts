@@ -8,6 +8,7 @@ export const NewsBaseSchema = z.object({
     id: z.string(),
     created: z.string(),
     sticky: z.boolean().optional(),
+    field_anchor_nav: z.boolean().optional(),
     uid: z.object({
       id: z.string(),
       display_name: z.string(),
