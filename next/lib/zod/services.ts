@@ -8,6 +8,7 @@ export const ServiceSchema = z.object({
   field_service_statement: z.string(),
   field_service_description: z.string(),
   field_service_list: z.array(z.string()),
+  field_service_short_description: z.string(),
   field_service_category: z.object({
     type: z.literal("node--service_category"),
     id: z.string(),
