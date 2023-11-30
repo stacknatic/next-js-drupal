@@ -4,14 +4,17 @@ import React from "react";
 import ServiceCategoryCard from "./service-category-card";
 import Link from "next/link";
 import { absoluteUrl } from "@/lib/drupal/absolute-url";
+import { ServiceLandingPageType } from "@/lib/zod/service-landing-page";
 type ServicesPropType = {
   services: ServiceDataType[];
   serviceCategories: ServiceCategoryType[];
+  serviceLandingPage: ServiceLandingPageType;
 };
 
 export default function ServicePage({
   services,
   serviceCategories,
+  serviceLandingPage,
 }: ServicesPropType) {
   return (
     <div className="px-16">

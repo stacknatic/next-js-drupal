@@ -22,7 +22,11 @@ export default function Services({
 }: ServicesPropType) {
   console.log(serviceLandingPage);
   return (
-    <ServicePage services={services} serviceCategories={serviceCategories} />
+    <ServicePage
+      services={services}
+      serviceCategories={serviceCategories}
+      serviceLandingPage={serviceLandingPage}
+    />
   );
 }
 
