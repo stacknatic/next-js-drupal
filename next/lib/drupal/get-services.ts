@@ -11,10 +11,9 @@ export const getValidatedCleanServices = async (context: any) => {
         "filter[status]": 1,
         "filter[langcode]": context.locale,
         "fields[node--service]":
-          "id,title,path,field_service_description,field_service_short_description,field_service_list,field_service_name,field_service_statement,field_service_category,field_service_image",
+          "id,path,field_service_short_description,field_service_name,field_service_category,",
         "fields[node--service_category]": "field_category_name",
-        "fields[file--file]": "uri",
-        include: "field_service_category,field_service_image",
+        include: "field_service_category",
       },
     },
   );
