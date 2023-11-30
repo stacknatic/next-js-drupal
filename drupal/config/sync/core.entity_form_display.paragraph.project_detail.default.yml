@@ -1,0 +1,34 @@
+uuid: b8d34ea8-6441-4494-bb19-43869612ed7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.project_detail.field_project_name
+    - field.field.paragraph.project_detail.field_website
+    - paragraphs.paragraphs_type.project_detail
+  module:
+    - link
+id: paragraph.project_detail.default
+targetEntityType: paragraph
+bundle: project_detail
+mode: default
+content:
+  field_project_name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_website:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,10 @@
+uuid: b9dc0921-e76f-42a5-90bd-0735c50c1af0
+langcode: en
+status: true
+dependencies: {  }
+id: client_detail
+label: 'Client detail'
+icon_uuid: null
+icon_default: null
+description: 'This paragraph will store information about client.'
+behavior_plugins: {  }

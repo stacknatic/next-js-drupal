@@ -1,0 +1,79 @@
+uuid: c9aa31f4-6f85-48a5-8009-3470af221177
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_projects
+    - node.type.cases
+    - paragraphs.paragraphs_type.project_detail
+  module:
+    - entity_reference_revisions
+id: node.cases.field_projects
+field_name: field_projects
+entity_type: node
+bundle: cases
+label: Projects
+description: 'This input field is used to input detail info about a project.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      project_detail: project_detail
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 19
+        enabled: false
+      accordion_item:
+        weight: 20
+        enabled: false
+      client_detail:
+        weight: 21
+        enabled: false
+      contact_person:
+        weight: 22
+        enabled: false
+      file_attachments:
+        weight: 23
+        enabled: false
+      formatted_text:
+        weight: 24
+        enabled: false
+      hero:
+        weight: 25
+        enabled: false
+      image:
+        weight: 26
+        enabled: false
+      links:
+        weight: 27
+        enabled: false
+      listing_articles:
+        weight: 28
+        enabled: false
+      logolink:
+        weight: 29
+        enabled: false
+      numbers:
+        weight: 30
+        enabled: false
+      organizer_detail:
+        weight: 31
+        enabled: false
+      project_detail:
+        weight: 18
+        enabled: true
+      speaker_detail:
+        weight: 32
+        enabled: false
+      testimonials:
+        weight: 33
+        enabled: false
+      video:
+        weight: 34
+        enabled: false
+field_type: entity_reference_revisions
