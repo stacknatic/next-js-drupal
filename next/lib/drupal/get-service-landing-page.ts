@@ -1,6 +1,7 @@
 import { DrupalNode } from "next-drupal";
 import { drupal } from "./drupal-client";
 import { validateCleanupServiceData } from "../zod/services";
+import { validateCleanupServiceLandingPage } from "../zod/service-landing-page";
 
 export const getValidatedCleanServicesLandingPage = async (context: any) => {
   const service_landing_page = await drupal.getResourceCollectionFromContext<
@@ -19,6 +20,6 @@ export const getValidatedCleanServicesLandingPage = async (context: any) => {
     },
   });
   // validation and clean up of fetched data
-
-  return service_landing_page;
+  const valid = validateCleanupServiceLandingPage(service_landing_page[0]);
+  return valid;
 };
