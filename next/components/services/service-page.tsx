@@ -24,7 +24,7 @@ export default function ServicePage({
         The Wunder Way
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-primary-300 rounded-xl p-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-primary-400 hover:bg-primary-600 rounded-xl p-4">
         <div className="bg-primary-50 p-6 rounded-xl shadow-xl flex flex-col justify-center">
           <h3 className="text-center text-lg pb-3 mb-3 border-b uppercase tracking-widest">
             A walk togather
