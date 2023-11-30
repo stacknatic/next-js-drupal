@@ -24,7 +24,7 @@ export default function ServiceCategoryCard({
   return (
     <div
       id={category.field_category_name.replaceAll(" ", "")}
-      className="grid md:grid-cols-2"
+      className="grid md:grid-cols-2 gap-6 bg-primary-400 hover:bg-primary-600 rounded-xl p-4"
     >
       <Image
         src={absoluteUrl(category.field_category_image.uri.url)}
@@ -33,15 +33,22 @@ export default function ServiceCategoryCard({
         alt={category.field_category_image.resourceIdObjMeta.alt}
         className="md:order-2 w-full object-cover rounded-md"
       />
-      <div>
-        <h2>{category.field_category_name}</h2>
-        <p>{category.field_category_description}</p>
-        <ul>
+      <div className="flex flex-col gap-6">
+        <div className="bg-primary-50 p-4 rounded-xl shadow-md">
+          <h2 className="text-[2rem]">{category.field_category_name}</h2>
+          <p className="py-6">{category.field_category_description}</p>
+        </div>
+        <ul className="bg-primary-50 p-4 rounded-xl shadow-md">
           {serviecsOfThisCategory.map((service) => (
             <li key={service.id}>
-              <Link href={service.path.alias}>
+              <Link
+                className="text-[1.5rem] text-primary-600 pb-1 border-b hover:text-info"
+                href={service.path.alias}
+                target="_blanck"
+              >
                 {service.field_service_name}
               </Link>
+              <p className="py-6">{service.field_service_short_description}</p>
             </li>
           ))}
         </ul>
