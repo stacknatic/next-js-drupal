@@ -19,6 +19,7 @@ export const ArticleBaseSchema = z.object({
 });
 
 const ArticleSchema = ArticleBaseSchema.extend({
+  field_anchor_nav: z.boolean().optional(),
   metatag: MetatagsSchema.optional(),
   body: z.object({
     processed: z.string(),
