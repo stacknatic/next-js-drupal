@@ -6,16 +6,21 @@ import { getValidatedCleanServiceCategories } from "@/lib/drupal/get-service-cat
 import ServicePage from "@/components/services/service-page";
 import { ServiceDataType } from "@/lib/zod/services";
 import { ServiceCategoryType } from "@/lib/zod/service-categories";
+import { getValidatedCleanServicesLandingPage } from "@/lib/drupal/get-service-landing-page";
+import { ServiceLandingPageType } from "@/lib/zod/service-landing-page";
 
 type ServicesPropType = {
   services: ServiceDataType[];
   serviceCategories: ServiceCategoryType[];
+  serviceLandingPage: ServiceLandingPageType;
 };
 
 export default function Services({
   services,
   serviceCategories,
+  serviceLandingPage,
 }: ServicesPropType) {
+  console.log(serviceLandingPage);
   return (
     <ServicePage services={services} serviceCategories={serviceCategories} />
   );
@@ -26,9 +31,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const validatedServices = await getValidatedCleanServices(context);
     const validatedServiceCategories =
       await getValidatedCleanServiceCategories(context);
+    const validatedServiceLandingPage =
+      await getValidatedCleanServicesLandingPage(context);
     return {
       props: {
         ...(await getCommonPageProps(context)),
+        serviceLandingPage: validatedServiceLandingPage,
         services: validatedServices,
         serviceCategories: validatedServiceCategories,
       },
