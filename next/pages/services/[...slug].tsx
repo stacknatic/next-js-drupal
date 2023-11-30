@@ -1,3 +1,4 @@
+import ServiceSingle from "@/components/services/service-single";
 import {
   LanguageLinks,
   createLanguageLinks,
@@ -19,13 +20,7 @@ type ServicePageProps = {
 export default function Service({ service }: ServicePageProps) {
   console.log(service);
 
-  return (
-    <div>
-      <pre>
-        <code>{JSON.stringify(service, null, 2)}</code>
-      </pre>
-    </div>
-  );
+  return <ServiceSingle service={service} />;
 }
 
 export const getStaticPaths: GetStaticPaths = async (context) => {
