@@ -1,0 +1,97 @@
+uuid: 724c8c79-9db3-42a8-b150-63cc8380cdbf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.client_detail.field_client_name
+    - field.field.paragraph.client_detail.field_email
+    - field.field.paragraph.client_detail.field_facebook
+    - field.field.paragraph.client_detail.field_instagram
+    - field.field.paragraph.client_detail.field_linkedin
+    - field.field.paragraph.client_detail.field_social_links
+    - field.field.paragraph.client_detail.field_twitter
+    - field.field.paragraph.client_detail.field_website
+    - field.field.paragraph.client_detail.field_youtube
+    - paragraphs.paragraphs_type.client_detail
+  module:
+    - link
+id: paragraph.client_detail.default
+targetEntityType: paragraph
+bundle: client_detail
+mode: default
+content:
+  field_client_name:
+    type: string_textfield
+    weight: 8
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_email:
+    type: email_default
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_facebook:
+    type: link_default
+    weight: 5
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_instagram:
+    type: link_default
+    weight: 7
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_linkedin:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_social_links:
+    type: link_default
+    weight: 8
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_twitter:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_website:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_youtube:
+    type: link_default
+    weight: 6
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
