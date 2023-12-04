@@ -9,16 +9,16 @@ export const ArticleBaseSchema = z.object({
   id: z.string(),
   created: z.string(),
   sticky: z.boolean().optional(),
-  uid: z.object({
-    id: z.string(),
-    display_name: z.string(),
-  }),
   title: z.string(),
   field_image: ImageShape.nullable(),
   field_excerpt: z.string().optional().nullable(),
 });
 
 const ArticleSchema = ArticleBaseSchema.extend({
+  uid: z.object({
+    id: z.string(),
+    display_name: z.string(),
+  }),
   field_anchor_nav: z.boolean().optional(),
   metatag: MetatagsSchema.optional(),
   body: z.object({
