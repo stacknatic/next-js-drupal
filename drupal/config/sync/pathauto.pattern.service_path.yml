@@ -1,0 +1,35 @@
+uuid: 65c54ea0-b921-4984-8185-03879d9f39a7
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: service_path
+label: 'Service path'
+type: 'canonical_entities:node'
+pattern: 'services/[node:field_service_name]'
+selection_criteria:
+  eb57c3e0-cc0a-4689-ad5d-7e40bcb67a70:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: eb57c3e0-cc0a-4689-ad5d-7e40bcb67a70
+    context_mapping:
+      node: node
+    bundles:
+      service: service
+  7c8cbd17-79f3-48c0-a951-16f9897992bc:
+    id: language
+    negate: false
+    uuid: 7c8cbd17-79f3-48c0-a951-16f9897992bc
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      en: en
+      fi: fi
+      sv: sv
+selection_logic: and
+weight: -5
+relationships:
+  'node:langcode:language':
+    label: Language

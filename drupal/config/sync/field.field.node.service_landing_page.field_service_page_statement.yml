@@ -1,0 +1,19 @@
+uuid: 697d0e88-75d8-477e-9716-37648472995b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_service_page_statement
+    - node.type.service_landing_page
+id: node.service_landing_page.field_service_page_statement
+field_name: field_service_page_statement
+entity_type: node
+bundle: service_landing_page
+label: 'Service page statement'
+description: 'The message you want to give the visitors'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

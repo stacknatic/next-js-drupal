@@ -1,0 +1,48 @@
+uuid: a5e83b1d-51fc-42bf-be89-2e3dadf6cc1b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.service_landing_page.field_page_title
+    - field.field.node.service_landing_page.field_service_page_statement
+    - field.field.node.service_landing_page.field_wunder_working_strategy
+    - node.type.service_landing_page
+  module:
+    - entity_reference_revisions
+    - user
+id: node.service_landing_page.default
+targetEntityType: node
+bundle: service_landing_page
+mode: default
+content:
+  field_page_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_service_page_statement:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_wunder_working_strategy:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
