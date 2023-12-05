@@ -4,10 +4,9 @@ status: true
 dependencies:
   config:
     - field.field.node.cases.body
-    - field.field.node.cases.field_clients
     - field.field.node.cases.field_excerpt
     - field.field.node.cases.field_image
-    - field.field.node.cases.field_projects
+    - field.field.node.cases.field_logos
     - field.field.node.cases.field_tags
     - image.style.wide
     - node.type.cases
@@ -27,15 +26,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 101
-    region: content
-  field_clients:
-    type: entity_reference_revisions_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 102
     region: content
   field_excerpt:
     type: basic_string
@@ -59,14 +49,14 @@ content:
     third_party_settings: {  }
     weight: -1
     region: content
-  field_projects:
+  field_logos:
     type: entity_reference_revisions_entity_view
     label: above
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 103
+    weight: 101
     region: content
   field_tags:
     type: entity_reference_label

@@ -3,7 +3,6 @@ import { useTranslation } from "next-i18next";
 import clsx from "clsx";
 
 import { CaseTeaser } from "@/components/cases/case-teaser";
-// import { ArticleTeaser as ArticleTeaserType } from "@/lib/zod/article-teaser";
 import ArrowIcon from "@/styles/icons/arrow-down.svg";
 
 import { buttonVariants } from "@/ui/button";
@@ -13,14 +12,9 @@ import "swiper/css";
 import "swiper/css/bundle";
 import { Navigation, Pagination, Autoplay} from "swiper/modules";
 
-
-// interface LatestCasesProps {
-//   cases?: ArticleTeaserType[];
-//   heading: string;
-// }
-
 export function CaseTeasers({ cases, heading }: any) {
   const { t } = useTranslation();
+  console.log("cases", cases);
   return (
     <>
       <h2 className="text-heading-sm font-bold md:text-heading-md">
@@ -35,9 +29,9 @@ export function CaseTeasers({ cases, heading }: any) {
         spaceBetween={0}
         slidesPerView={3}
       >
-        {cases?.map((case, index) => (
+        {cases?.map((project, index) => (
           <SwiperSlide key={index}>
-            <CaseTeaser case={case} />
+            <CaseTeaser project={project} />
           </SwiperSlide>
         ))}
       </Swiper>

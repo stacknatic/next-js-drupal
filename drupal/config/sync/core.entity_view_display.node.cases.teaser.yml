@@ -5,10 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.cases.body
-    - field.field.node.cases.field_clients
     - field.field.node.cases.field_excerpt
     - field.field.node.cases.field_image
-    - field.field.node.cases.field_projects
+    - field.field.node.cases.field_logos
     - field.field.node.cases.field_tags
     - image.style.medium
     - node.type.cases
@@ -58,7 +57,6 @@ content:
     weight: 100
     region: content
 hidden:
-  field_clients: true
   field_excerpt: true
-  field_projects: true
+  field_logos: true
   langcode: true

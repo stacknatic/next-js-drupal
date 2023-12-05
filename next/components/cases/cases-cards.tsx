@@ -23,9 +23,9 @@ export function CasesCards({ cases, heading }: CasesCardsPropsType) {
         {heading}
       </h2>
       <ul className="mt-4 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {cases?.map((case) => (
-          <li key={case.id}>
-            <CaseCard case={case} />
+        {cases?.map((project) => (
+          <li key={project.id}>
+            <CaseCard project={project} />
           </li>
         ))}
       </ul>
