@@ -1,11 +1,9 @@
 import { useTranslation } from "next-i18next";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import FacebookIcon from "@/styles/icons/facebook.svg";
 import LinkedInIcon from "@/styles/icons/linkedin.svg";
 import TwitterIcon from "@/styles/icons/twitter.svg";
-
-import NativeShare from "./nativeShare";
 
 export function SocialShare() {
   const [pageUrl, setPageUrl] = useState<string>("");

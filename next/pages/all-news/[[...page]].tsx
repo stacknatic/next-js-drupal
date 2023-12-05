@@ -31,6 +31,7 @@ export default function AllNewsPage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { t } = useTranslation();
   const focusRef = useRef<HTMLDivElement>(null);
+  console.log('newsteasers', newsTeasers);
   return (
     <>
       <Meta title={t("All News")} metatags={[]} />
@@ -45,7 +46,7 @@ export default function AllNewsPage({
       <HeadingPage>{t("All News")}</HeadingPage>
       <ul className="mt-4">
         {newsTeasers?.map((news) => (
-          <li key={news.id}>
+          <li key={news?.id}>
             <NewsListItem news={news} />
           </li>
         ))}

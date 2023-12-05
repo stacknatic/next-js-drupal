@@ -41,9 +41,9 @@ export function Paragraph({ paragraph }: { paragraph: Paragraph }) {
     case "paragraph--hero": {
       return <ParagraphHero paragraph={paragraph} />;
     }
-    case "paragraph--listing_articles": {
-      return <ParagraphListingArticles paragraph={paragraph} />;
-    }
+    // case "paragraph--listing_articles": {
+    //   return <ParagraphListingArticles paragraph={paragraph} />;
+    // }
     case "paragraph--file_attachments": {
       return <ParagraphFileAttachments paragraph={paragraph} />;
     }

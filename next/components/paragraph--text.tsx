@@ -6,17 +6,17 @@ import { FormattedText as FormattedTextType } from "@/lib/zod/paragraph";
 
 export function ParagraphText({ paragraph }: { paragraph: FormattedTextType }) {
   return (
-    <>
+    <div className="bg-primary-200 rounded-xl">
       {paragraph.field_heading && (
         <HeadingParagraph>{paragraph.field_heading}</HeadingParagraph>
       )}
       <FormattedText
         html={paragraph.field_formatted_text.processed}
         className={clsx(
-          "mx-10 text-left text-md/xl text-scapaflow sm:text-lg",
+          "text-left text-md/xl text-scapaflow sm:text-lg",
           paragraph.field_heading && "mt-4",
         )}
       />
-    </>
+    </div>
   );
 }

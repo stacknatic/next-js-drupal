@@ -8,6 +8,7 @@ import { HeadingPage } from "@/components/heading--page";
 import { absoluteUrl } from "@/lib/drupal/absolute-url";
 import { formatDate } from "@/lib/utils";
 import { News } from "@/lib/zod/news";
+import TableOfContent from "./toc";
 
 interface NewsProps {
   news: News;
@@ -30,9 +31,9 @@ export function News({ news, ...props }: NewsProps) {
         ]}
       />
       <HeadingPage>{news.title}</HeadingPage> 
-      {news.field_excerpt && (
+      {/* {news.field_excerpt && (
         <div className="my-4 text-xl">{news.field_excerpt}</div>
-      )}
+      )} */}
       <div className="mb-4 text-scapaflow">
         {news.uid?.display_name && (
           <span>
@@ -59,11 +60,16 @@ export function News({ news, ...props }: NewsProps) {
           )}
         </figure>
       )}
+        {news.field_anchor_nav && (
+          <TableOfContent postContent={news.body?.processed} />
+          )}
       {news.body?.processed && (
+        <>
         <FormattedText
-          className="mt-4 text-md/xl text-scapaflow sm:text-lg"
-          html={news.body?.processed}
+        className="mt-4 text-md/xl text-scapaflow sm:text-lg"
+        html={news.body?.processed}
         />
+        </>
       )}
     </div>
   );

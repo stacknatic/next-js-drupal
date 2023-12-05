@@ -6,6 +6,7 @@ import TwitterIcon from "@/styles/icons/twitter.svg";
 import InstagramIcon from "@/styles/icons/instagram.svg";
 
 function EventProfile({ profiles }) {
+  // console.log("profiles", profiles);
   return (
     <>
       {profiles.map((profile) => (
