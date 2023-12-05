@@ -4,6 +4,7 @@ import Image from "next/image";
 import { absoluteUrl } from "@/lib/drupal/absolute-url";
 import { ServiceCategoryType } from "@/lib/zod/service-categories";
 import ServiceCategoryNavbar from "./service-category-navbar";
+import { Breadcrumbs } from "../breadcrumbs";
 
 type ServicePageProps = {
   service: ServiceDataType;
@@ -19,6 +20,17 @@ export default function ServiceSingle({
 }: ServicePageProps) {
   return (
     <div className="px-16">
+      <Breadcrumbs
+        items={[
+          {
+            title: "services",
+            url: "/services",
+          },
+          {
+            title: service.field_service_name,
+          },
+        ]}
+      />
       <h1 className="text-[3rem] text-center md:text-left  py-16">
         {service.field_service_name}
       </h1>

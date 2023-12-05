@@ -3,9 +3,9 @@ import { ServiceDataType } from "@/lib/zod/services";
 import React from "react";
 import ServiceCategoryCard from "./service-category-card";
 import Link from "next/link";
-import { absoluteUrl } from "@/lib/drupal/absolute-url";
 import { ServiceLandingPageType } from "@/lib/zod/service-landing-page";
 import ServiceStrategyCard from "./service-strategy-card";
+import { Breadcrumbs } from "../breadcrumbs";
 type ServicesPropType = {
   services: ServiceDataType[];
   serviceCategories: ServiceCategoryType[];
@@ -19,6 +19,14 @@ export default function ServicePage({
 }: ServicesPropType) {
   return (
     <div className="px-16">
+      <Breadcrumbs
+        items={[
+          {
+            title: "services",
+            url: "/services",
+          },
+        ]}
+      />
       <h1 className="text-[4rem] text-center md:text-left  py-16">
         {serviceLandingPage.field_page_title}
       </h1>
