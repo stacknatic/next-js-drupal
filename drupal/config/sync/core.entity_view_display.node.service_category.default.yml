@@ -1,0 +1,54 @@
+uuid: 18a3c5cf-4954-4160-bedb-9d4d1ca24778
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.service_category.field_category_description
+    - field.field.node.service_category.field_category_image
+    - field.field.node.service_category.field_category_name
+    - node.type.service_category
+  module:
+    - svg_image
+    - user
+id: node.service_category.default
+targetEntityType: node
+bundle: service_category
+mode: default
+content:
+  field_category_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_category_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_category_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

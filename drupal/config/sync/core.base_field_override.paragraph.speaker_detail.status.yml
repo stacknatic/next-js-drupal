@@ -1,0 +1,22 @@
+uuid: ebbabe68-5b3d-41c3-bc51-e2c094c30ec5
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.speaker_detail
+id: paragraph.speaker_detail.status
+field_name: status
+entity_type: paragraph
+bundle: speaker_detail
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

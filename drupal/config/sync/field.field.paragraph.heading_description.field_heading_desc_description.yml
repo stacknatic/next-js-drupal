@@ -1,0 +1,19 @@
+uuid: 23cfb291-fcfe-44c7-bc92-42b970666b1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_heading_desc_description
+    - paragraphs.paragraphs_type.heading_description
+id: paragraph.heading_description.field_heading_desc_description
+field_name: field_heading_desc_description
+entity_type: paragraph
+bundle: heading_description
+label: Description
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

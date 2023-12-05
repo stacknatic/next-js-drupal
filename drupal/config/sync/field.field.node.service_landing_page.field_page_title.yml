@@ -1,0 +1,19 @@
+uuid: fa9d4c47-86b3-4322-a68c-1f83413c4dce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_title
+    - node.type.service_landing_page
+id: node.service_landing_page.field_page_title
+field_name: field_page_title
+entity_type: node
+bundle: service_landing_page
+label: 'Page Title'
+description: 'Title of the page. eg. "Service"'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

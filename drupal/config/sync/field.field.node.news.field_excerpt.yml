@@ -14,7 +14,7 @@ bundle: news
 label: Excerpt
 description: 'Add an excerpt for this piece of content. It will also be used for search results and HTML meta tags.'
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
