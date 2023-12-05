@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import clsx from "clsx";
 
-import { NewsTeaser } from "@/components/news-teaser";
+import { NewsTeaser } from "@/components/news/news-teaser";
 import { NewsTeaser as NewsTeaserType } from "@/lib/zod/news-teaser";
 import ArrowIcon from "@/styles/icons/arrow-down.svg";
 
@@ -22,7 +22,7 @@ export function NewsTeasers({ news, heading }: LatestNewsProps) {
       </h2>
       <ul className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
         {news?.map((news) => (
-          <li key={news.id}>
+          <li key={news?.id}>
             <NewsTeaser news={news} />
           </li>
         ))}

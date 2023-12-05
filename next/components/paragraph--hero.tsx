@@ -7,12 +7,33 @@ import { Hero as HeroType } from "@/lib/zod/paragraph";
 import ArrowIcon from "@/styles/icons/arrow-down.svg";
 
 import { buttonVariants } from "@/ui/button";
+import { useEffect, useState } from "react";
+
 
 export function ParagraphHero({ paragraph }: { paragraph: HeroType }) {
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  useEffect(() => {
+    // Add a scroll event listener to update the scroll position
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Remove the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const translateXLeft = -scrollPosition;
+  const translateXRight = scrollPosition; // Calculate the translation for moving right
+
   return (
-    <section id="hero" className="bg-secondary-50">
-      <div className="mx-auto flex relative ">
-        <div className="ml-36 mb-48 place-self-center px-8 py-8 lg:col-span-6 lg:py-16 absolute">
+    <section id="hero" className="flex bg-primary-600 mb-6 mt-[-2rem] mx-[-11rem] lg:min-h-[93vh]">
+      <div className="mx-auto flex relative min-w-screen">
+        <div style={{ transform: `translateX(${translateXLeft}px)` }} className="ml-36 mt-36 px-8 py-8 lg:col-span-6 lg:py-16 ">
           {paragraph.field_heading && (
             <h1 className="leading-none mb-4 max-w-2xl text-left text-heading-md font-bold tracking-tight text-primary-600 md:text-heading-lg">
               {paragraph.field_heading}
@@ -53,7 +74,7 @@ export function ParagraphHero({ paragraph }: { paragraph: HeroType }) {
             )} */}
           </div>
         </div>
-        <div className="">
+        <div style={{ transform: `translateX(${translateXRight}px)` }} className="mt-48 translate-x-11">
           <MediaImage
             media={paragraph.field_image}
             alt="site-banner"

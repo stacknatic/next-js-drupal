@@ -46,8 +46,8 @@ export const MenuRoot = forwardRef<
       ref={ref}
       {...props}
       className={clsx(
-        "absolute inset-0 z-40 overflow-y-auto overflow-x-hidden border-finnishwinter lg:bottom-auto lg:min-h-[75vh]",
-        isOpen && "border-t bg-white lg:border",
+        "absolute inset-0 z-40 overflow-y-auto overflow-x-hidden border-finnishwinter lg:bottom-auto lg:min-h-[60vh]",
+        isOpen && "border-t bg-white lg:border rounded-lg",
         isOpen &&
           "after:absolute after:left-[calc(66.67%+1px)] after:h-full after:border-r",
       )}
@@ -163,7 +163,7 @@ export function MenuLink({
       active={isActive}
       className={clsx(
         !isTitle &&
-          "aria-current:underline block h-full grow p-6 hover:underline data-[active]:underline",
+          "aria-current:underline block h-full grow p-4 hover:underline data-[active]:underline",
         isTopLevel && "lg:ring-white",
       )}
     >

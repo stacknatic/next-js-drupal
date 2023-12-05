@@ -32,7 +32,7 @@
     "clsx": "^2.0.0",
     "cva": "npm:class-variance-authority@0.7.0",
     "drupal-jsonapi-params": "^2.3.1",
-    "html-react-parser": "^4.2.2",
+    "html-react-parser": "^4.2.10",
     "i18next": "^23.5.1",
     "jwt-decode": "^3.1.2",
     "next": "~13.5.4",
@@ -45,9 +45,11 @@
     "react-hook-form": "^7.47.0",
     "react-i18next": "^13.2.2",
     "react-icons": "^4.12.0",
+    "react-markdown": "^9.0.1",
     "react-youtube": "^10.1.0",
     "sharp": "^0.32.6",
     "swiper": "^11.0.4",
+    "uuid": "^9.0.1",
     "zod": "^3.22.3"
   },
   "devDependencies": {

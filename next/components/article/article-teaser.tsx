@@ -19,7 +19,7 @@ export function ArticleTeaser({ article }: ArticleTeaserProps) {
   return (
     <Link
       href={article.path.alias}
-      className="grid h-full p-4 transition-all hover:shadow-md"
+      className="grid h-fulltransition-all hover:shadow-md"
     >
       {article.field_image && (
         <Image
@@ -27,14 +27,14 @@ export function ArticleTeaser({ article }: ArticleTeaserProps) {
           width={384}
           height={240}
           alt={article.field_image.resourceIdObjMeta.alt}
-          className="max-w-full object-cover mx-auto"
+          className="max-w-full object-cover mx-auto lg:min-h-[55vh] brightness-50 hover:brightness-100"
         />
       )}
-      <div className="my-4 line-clamp-2 text-sm text-scapaflow text-center">
+      <div className="my-4 line-clamp-2 text-sm text-scapaflow text-center text-white">
         {author && <>{t("posted-by", { author })} - </>}
         {date}
       </div>
-      <h3 className="mb-2 line-clamp-1 text-heading-xs font-bold text-center">
+      <h3 className="mb-2 line-clamp-1 text-heading-xs font-bold text-center ">
         {article.title}
       </h3>
       

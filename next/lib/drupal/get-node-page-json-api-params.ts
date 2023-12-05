@@ -8,7 +8,8 @@ export type ResourceType =
   | "node--news"
   | "node--article"
   | "node--events"
-  | "node--service";
+  | "node--service"
+  | "node--cases";
 
 export function getNodePageJsonApiParams(resourceType: ResourceType) {
   const apiParams = new DrupalJsonApiParams().addFilter(
@@ -87,6 +88,7 @@ export function getNodePageJsonApiParams(resourceType: ResourceType) {
       "field_excerpt",
       "path",
       "sticky",
+      "field_anchor_nav",
     ]);
   }
 
@@ -127,6 +129,23 @@ export function getNodePageJsonApiParams(resourceType: ResourceType) {
     ]);
     apiParams.addFields("node--service_category", ["field_category_name"]);
     apiParams.addFields("file--file", ["uri"]);
+  }
+
+  if (resourceType === "node--cases") {
+    apiParams.addInclude([
+      "field_image",
+      "field_logos",
+      "uid",
+    ]);
+    apiParams.addFields(resourceType, [
+      "title",
+      "body",
+      "field_image",
+      "status",
+      "metatag",
+      "path",
+      "field_logos",
+    ]);
   }
 
   return apiParams;

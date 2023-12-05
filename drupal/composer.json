@@ -20,6 +20,7 @@
         "cweagans/composer-patches": "^1.7",
         "drupal/admin_toolbar": "^3.3",
         "drupal/anchor_link": "^2.6",
+        "drupal/auto_heading_ids": "^2.0@beta",
         "drupal/core-composer-scaffold": "^10.0",
         "drupal/core-recommended": "^10.0",
         "drupal/devel": "^5.0",
