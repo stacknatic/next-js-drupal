@@ -28,10 +28,12 @@ export default function ServiceCategoryCard({
     >
       <Image
         src={absoluteUrl(category.field_category_image.uri.url)}
-        width={384}
-        height={240}
+        width="0"
+        height="0"
+        priority={true}
+        sizes="100vw"
         alt={category.field_category_image.resourceIdObjMeta.alt}
-        className="md:order-2 w-full object-cover rounded-md"
+        className="md:order-2 w-full  h-auto object-cover rounded-md"
       />
       <div className="flex flex-col gap-6">
         <div className="bg-primary-50 p-4 rounded-xl shadow-md">

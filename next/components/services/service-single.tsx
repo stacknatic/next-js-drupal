@@ -52,10 +52,12 @@ export default function ServiceSingle({
         </div>
         <Image
           src={absoluteUrl(service.field_service_image.uri.url)}
-          width={384}
-          height={240}
+          width="0"
+          height="0"
+          priority={true}
+          sizes="100vw"
           alt={service.field_service_image.resourceIdObjMeta.alt}
-          className="w-full object-cover rounded-md"
+          className="w-full h-auto object-cover rounded-md"
         />
         <p className="order-3 md:col-span-2 p-4 rounded-xl">
           {service.field_service_description}
