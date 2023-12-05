@@ -17,7 +17,9 @@ import { getValidatedCustomerLogos } from "@/lib/drupal/get-customer-logos";
 import { getValidatedPartnerLogos } from "@/lib/drupal/get-partner-logos";
 
 import { EventTeasers } from "@/components/events/event-teasers";
+import { CaseTeasers } from "@/components/cases/case-teasers";
 import { validatedEventsTeaser } from "@/lib/drupal/get-event-teasers";
+import { validatedCasesTeaser } from "@/lib/drupal/get-case-teasers";
 
 interface IndexPageProps extends LayoutProps {
   frontpage: Frontpage | null;
@@ -25,6 +27,7 @@ interface IndexPageProps extends LayoutProps {
   validatedCustomerLogos: any;
   validatedPartnerLogos: any;
   events: any;
+  cases: any;
 }
 
 export default function IndexPage({
@@ -33,8 +36,10 @@ export default function IndexPage({
   validatedCustomerLogos,
   validatedPartnerLogos,
   events,
+  cases,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { t } = useTranslation();
+// console.log(cases);
 
   return (
     <>
@@ -50,7 +55,8 @@ export default function IndexPage({
         articles={promotedArticleTeasers}
         heading={t("promoted-articles")}
       />
-      <EventTeasers events={events}/>
+      <EventTeasers events={events} heading={"Events"}/>
+      <CaseTeasers cases={cases}/>
       <Divider className="max-w-4xl" />
       <CustomersPartners
         validatedCustomerLogos={validatedCustomerLogos}
@@ -90,6 +96,7 @@ export const getStaticProps: GetStaticProps<IndexPageProps> = async (
   const validatedCustomerLogos = await getValidatedCustomerLogos(context);
   const validatedPartnerLogos = await getValidatedPartnerLogos(context);
   const validatedEventTeasers = await validatedEventsTeaser(context);
+  const validatedCaseTeasers = await validatedCasesTeaser(context);
 
   return {
     props: {
@@ -101,6 +108,7 @@ export const getStaticProps: GetStaticProps<IndexPageProps> = async (
       validatedCustomerLogos: validatedCustomerLogos,
       validatedPartnerLogos: validatedPartnerLogos,
       events: validatedEventTeasers,
+      cases: validatedCaseTeasers,
     },
     revalidate: 60,
   };

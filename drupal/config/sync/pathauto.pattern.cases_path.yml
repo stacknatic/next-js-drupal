@@ -1,0 +1,35 @@
+uuid: 14e69a7e-1b56-4e97-b889-792349546d08
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: cases_path
+label: 'Cases Path'
+type: 'canonical_entities:node'
+pattern: 'cases/[node:title]'
+selection_criteria:
+  643b0730-fc7e-493e-8b15-3abc5994db19:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 643b0730-fc7e-493e-8b15-3abc5994db19
+    context_mapping:
+      node: node
+    bundles:
+      cases: cases
+  941e331c-da5a-4bab-9fee-e460b93543eb:
+    id: language
+    negate: false
+    uuid: 941e331c-da5a-4bab-9fee-e460b93543eb
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      en: en
+      fi: fi
+      sv: sv
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language

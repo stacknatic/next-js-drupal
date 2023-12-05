@@ -17,24 +17,24 @@ export function ArticleTeasers({ articles, heading }: LatestArticlesProps) {
   const { t } = useTranslation();
   return (
     <>
-      <h2 className="text-heading-sm font-bold md:text-heading-md px-9">
+      <h2 className="text-heading-sm font-bold md:text-heading-md pb-6 text-white">
         {heading}
       </h2>
-      <ul className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+      <ul className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:min-h-[55vh] text-white">
         {articles?.map((article) => (
           <li key={article.id}>
             <ArticleTeaser article={article} />
           </li>
         ))}
       </ul>
-      <div className="flex items-center justify-start mx-10 mb-24">
+      <div className="flex items-center justify-start mb-24">
         {!articles?.length && <p className="py-4">{t("no-content-found")}</p>}
         {articles?.length && (
           <Link
             href="/all-articles"
             className={clsx(
               buttonVariants({ variant: "primary" }),
-              "text-base mr-4 my-5 inline-flex px-5 py-3",
+              "text-base mr-4 my-5 inline-flex px-5 py-3 rounded-full border-white",
             )}
           >
             {t("all-articles")}

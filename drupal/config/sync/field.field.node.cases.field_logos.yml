@@ -1,20 +1,20 @@
-uuid: c9aa31f4-6f85-48a5-8009-3470af221177
+uuid: 9edcd895-adf5-4858-ad57-adf9acb8e716
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_projects
+    - field.storage.node.field_logos
     - node.type.cases
-    - paragraphs.paragraphs_type.project_detail
+    - paragraphs.paragraphs_type.logolink
   module:
     - entity_reference_revisions
-id: node.cases.field_projects
-field_name: field_projects
+id: node.cases.field_logos
+field_name: field_logos
 entity_type: node
 bundle: cases
-label: Projects
-description: 'This input field is used to input detail info about a project.'
-required: false
+label: Logos
+description: "Please add logo of 200x200px and link of the customer's website"
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -22,58 +22,52 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      project_detail: project_detail
+      logolink: logolink
     negate: 0
     target_bundles_drag_drop:
       accordion:
-        weight: 19
+        weight: 13
         enabled: false
       accordion_item:
-        weight: 20
-        enabled: false
-      client_detail:
-        weight: 21
+        weight: 14
         enabled: false
       contact_person:
-        weight: 22
+        weight: 18
         enabled: false
       file_attachments:
-        weight: 23
+        weight: 15
         enabled: false
       formatted_text:
-        weight: 24
+        weight: 16
         enabled: false
       hero:
-        weight: 25
+        weight: 17
         enabled: false
       image:
-        weight: 26
+        weight: 18
         enabled: false
       links:
-        weight: 27
+        weight: 19
         enabled: false
       listing_articles:
-        weight: 28
+        weight: 20
         enabled: false
       logolink:
-        weight: 29
-        enabled: false
+        weight: 21
+        enabled: true
       numbers:
-        weight: 30
+        weight: 26
         enabled: false
       organizer_detail:
-        weight: 31
+        weight: 22
         enabled: false
-      project_detail:
-        weight: 18
-        enabled: true
       speaker_detail:
-        weight: 32
+        weight: 23
         enabled: false
       testimonials:
-        weight: 33
+        weight: 29
         enabled: false
       video:
-        weight: 34
+        weight: 24
         enabled: false
 field_type: entity_reference_revisions

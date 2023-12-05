@@ -8,6 +8,7 @@ export type ResourceType =
   | "node--news"
   | "node--article"
   | "node--events"
+  | "node--cases";
 
 
 
@@ -110,6 +111,23 @@ export function getNodePageJsonApiParams(resourceType: ResourceType) {
       "field_end_date",
       "field_organizers",
       "field_speakers",
+    ]);
+  }
+
+  if (resourceType === "node--cases") {
+    apiParams.addInclude([
+      "field_image",
+      "field_logos",
+      "uid",
+    ]);
+    apiParams.addFields(resourceType, [
+      "title",
+      "body",
+      "field_image",
+      "status",
+      "metatag",
+      "path",
+      "field_logos",
     ]);
   }
 
