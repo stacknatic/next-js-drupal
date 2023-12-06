@@ -33,7 +33,16 @@
 /web/sites/*/settings.local.php
 
 # Ignore Drupal's file directory
-/web/sites/default/files/
+/web/sites/default/files/**/*.jpg
+/web/sites/default/files/**/*.jpeg
+/web/sites/default/files/**/*.png
+/web/sites/default/files/**/*.htaccess
+/web/sites/default/files/php/twig
+
+# Alowing images related to service and service category content types
+!/web/sites/default/files/**/service_*.*
+
+
 # Ignore testing directories.
 /web/sites/simpletest
 /web/tmp
