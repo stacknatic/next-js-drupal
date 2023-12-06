@@ -1,0 +1,10 @@
+uuid: aa851655-2ee7-4fe6-be08-e9bf7138d1af
+langcode: en
+status: true
+dependencies: {  }
+id: wunder_working_strategy
+label: 'Wunder working strategy'
+icon_uuid: null
+icon_default: null
+description: 'Contains a group heading for strategies and  variable number of heading and description fields.'
+behavior_plugins: {  }

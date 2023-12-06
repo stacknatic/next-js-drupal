@@ -1,0 +1,18 @@
+uuid: f4d069a9-1c6e-470c-9fa8-251af17c88fb
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:menu_link_content:28aed094-a6de-457c-aee9-529153f843e8'
+name: Service
+type: service
+description: 'This content type is used to create a single service.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

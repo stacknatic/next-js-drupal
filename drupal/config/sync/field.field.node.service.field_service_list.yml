@@ -1,0 +1,19 @@
+uuid: 88cefaa6-91fa-40ff-be70-5ce2c1e9c49d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_service_list
+    - node.type.service
+id: node.service.field_service_list
+field_name: field_service_list
+entity_type: node
+bundle: service
+label: 'Service list'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

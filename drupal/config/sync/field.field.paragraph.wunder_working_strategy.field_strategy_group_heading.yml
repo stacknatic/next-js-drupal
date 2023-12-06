@@ -1,0 +1,19 @@
+uuid: ffc6583e-a8d0-4465-8c53-d7dcde1f043d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_strategy_group_heading
+    - paragraphs.paragraphs_type.wunder_working_strategy
+id: paragraph.wunder_working_strategy.field_strategy_group_heading
+field_name: field_strategy_group_heading
+entity_type: paragraph
+bundle: wunder_working_strategy
+label: 'Strategy group heading'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
