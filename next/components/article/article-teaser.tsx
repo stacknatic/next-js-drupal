@@ -27,7 +27,7 @@ export function ArticleTeaser({ article }: ArticleTeaserProps) {
           width={384}
           height={240}
           alt={article.field_image.resourceIdObjMeta.alt}
-          className="max-w-full object-cover mx-auto lg:min-h-[55vh] brightness-50 hover:brightness-100"
+          className="max-w-full object-cover mx-auto lg:min-h-[55vh] brightness-50 hover:brightness-100 "
         />
       )}
       <div className="my-4 line-clamp-2 text-sm text-scapaflow text-center text-white">
