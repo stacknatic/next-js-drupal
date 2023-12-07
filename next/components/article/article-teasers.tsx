@@ -17,10 +17,10 @@ export function ArticleTeasers({ articles, heading }: LatestArticlesProps) {
   const { t } = useTranslation();
   return (
     <>
-      <h2 className="text-heading-sm font-bold md:text-heading-md pb-6 text-white">
+      <h2 className="text-heading-sm font-bold md:text-heading-md mb-6 text-white">
         {heading}
       </h2>
-      <ul className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:min-h-[55vh] text-white">
+      <ul className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 text-white">
         {articles?.map((article) => (
           <li key={article.id}>
             <ArticleTeaser article={article} />
