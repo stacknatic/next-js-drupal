@@ -12,6 +12,7 @@ export const ArticleBaseSchema = z.object({
   title: z.string(),
   field_image: ImageShape.nullable(),
   field_excerpt: z.string().optional().nullable(),
+
 });
 
 const ArticleSchema = ArticleBaseSchema.extend({
@@ -19,11 +20,19 @@ const ArticleSchema = ArticleBaseSchema.extend({
     id: z.string(),
     display_name: z.string(),
   }),
+  field_tags: z.array(
+    z.object({
+      id: z.string(),
+      name: z.string(),
+    })
+  ),
+
   field_anchor_nav: z.boolean().optional(),
   metatag: MetatagsSchema.optional(),
   body: z.object({
     processed: z.string(),
   }),
+  
 });
 
 export function validateAndCleanupArticle(article: DrupalNode): Article | null {

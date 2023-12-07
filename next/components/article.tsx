@@ -9,6 +9,7 @@ import { absoluteUrl } from "@/lib/drupal/absolute-url";
 import { formatDate } from "@/lib/utils";
 import { Article } from "@/lib/zod/article";
 import TableOfContents from "./toc";
+import { getNodePageJsonApiParams } from "@/lib/drupal/get-node-page-json-api-params";
 
 interface ArticleProps {
   article: Article;
@@ -17,6 +18,10 @@ interface ArticleProps {
 export function Article({ article, ...props }: ArticleProps) {
   const { t } = useTranslation();
   const router = useRouter();
+
+  // console.log('avatar', article.field_tags[0].name);
+  console.log('avatar', article);
+
   return (
     <article {...props}>
       <Breadcrumbs
