@@ -48,9 +48,9 @@ export function News({ news, ...props }: NewsProps) {
             src={absoluteUrl(news.field_image.uri.url)}
             width={768}
             height={480}
-            style={{ width: 768, height: 480 }}
+            style={{ width: '100%', height: 'auto' }}
             alt={news.field_image.resourceIdObjMeta.alt}
-            className="object-cover"
+            className="object-cover mx-auto rounded-lg"
             priority
           />
           {news.field_image.resourceIdObjMeta.title && (
