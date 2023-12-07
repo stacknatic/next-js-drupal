@@ -23,6 +23,7 @@ const ArticleSchema = ArticleBaseSchema.extend({
   body: z.object({
     processed: z.string(),
   }),
+  field_anchor_nav: z.boolean().optional(),
 });
 
 export function validateAndCleanupArticle(article: DrupalNode): Article | null {
