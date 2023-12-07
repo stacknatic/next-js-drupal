@@ -8,6 +8,7 @@ import { HeadingPage } from "@/components/heading--page";
 import { absoluteUrl } from "@/lib/drupal/absolute-url";
 import { formatDate } from "@/lib/utils";
 import { Article } from "@/lib/zod/article";
+import TableOfContents from "./toc";
 
 interface ArticleProps {
   article: Article;
@@ -59,6 +60,9 @@ export function Article({ article, ...props }: ArticleProps) {
           )}
         </figure>
       )}
+       {article.field_anchor_nav && (
+          <TableOfContents postContent={article.body?.processed} />
+          )}
       {article.body?.processed && (
         <FormattedText
           className="mt-4 text-md/xl text-scapaflow sm:text-lg"
