@@ -12,6 +12,7 @@ import { Menu } from "@/lib/zod/menu";
 
 import { SkipToContentLink } from "@/ui/skip-to-content-link";
 import CookieBanner from "./cookieBanner";
+import { usePathname } from "next/navigation";
 
 export interface LayoutProps {
   menus: {
@@ -24,6 +25,7 @@ export interface LayoutProps {
 export function Layout({ menus, children }: LayoutProps) {
   const isPreviewVisible = useIsPreviewBannerVisible();
   const { t } = useTranslation();
+  const pathname = usePathname();
 
   return (
     <>
@@ -37,9 +39,16 @@ export function Layout({ menus, children }: LayoutProps) {
           {t("skip-to-main-content")}
         </SkipToContentLink>
         <Header menu={menus.main} />
-        <main className="grow" id="main-content">
+        <div className="main-content-container">
+
+        <main className="grow border-2 border-primary-500 rounded-lg ml-1" id="main-content">
+
           <div className="mx-auto max-w-6xl px-6 py-8">{children}</div>
         </main>
+        {pathname !== "/" && (
+          <aside className="border-2 border-primary-500 rounded-lg"></aside>
+          )}
+        </div>
         <Footer menu={menus.footer} />
         <CookieBanner />
       </div>

@@ -9,7 +9,6 @@ import { absoluteUrl } from "@/lib/drupal/absolute-url";
 import { formatDate } from "@/lib/utils";
 import { Article } from "@/lib/zod/article";
 import TableOfContents from "./toc";
-
 interface ArticleProps {
   article: Article;
 }
@@ -48,9 +47,9 @@ export function Article({ article, ...props }: ArticleProps) {
             src={absoluteUrl(article.field_image.uri.url)}
             width={768}
             height={480}
-            style={{ width: 768, height: 480 }}
+            style={{ width: '100%', height: 'auto' }}
             alt={article.field_image.resourceIdObjMeta.alt}
-            className="object-cover"
+            className="object-cover mx-auto rounded-lg"
             priority
           />
           {article.field_image.resourceIdObjMeta.title && (
