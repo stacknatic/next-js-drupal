@@ -24,18 +24,21 @@ export function Header({ menu }: HeaderProps) {
       <nav className="mx-auto flex max-w-full flex-row items-center justify-between px-10 py-4">
         <HomeLink />
         <div className="flex flex-row items-center justify-end gap-6 sm:gap-8">
+          <MainMenu
+            menu={menu}
+            isOpen={isMainMenuOpen}
+            setIsOpen={setIsMainMenuOpen}
+          />
           <ContactLink />
           <SearchLink />
           <UserMenu />
           <LanguageSwitcher />
-          <MenuToggle isOpen={isMainMenuOpen} setIsOpen={setIsMainMenuOpen} />
+          <div className="flex lg:hidden">
+            {/* Hamburger Menu for smaller screens */}
+            <MenuToggle isOpen={isMainMenuOpen} setIsOpen={setIsMainMenuOpen} />
+          </div>
         </div>
       </nav>
-      <MainMenu
-        menu={menu}
-        isOpen={isMainMenuOpen}
-        setIsOpen={setIsMainMenuOpen}
-      />
     </header>
   );
 }
@@ -56,9 +59,9 @@ function SearchLink() {
   const { t } = useTranslation();
   return (
     <Link href="/search" locale={locale} className="hover:underline">
-      <span className="sr-only sm:not-sr-only sm:mr-2 sm:inline">
+      {/* <span className="sr-only sm:not-sr-only sm:mr-2 sm:inline">
         {t("search")}
-      </span>
+      </span> */}
       <SearchIcon className="inline-block h-6 w-6" aria-hidden="true" />
     </Link>
   );
@@ -69,9 +72,9 @@ function ContactLink() {
   const { t } = useTranslation();
   return (
     <Link href="/contacts" locale={locale} className="hover:underline">
-      <span className="sr-only sm:not-sr-only sm:mr-2 sm:inline">
+      {/* <span className="sr-only sm:not-sr-only sm:mr-2 sm:inline">
         {t("Contact Us")}
-      </span>
+      </span> */}
       <PencilIcon className="inline-block h-6 w-6" aria-hidden="true" />
     </Link>
   );

@@ -8,10 +8,6 @@ import ArrowIcon from "@/styles/icons/arrow-down.svg";
 
 import { buttonVariants } from "@/ui/button";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/bundle";
-import { Navigation, Pagination, Autoplay} from "swiper/modules";
 
 
 // interface LatestEventsProps {
@@ -23,32 +19,24 @@ export function EventTeasers({ events, heading }: any) {
   const { t } = useTranslation();
   return (
     <>
-      <h2 className="text-heading-sm font-bold md:text-heading-md">
+      <h2 className="text-heading-sm font-bold md:text-heading-md mb-6 text-white">
         {heading}
       </h2>
-      <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
-        navigation
-        // pagination={{ clickable: true }}
-        loop={true}
-        autoplay={{ delay: 3000, disableOnInteraction: false }}
-        spaceBetween={0}
-        slidesPerView={3}
-      >
-        {events?.map((event, index) => (
-          <SwiperSlide key={index}>
+      <ul className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 text-white">
+        {events?.slice(0, 3).map((event) => (
+          <li key={event}>
             <EventTeaser event={event} />
-          </SwiperSlide>
+          </li>
         ))}
-      </Swiper>
-      <div className="flex items-center justify-start mx-10 mb-24">
+      </ul>
+      <div className="flex items-center justify-start mb-24">
         {!events?.length && <p className="py-4">{t("no-content-found")}</p>}
         {events?.length && (
           <Link
             href="/events"
             className={clsx(
               buttonVariants({ variant: "primary" }),
-              "text-base mr-4 mt-4 inline-flex px-5 py-3",
+              "text-base mr-4 mt-4 inline-flex px-5 py-3 rounded-full border-white",
             )}
           >
             {t("All-events")}
