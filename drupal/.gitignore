@@ -37,6 +37,8 @@
 /web/sites/default/files/**/*.jpeg
 /web/sites/default/files/**/*.png
 /web/sites/default/files/**/*.htaccess
+/web/sites/default/files/**/*.gif
+/web/sites/default/files/*.xml
 /web/sites/default/files/php/twig
 
 # Alowing images related to service and service category content types
