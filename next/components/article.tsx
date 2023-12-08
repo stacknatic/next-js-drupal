@@ -9,6 +9,7 @@ import { absoluteUrl } from "@/lib/drupal/absolute-url";
 import { formatDate } from "@/lib/utils";
 import { Article } from "@/lib/zod/article";
 import TableOfContents from "./toc";
+import RightSideBar from "./rightSidebar";
 interface ArticleProps {
   article: Article;
 }
@@ -16,7 +17,10 @@ interface ArticleProps {
 export function Article({ article, ...props }: ArticleProps) {
   const { t } = useTranslation();
   const router = useRouter();
+  console.log('avatar', article.uid)
+
   return (
+      <>
     <article {...props}>
       <Breadcrumbs
         items={[
@@ -69,5 +73,6 @@ export function Article({ article, ...props }: ArticleProps) {
         />
       )}
     </article>
+    </>
   );
 }

@@ -11,6 +11,7 @@ import WunderIcon from "@/styles/icons/wunder.svg";
 
 import { LanguageSwitcher } from "./language-switcher";
 import { UserMenu } from "./user-menu";
+import DesktopMenu from "../desktop-menu/desktop-menu";
 
 interface HeaderProps {
   menu: Menu;
@@ -41,6 +42,12 @@ export function Header({ menu }: HeaderProps) {
           </div>
         </div>
       </nav>
+      <MainMenu
+        menu={menu}
+        isOpen={isMainMenuOpen}
+        setIsOpen={setIsMainMenuOpen}
+      />
+
     </header>
   );
 }

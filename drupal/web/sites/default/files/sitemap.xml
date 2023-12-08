@@ -314,21 +314,39 @@
   <priority>0.5</priority>
  </url>
  <url>
-  <loc>https://frontend.lndo.site/en/cases/gravis</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/cases/gravis"/>
-  <lastmod>2023-12-13T23:00:58+00:00</lastmod>
+  <loc>https://frontend.lndo.site/en/articles/framework-updates-react-18-alpha</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/articles/framework-updates-react-18-alpha"/>
+  <lastmod>2023-12-08T12:38:48+00:00</lastmod>
   <priority>0.5</priority>
  </url>
  <url>
-  <loc>https://frontend.lndo.site/en/cases/ad-conventio</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/cases/ad-conventio"/>
-  <lastmod>2023-12-13T23:00:58+00:00</lastmod>
+  <loc>https://frontend.lndo.site/en/cases/test-case</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/cases/test-case"/>
+  <lastmod>2023-12-04T10:26:55+00:00</lastmod>
   <priority>0.5</priority>
  </url>
  <url>
-  <loc>https://frontend.lndo.site/en/cases/exputo-tamen-vero</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/cases/exputo-tamen-vero"/>
-  <lastmod>2023-12-13T23:00:58+00:00</lastmod>
+  <loc>https://frontend.lndo.site/en/cases/test-case-0</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/cases/test-case-0"/>
+  <lastmod>2023-12-04T10:27:51+00:00</lastmod>
+  <priority>0.5</priority>
+ </url>
+ <url>
+  <loc>https://frontend.lndo.site/en/cases/inhibeo-suscipere</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/cases/inhibeo-suscipere"/>
+  <lastmod>2023-12-05T10:42:25+00:00</lastmod>
+  <priority>0.5</priority>
+ </url>
+ <url>
+  <loc>https://frontend.lndo.site/en/cases/ludus-velit</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/cases/ludus-velit"/>
+  <lastmod>2023-12-05T10:42:25+00:00</lastmod>
+  <priority>0.5</priority>
+ </url>
+ <url>
+  <loc>https://frontend.lndo.site/en/cases/dolor-incassum-qui-ulciscor</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/cases/dolor-incassum-qui-ulciscor"/>
+  <lastmod>2023-12-05T10:42:25+00:00</lastmod>
   <priority>0.5</priority>
  </url>
  <url>
