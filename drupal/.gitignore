@@ -38,11 +38,16 @@
 /web/sites/default/files/**/*.png
 /web/sites/default/files/**/*.htaccess
 /web/sites/default/files/**/*.gif
+/web/sites/default/files/**/*.svg
 /web/sites/default/files/*.xml
 /web/sites/default/files/php/twig
 
 # Alowing images related to service and service category content types
 !/web/sites/default/files/**/service_*.*
+!/web/sites/default/files/**/about_*.*
+!/web/sites/default/files/**/case_*.*
+!/web/sites/default/files/**/contact_*.*
+!/web/sites/default/files/**/article_*.*
 
 
 # Ignore testing directories.
