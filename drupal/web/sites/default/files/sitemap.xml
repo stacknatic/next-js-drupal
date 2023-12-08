@@ -314,6 +314,12 @@
   <priority>0.5</priority>
  </url>
  <url>
+  <loc>https://frontend.lndo.site/en/articles/framework-updates-react-18-alpha</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/articles/framework-updates-react-18-alpha"/>
+  <lastmod>2023-12-08T12:38:48+00:00</lastmod>
+  <priority>0.5</priority>
+ </url>
+ <url>
   <loc>https://frontend.lndo.site/en/events/wunder-day</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/events/wunder-day"/>
   <lastmod>2023-11-24T06:27:55+00:00</lastmod>

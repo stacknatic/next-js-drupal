@@ -17,6 +17,7 @@ interface NewsProps {
 export function News({ news, ...props }: NewsProps) {
   const { t } = useTranslation();
   const router = useRouter();
+  console.log('avatar', news.uid)
   return (
     <div {...props}>
       <Breadcrumbs
@@ -35,6 +36,15 @@ export function News({ news, ...props }: NewsProps) {
         <div className="my-4 text-xl">{news.field_excerpt}</div>
       )} */}
       <div className="mb-4 text-scapaflow">
+        {/* {news.field_photo && (
+          <Image
+            src={absoluteUrl(news.field_photo.uri.url)}
+            width={32}
+            height={32}
+            className="rounded-full"
+            alt={news.field_photo.resourceIdObjMeta.alt}
+          />
+        )} */}
         {news.uid?.display_name && (
           <span>
             {t("posted-by", { author: news.uid?.display_name })} -{" "}
