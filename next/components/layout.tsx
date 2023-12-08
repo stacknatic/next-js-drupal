@@ -45,9 +45,15 @@ export function Layout({ menus, children }: LayoutProps) {
 
           <div className="mx-auto max-w-6xl px-6 py-8">{children}</div>
         </main>
-        {pathname !== "/" && (
-          <aside className="border-2 border-primary-500 rounded-lg"></aside>
+        {pathname.includes('/articles/') && (
+          <aside className="border-2 border-primary-500 rounded-lg">
+          </aside>
           )}
+           {pathname.includes('/news/') && (
+          <aside className="border-2 border-primary-500 rounded-lg">
+          </aside>
+          )}
+          
         </div>
         <Footer menu={menus.footer} />
         <CookieBanner />
