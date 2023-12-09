@@ -5,17 +5,11 @@ import { Button } from "@/ui/button";
 import { StatusMessage } from "@/ui/status-message";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-
-const BaseEventRegistrationSchema = z.object({
-  name: z.string().min(1, "Name is required"),
-  email: z.string().min(1, "Email is required").email(),
-  message: z.string(),
-});
-
-const EventRegistrationSchema = BaseEventRegistrationSchema.extend({
-  even_title: z.string(),
-});
-type Inputs = z.infer<typeof BaseEventRegistrationSchema>;
+import {
+  BaseEventRegistrationSchema,
+  EventRegistrationInputType,
+  EventRegistrationSchema,
+} from "@/lib/zod/event-registration";
 
 export function EventRegistration({ eventTitle }: { eventTitle: string }) {
   const router = useRouter();
@@ -25,9 +19,11 @@ export function EventRegistration({ eventTitle }: { eventTitle: string }) {
     handleSubmit,
     reset,
     formState: { errors, isSubmitSuccessful },
-  } = useForm<Inputs>({ resolver: zodResolver(BaseEventRegistrationSchema) });
+  } = useForm<EventRegistrationInputType>({
+    resolver: zodResolver(BaseEventRegistrationSchema),
+  });
 
-  const onSubmit = async (data: Inputs) => {
+  const onSubmit = async (data: EventRegistrationInputType) => {
     const formdataValidation = EventRegistrationSchema.safeParse({
       ...data,
       even_title: eventTitle,
