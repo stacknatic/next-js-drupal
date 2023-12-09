@@ -18,7 +18,7 @@ export function EventRegistration({ eventTitle }: { eventTitle: string }) {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors, isSubmitSuccessful, isSubmitting },
   } = useForm<EventRegistrationInputType>({
     resolver: zodResolver(BaseEventRegistrationSchema),
   });
@@ -118,7 +118,9 @@ export function EventRegistration({ eventTitle }: { eventTitle: string }) {
           <p className="text-error">{errors.message.message}</p>
         )}
       </div>
-      <Button type="submit">Submit</Button>
+      <Button type="submit">
+        {isSubmitting ? "Submitting....." : "Submit"}
+      </Button>
     </form>
   );
 }
