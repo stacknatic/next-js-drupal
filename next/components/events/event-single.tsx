@@ -9,6 +9,7 @@ import EventProfile from "./event-profile";
 import CalenderIcon from "@/styles/icons/calendar.svg";
 import { Breadcrumbs } from "../breadcrumbs";
 import { EventSingleType } from "@/lib/zod/event-single";
+import { EventRegistration } from "../event-registration";
 
 function EventSingle({ event }: { event: EventSingleType }) {
   const { t } = useTranslation();
@@ -58,9 +59,7 @@ function EventSingle({ event }: { event: EventSingleType }) {
           </div>
         )}
 
-        <button className="border py-2 px-7 mb-4 bg-primary-100 rounded hover:bg-primary-400  justify-self-start">
-          Join us
-        </button>
+        <EventRegistration eventTitle={event.title} />
       </div>
       {event.field_image && (
         <Image
