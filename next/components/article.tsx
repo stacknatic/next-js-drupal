@@ -9,6 +9,7 @@ import { absoluteUrl } from "@/lib/drupal/absolute-url";
 import { formatDate } from "@/lib/utils";
 import { Article } from "@/lib/zod/article";
 import TableOfContents from "./toc";
+import avatar from '@/styles/avatar.module.css';
 import RightSideBar from "./rightSidebar";
 interface ArticleProps {
   article: Article;
@@ -37,13 +38,15 @@ export function Article({ article, ...props }: ArticleProps) {
       {article.field_excerpt && (
         <div className="my-4 text-xl">{article.field_excerpt}</div>
       )}
-      <div className="mb-4 text-scapaflow">
+      <div className="mb-4 text-scapaflow flex align-middle gap-2 items-center">
+        <Image src={absoluteUrl(article.uid?.field_user_avatar?.uri.url)} width={50} height={50} className={avatar.userAvatar} alt={article.uid?.display_name} />
         {article.uid?.display_name && (
           <span>
             {t("posted-by", { author: article.uid?.display_name })} -{" "}
           </span>
         )}
         <span>{formatDate(article.created, router.locale)}</span>
+
       </div>
       {article.field_image && (
         <figure>
