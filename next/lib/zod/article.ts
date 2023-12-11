@@ -2,8 +2,8 @@ import { DrupalNode } from "next-drupal";
 import { z } from "zod";
 
 import { MetatagsSchema } from "@/lib/zod/metatag";
-import { ImageShape, LinkShape } from "@/lib/zod/paragraph";
-import { CategorySchema } from "./taxonomy-schema";
+import { ImageShape } from "@/lib/zod/paragraph";
+import { CategorySchema } from "@/lib/zod/taxonomy-schema";
 export const ArticleBaseSchema = z.object({
   type: z.literal("node--article"),
   id: z.string(),
@@ -30,11 +30,6 @@ const ArticleSchema = ArticleBaseSchema.extend({
   }),
   field_category: CategorySchema.optional(),
  
-  // field_category: z.object({
-  //   id: z.string(),
-  //   type: z.string(),
-    
-  // }),
   field_tags: z.array(
     z.object({
       id: z.string(),
@@ -44,7 +39,6 @@ const ArticleSchema = ArticleBaseSchema.extend({
     z.object({ drupal_internal__target_id: z.number() })
   ),
   
- 
 });
 
 export function validateAndCleanupArticle(article: DrupalNode): Article | null {
