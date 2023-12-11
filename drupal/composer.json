@@ -18,6 +18,7 @@
         "php": ">=8.2",
         "composer/installers": "^2.1",
         "cweagans/composer-patches": "^1.7",
+        "drupal/access_by_ref": "^3.0",
         "drupal/admin_toolbar": "^3.3",
         "drupal/anchor_link": "^2.6",
         "drupal/auto_heading_ids": "^2.0@beta",
