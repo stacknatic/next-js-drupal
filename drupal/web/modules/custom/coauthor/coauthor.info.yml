@@ -1,6 +1,0 @@
-name: coauthor
-type: module
-description: Add a coauthor to content
-core_version_requirement: ^9 || ^10
-version: 1.0
-package: Custom

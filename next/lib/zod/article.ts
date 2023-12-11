@@ -10,13 +10,9 @@ export const ArticleBaseSchema = z.object({
   created: z.string(),
   sticky: z.boolean().optional(),
   title: z.string(),
-  field_image: ImageShape.nullable(),
   field_excerpt: z.string().optional().nullable(),
-  uid: z.object({
-    id: z.string(),
-    display_name: z.string(),
-    field_user_avatar: ImageShape.nullable(),
-  }),
+  field_image: ImageShape.nullable(),
+  
 });
 
 const ArticleSchema = ArticleBaseSchema.extend({
@@ -26,6 +22,11 @@ const ArticleSchema = ArticleBaseSchema.extend({
   }),
   
   field_anchor_nav: z.boolean().optional(),
+  uid: z.object({
+    id: z.string(),
+    display_name: z.string(),
+    field_user_avatar: ImageShape.nullable(),
+  }),
 });
 
 export function validateAndCleanupArticle(article: DrupalNode): Article | null {
