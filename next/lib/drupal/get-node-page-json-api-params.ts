@@ -73,6 +73,8 @@ export function getNodePageJsonApiParams(resourceType: ResourceType) {
       "path",
       "sticky",
       "field_anchor_nav",
+      "field_category",
+      "field_tags",
     
     ]);
   }

@@ -2,7 +2,7 @@ import { DrupalNode } from "next-drupal";
 import { z } from "zod";
 
 import { MetatagsSchema } from "@/lib/zod/metatag";
-import { ImageShape } from "@/lib/zod/paragraph";
+import { ImageShape, LinkShape } from "@/lib/zod/paragraph";
 
 export const ArticleBaseSchema = z.object({
   type: z.literal("node--article"),
@@ -26,7 +26,20 @@ const ArticleSchema = ArticleBaseSchema.extend({
     id: z.string(),
     display_name: z.string(),
     field_user_avatar: ImageShape.nullable(),
+    
   }),
+  field_category: z.object({
+    id: z.string(),
+    type: z.string(),
+  }),
+  field_tags: z.array(
+    z.object({
+      id: z.string(),
+      type: z.string(),
+    }),
+  ),
+  
+ 
 });
 
 export function validateAndCleanupArticle(article: DrupalNode): Article | null {

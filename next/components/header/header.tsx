@@ -41,7 +41,6 @@ export function Header({ menu }: HeaderProps) {
           </div>
         </div>
       </nav>
-
     </header>
   );
 }
