@@ -36,6 +36,9 @@ export function Article({ article, ...props }: ArticleProps) {
           },
         ]}
       />
+      {article.field_category && (
+      <span>Category: {article.field_category.name}</span>
+      )}
       <HeadingPage>{article.title}</HeadingPage> 
       {article.field_excerpt && (
         <div className="my-4 text-xl">{article.field_excerpt}</div>

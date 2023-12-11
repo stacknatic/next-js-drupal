@@ -2,9 +2,8 @@ import { DrupalNode } from "next-drupal";
 import { z } from "zod";
 
 import { MetatagsSchema } from "@/lib/zod/metatag";
-import { CategorySchema, ImageShape, LinkShape } from "@/lib/zod/paragraph";
-import FieldCategorySchema from "./category-schema";
-
+import { ImageShape, LinkShape } from "@/lib/zod/paragraph";
+import { CategorySchema } from "./taxonomy-schema";
 export const ArticleBaseSchema = z.object({
   type: z.literal("node--article"),
   id: z.string(),
