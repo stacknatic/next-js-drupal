@@ -19,24 +19,24 @@ export function EventTeasers({ events, heading }: any) {
   const { t } = useTranslation();
   return (
     <>
-      <h2 className="text-heading-sm font-bold md:text-heading-md mb-6 text-white">
+      <h2 className="text-heading-sm font-bold md:text-heading-md my-10">
         {heading}
       </h2>
-      <ul className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 text-white">
+      <ul className="mt-4 grid grid-cols-1 lg:gap-10 gap-1 sm:grid-cols-2 md:grid-cols-3 lg:h-500">
         {events?.slice(0, 3).map((event) => (
           <li key={event}>
             <EventTeaser event={event} />
           </li>
         ))}
       </ul>
-      <div className="flex items-center justify-start mb-24">
+      <div className="flex items-center lg:justify-start lg:mb-24">
         {!events?.length && <p className="py-4">{t("no-content-found")}</p>}
         {events?.length && (
           <Link
             href="/events"
             className={clsx(
               buttonVariants({ variant: "primary" }),
-              "text-base mr-4 mt-4 inline-flex px-5 py-3 rounded-full border-white",
+              "text-base lg:my-10 mt-0 mb-4 inline-flex px-5 py-3 rounded-full border-white",
             )}
           >
             {t("All-events")}

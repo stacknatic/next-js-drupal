@@ -93,3 +93,31 @@
 }
 
 /***** END COOKIE BANNER ******/
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Place the canvas behind other content */
+}
+
+@media only screen and (min-width: 1060px){
+
+  .movingCard{
+    height: 400px;
+    
+    &:hover{
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
+      height: 500px;
+      
+      .info{
+        transition: all 0.3s ease-in-out;
+        color: black;
+      }
+    }
+  }
+  
+}

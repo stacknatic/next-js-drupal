@@ -39,8 +39,9 @@ export function LanguageSwitcher() {
       </button>
       <ul
         className={clsx(
-          "absolute z-50 mt-1 w-fit border border-finnishwinter bg-mischka",
+          "absolute z-50 mt-1 w-fit border border-finnishwinter bg-primary-600",
           !isOpen && "hidden",
+          "right-[65px] md:right-[10px] "
         )}
       >
         {locales

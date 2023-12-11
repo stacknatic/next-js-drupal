@@ -12,6 +12,7 @@ import { Menu } from "@/lib/zod/menu";
 
 import { SkipToContentLink } from "@/ui/skip-to-content-link";
 import CookieBanner from "./cookieBanner";
+import { useRouter } from "next/router";
 
 export interface LayoutProps {
   menus: {
@@ -24,11 +25,15 @@ export interface LayoutProps {
 export function Layout({ menus, children }: LayoutProps) {
   const isPreviewVisible = useIsPreviewBannerVisible();
   const { t } = useTranslation();
+  const router = useRouter();
+  const isHomePage = router.pathname === "/";
+  
 
   return (
     <>
       <div
         className={clsx(
+
           "flex min-h-screen flex-col",
           isPreviewVisible && "mt-10",
         )}
