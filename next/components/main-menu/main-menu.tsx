@@ -121,57 +121,64 @@ export function MainMenu({ menu, isOpen, setIsOpen }: MainMenuProps) {
         onValueChange={setActiveMenu}
         isOpen={isOpen}
         ref={ref}
-        className="hidden lg:flex lg:justify-end lg:items-center lg:w-full"
       >
-        <MenuList level={0} className="flex items-center">
+        <MenuList level={0}>
           {menu.map((item) => (
             <MenuItem key={item.id} value={item.id} isTopLevel>
-              <MenuLink href={item.url} isTopLevel className="px-4 py-2">
+              <MenuLink href={item.url} isTopLevel>
                 {item.title}
               </MenuLink>
               {item.items?.length > 0 && (
                 <MenuTrigger isTopLevel parent={item.title} />
               )}
-              <MenuContent className="hidden absolute mt-2 space-y-2 bg-white border border-gray-200 shadow-lg">
-                <div className="px-4 py-2">
-                  <MenuSubmenu
-                    value={activeSubmenu}
-                    onValueChange={setActiveSubmenu}
-                    className="text-gray-700"
-                  >
-                    <MenuList level={1} className="flex space-x-4">
-                      {item.items?.map((subItem) => (
-                        <MenuItem key={subItem.id} value={subItem.id}>
-                          <MenuLink href={subItem.url} className="block py-2">
-                            {subItem.title}
-                          </MenuLink>
-                          {subItem.items?.length > 0 && (
-                            <MenuTrigger parent={subItem.title} />
-                          )}
-                          <MenuContent className="hidden absolute mt-0 ml-12 space-y-2 bg-white border border-gray-200 shadow-lg">
-                            <MenuSubmenu>
-                              <MenuList level={2} className="flex space-x-4">
-                                {subItem.items?.map((subSubItem) => (
-                                  <MenuItem
-                                    key={subSubItem.id}
-                                    value={subSubItem.id}
-                                  >
-                                    <MenuLink
-                                      href={subSubItem.url}
-                                      className="block py-2"
-                                    >
-                                      {subSubItem.title}
-                                    </MenuLink>
-                                  </MenuItem>
-                                ))}
-                              </MenuList>
-                            </MenuSubmenu>
-                          </MenuContent>
-                        </MenuItem>
-                      ))}
-                    </MenuList>
-                  </MenuSubmenu>
-                </div>
+              <MenuContent>
+                <MenuSubmenu
+                  value={activeSubmenu}
+                  onValueChange={setActiveSubmenu}
+                >
+                  <MenuList level={1}>
+                    <MenuBack
+                      onClick={() => {
+                        setActiveMenu(null);
+                      }}
+                    />
+                    <MenuListTitle href={item.url}>
+                      {activeMenuTitle}
+                    </MenuListTitle>
+                    {item.items?.map((subItem) => (
+                      <MenuItem key={subItem.id} value={subItem.id}>
+                        <MenuLink href={subItem.url}>{subItem.title}</MenuLink>
+                        {subItem.items?.length > 0 && (
+                          <MenuTrigger parent={subItem.title} />
+                        )}
+                        <MenuContent>
+                          <MenuSubmenu>
+                            <MenuList level={2}>
+                              <MenuBack
+                                onClick={() => {
+                                  setActiveSubmenu(item.id);
+                                }}
+                              />
+                              <MenuListTitle href={subItem.url}>
+                                {activeSubmenuTitle}
+                              </MenuListTitle>
+                              {subItem.items?.map((subSubItem) => (
+                                <MenuItem
+                                  key={subSubItem.id}
+                                  value={subSubItem.id}
+                                >
+                                  <MenuLink href={subSubItem.url}>
+                                    {subSubItem.title}
+                                  </MenuLink>
+                                </MenuItem>
+                              ))}
+                            </MenuList>
+                          </MenuSubmenu>
+                        </MenuContent>
+                      </MenuItem>
+                    ))}
+                  </MenuList>
+                </MenuSubmenu>
               </MenuContent>
             </MenuItem>
           ))}
