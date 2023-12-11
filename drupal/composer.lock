@@ -1725,66 +1725,6 @@
             }
         },
         {
-            "name": "drupal/auto_heading_ids",
-            "version": "2.0.0-beta2",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/auto_heading_ids.git",
-                "reference": "2.0.0-beta2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/auto_heading_ids-2.0.0-beta2.zip",
-                "reference": "2.0.0-beta2",
-                "shasum": "63466896617f57151bd0b51536c02ecb5c7c7da8"
-            },
-            "require": {
-                "drupal/core": "^8 || ^9 || ^10"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.0.0-beta2",
-                    "datestamp": "1692187505",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "bart88",
-                    "homepage": "https://www.drupal.org/user/3198481"
-                },
-                {
-                    "name": "caseyfw",
-                    "homepage": "https://www.drupal.org/user/3150611"
-                },
-                {
-                    "name": "pingers",
-                    "homepage": "https://www.drupal.org/user/56282"
-                },
-                {
-                    "name": "singularo",
-                    "homepage": "https://www.drupal.org/user/143"
-                }
-            ],
-            "description": "This module provides a filter to automatically apply identifiers to headings in content.",
-            "homepage": "https://www.drupal.org/project/auto_heading_ids",
-            "keywords": [
-                "Drupal"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/auto_heading_ids",
-                "issues": "https://www.drupal.org/project/issues/auto_heading_ids"
-            }
-        },
-        {
             "name": "drupal/ckeditor",
             "version": "1.0.2",
             "source": {
@@ -17241,7 +17181,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "drupal/auto_heading_ids": 10,
         "drupal/jsonapi_extras": 10,
         "drupal/monolog": 10,
         "drupal/simplei": 10,
