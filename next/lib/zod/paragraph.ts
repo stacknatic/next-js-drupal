@@ -64,6 +64,15 @@ export const ImageSchema = z.object({
     .optional(),
 });
 
+export const CategorySchema = z.object({
+  type: z.literal("taxonomy_term--article_category"),
+  id: z.string(),
+  name: z.string(),
+  
+   
+  
+});
+
 export const FileAttachmentsSchema = z.object({
   type: z.literal("paragraph--file_attachments"),
   id: z.string(),
