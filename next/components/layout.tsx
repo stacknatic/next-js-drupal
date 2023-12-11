@@ -45,7 +45,7 @@ export function Layout({ menus, children }: LayoutProps) {
         <Header menu={menus.main} />
         <div className="main-content-container">
 
-        <main className="grow border-2 border-primary-500 rounded-lg ml-1" id="main-content">
+        <main className="grow ml-1" id="main-content">
 
           <div className="mx-auto max-w-6xl px-6 py-8">{children}</div>
         </main>
@@ -53,7 +53,7 @@ export function Layout({ menus, children }: LayoutProps) {
           <ArticleSidebar />
           )}
            {pathname.includes('/news') && (
-          <aside className="border-2 border-primary-500 rounded-lg">
+          <aside className="border-l-2 border-primary-500">
           </aside>
           )}
           

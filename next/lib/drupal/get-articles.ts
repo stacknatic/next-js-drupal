@@ -70,3 +70,15 @@ export const getLatestArticlesItems = async (
     articles: nodes,
   };
 };
+
+export const getRecentArticles = async (
+  args: GetArticlesArgs,
+): Promise<DrupalNode[]> => {
+  const apiParams = getNodePageJsonApiParams("node--article");
+  const { nodes } = await getArticles(args, apiParams);
+
+  // Assuming that the nodes are already sorted by date in descending order
+  const recentArticles = nodes.slice(0, 5); // Get the first 5 nodes as recent articles
+
+  return recentArticles;
+};
