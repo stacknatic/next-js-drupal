@@ -17,27 +17,27 @@ export function NewsTeasers({ news, heading }: LatestNewsProps) {
   const { t } = useTranslation();
   return (
     <>
-      <h2 className="text-heading-sm font-bold md:text-heading-md">
+      <h2 className="text-heading-sm font-bold md:text-heading-md my-10">
         {heading}
       </h2>
-      <ul className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:min-h-[55vh] text-white">
+      <ul className="mt-4 grid grid-cols-1 lg:gap-10 gap-1 sm:grid-cols-2 md:grid-cols-3 lg:h-500">
         {news?.map((news) => (
           <li key={news?.id}>
             <NewsTeaser news={news} />
           </li>
         ))}
       </ul>
-      <div className="flex items-center justify-start mb-24">
+      <div className="flex items-center lg:justify-start  lg:mb-24">
         {!news?.length && <p className="py-4">{t("no-content-found")}</p>}
         {news?.length && (
           <Link
             href="/all-news"
             className={clsx(
               buttonVariants({ variant: "primary" }),
-              "text-base mr-4 mt-4 inline-flex px-5 py-3 rounded-full border-white",
+              "text-base lg:my-10 mt-2 mb-4 inline-flex px-5 py-3 rounded-full border-white",
             )}
           >
-            {t("all-news")}
+            {t("All-news")}
             <ArrowIcon aria-hidden className="ml-3 h-6 w-6 -rotate-90" />
           </Link>
         )}

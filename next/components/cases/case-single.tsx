@@ -48,7 +48,7 @@ function CaseSingle({ project }: { project: CaseSingleType }) {
       )}
       {project.body && (
         <FormattedText
-          className="mt-4 text-md/xl text-scapaflow sm:text-lg "
+          className="mt-4 text-md/xl sm:text-lg "
           html={project.body.processed}
         />
       )}
