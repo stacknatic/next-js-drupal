@@ -13,13 +13,13 @@ title: Newsletter-registration
 description: ''
 categories: {  }
 elements: |-
-  email:
-    '#type': textfield
-    '#title': Email
-    '#required': true
   privacy:
     '#type': checkbox
     '#title': privacy
+    '#required': true
+  email:
+    '#type': email
+    '#title': Email
     '#required': true
   news:
     '#type': checkbox
