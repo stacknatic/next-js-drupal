@@ -18,6 +18,9 @@ import {
   validateAndCleanupArticleTeaser,
 } from "@/lib/zod/article-teaser";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { NodeArticleTeaser } from "@/components/node--article--teaser";
+import { DrupalNode } from "next-drupal";
+import { Post } from "@/lib/zod/post-schema";
 
 interface AllArticlesPageProps extends LayoutProps {
   articleTeasers: ArticleTeaserType[];
@@ -31,6 +34,7 @@ export default function AllArticlesPage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { t } = useTranslation();
   const focusRef = useRef<HTMLDivElement>(null);
+  console.log(articleTeasers);
   return (
     <>
       <Meta title={t("all-articles")} metatags={[]} />
@@ -45,7 +49,7 @@ export default function AllArticlesPage({
       <HeadingPage>{t("all-articles")}</HeadingPage>
       <ul className="mt-4">
         {articleTeasers?.map((article) => (
-          <li key={article.id}>
+          <li key={article?.id}>
             <ArticleListItem article={article} />
           </li>
         ))}

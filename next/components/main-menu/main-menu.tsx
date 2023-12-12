@@ -109,9 +109,8 @@ export function MainMenu({ menu, isOpen, setIsOpen }: MainMenuProps) {
     }
   }, [isOpen, menu, router]);
 
-  const activeMenuTitle = menu.find((i) => i.id === activeMenu)?.title;
-  const activeSubmenuTitle = menu
-    .find((i) => i.id === activeMenu)
+  const activeMenuTitle = menu?.find((i) => i.id === activeMenu)?.title;
+  const activeSubmenuTitle = menu?.find((i) => i.id === activeMenu)
     ?.items?.find((i) => i.id === activeSubmenu)?.title;
 
   return (
@@ -123,7 +122,7 @@ export function MainMenu({ menu, isOpen, setIsOpen }: MainMenuProps) {
         ref={ref}
       >
         <MenuList level={0}>
-          {menu.map((item) => (
+          {menu?.map((item) => (
             <MenuItem key={item.id} value={item.id} isTopLevel>
               <MenuLink href={item.url} isTopLevel>
                 {item.title}

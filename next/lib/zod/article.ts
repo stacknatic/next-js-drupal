@@ -4,6 +4,7 @@ import { z } from "zod";
 import { MetatagsSchema } from "@/lib/zod/metatag";
 import { ImageShape } from "@/lib/zod/paragraph";
 import { CategorySchema, TagsSchema } from "@/lib/zod/taxonomy-schema";
+
 export const ArticleBaseSchema = z.object({
   type: z.literal("node--article"),
   id: z.string(),
@@ -12,14 +13,26 @@ export const ArticleBaseSchema = z.object({
   title: z.string(),
   field_excerpt: z.string().optional().nullable(),
   field_image: ImageShape.nullable(),
-  
+  field_category: CategorySchema.optional().nullable(),
+
+  // field_anchor_nav: z.boolean().optional(),
+
+  uid: z.object({
+    id: z.string(),
+    display_name: z.string(),
+    // field_user_avatar: ImageShape.nullable(),
+  }),
+  // field_category: CategorySchema.optional(),
+  // field_tags: TagsSchema.optional(),
+
 });
 
-const ArticleSchema = ArticleBaseSchema.extend({
+export const ArticleSchema = ArticleBaseSchema.extend({
   metatag: MetatagsSchema.optional(),
   body: z.object({
     processed: z.string(),
   }),
+  
   
   field_anchor_nav: z.boolean().optional(),
   uid: z.object({
@@ -31,15 +44,6 @@ const ArticleSchema = ArticleBaseSchema.extend({
   field_category: CategorySchema.optional(),
 
   field_tags: TagsSchema.optional(),
- 
-  // field_tags: z.array(
-  //   z.object({
-  //     id: z.string(),
-  //     type: z.string(),
-      
-  //   }),
-  //   z.object({ drupal_internal__target_id: z.number() })
-  // ),
   
 });
 

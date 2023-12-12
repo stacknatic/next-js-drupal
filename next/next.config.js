@@ -27,6 +27,7 @@ const nextConfig = {
       issuer: /\.tsx$/i,
       loader: "@svgr/webpack",
     });
+    
     return config;
   },
 };
