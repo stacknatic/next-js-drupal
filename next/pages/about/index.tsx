@@ -10,7 +10,7 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
     // Check if field_logos is an array before mapping over it
     if (Array.isArray(validatedCustomerLogos.field_logos)) {
         const logoElements = validatedCustomerLogos.field_logos.map((logo) => (
-            <div key={logo.id}>
+            <div key={logo.id} className="p-6 flex items-center justify-center flex-grow-0 flex-shrink-0 flex-basis-1/2 max-w-1/2">
                 <Link href={logo.field_link.full_url}>
                     <Image
                         src={absoluteUrl(logo.field_logo.uri.url)}
@@ -22,12 +22,23 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
                 </Link>
             </div>
         ));
-        {
 
-        }
+        const partnerLogoElements = validatedPartnerLogos.field_logos.map((logo) => (
+            // Adjust this code based on your requirements for partner logos
+            <div key={logo.id} className="p-6 flex items-center justify-center flex-grow-0 flex-shrink-0 flex-basis-1/2 max-w-1/2">
+                <Link href={logo.field_link.full_url}>
+                    <Image
+                        src={absoluteUrl(logo.field_logo.uri.url)}
+                        width={100}
+                        height={100}
+                        alt={logo.field_logo.resourceIdObjMeta.alt}
+                    />
+                </Link>
+            </div>
+        ));
         return (
             <div className=''>
-                <section className=' bg-stone md:pb-5 pb-2 text-white'>
+                <section className=' bg-primary-400 md:pb-5 pb-2 text-white'>
                     <div className='md:pt-5 pt-2 md:pl-10 pl-2 tracking-wider'>
                         <p className="md:text-2xl text-md md:w-1/2 leading-normal capitalize">
                             {validatedAboutPage.field_mission_description}
@@ -68,11 +79,11 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
                         <p className='md:text-lg text-xs md:pl-12 md:mt-[10vh] mt-9 font-semibold text-center md:text-left'>
                             OUR CUSTOMERS
                         </p>
-                        <div className='rounded-2xl bg-primary-100 md:mt-10 mt-5 md:py-10 py-5'>
+                        <div className='rounded-2xl md:mt-10 mt-5 md:py-10 py-5'>
                             <p className='md:px-9 md:text-sm text-xs leading-loose px-3'>
                                 {validatedAboutPage.field_our_customers_description}
                             </p>
-                            <div className='md:flex grid grid-cols-2 ss:grid-cols-4 gap-y-2 gap-x-2  md:justify-around md:mt-8 px-5 mt-7'>
+                            <div className='flex flex-wrap justify-center'>
                                 {logoElements}
                             </div>
                         </div>
@@ -81,15 +92,13 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
                         <p className='md:text-lg text-xs md:pl-12 md:mt-[10vh] mt-9 font-semibold text-center md:text-left'>
                             OUR PARTNERS
                         </p>
-                        <div className='rounded-2xl bg-primary-100 md:mt-10 mt-5 md:py-10 py-5'>
+                        <div className='rounded-2xl md:mt-10 mt-5 md:py-10 py-5'>
                             <p className='md:px-9 md:text-sm text-xs leading-loose px-3'>
                                 {validatedAboutPage.field_our_partners_descriptions}
                             </p>
-                            <div className='md:flex grid grid-cols-2 ss:grid-cols-4 gap-y-2 gap-x-2  md:justify-around md:mt-8 px-5 mt-7'>
-                                {logoElements}
+                            <div className='flex flex-wrap justify-center'>
+                                {partnerLogoElements}
                             </div>
-
-
                         </div>
                     </div>
                 </section>
