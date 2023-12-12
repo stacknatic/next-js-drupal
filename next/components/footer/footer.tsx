@@ -18,13 +18,13 @@ interface FooterProps {
 export function Footer({ menu }: FooterProps) {
   // Only show the menu items that match the current locale:
   const { locale } = useRouter();
-  const filteredItems = menu.filter((link) => link.langcode == locale);
+  const filteredItems = menu?.filter((link) => link.langcode == locale);
   return (
     <footer className="border-t border-finnishwinter">
       <div className="mx-auto max-w-6xl px-6">
         <nav className="flex flex-col items-center gap-2 py-8 text-md sm:flex-row sm:justify-between">
           <ul className="mr-4 flex flex-wrap gap-x-12 gap-y-4">
-            {filteredItems.map((link) => {
+            {filteredItems?.map((link) => {
               const icon = Array.isArray(link.options)
                 ? null
                 : link.options.attributes.icon;

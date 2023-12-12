@@ -11,6 +11,11 @@ import { Article } from "@/lib/zod/article";
 import AnchorNavigation from "./anchorNavigation";
 import avatar from '@/styles/avatar.module.css';
 import addId from "./addId";
+import ArticleLayout from "@/pages/layouts/articlesLayout";
+import { LayoutProps } from "./layout";
+import { ArticleTeaser } from "@/lib/zod/article-teaser";
+import { NewsTeaser } from "@/lib/zod/news-teaser";
+import ArticleSidebar from "./articleSidebar";
 
 interface ArticleProps {
   article: Article;
@@ -22,8 +27,6 @@ export function Article({ article, ...props }: ArticleProps) {
   const articleBody = addId(article.body?.processed);
   console.log("tags", article.field_tags)
   console.log("category", article.field_category)
-  
-
 
   return (
     <article {...props}>

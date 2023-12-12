@@ -1,27 +1,30 @@
-'use client';
 import React from 'react';
-import { getRecentArticles } from '@/lib/drupal/get-articles';
-import { LayoutProps } from './layout';
+import { DrupalNode } from "next-drupal";
 
-import {
-  ArticleTeaser as ArticleTeaserType,
-  validateAndCleanupArticleTeaser,
-} from "@/lib/zod/article-teaser";
-import { ArticleListItem } from './article-list-item';
+import { NodeArticleTeaser } from './node--article--teaser';
 
-interface AllArticlesPageProps extends LayoutProps {
-  articleTeasers: ArticleTeaserType[];
+
+import { drupal } from '@/lib/drupal/drupal-client';
+
+import { getParams } from '@/lib/drupal/get-params';
+
+interface NodeArticleProps {
+  articles: DrupalNode;
 }
 
-const ArticleSidebar = () =>  {
+export default function ArticleSidebar ({articles}: NodeArticleProps){
   
   return (
     <aside className="border-l-2 border-primary-500 p-2">
       sidebar
+      {articles.map((article: DrupalNode) => (
+        <NodeArticleTeaser node={article} key={article.id} />
+      )
+      )}
+      
     </aside>
   );
 };
 
 
 
-export default ArticleSidebar;
