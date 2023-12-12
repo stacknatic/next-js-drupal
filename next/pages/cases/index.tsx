@@ -18,8 +18,6 @@ export default function Cases({ cases }: CaseCardsPropsType) {
     <>
       {/* <Meta title={cases?.title} metatags={cases?.metatag} /> */}
       <CasesCards cases={cases} heading={t("Cases")} />
-      <ContactList />
-      <LogoStrip />
     </>
   );
 }

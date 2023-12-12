@@ -28,12 +28,12 @@ export function ParagraphHero({ paragraph }: { paragraph: HeroType }) {
   }, []);
 
   const translateXLeft = -scrollPosition;
-  const translateXRight = scrollPosition; // Calculate the translation for moving right
+  const translateXRight = scrollPosition;
 
   return (
-    <section id="hero" className="flex bg-primary-600 mb-6 mt-[-2rem] mx-[-11rem] lg:min-h-[93vh]">
-      <div className="mx-auto flex relative min-w-screen">
-        <div style={{ transform: `translateX(${translateXLeft}px)` }} className="ml-36 mt-36 px-8 py-8 lg:col-span-6 lg:py-16 ">
+    <section id="hero" className="flex sm:min-w-screen mb-2 sm:mb-6 sm:mt-0 sm:mx-auto sm:max-w-screen overflow-x-hidden sm:min-h-[80vh] lg:min-h-[93vh] lg:mx-[-10rem] mx-[-24px]">
+      <div className="mx-auto lg:flex relative sm:min-w-screen overflow-x-hidden">
+        <div style={{ transform: `translateX(${translateXLeft}px)` }} className="mx-10 my-10 min-h-0 lg:max-h-0 lg:ml-36 lg:mt-36 lg:px-8 lg:py-8 lg:col-span-6 lg:py-16 z-10">
           {paragraph.field_heading && (
             <h1 className="leading-none mb-4 max-w-2xl text-left text-heading-md font-bold tracking-tight text-primary-600 md:text-heading-lg">
               {paragraph.field_heading}
@@ -42,7 +42,7 @@ export function ParagraphHero({ paragraph }: { paragraph: HeroType }) {
           <FormattedText
             html={paragraph.field_formatted_text.processed}
             className={clsx(
-              "mb-6 max-w-2xl text-left text-md/xl text-mischka sm:text-lg md:text-lg lg:mb-8 lg:text-xl",
+              "mb-6 max-w-6xl text-left text-primary-600 text-heading-lg",
               paragraph.field_heading && "mt-4",
             )}
           />
@@ -74,7 +74,7 @@ export function ParagraphHero({ paragraph }: { paragraph: HeroType }) {
             )} */}
           </div>
         </div>
-        <div style={{ transform: `translateX(${translateXRight}px)` }} className="mt-48 translate-x-11">
+        <div style={{ transform: `translateX(${translateXRight}px)` }} className="mb-10 lg:max-h-0 min-h-0 lg:mt-56 translate-x-11 z-10">
           <MediaImage
             media={paragraph.field_image}
             alt="site-banner"

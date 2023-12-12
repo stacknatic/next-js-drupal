@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { MainMenu, MenuToggle } from "@/components/main-menu/main-menu";
 import { Menu } from "@/lib/zod/menu";
@@ -18,10 +18,12 @@ interface HeaderProps {
 
 export function Header({ menu }: HeaderProps) {
   const [isMainMenuOpen, setIsMainMenuOpen] = useState(false);
+  const scrollDirection = useScrollDirection();
+  console.log(scrollDirection); // Add this line to debug the scrollDirection state
 
   return (
-    <header className="z-50 flex-shrink-0 border-finnishwinter bg-primary-600 text-white md:sticky md:top-0">
-      <nav className="mx-auto flex max-w-full flex-row items-center justify-between px-10 py-4">
+    <header className={`z-50 flex-shrink-0 border-finnishwinter bg-primary-600 text-white h-20 md:sticky ${ scrollDirection === "down" ? "md:-top-20" : "md:top-0"} transition-all duration-500`}>
+      <nav className="mx-auto flex max-w-full flex-row items-center justify-between lg:px-10 px-4 py-4">
         <HomeLink />
         <div className="flex flex-row items-center justify-end gap-6 sm:gap-8">
           <MainMenu
@@ -79,3 +81,26 @@ function ContactLink() {
     </Link>
   );
 }
+
+function useScrollDirection() {
+  const [scrollDirection, setScrollDirection] = useState(null);
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+
+    const updateScrollDirection = () => {
+      const scrollY = window.scrollY;
+      const direction = scrollY > lastScrollY ? "down" : "up";
+      if (direction !== scrollDirection && (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)) {
+        setScrollDirection(direction);
+      }
+      lastScrollY = scrollY > 0 ? scrollY : 0;
+    };
+    window.addEventListener("scroll", updateScrollDirection); // add event listener
+    return () => {
+      window.removeEventListener("scroll", updateScrollDirection); // clean up
+    }
+  }, [scrollDirection]);
+
+  return scrollDirection;
+};

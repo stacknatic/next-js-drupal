@@ -13,22 +13,21 @@ import { ArticleTeaser, validateAndCleanupArticleTeaser } from "@/lib/zod/articl
 import { NewsTeasers } from "@/components/news/news-teasers";
 import { NewsTeaser, validateAndCleanupNewsTeaser } from "@/lib/zod/news-teaser";
 import { Frontpage, validateAndCleanupFrontpage } from "@/lib/zod/frontpage";
-import { Divider } from "@/ui/divider";
-import CustomersPartners from "@/components/customers-partners/customers-partners";
+// import { Divider } from "@/ui/divider";
+import Customers from "@/components/customers-partners/customers";
 import { getValidatedCustomerLogos } from "@/lib/drupal/get-customer-logos";
-import { getValidatedPartnerLogos } from "@/lib/drupal/get-partner-logos";
 
 import { EventTeasers } from "@/components/events/event-teasers";
 import { CaseTeasers } from "@/components/cases/case-teasers";
 import { validatedEventsTeaser } from "@/lib/drupal/get-event-teasers";
 import { validatedCasesTeaser } from "@/lib/drupal/get-case-teasers";
+import Canvas from "@/components/canvas";
 
 interface IndexPageProps extends LayoutProps {
   frontpage: Frontpage | null;
   promotedArticleTeasers: ArticleTeaser[];
   promotedNewsTeasers: NewsTeaser[];
   validatedCustomerLogos: any;
-  validatedPartnerLogos: any;
   events: any;
   cases: any;
 }
@@ -38,35 +37,30 @@ export default function IndexPage({
   promotedArticleTeasers,
   promotedNewsTeasers,
   validatedCustomerLogos,
-  validatedPartnerLogos,
   events,
   cases,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { t } = useTranslation();
-// console.log(cases);
 
   return (
     <>
-      
+      <Canvas />
       <Meta title={frontpage?.title} metatags={frontpage?.metatag} />
       <div className="grid gap-4">
         {frontpage?.field_content_elements?.map((paragraph) => (
           <Paragraph paragraph={paragraph} key={paragraph.id} />
         ))}
       </div>
-      <Divider className="max-w-4xl" />
+      {/* <Divider className="max-w-4xl" /> */}
       <ArticleTeasers
         articles={promotedArticleTeasers}
         heading={t("promoted-articles")}
       />
       <EventTeasers events={events} heading={"Events"}/>
-      <CaseTeasers cases={cases}/>
       <NewsTeasers news={promotedNewsTeasers} heading={"Recent News"} />
-      <Divider className="max-w-4xl" />
-      <CustomersPartners
-        validatedCustomerLogos={validatedCustomerLogos}
-        validatedPartnerLogos={validatedPartnerLogos}
-        />
+      <CaseTeasers cases={cases} heading={"Our latest work"}/>
+      {/* <Divider className="max-w-4xl" /> */}
+      <Customers validatedCustomerLogos={validatedCustomerLogos} />
     </>
   );
 }
@@ -112,7 +106,6 @@ export const getStaticProps: GetStaticProps<IndexPageProps> = async (
   });
 
   const validatedCustomerLogos = await getValidatedCustomerLogos(context);
-  const validatedPartnerLogos = await getValidatedPartnerLogos(context);
   const validatedEventTeasers = await validatedEventsTeaser(context);
   const validatedCaseTeasers = await validatedCasesTeaser(context);
 
@@ -128,7 +121,6 @@ export const getStaticProps: GetStaticProps<IndexPageProps> = async (
       ),
       
       validatedCustomerLogos: validatedCustomerLogos,
-      validatedPartnerLogos: validatedPartnerLogos,
       events: validatedEventTeasers,
       cases: validatedCaseTeasers,
     },

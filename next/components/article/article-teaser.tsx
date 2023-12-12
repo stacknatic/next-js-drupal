@@ -19,25 +19,26 @@ export function ArticleTeaser({ article }: ArticleTeaserProps) {
   return (
     <Link
       href={article.path.alias}
-      className="grid h-fulltransition-all hover:shadow-md"
+      className="relative grid transition-all hover:shadow-md rounded-3xl mb-12 "
     >
+    <div className="movingCard ">
       {article.field_image && (
         <Image
           src={absoluteUrl(article.field_image.uri.url)}
           width={384}
           height={240}
           alt={article.field_image.resourceIdObjMeta.alt}
-          className="max-w-full object-cover mx-auto lg:min-h-[55vh] brightness-50 hover:brightness-100 "
+          className="max-w-full object-cover mx-auto min-h-[40vh] lg:min-h-[50vh] rounded-3xl brightness-50 hover:brightness-100 "
         />
       )}
-      <div className="my-4 line-clamp-2 text-sm text-scapaflow text-center text-white">
+      <div className="info absolute bottom-0 my-4 line-clamp-2 text-sm text-center text-white ">
         {author && <>{t("posted-by", { author })} - </>}
         {date}
-      </div>
-      <h3 className="mb-2 line-clamp-1 text-heading-xs font-bold text-center ">
+      <h3 className="mb-4 line-clamp-1 text-heading-xs font-bold text-center mx-4">
         {article.title}
       </h3>
-      
+      </div>
+    </div>
     </Link>
   );
 }
