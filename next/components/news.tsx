@@ -9,6 +9,7 @@ import { absoluteUrl } from "@/lib/drupal/absolute-url";
 import { formatDate } from "@/lib/utils";
 import { News } from "@/lib/zod/news";
 import TableOfContent from "./toc";
+import AnchorNavigation from "./anchorNavigation";
 
 interface NewsProps {
   news: News;
@@ -71,7 +72,7 @@ export function News({ news, ...props }: NewsProps) {
         </figure>
       )}
         {news.field_anchor_nav && (
-          <TableOfContent postContent={news.body?.processed} />
+          <AnchorNavigation postContent={news.body?.processed} />
           )}
       {news.body?.processed && (
         <>

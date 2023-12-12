@@ -6,3 +6,13 @@ export const CategorySchema = z.object({
   name: z.string(),
 });
 
+export const TagsSchema = z.array(
+  z.object({
+    type: z.literal("taxonomy_term--tags"),
+    id: z.string(),
+    name: z.string(),
+  })
+);
+
+
+
