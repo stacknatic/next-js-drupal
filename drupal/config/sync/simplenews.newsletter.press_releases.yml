@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 _core:
   default_config_hash: Y2qE4TXTKonW7r-A1vHWIYHBjEKWAsjBE58T5AjwaAQ
-name: 'Press releases'
+name: Careers
 id: press_releases
 description: 'This is the press release.'
 format: plain
@@ -14,7 +14,11 @@ from_name: 'Drush Site-Install'
 subject: '[[simplenews-newsletter:name]] [node:title]'
 from_address: admin@example.com
 hyperlinks: true
-allowed_handlers: {  }
+allowed_handlers:
+  simplenews_all: '0'
+  simplenews_new_users: '0'
+  simplenews_site_mail: '0'
+  simplenews_subscribers_by_role: '0'
 new_account: none
 access: default
 weight: 0
