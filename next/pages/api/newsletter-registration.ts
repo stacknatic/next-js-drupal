@@ -17,8 +17,30 @@ export default async function handler(
       const validation = NewsletterRegistrationSchema.safeParse(body);
       // making post request only if the data is valid
       if (validation.success) {
-        console.log(validation.data);
-        res.status(200).end();
+        // console.log(validation.data);
+        const data = validation.data;
+        // Submit to Drupal.
+        const result = await drupal.fetch(url.toString(), {
+          method: "POST",
+          body: JSON.stringify({
+            webform_id: "newsletter_registration",
+            email: data.email,
+            privacy: data.privacy,
+            news: data.news,
+            careers: data.careers,
+            events: data.events,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        console.log(result);
+        if (result.ok) {
+          res.status(200).end();
+        } else {
+          res.status(result.status).end();
+          throw new Error();
+        }
       } else {
         // throwing error when data validation fails
         throw new Error("Received data does not match expected criteria!");
