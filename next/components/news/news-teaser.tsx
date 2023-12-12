@@ -19,24 +19,26 @@ export function NewsTeaser({ news }: NewsTeaserProps) {
   return (
     <Link
       href={news.path.alias}
-      className="relative grid h-full rounded border border-finnishwinter bg-white p-4 transition-all hover:shadow-md"
+      className="relative grid transition-all hover:shadow-md rounded-3xl "
     >
-      <h3 className="mb-2 line-clamp-2 text-heading-xs font-bold">
-        {news.title}
-      </h3>
-      <div className="mb-4 line-clamp-2 text-md text-scapaflow">
-        {author && <>{t("posted-by", { author })} - </>}
-        {date}
-      </div>
+    <div className="movingCard ">
       {news.field_image && (
         <Image
           src={absoluteUrl(news.field_image.uri.url)}
           width={384}
           height={240}
           alt={news.field_image.resourceIdObjMeta.alt}
-          className="max-w-full object-cover"
+          className="max-w-full object-cover mx-auto min-h-[30vh] lg:min-h-[50vh] rounded-3xl lg:brightness-50 hover:brightness-100 "
         />
       )}
+      <div className="info lg:absolute lg:bottom-0  my-4 line-clamp-2 text-sm text-scapaflow text-center lg:text-white ">
+        {author && <>{t("posted-by", { author })} - </>}
+        {date}
+        <h3 className="mb-4 line-clamp-1 text-heading-xs font-bold text-center mx-4">
+        {news.title}
+      </h3>
+      </div>
+    </div>
     </Link>
   );
 }

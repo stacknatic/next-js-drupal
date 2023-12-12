@@ -19,7 +19,7 @@ export function Footer({ menu }: FooterProps) {
   const { locale } = useRouter();
   const filteredItems = menu.filter((link) => link.langcode == locale);
   return (
-    <footer className="border-t border-finnishwinter">
+    <footer className="border-t border-finnishwinter bg-primary-600">
       <div className="mx-auto max-w-6xl px-6">
         <nav className="flex flex-col items-center gap-2 py-8 text-md sm:flex-row sm:justify-between">
           <ul className="mr-4 flex flex-wrap gap-x-12 gap-y-4">
@@ -36,25 +36,16 @@ export function Footer({ menu }: FooterProps) {
               );
             })}
           </ul>
+          <p className="text-white">© 2023 Wunder. All Rights Reserved.</p>
           <div className="hidden sm:block social-share-buttons" >
             <span className="social-share-bottons">
-            <SocialShare />
+              <SocialShare />
             </span>
           </div>
           <div className="sm:hidden native-share-button">
-
-          <span className="native-share-button">
-
-          <NativeShare title="Next.js for Drupal" url="https://next-drupal.org"/>
-          </span>
-          </div>
-          {/* <FooterLink href="https://next-drupal.org" newTab>
-            Next.js for Drupal
-          </FooterLink> */}
-          <Link href="#" className="text-primary-500">Privacy Policy</Link> 
-          <div>
-
-        <Link href="#" className="text-primary-500">Code of Conduct</Link> | <Link href="#" className="text-primary-500">Whistleblowing</Link>
+            <span className="native-share-button">
+              <NativeShare title="Next.js for Drupal" url="https://next-drupal.org"/>
+            </span>
           </div>
         </nav>
       </div>
@@ -80,7 +71,7 @@ function FooterLink({ href, icon, newTab = false, children }: FooterLinkProps) {
   }[icon];
 
   return (
-    <Link href={href} target={target} rel={rel} className="hyperlink">
+    <Link href={href} target={target} rel={rel} className="hyperlink text-white">
       {icon && (
         <div className="mr-2 flex h-6 w-6 items-center justify-center">
           <Icon className="h-auto w-full" aria-hidden />

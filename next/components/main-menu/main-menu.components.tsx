@@ -24,7 +24,7 @@ export function MenuContainer({
     <div
       className={clsx(
         css.mainMenu,
-        "relative mx-auto font-inter lg:flex lg:justify-start lg:items-center lg:mr-10 lg:pt-2",
+        "relative mx-auto font-inter lg:flex lg:justify-start lg:items-center lg:mr-10 lg:pt-0",
         !isOpen && "hidden",
       )}
     >
@@ -83,10 +83,10 @@ export function MenuList({ children, level }) {
     className={clsx(
       "fixed inset-0 top-[72px] overflow-scroll border-b border-l border-r border-white bg-white lg:relative lg:flex lg:items-center lg:justify-center lg:border-none lg:overflow-visible lg:top-0 lg:w-auto",
       level === 0 &&
-        "z-10 h-full lg:flex lg:space-x-4 lg:border-none lg:bg-transparent lg:z-auto",
+        "z-10 h-full lg:flex lg:space-x-4 lg:border-none lg:bg-transparent",
       level === 1 &&
-        "z-20 lg:absolute lg:hidden lg:flex-col lg:bg-white lg:border lg:shadow-lg",
-      level === 2 && "z-30 lg:hidden"
+        "z-20 lg:absolute lg:flex-col lg:bg-primary-600 lg:border lg:shadow-lg",
+      level === 2 && "z-30 "
     )}
     >
       {children}
@@ -135,7 +135,7 @@ export function MenuItem({
   return (
     <NavigationMenu.Item
     className={clsx(
-      "flex border-b border-finnishwinter bg-white font-bold tracking-widest text-primary-600 underline-offset-4 lg:flex lg:items-center lg:border-none lg:bg-transparent lg:text-mischka lg:hover:bg-gray-200 lg:relative lg:m-0 lg:min-w-max",
+      "flex border-b border-finnishwinter bg-white font-bold tracking-widest text-primary-600 underline-offset-4 lg:flex lg:items-center lg:border-none lg:bg-transparent lg:text-mischka lg:hover:bg-gray-200 lg:relative lg:m-0 lg:min-w-600",
       isTopLevel && "lg:text-mischka lg:hover:relative lg:m-0"
     )}
       value={value}
@@ -184,21 +184,21 @@ export function MenuTrigger({
     <NavigationMenu.Trigger
       {...disableHoverEvents}
         className={clsx(
-    "flex w-20 shrink-0 items-center justify-center ring-inset ring-primary-700 hover:ring-2 lg:inline-flex lg:border-none lg:opacity-0 lg:group-hover:opacity-100 lg:hidden",
+    "flex w-20 lg:w-5 shrink-0 items-center justify-center ring-inset ring-primary-700 lg:hover:ring-0 hover:ring-2 lg:inline-flex lg:border-none  lg:group-hover:opacity-100 ",
     isTopLevel
-      ? "lg:ring-white lg:aria-expanded:bg-white lg:aria-expanded:text-primary-600"
+      ? "lg:aria-expanded:bg-white lg:aria-expanded:text-primary-600"
       : "lg:aria-expanded:bg-primary-600 lg:aria-expanded:text-white lg:aria-expanded:ring-primary-600",
   )}
       aria-label={`${t("show-submenu", { parent })}`}
     >
-      <Chevron className="h-9 w-9 -rotate-90" />
+      <Chevron className="h-9 w-9 -rotate-90 lg:h-5 lg:w-5 lg:rotate-0" />
     </NavigationMenu.Trigger>
   );
 }
-
+// NAVIGATION MENU NEED TO BE FIXED, IT MUST BE LG:ABSOLUTE, BUT THAT DOESNT WORK
 export function MenuContent({ children }) {
   return (
-    <NavigationMenu.Content {...disableHoverEvents} className="lg:absolute lg:hidden lg:group-hover:block lg:z-50 lg:bg-white lg:border lg:shadow-lg">
+    <NavigationMenu.Content {...disableHoverEvents} className="lg:group-hover:block lg:z-500 lg:bg-white lg:border lg:shadow-lg">
   {children}
 </NavigationMenu.Content>
   );

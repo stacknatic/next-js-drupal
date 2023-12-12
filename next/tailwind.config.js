@@ -19,6 +19,7 @@ module.exports = {
       white: "#ffffff",
       fog: "#baa2ff",
       tranquil: "#f7ffff",
+      bittersweet: "#FF7060",
 
       info: "#221f2d",
       success: "#007f6c",
@@ -101,6 +102,14 @@ module.exports = {
       opacity: {
         ...defaultTheme.opacity,
         15: "0.15",
+      },
+      height: {
+        '300': '300px',
+        '350': '350px',
+        '400': '400px',
+        '450': '450px',
+        '500': '500px',
+        '550': '550px',
       },
     },
   },

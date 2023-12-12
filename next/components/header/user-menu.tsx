@@ -78,7 +78,7 @@ export function UserMenu() {
       </button>
       <ul
         className={clsx(
-          "absolute z-50 mt-1 w-fit border border-finnishwinter bg-mischka",
+          "absolute z-50 mt-1 w-fit border border-finnishwinter bg-primary-600",
           !isOpen && "hidden",
         )}
       >
