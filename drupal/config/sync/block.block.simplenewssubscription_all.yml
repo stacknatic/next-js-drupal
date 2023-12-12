@@ -4,6 +4,8 @@ status: false
 dependencies:
   module:
     - simplenews
+  theme:
+    - starterkit_theme
 _core:
   default_config_hash: dn5HMSUPcQau_HymiyBf7VrdN2kK8Xvs9otLQ-6Oe2k
 id: simplenewssubscription_all
@@ -18,8 +20,6 @@ settings:
   label_display: visible
   provider: simplenews
   newsletters:
-    weekly_content_update: weekly_content_update
-    special_offers: special_offers
     press_releases: press_releases
     default: default
   default_newsletters: {  }
