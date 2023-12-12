@@ -3,7 +3,7 @@ import { z } from "zod";
 
 import { MetatagsSchema } from "@/lib/zod/metatag";
 import { ImageShape } from "@/lib/zod/paragraph";
-import { CategorySchema } from "@/lib/zod/taxonomy-schema";
+import { CategorySchema, TagsSchema } from "@/lib/zod/taxonomy-schema";
 export const ArticleBaseSchema = z.object({
   type: z.literal("node--article"),
   id: z.string(),
@@ -29,15 +29,17 @@ const ArticleSchema = ArticleBaseSchema.extend({
     
   }),
   field_category: CategorySchema.optional(),
+
+  field_tags: TagsSchema.optional(),
  
-  field_tags: z.array(
-    z.object({
-      id: z.string(),
-      type: z.string(),
+  // field_tags: z.array(
+  //   z.object({
+  //     id: z.string(),
+  //     type: z.string(),
       
-    }),
-    z.object({ drupal_internal__target_id: z.number() })
-  ),
+  //   }),
+  //   z.object({ drupal_internal__target_id: z.number() })
+  // ),
   
 });
 

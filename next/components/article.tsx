@@ -8,7 +8,7 @@ import { HeadingPage } from "@/components/heading--page";
 import { absoluteUrl } from "@/lib/drupal/absolute-url";
 import { formatDate } from "@/lib/utils";
 import { Article } from "@/lib/zod/article";
-import TableOfContents from "./anchorNavigation";
+import AnchorNavigation from "./anchorNavigation";
 import avatar from '@/styles/avatar.module.css';
 import addId from "./addId";
 
@@ -19,9 +19,11 @@ interface ArticleProps {
 export function Article({ article, ...props }: ArticleProps) {
   const { t } = useTranslation();
   const router = useRouter();
+  const articleBody = addId(article.body?.processed);
   console.log("tags", article.field_tags)
   console.log("category", article.field_category)
-  const articleBody = addId(article.body?.processed);
+  
+
 
   return (
     <article {...props}>
@@ -38,6 +40,15 @@ export function Article({ article, ...props }: ArticleProps) {
       />
       {article.field_category && (
       <span>Category: {article.field_category.name}</span>
+      )}
+      
+      {article.field_tags && (
+        <div>
+
+        <span>Tags: {article.field_tags.map((tag) => (
+          <span>{tag.name}&nbsp;</span> 
+          ))}</span>
+        </div>
       )}
       <HeadingPage>{article.title}</HeadingPage> 
       {article.field_excerpt && (
@@ -74,7 +85,7 @@ export function Article({ article, ...props }: ArticleProps) {
         </figure>
       )}
        {article.field_anchor_nav && (
-          <TableOfContents postContent={article.body?.processed} />
+          <AnchorNavigation postContent={article.body?.processed} />
           )}
       {article.body && (
         <FormattedText
