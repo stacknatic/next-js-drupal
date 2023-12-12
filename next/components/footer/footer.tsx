@@ -8,7 +8,7 @@ import LinkedIn from "@/styles/icons/linkedin.svg";
 import Twitter from "@/styles/icons/twitter.svg";
 import WunderCarrot from "@/styles/icons/wunder-carrot.svg";
 import NativeShare from "./nativeShare";
-
+import { NewsletterRegistration } from "../newsletter-registration";
 
 interface FooterProps {
   menu: Menu;
@@ -21,6 +21,7 @@ export function Footer({ menu }: FooterProps) {
   return (
     <footer className="border-t border-finnishwinter">
       <div className="mx-auto max-w-6xl px-6">
+        <NewsletterRegistration />
         <nav className="flex flex-col items-center gap-2 py-8 text-md sm:flex-row sm:justify-between">
           <ul className="mr-4 flex flex-wrap gap-x-12 gap-y-4">
             {filteredItems.map((link) => {
@@ -29,32 +30,38 @@ export function Footer({ menu }: FooterProps) {
                 : link.options.attributes.icon;
               return (
                 <li key={link.id}>
-                  <FooterLink href={link.url} >
-                    {link.title}
-                  </FooterLink>
+                  <FooterLink href={link.url}>{link.title}</FooterLink>
                 </li>
               );
             })}
           </ul>
-          <div className="hidden sm:block social-share-buttons" >
+          <div className="hidden sm:block social-share-buttons">
             <span className="social-share-bottons">
-            <SocialShare />
+              <SocialShare />
             </span>
           </div>
           <div className="sm:hidden native-share-button">
-
-          <span className="native-share-button">
-
-          <NativeShare title="Next.js for Drupal" url="https://next-drupal.org"/>
-          </span>
+            <span className="native-share-button">
+              <NativeShare
+                title="Next.js for Drupal"
+                url="https://next-drupal.org"
+              />
+            </span>
           </div>
           {/* <FooterLink href="https://next-drupal.org" newTab>
             Next.js for Drupal
           </FooterLink> */}
-          <Link href="#" className="text-primary-500">Privacy Policy</Link> 
+          <Link href="#" className="text-primary-500">
+            Privacy Policy
+          </Link>
           <div>
-
-        <Link href="#" className="text-primary-500">Code of Conduct</Link> | <Link href="#" className="text-primary-500">Whistleblowing</Link>
+            <Link href="#" className="text-primary-500">
+              Code of Conduct
+            </Link>{" "}
+            |{" "}
+            <Link href="#" className="text-primary-500">
+              Whistleblowing
+            </Link>
           </div>
         </nav>
       </div>
