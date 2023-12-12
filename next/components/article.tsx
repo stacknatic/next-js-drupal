@@ -8,7 +8,7 @@ import { HeadingPage } from "@/components/heading--page";
 import { absoluteUrl } from "@/lib/drupal/absolute-url";
 import { formatDate } from "@/lib/utils";
 import { Article } from "@/lib/zod/article";
-import TableOfContents from "./toc";
+import TableOfContents from "./anchorNavigation";
 import avatar from '@/styles/avatar.module.css';
 import addId from "./addId";
 
