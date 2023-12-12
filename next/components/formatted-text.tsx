@@ -82,6 +82,7 @@ interface FormattedTextProps extends HTMLAttributes<HTMLDivElement> {
   html: string;
 }
 
+
 export function FormattedText({ html, ...props }: FormattedTextProps) {
   return <div {...props}>{parse(html, options)}</div>;
 }

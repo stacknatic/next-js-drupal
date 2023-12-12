@@ -10,8 +10,7 @@ import { formatDate } from "@/lib/utils";
 import { Article } from "@/lib/zod/article";
 import TableOfContents from "./toc";
 import avatar from '@/styles/avatar.module.css';
-import RightSideBar from "./rightSidebar";
-import ArticleLayout from "@/pages/layouts/articlesLayout";
+import addId from "./addId";
 
 interface ArticleProps {
   article: Article;
@@ -22,6 +21,7 @@ export function Article({ article, ...props }: ArticleProps) {
   const router = useRouter();
   console.log("tags", article.field_tags)
   console.log("category", article.field_category)
+  const articleBody = addId(article.body?.processed);
 
   return (
     <article {...props}>
@@ -76,10 +76,10 @@ export function Article({ article, ...props }: ArticleProps) {
        {article.field_anchor_nav && (
           <TableOfContents postContent={article.body?.processed} />
           )}
-      {article.body?.processed && (
+      {article.body && (
         <FormattedText
           className="mt-4 text-md/xl text-scapaflow sm:text-lg"
-          html={article.body?.processed}
+          html={articleBody}
         />
       )}
     </article>
