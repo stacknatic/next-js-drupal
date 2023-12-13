@@ -14,8 +14,8 @@ export const ArticleBaseSchema = z.object({
   field_excerpt: z.string().optional().nullable(),
   field_image: ImageShape.nullable(),
   field_category: CategorySchema.optional().nullable(),
-  field_anchor_nav: z.boolean().optional().nullable(),
   field_tags: TagsSchema.optional().nullable(),
+  field_anchor_nav: z.boolean().optional().nullable(),
   uid: z.object({
     id: z.string(),
     display_name: z.string().optional().nullable(),

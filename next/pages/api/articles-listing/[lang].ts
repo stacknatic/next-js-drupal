@@ -21,7 +21,7 @@ export default async function handler(
         params: {
           "filter[status]": 1,
           "filter[langcode]": languagePrefix,
-          "fields[node--article]": "title,path,field_image,uid,created,field_category, uid.id, uid.display_name",
+          "fields[node--article]": "title,path,field_image,uid,created,field_category,field_tags,field_anchor_nav,uid.id, uid.display_name",
           include: "field_image,uid",
           sort: "-sticky,-created",
           "page[limit]": limit,
