@@ -46,8 +46,8 @@ export default function AllArticlesPage({
     let articles = articleTeasers;
     
     if (tag) {
-      setCat(null);
-      goToCategory === null;
+      // setCat(null);
+      // goToCategory === null;
       articles = articleTeasers.filter((article) => {
         const tagNames = article.field_tags?.map((tag) => tag.name) || [];
         router.push({
@@ -65,8 +65,8 @@ export default function AllArticlesPage({
     let articles = articleTeasers;
     
     if (goToTag) {
-      setCat(null);
-      goToCategory === null;
+      // setCat(null);
+      // goToCategory === null;
       articles = articleTeasers.filter((article) => {
         const tagNames = article.field_tags?.map((tag) => tag.name) || [];
         router.push({
@@ -84,8 +84,8 @@ export default function AllArticlesPage({
     let articles = articleTeasers;
     
     if (cat) {
-      setTag(null);
-      goToTag === null;
+      // setTag(null);
+      // goToTag === null;
       articles = articles.filter((article) => {
         const catName = article.field_category?.name || '';
         router.push({
@@ -103,8 +103,8 @@ export default function AllArticlesPage({
     let articles = articleTeasers;
     
     if (goToCategory) {
-      setTag(null);
-      goToTag === null;
+      // setTag(null);
+      // goToTag === null;
       articles = articles.filter((article) => {
         const catName = article.field_category?.name || '';
         router.push({
