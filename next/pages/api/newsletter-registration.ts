@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { drupal } from "@/lib/drupal/drupal-client";
-import { EventRegistrationSchema } from "@/lib/zod/event-registration";
+import { NewsletterRegistrationSchema } from "@/lib/zod/newsletter-registration";
 
 export default async function handler(
   req: NextApiRequest,
@@ -14,25 +14,27 @@ export default async function handler(
       const url = drupal.buildUrl(`/${languagePrefix}/webform_rest/submit`);
       const body = JSON.parse(req.body);
       // validation of the recieved data
-      const validation = EventRegistrationSchema.safeParse(body);
+      const validation = NewsletterRegistrationSchema.safeParse(body);
       // making post request only if the data is valid
       if (validation.success) {
+        // console.log(validation.data);
         const data = validation.data;
         // Submit to Drupal.
         const result = await drupal.fetch(url.toString(), {
           method: "POST",
           body: JSON.stringify({
-            webform_id: "event_registration",
-            name: data.name,
+            webform_id: "newsletter_registration",
             email: data.email,
-            message: data.message,
-            even_title: data.even_title,
+            privacy: data.privacy,
+            news: data.news,
+            careers: data.careers,
+            events: data.events,
           }),
           headers: {
             "Content-Type": "application/json",
           },
         });
-
+        console.log(result);
         if (result.ok) {
           res.status(200).end();
         } else {
