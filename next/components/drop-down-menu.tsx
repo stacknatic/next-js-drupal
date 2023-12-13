@@ -3,7 +3,7 @@ import { Menu, Transition } from '@headlessui/react';
 import { FaAngleDown } from 'react-icons/fa';
 
 interface MenuItemProps {
-  id?: number;
+  id?: string;
   name?: string;
   item?: string;
 }

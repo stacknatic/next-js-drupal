@@ -18,7 +18,7 @@ export default function ArticleSidebar ({articles}: NodeArticleProps){
   return (
     <aside className="border-l-2 border-primary-500 p-2">
       sidebar
-      {articles.map((article: DrupalNode) => (
+      {articles?.map((article: DrupalNode) => (
         <div>
 
         <NodeArticleTeaser node={article} key={article.id} />
