@@ -17,8 +17,23 @@ export default async function handler(
       const validation = NewsletterRegistrationSchema.safeParse(body);
       // making post request only if the data is valid
       if (validation.success) {
-        // console.log(validation.data);
-        const data = validation.data;
+        // in the drupal news, careers, events input fields are text which takes input either "Yes" or "No". Idealy it shoud be checkbox. But when I create a view for checkbox fields, it has two value either true or empty. But when I add checkbox field for filtering, it gives any, ture and false option. the false should corresponds empty but it does not. So, I have can not filter in or out empty fields. So, I am sending "Yes" for true and "No" for false value. As, news, careers and events field in drupal are textfield, and these fields can be used for filtereing in views.
+        let data = validation.data;
+        if (data.news) {
+          data = { ...data, news: "Yes" };
+        } else {
+          data = { ...data, news: "No" };
+        }
+        if (data.careers) {
+          data = { ...data, careers: "Yes" };
+        } else {
+          data = { ...data, careers: "No" };
+        }
+        if (data.events) {
+          data = { ...data, events: "Yes" };
+        } else {
+          data = { ...data, events: "No" };
+        }
         // Submit to Drupal.
         const result = await drupal.fetch(url.toString(), {
           method: "POST",
