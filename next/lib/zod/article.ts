@@ -24,13 +24,13 @@ export const ArticleSchema = ArticleBaseSchema.extend({
   body: z.object({
     processed: z.string(),
   }),
+  field_user_avatar: ImageShape.optional(),
+
   uid: z.object({
     id: z.string(),
-    display_name: z.string().optional().nullable(),
-    field_user_avatar: ImageShape.optional().nullable(),
-    
+    display_name: z.string(),
+    field_user_avatar: ImageShape.optional(),
   }),
-  
 });
 
 export function validateAndCleanupArticle(article: DrupalNode): Article | null {

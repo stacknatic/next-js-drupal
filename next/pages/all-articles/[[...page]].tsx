@@ -18,6 +18,7 @@ import { validateAndCleanupArticleCategory } from "@/lib/zod/article-category";
 import { ArticleTags } from "@/lib/zod/article-tags";
 import { ArticleCategory } from "@/lib/zod/article-category";
 import { DropDownMenu } from "@/components/drop-down-menu";
+import { useRouter } from "next/router";
 
 interface AllArticlesPageProps extends LayoutProps {
   articleTeasers: ArticleTeaserType[];
@@ -35,41 +36,96 @@ export default function AllArticlesPage({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { t } = useTranslation();
   const focusRef = useRef<HTMLDivElement>(null);
-  const [tag, setTag] = useState("");
-  const [cat, setCat] = useState("");
-  const [filteredArticles, setFilteredArticles] = useState<ArticleTeaserType[]>
-  (articleTeasers);
-
-  const handleTagFilter = (item: string) => {
-    setTag(item);
-
-  };
-  const handleCatFilter = (item: string) => {
-    setCat(item);
-  }
-
-  useEffect(() => {
-    let articles = articleTeasers;  
-    if (tag) {
-      articles = articleTeasers.filter((article) => {
-        const tagNames = article.field_tags?.map((tag) => tag.name) || [];
-        return tagNames.includes(tag);
-      });
-    }
-    setFilteredArticles(articles);
-  }, [tag, articleTeasers]);
+  const [tag, setTag] = useState<string | null>(null);
+  const [cat, setCat] = useState<string | null>(null);
+  const [filteredArticles, setFilteredArticles] = useState<ArticleTeaserType[]>(articleTeasers);
+  const router = useRouter();
+  const { goToTag, goToCategory } = router.query;
 
   useEffect(() => {
     let articles = articleTeasers;
-    if (cat) {
+    
+    if (tag) {
+      setCat(null);
+      goToCategory === null;
       articles = articleTeasers.filter((article) => {
-        const catName = article.field_category?.name || '';
-        return catName;
+        const tagNames = article.field_tags?.map((tag) => tag.name) || [];
+        router.push({
+          pathname: '/all-articles',
+          query: { goToTag: tag },
+        }, undefined, { shallow: true });
+        return tagNames.includes(tag);
       });
     }
+
     setFilteredArticles(articles);
-  }, [cat, articleTeasers]);
+  }, [tag]);
+
+  useEffect(() => {
+    let articles = articleTeasers;
     
+    if (goToTag) {
+      setCat(null);
+      goToCategory === null;
+      articles = articleTeasers.filter((article) => {
+        const tagNames = article.field_tags?.map((tag) => tag.name) || [];
+        router.push({
+          pathname: '/all-articles',
+          query: { goToTag: (goToTag as string) },
+        }, undefined, { shallow: true });
+        return tagNames.includes((goToTag as string));
+      });
+    }
+
+    setFilteredArticles(articles);
+  }, [goToTag]);
+
+  useEffect(() => {
+    let articles = articleTeasers;
+    
+    if (cat) {
+      setTag(null);
+      goToTag === null;
+      articles = articles.filter((article) => {
+        const catName = article.field_category?.name || '';
+        router.push({
+          pathname: '/all-articles',
+          query: { goToCategory: cat },
+        }, undefined, { shallow: true });
+        return catName.includes(cat);
+      });
+    }
+
+    setFilteredArticles(articles);
+  }, [cat]);
+
+  useEffect(() => {
+    let articles = articleTeasers;
+    
+    if (goToCategory) {
+      setTag(null);
+      goToTag === null;
+      articles = articles.filter((article) => {
+        const catName = article.field_category?.name || '';
+        router.push({
+          pathname: '/all-articles',
+          query: { goToCategory: (goToCategory as string) },
+        }, undefined, { shallow: true });
+        return catName.includes((goToCategory as string));
+      });
+    }
+
+    setFilteredArticles(articles);
+  }, [goToCategory]);
+
+
+  const handleTagFilter = (item: string) => {
+    setTag(item);
+  };
+
+  const handleCatFilter = (item: string) => {
+    setCat(item);
+  };
 
   const tags = articleTags;
   const categories = articleCategory;
@@ -81,15 +137,15 @@ export default function AllArticlesPage({
       <Breadcrumbs
         items={[
           {
-            title: t("all-articles")
-          }
+            title: t("all-articles"),
+          },
         ]}
       />
       <HeadingPage>{t("all-articles")}</HeadingPage>
       <div className="mt-4 mb-6">
         <span>Filter by: </span>
-        
-        <DropDownMenu name={"Category"} menuItems={categories} handleFilter={(item) =>handleCatFilter(item)}/>&nbsp;&nbsp;&nbsp;&nbsp;
+
+        <DropDownMenu name={"Category"} menuItems={categories} handleFilter={(item) => handleCatFilter(item)} />&nbsp;&nbsp;&nbsp;&nbsp;
         <DropDownMenu name={"Tags"} menuItems={tags} handleFilter={(item) => handleTagFilter(item)} />
       </div>
       <ul className="mt-4">
@@ -118,9 +174,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<AllArticlesPageProps> = async (
-  context,
-) => {
+export const getStaticProps: GetStaticProps<AllArticlesPageProps> = async (context) => {
   const page = context.params.page;
   const currentPage = parseInt(Array.isArray(page) ? page[0] : page || "1");
   const PAGE_SIZE = 6;
@@ -155,11 +209,13 @@ export const getStaticProps: GetStaticProps<AllArticlesPageProps> = async (
     props: {
       ...(await getCommonPageProps(context)),
       articleTeasers: articles.map((teaser) =>
-        validateAndCleanupArticleTeaser(teaser),
+        validateAndCleanupArticleTeaser(teaser)
       ),
 
       articleTags: tags.map((tag) => validateAndCleanupArticleTags(tag)),
-      articleCategory: categories.map((category) => validateAndCleanupArticleCategory(category)),
+      articleCategory: categories.map((category) =>
+        validateAndCleanupArticleCategory(category)
+      ),
       paginationProps: {
         currentPage,
         totalPages,
