@@ -4,13 +4,13 @@ import Image from 'next/image';
 import { absoluteUrl } from '@/lib/drupal/absolute-url';
 const Customers = ({ validatedCustomerLogos }) => {
     // Mapping for Customer Logos
-    const customerLogoElements = Array.isArray(validatedCustomerLogos.field_logos) 
+    const customerLogoElements = Array.isArray(validatedCustomerLogos.field_logos)
         ? validatedCustomerLogos.field_logos.map((logo) => (
-            <div key={logo.id}>
+            <div key={logo.id} className="p-6 flex items-center justify-center flex-grow-0 flex-shrink-0 flex-basis-1/2 max-w-1/2">
                 <Link href={logo.field_link.full_url}>
                     <Image
                         src={absoluteUrl(logo.field_logo.uri.url)}
-                        width={200}
+                        width={100}
                         height={100}
                         alt={logo.field_logo.resourceIdObjMeta.alt}
                     />
@@ -23,22 +23,13 @@ const Customers = ({ validatedCustomerLogos }) => {
     if (!customerLogoElements) {
         return <p>field_logos is not an array.</p>;
     }
-        return (
-            <div className=''>
-                <section className='pb-10'>
-                    <div>
-                        <p className='text-heading-sm font-bold md:text-heading-md my-10'>
-                            Our customers
-                        </p>
-                        <div className='md:mt-10 mt-5 md:py-10 py-5'>
-                            <div className='md:flex items-center grid grid-cols-2 ss:grid-cols-4 gap-y-2 gap-x-8  md:justify-around px-5 bg-white rounded-full border grayscale'>
-                                {customerLogoElements}
-                            </div>
-                        </div>
-                    </div>
-                </section>
+    return (
+        <div>
+            <div className='flex flex-wrap justify-center'>
+                {customerLogoElements}
             </div>
-        );
+        </div>
+    );
 };
 
 export default Customers;
