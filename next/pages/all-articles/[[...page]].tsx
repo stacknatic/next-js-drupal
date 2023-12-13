@@ -12,46 +12,69 @@ import { getCommonPageProps } from "@/lib/get-common-page-props";
 import { ArticleTeaser as ArticleTeaserType, validateAndCleanupArticleTeaser } from "@/lib/zod/article-teaser";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { getArticleTags } from "@/lib/drupal/get-article-tags";
+import { getArticleCategory } from "@/lib/drupal/get-category";
 import { validateAndCleanupArticleTags } from "@/lib/zod/article-tags";
+import { validateAndCleanupArticleCategory } from "@/lib/zod/article-category";
 import { ArticleTags } from "@/lib/zod/article-tags";
+import { ArticleCategory } from "@/lib/zod/article-category";
 import { DropDownMenu } from "@/components/drop-down-menu";
+import { use } from "chai";
 
 interface AllArticlesPageProps extends LayoutProps {
   articleTeasers: ArticleTeaserType[];
   paginationProps: PaginationProps;
   languageLinks: LanguageLinks;
   articleTags: ArticleTags[];
+  articleCategory: ArticleCategory[];
 }
 
 export default function AllArticlesPage({
   articleTeasers = [],
   paginationProps,
   articleTags = [],
+  articleCategory = [],
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { t } = useTranslation();
   const focusRef = useRef<HTMLDivElement>(null);
   const [tag, setTag] = useState("");
+  const [cat, setCat] = useState("");
   const [filteredArticles, setFilteredArticles] = useState<ArticleTeaserType[]>(articleTeasers);
+  console.log('categories', articleCategory)
+
 
   const handleTagFilter = (item: string) => {
-    console.log('clicked item', item);
     setTag(item);
+
   };
+  const handleCatFilter = (item: string) => {
+    setCat(item);
+  }
 
   useEffect(() => {
-    let articles = articleTeasers;
-
-    if (tag !== "") {
+    let articles = articleTeasers;  
+    if (tag) {
       articles = articleTeasers.filter((article) => {
-        const tagNames = article.field_tags?.map(tag => tag.name) || [];
+        const tagNames = article.field_tags?.map((tag) => tag.name) || [];
         return tagNames.includes(tag);
       });
     }
-
     setFilteredArticles(articles);
   }, [tag, articleTeasers]);
 
+  useEffect(() => {
+    let articles = articleTeasers;
+    if (cat) {
+      articles = articleTeasers.filter((article) => {
+        const catName = article.field_category?.name || '';
+        return catName;
+      });
+    }
+    setFilteredArticles(articles);
+  }, [cat, articleTeasers]);
+    
+
   const tags = articleTags;
+  const categories = articleCategory;
 
   return (
     <>
@@ -67,7 +90,8 @@ export default function AllArticlesPage({
       <HeadingPage>{t("all-articles")}</HeadingPage>
       <div className="mt-4 mb-6">
         <span>Filter by: </span>
-        <DropDownMenu name={"Category"} />&nbsp;&nbsp;&nbsp;&nbsp;
+        
+        <DropDownMenu name={"Category"} menuItems={categories} handleFilter={(item) =>handleCatFilter(item)}/>&nbsp;&nbsp;&nbsp;&nbsp;
         <DropDownMenu name={"Tags"} menuItems={tags} handleFilter={(item) => handleTagFilter(item)} />
       </div>
       <ul className="mt-4">
@@ -112,6 +136,9 @@ export const getStaticProps: GetStaticProps<AllArticlesPageProps> = async (
   const tags = await getArticleTags({
     locale: context.locale,
   });
+  const categories = await getArticleCategory({
+    locale: context.locale,
+  });
 
   const prevEnabled = currentPage > 1;
   const nextEnabled = currentPage < totalPages;
@@ -132,7 +159,9 @@ export const getStaticProps: GetStaticProps<AllArticlesPageProps> = async (
       articleTeasers: articles.map((teaser) =>
         validateAndCleanupArticleTeaser(teaser),
       ),
+
       articleTags: tags.map((tag) => validateAndCleanupArticleTags(tag)),
+      articleCategory: categories.map((category) => validateAndCleanupArticleCategory(category)),
       paginationProps: {
         currentPage,
         totalPages,
