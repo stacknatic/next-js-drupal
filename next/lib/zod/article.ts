@@ -14,17 +14,14 @@ export const ArticleBaseSchema = z.object({
   field_excerpt: z.string().optional().nullable(),
   field_image: ImageShape.nullable(),
   field_category: CategorySchema.optional().nullable(),
-
-  // field_anchor_nav: z.boolean().optional(),
-
+  field_anchor_nav: z.boolean().optional().nullable(),
+  field_tags: TagsSchema.optional().nullable(),
   uid: z.object({
     id: z.string(),
-    display_name: z.string(),
-    // field_user_avatar: ImageShape.nullable(),
+    display_name: z.string().optional().nullable(),
+    field_user_avatar: ImageShape.optional().nullable(),
+    
   }),
-  // field_category: CategorySchema.optional(),
-  // field_tags: TagsSchema.optional(),
-
 });
 
 export const ArticleSchema = ArticleBaseSchema.extend({
@@ -32,18 +29,6 @@ export const ArticleSchema = ArticleBaseSchema.extend({
   body: z.object({
     processed: z.string(),
   }),
-  
-  
-  field_anchor_nav: z.boolean().optional(),
-  uid: z.object({
-    id: z.string(),
-    display_name: z.string(),
-    field_user_avatar: ImageShape.nullable(),
-    
-  }),
-  field_category: CategorySchema.optional(),
-
-  field_tags: TagsSchema.optional(),
   
 });
 
