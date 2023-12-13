@@ -22,14 +22,17 @@ elements: |-
     '#title': Email
     '#required': true
   news:
-    '#type': checkbox
+    '#type': textfield
     '#title': news
+    '#description': '<p>Yes or No</p>'
   careers:
-    '#type': checkbox
+    '#type': textfield
     '#title': careers
+    '#description': '<p>Yes or No</p>'
   events:
-    '#type': checkbox
+    '#type': textfield
     '#title': events
+    '#description': '<p>Yes or No</p>'
 css: ''
 javascript: ''
 settings:
