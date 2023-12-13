@@ -8,6 +8,7 @@ import Image from 'next/image';
 import Customers from "@/components/customers-partners/customers";
 import Partners from "@/components/customers-partners/partners";
 import { absoluteUrl } from '@/lib/drupal/absolute-url';
+import CountUp from 'react-countup'
 
 const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPage }) => {
 
@@ -35,10 +36,11 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
                             validatedAboutPage.field_wunder_numers.map((number) => (
                                 <div key={number.id}>
                                     <p className='md:text-[3em] text-primary-600 font-bold text-xl'>
-                                        {number.field_topic}
+                                        {/* {number.field_number} */}
+                                        <CountUp start={0} end={number.field_number} enableScrollSpy scrollSpyDelay={500} separator="" />
                                     </p>
                                     <p className='md:tracking-widest uppercase tracking-tighter text-error md:text-xs text-[8px] md:mt-1'>
-                                        {number.field_number}
+                                        {number.field_topic}
                                     </p>
                                 </div>
                             )) :
@@ -68,9 +70,7 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
                     <p className='md:px-9 md:text-sm md:mb-[6em] text-xs leading-loose px-3'>
                         {validatedAboutPage.field_our_partners_descriptions}
                     </p>
-                    {/* <Customers validatedCustomerLogos={validatedCustomerLogos} /> */}
                     <Partners validatedPartnerLogos={validatedPartnerLogos} />
-
                 </div>
             </section>
             <article className='pb-[10em]'>
