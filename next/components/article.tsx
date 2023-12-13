@@ -16,6 +16,7 @@ import { LayoutProps } from "./layout";
 import { ArticleTeaser } from "@/lib/zod/article-teaser";
 import { NewsTeaser } from "@/lib/zod/news-teaser";
 import ArticleSidebar from "./articleSidebar";
+import Link from "next/link";
 
 interface ArticleProps {
   article: Article;
@@ -40,15 +41,27 @@ export function Article({ article, ...props }: ArticleProps) {
         ]}
       />
       {article.field_category && (
-      <span>Category: {article.field_category.name}</span>
+      <span>Category:
+        <span className="ml-2 mr-1">
+          <Link href={`/all-articles?goToCategory=${article.field_category.name}`} className="text-primary-500">
+          {article.field_category.name}
+          </Link>
+        </span> 
+         
+      </span>
       )}
       
       {article.field_tags && (
-        <div>
-
-        <span>Tags: {article.field_tags.map((tag) => (
-          <span>{tag.name}&nbsp;</span> 
-          ))}</span>
+        <div className="mt-1">
+        <span>Tags:{article.field_tags.map((tag) => (
+          <span className="ml-2 mr-1">
+          <Link href={`/all-articles?goToTag=${tag.name}`} className="text-primary-500">
+          {tag.name}
+          </Link>
+          </span> 
+        
+          ))}
+        </span>
         </div>
       )}
       <HeadingPage>{article.title}</HeadingPage> 
