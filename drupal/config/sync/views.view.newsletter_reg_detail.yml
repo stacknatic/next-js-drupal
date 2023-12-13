@@ -118,7 +118,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -337,22 +337,76 @@ display:
           value:
             newsletter_registration: newsletter_registration
           group: 1
-        webform_submission_value_1:
-          id: webform_submission_value_1
+        webform_submission_value:
+          id: webform_submission_value
           table: webform_submission_field_newsletter_registration_news
           field: webform_submission_value
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: webform_submission_checkbox_filter
+          plugin_id: webform_submission_field_filter
           operator: '='
-          value: All
+          value: 'Yes'
           group: 1
           exposed: true
           expose:
-            operator_id: ''
+            operator_id: webform_submission_value_op
             label: News
             description: ''
+            use_operator: false
+            operator: webform_submission_value_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: webform_submission_value
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              next_api_role: '0'
+              wunder_content_editor: '0'
+              frontend_login: '0'
+            placeholder: ''
+          is_grouped: true
+          group_info:
+            label: News
+            description: ''
+            identifier: webform_submission_value
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple:
+              1: 1
+              2: 2
+            group_items:
+              1:
+                title: 'Yes'
+                operator: '='
+                value: 'Yes'
+              2:
+                title: 'No'
+                operator: '='
+                value: 'No'
+        webform_submission_value_1:
+          id: webform_submission_value_1
+          table: webform_submission_field_newsletter_registration_careers
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: webform_submission_field_filter
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: webform_submission_value_1_op
+            label: careers
+            description: null
             use_operator: false
             operator: webform_submission_value_1_op
             operator_limit_selection: false
@@ -363,66 +417,27 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              next_api_role: '0'
-              wunder_content_editor: '0'
-              frontend_login: '0'
-          is_grouped: false
+            placeholder: null
+          is_grouped: true
           group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-        webform_submission_value:
-          id: webform_submission_value
-          table: webform_submission_field_newsletter_registration_careers
-          field: webform_submission_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: webform_submission_checkbox_filter
-          operator: '='
-          value: All
-          group: 1
-          exposed: true
-          expose:
-            operator_id: ''
             label: Careers
             description: ''
-            use_operator: false
-            operator: webform_submission_value_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: webform_submission_value
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              next_api_role: '0'
-              wunder_content_editor: '0'
-              frontend_login: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
+            identifier: webform_submission_value_1
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items: {  }
+            group_items:
+              1:
+                title: 'Yes'
+                operator: '='
+                value: 'Yes'
+              2:
+                title: 'No'
+                operator: '='
+                value: 'No'
         webform_submission_value_2:
           id: webform_submission_value_2
           table: webform_submission_field_newsletter_registration_events
@@ -430,15 +445,15 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: webform_submission_checkbox_filter
+          plugin_id: webform_submission_field_filter
           operator: '='
-          value: All
+          value: ''
           group: 1
           exposed: true
           expose:
-            operator_id: ''
-            label: Events
-            description: ''
+            operator_id: webform_submission_value_2_op
+            label: events
+            description: null
             use_operator: false
             operator: webform_submission_value_2_op
             operator_limit_selection: false
@@ -449,23 +464,27 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              next_api_role: '0'
-              wunder_content_editor: '0'
-              frontend_login: '0'
-          is_grouped: false
+            placeholder: null
+          is_grouped: true
           group_info:
-            label: ''
+            label: Events
             description: ''
-            identifier: ''
+            identifier: webform_submission_value_2
             optional: true
             widget: select
             multiple: false
             remember: false
             default_group: All
             default_group_multiple: {  }
-            group_items: {  }
+            group_items:
+              1:
+                title: 'Yes'
+                operator: '='
+                value: 'Yes'
+              2:
+                title: 'No'
+                operator: '='
+                value: 'No'
       filter_groups:
         operator: AND
         groups:
