@@ -21,6 +21,8 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { getArticleTags } from "@/lib/drupal/get-article-tags";
 import { validateAndCleanupArticleTags } from "@/lib/zod/article-tags";
 import { ArticleTags } from "@/lib/zod/article-tags";
+import DropDownMenu from "@/components/drop-down-menu";
+
 
 interface AllArticlesPageProps extends LayoutProps {
   articleTeasers: ArticleTeaserType[];
@@ -55,10 +57,12 @@ export default function AllArticlesPage({
           }
         ]}
       />
-      <div>
-        <select name="" id=""></select>
-      </div>
       <HeadingPage>{t("all-articles")}</HeadingPage>
+      <div className="mt-4 mb-6">
+        <span>Filter by: </span>
+        <DropDownMenu name={"Category"}/>&nbsp;&nbsp;&nbsp;&nbsp;
+        <DropDownMenu name={"Tags"} />
+      </div>
       <ul className="mt-4">
         {articleTeasers?.map((article) => (
           <li key={article?.id}>
