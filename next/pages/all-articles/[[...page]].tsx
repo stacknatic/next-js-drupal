@@ -18,7 +18,6 @@ import { validateAndCleanupArticleCategory } from "@/lib/zod/article-category";
 import { ArticleTags } from "@/lib/zod/article-tags";
 import { ArticleCategory } from "@/lib/zod/article-category";
 import { DropDownMenu } from "@/components/drop-down-menu";
-import { use } from "chai";
 
 interface AllArticlesPageProps extends LayoutProps {
   articleTeasers: ArticleTeaserType[];
@@ -38,7 +37,8 @@ export default function AllArticlesPage({
   const focusRef = useRef<HTMLDivElement>(null);
   const [tag, setTag] = useState("");
   const [cat, setCat] = useState("");
-  const [filteredArticles, setFilteredArticles] = useState<ArticleTeaserType[]>(articleTeasers);
+  const [filteredArticles, setFilteredArticles] = useState<ArticleTeaserType[]>
+  (articleTeasers);
 
   const handleTagFilter = (item: string) => {
     setTag(item);

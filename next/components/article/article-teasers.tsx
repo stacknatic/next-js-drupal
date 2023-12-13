@@ -22,7 +22,7 @@ export function ArticleTeasers({ articles, heading }: LatestArticlesProps) {
       </h2>
       <ul className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 text-white">
         {articles?.map((article) => (
-          <li key={article.id}>
+          <li key={article?.id}>
             <ArticleTeaser article={article} />
           </li>
         ))}

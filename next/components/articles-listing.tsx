@@ -37,7 +37,7 @@ export function ArticlesListing({
       <ul className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
         {!isLoading &&
           data?.map((article: ArticleTeaserType) => (
-            <li key={article.id}>
+            <li key={article?.id}>
               <ArticleTeaser article={article} />
             </li>
           ))}

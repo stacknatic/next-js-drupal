@@ -12,22 +12,23 @@ export const ArticleBaseSchema = z.object({
   sticky: z.boolean().optional(),
   title: z.string(),
   field_excerpt: z.string().optional().nullable(),
-  field_image: ImageShape.nullable(),
+  field_image: ImageShape.optional().nullable(),
   field_category: CategorySchema.optional().nullable(),
   field_tags: TagsSchema.optional().nullable(),
   field_anchor_nav: z.boolean().optional().nullable(),
-  uid: z.object({
-    id: z.string(),
-    display_name: z.string().optional().nullable(),
-    field_user_avatar: ImageShape.optional().nullable(),
-    
-  }),
+  
 });
 
 export const ArticleSchema = ArticleBaseSchema.extend({
   metatag: MetatagsSchema.optional(),
   body: z.object({
     processed: z.string(),
+  }),
+  uid: z.object({
+    id: z.string(),
+    display_name: z.string().optional().nullable(),
+    field_user_avatar: ImageShape.optional().nullable(),
+    
   }),
   
 });
