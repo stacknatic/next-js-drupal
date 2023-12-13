@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { useTranslation } from "next-i18next";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import { ArticleListItem } from "@/components/article-list-item";
 import { HeadingPage } from "@/components/heading--page";
@@ -18,23 +18,32 @@ import {
   validateAndCleanupArticleTeaser,
 } from "@/lib/zod/article-teaser";
 import { Breadcrumbs } from "@/components/breadcrumbs";
-import { NodeArticleTeaser } from "@/components/node--article--teaser";
-import { DrupalNode } from "next-drupal";
-import { Post } from "@/lib/zod/post-schema";
+import { getArticleTags } from "@/lib/drupal/get-article-tags";
+import { validateAndCleanupArticleTags } from "@/lib/zod/article-tags";
+import { ArticleTags } from "@/lib/zod/article-tags";
 
 interface AllArticlesPageProps extends LayoutProps {
   articleTeasers: ArticleTeaserType[];
   paginationProps: PaginationProps;
   languageLinks: LanguageLinks;
+  articleTags: ArticleTags[];
 }
 
 export default function AllArticlesPage({
   articleTeasers = [],
   paginationProps,
+  articleTags = [],
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { t } = useTranslation();
   const focusRef = useRef<HTMLDivElement>(null);
-  console.log(articleTeasers);
+  const [category, setCategory] = useState("all");
+
+  // if(category === "SEO") {
+  //   articleTeasers = articleTeasers.filter((article) => article.field_category.name === "SEO")
+  // }
+  // articleTeasers = articleTeasers.filter((article) => article.field_category?.name === "SEO")
+  
+  console.log(articleTags);
   return (
     <>
       <Meta title={t("all-articles")} metatags={[]} />
@@ -46,6 +55,9 @@ export default function AllArticlesPage({
           }
         ]}
       />
+      <div>
+        <select name="" id=""></select>
+      </div>
       <HeadingPage>{t("all-articles")}</HeadingPage>
       <ul className="mt-4">
         {articleTeasers?.map((article) => (
@@ -54,6 +66,8 @@ export default function AllArticlesPage({
           </li>
         ))}
       </ul>
+
+     
       <Pagination
         focusRestoreRef={focusRef}
         paginationProps={paginationProps}
@@ -88,6 +102,11 @@ export const getStaticProps: GetStaticProps<AllArticlesPageProps> = async (
     locale: context.locale,
   });
 
+  const tags = await getArticleTags({
+    locale: context.locale,
+  });
+
+ 
   // Create pagination props.
   const prevEnabled = currentPage > 1;
   const nextEnabled = currentPage < totalPages;
@@ -113,6 +132,7 @@ export const getStaticProps: GetStaticProps<AllArticlesPageProps> = async (
       articleTeasers: articles.map((teaser) =>
         validateAndCleanupArticleTeaser(teaser),
       ),
+      articleTags: tags.map((tag) => validateAndCleanupArticleTags(tag)),
       paginationProps: {
         currentPage,
         totalPages,

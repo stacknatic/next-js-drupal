@@ -6,11 +6,7 @@ import { getCommonPageProps } from '@/lib/get-common-page-props';
 import Link from 'next/link';
 import Image from 'next/image';
 import { absoluteUrl } from '@/lib/drupal/absolute-url';
-import CountUp from 'react-countup';
-
-
 const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPage }) => {
-    
     // Check if field_logos is an array before mapping over it
     if (Array.isArray(validatedCustomerLogos.field_logos)) {
         const logoElements = validatedCustomerLogos.field_logos.map((logo) => (
@@ -48,7 +44,7 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
                         WUNDER IN NUMBERS
                     </p>
                     <div className='bg-tranquil overflow-hidden mt-4 md:py-10 md:mt-9'>
-                        <div className='flex justify-around text-center space-x-6 '>
+                        <div className='flex justify-around text-center  animate-marquee animate-marquee space-x-6 '>
                             {validatedAboutPage.field_wunder_numers && Array.isArray(validatedAboutPage.field_wunder_numers) ?
                                 validatedAboutPage.field_wunder_numers.map((number) => (
                                     <div key={number.id}>
@@ -56,8 +52,7 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
                                             {number.field_topic}
                                         </p>
                                         <p className='md:tracking-widest uppercase tracking-tighter text-error md:text-xs text-[8px] md:mt-1'>
-                                            {/* {number.field_number} */}
-                                            <span><CountUp end={number.field_number} enableScrollSpy scrollSpyDelay={500}/></span>
+                                            {number.field_number}
                                         </p>
                                     </div>
                                 )) :

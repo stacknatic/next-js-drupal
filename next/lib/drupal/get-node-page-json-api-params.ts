@@ -80,9 +80,9 @@ export function getNodePageJsonApiParams(resourceType: ResourceType) {
       "field_tags",
     
     ])
-    .addFields("taxonomy_term--article_category", ["name", "path"])
-    .addFields("taxonomy_term--tags", ["name", "path"])
-    .addFields("user--user", ["display_name", "field_user_avatar"])
+    apiParams.addFields("taxonomy_term--article_category", ["name", "path"])
+    apiParams.addFields("taxonomy_term--tags", ["name", "path"])
+    apiParams.addFields("user--user", ["display_name", "field_user_avatar"])
 
   }
 
