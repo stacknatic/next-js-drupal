@@ -8,6 +8,7 @@ import { drupal } from '@/lib/drupal/drupal-client';
 
 import { getParams } from '@/lib/drupal/get-params';
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next';
+import Link from 'next/link';
 
 interface NodeArticleProps {
   articles: DrupalNode;
@@ -34,6 +35,10 @@ export default function ArticleSidebar ({articles}: NodeArticleProps){
         </div>
       )
       )}
+
+      <Link href="/all-articles?goToTag=Drupal">
+        Go to Example Page with Variable
+      </Link>
       
     </aside>
   );
