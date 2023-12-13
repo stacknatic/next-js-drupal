@@ -39,8 +39,6 @@ export default function AllArticlesPage({
   const [tag, setTag] = useState("");
   const [cat, setCat] = useState("");
   const [filteredArticles, setFilteredArticles] = useState<ArticleTeaserType[]>(articleTeasers);
-  console.log('categories', articleCategory)
-
 
   const handleTagFilter = (item: string) => {
     setTag(item);

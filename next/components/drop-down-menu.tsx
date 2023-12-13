@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import { FaAngleDown } from 'react-icons/fa';
 
@@ -23,16 +23,23 @@ export function DropDownMenu({
   menuItems,
   handleFilter,
 }: DropDownMenuProps): JSX.Element {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <Menu.Button className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-gray-300 hover:bg-gray-50 ring-1 ring-inset">
+        <Menu.Button
+          onMouseEnter={() => setIsOpen(true)}
+          onMouseLeave={() => setIsOpen(false)}
+          className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-gray-300 hover:bg-gray-50 ring-1 ring-inset"
+        >
           {name}
-          <FaAngleDown className="-mr-1 h-5 w-5 text-gray-400 mt-1" aria-hidden="true" />
+          <FaAngleDown className="-mr-1 h-5 w-5 mt-1" aria-hidden="true" />
         </Menu.Button>
       </div>
 
       <Transition
+        show={isOpen}
         as={Fragment}
         enter="transition ease-out duration-100"
         enterFrom="transform opacity-0 scale-95"
