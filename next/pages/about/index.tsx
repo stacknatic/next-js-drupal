@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { getValidatedCustomerLogos } from '@/lib/drupal/get-customer-logos';
 import { getValidatedPartnerLogos } from '@/lib/drupal/get-partner-logos';
 import { getValidatedCleanAboutPage } from '@/lib/drupal/get-about-page';
@@ -9,9 +9,11 @@ import Customers from "@/components/customers-partners/customers";
 import Partners from "@/components/customers-partners/partners";
 import { absoluteUrl } from '@/lib/drupal/absolute-url';
 import CountUp from 'react-countup';
+import { spawn } from 'child_process';
 
 
 const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPage }) => {
+    const [employee, setEmployee] = useState('x');
     
     // Check if field_logos is an array before mapping over it
     if (Array.isArray(validatedCustomerLogos.field_logos)) {
@@ -28,9 +30,9 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
                 </Link>
             </div>
         ));
-        {
+        console.log(validatedAboutPage.field_wunder_numers)
 
-        }
+        
         return (
             <div className=''>
                 <section className=' bg-stone md:pb-5 pb-2 text-white'>
@@ -59,7 +61,9 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
                                         </p>
                                         <p className='md:tracking-widest uppercase tracking-tighter text-error md:text-xs text-[8px] md:mt-1'>
                                             {/* {number.field_number} */}
-                                            <span><CountUp end={number.field_number} enableScrollSpy scrollSpyDelay={500}/></span>
+                                            <span><CountUp end={number.field_number} enableScrollSpy scrollSpyDelay={500}/>{number.field_topic === 'Cities' && <span>&nbsp;X</span>}
+
+                                            </span>
                                         </p>
                                     </div>
                                 )) :

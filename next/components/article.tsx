@@ -25,8 +25,6 @@ export function Article({ article, ...props }: ArticleProps) {
   const { t } = useTranslation();
   const router = useRouter();
   const articleBody = addId(article.body?.processed);
-  console.log("tags", article.field_tags)
-  console.log("category", article.field_category)
 
   return (
     <article {...props}>
