@@ -15,7 +15,7 @@ export function EventTeaser({ event }: any) {
   return (
     <Link
       href={event.path.alias}
-      className="relative grid transition-all hover:shadow-md rounded-3xl"
+      className="relative grid transition-all hover:shadow-md rounded-3xl mb-12 "
     >
     <div className="movingCard ">
       {event.field_image && (
@@ -24,13 +24,13 @@ export function EventTeaser({ event }: any) {
           width={384}
           height={240}
           alt={event.field_image.resourceIdObjMeta.alt}
-          className="max-w-full object-cover mx-auto min-h-[30vh] lg:min-h-[50vh] rounded-3xl lg:brightness-50 hover:brightness-100 "
+          className="max-w-full object-cover mx-auto min-h-[40vh] lg:min-h-[50vh] rounded-3xl brightness-50 hover:brightness-100 "
         />
       )}
-      <div className="info lg:absolute lg:bottom-0 container my-4 line-clamp-2 text-sm text-scapaflow text-center lg:text-white ">
+      <div className="info absolute bottom-0 my-4 line-clamp-2 text-sm text-center text-white w-webkit-fill-available">
         {/* {author && <>{t("posted-by", { author })} - </>} */}
         {date}
-      <h3 className="mb-4 line-clamp-1 text-heading-xs font-bold text-center mx-4">
+        <h3 className="mb-4 line-clamp-1 text-heading-xs font-bold text-center mx-4">
         {event.title}
       </h3>
       </div>

@@ -38,8 +38,9 @@ const Canvas = () => {
 
     function particles() {
       ctx.clearRect(0, 0, w, h);
-      canvas.addEventListener('mousemove', MouseMove, false);
-
+      if (window.innerWidth >= 768) {
+        canvas.addEventListener('mousemove', MouseMove, false);
+      }
       for (let i = 0; i < arc; i++) {
         const li = parts[i];
         const distanceFactor = DistanceBetween(mouse, parts[i]);
@@ -83,7 +84,7 @@ const Canvas = () => {
     particles();
   }, []); // Ensure this effect runs once when the component mounts
 
-  return <canvas ref={canvasRef} className='lg:block hidden'></canvas>;
+  return <canvas ref={canvasRef}></canvas>;
 };
 
 export default Canvas;

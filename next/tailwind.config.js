@@ -111,6 +111,9 @@ module.exports = {
         '500': '500px',
         '550': '550px',
       },
+      width: {
+        'webkit-fill-available': '-webkit-fill-available',
+      },
     },
   },
   corePlugins: {

@@ -81,7 +81,7 @@ export function NewsletterRegistration() {
     >
       <h3 className="text-heading-sm ">Stay up to date with our newsletter</h3>
       <p>
-        "<span className="text-error">*</span>" indicates required fields
+        "<span className="font-bold">*</span>" indicates required fields
       </p>
       <p className="uppercase tracking-wider">I'M INTERESTED IN</p>
       <div className="w-full flex-col sm:flex sm:flex-row items-start gap-2">
@@ -110,7 +110,7 @@ export function NewsletterRegistration() {
 
       <div className="w-full flex flex-col gap-2 pt-4">
         <label className="uppercase tracking-wider" htmlFor="email">
-          Email<sup className="text-error text-md">*</sup>
+          Email<sup className="font-bold">*</sup>
         </label>
         <input
           className="rounded-md border-b border-b-1 p-4 ring-0 min-w-[2rem] focus:border-b-2 focus:border-primary-400"
@@ -125,13 +125,13 @@ export function NewsletterRegistration() {
       </div>
       <div className="w-full flex flex-col gap-2 pt-4">
         <div className="w-full flex gap-1 items-center ">
-          <label htmlFor="privacy" className="cursor-pointer relative flex items-center">
-          <input className="rounded-md w-5 h-5 mr-2 appearance-none border-2 border-white checked:bg-white hover:bg-white" type="checkbox" id="privacy" {...register("privacy")} />
+          <label htmlFor="privacy" className="cursor-pointer relative">
+          <input className="rounded-md w-5 h-5 mr-2 mb-[-4px] appearance-none border-2 border-white checked:bg-white hover:bg-white" type="checkbox" id="privacy" {...register("privacy")} />
             I approve that Wunder processes my personal data according to its
             Privacy Policy.
             <CheckmarkIcon className="check-privacy h-5 w-5 absolute top-0 opacity-0 text-primary-700" />
           </label>
-          <sup className="text-error">*</sup>
+          <sup className="font-bold">*</sup>
         </div>
         {errors.privacy && (
           <p className="text-error">{errors.privacy.message}</p>
@@ -141,8 +141,8 @@ export function NewsletterRegistration() {
           registered for all newsletters.
         </p>
       </div>
-      <Button type="submit" className="rounded-md ">
-        {isSubmitting ? "Submitting....." : "Submit"}
+      <Button variant="quinary" type="submit" className="rounded-md shadow-xl">
+        {isSubmitting ? "Subscribing....." : "Subscribe"}
       </Button>
     </form>
   );

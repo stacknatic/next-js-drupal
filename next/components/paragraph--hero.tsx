@@ -31,7 +31,7 @@ export function ParagraphHero({ paragraph }: { paragraph: HeroType }) {
   const translateXRight = scrollPosition;
 
   return (
-    <section id="hero" className="flex sm:min-w-screen mb-2 sm:mb-6 sm:mt-0 sm:mx-auto sm:max-w-screen overflow-x-hidden sm:min-h-[80vh] lg:min-h-[93vh] lg:mx-[-10rem] mx-[-24px]">
+    <section id="hero" className="flex sm:min-w-screen mb-2 sm:mb-6 sm:mt-0 sm:mx-auto sm:max-w-screen overflow-x-hidden sm:min-h-[80vh] lg:min-h-[93vh] lg:mx-[-168px] mx-[-24px]">
       <div className="mx-auto lg:flex relative sm:min-w-screen overflow-x-hidden">
         <div style={{ transform: `translateX(${translateXLeft}px)` }} className="mx-10 my-10 min-h-0 lg:max-h-0 lg:ml-36 lg:mt-36 lg:px-8 lg:py-8 lg:col-span-6 lg:py-16 z-10">
           {paragraph.field_heading && (

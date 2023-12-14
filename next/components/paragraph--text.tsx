@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 export function ParagraphText({ paragraph }: { paragraph: FormattedTextType }) {
   const { t } = useTranslation();
   return (
-    <div className="bg-bittersweet sm:min-w-screen lg:mx-[-10rem] mx-[-24px] py-6 lg:h-[92vh] lg:pt-24 flex flex-col content-center overflow-x-hidden">
+    <div className="bg-bittersweet sm:min-w-screen lg:mx-[-168px] mx-[-24px] py-6 lg:h-[92vh] lg:pt-24 flex flex-col content-center overflow-x-hidden">
       {paragraph.field_heading && (
         <HeadingParagraph>{paragraph.field_heading}</HeadingParagraph>
       )}
