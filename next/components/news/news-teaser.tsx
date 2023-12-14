@@ -13,7 +13,8 @@ interface NewsTeaserProps {
 
 export function NewsTeaser({ news }: NewsTeaserProps) {
   const { t } = useTranslation();
-  const author = news.uid?.display_name;
+  // commenting out the following line because uid is not part of news
+  // const author = news.uid?.display_name;
   const router = useRouter();
   const date = formatDate(news.created, router.locale);
   return (
@@ -32,7 +33,8 @@ export function NewsTeaser({ news }: NewsTeaserProps) {
           />
         )}
         <div className="info absolute bottom-0 my-4 line-clamp-2 text-sm text-center text-white w-webkit-fill-available">
-          {author && <>{t("posted-by", { author })} - </>}
+          {/* commenting out the following line because uid is not part of news */}
+          {/* {author && <>{t("posted-by", { author })} - </>} */}
           {date}
           <h3 className="mb-4 line-clamp-1 text-heading-xs font-bold text-center mx-4">
             {news.title}
