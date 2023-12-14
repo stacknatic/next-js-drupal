@@ -12,15 +12,12 @@ interface NodeArticleProps {
   articles: DrupalNode;
 }
 
-export default function ArticleSidebar ({articles}: NodeArticleProps){
+export default function ArticleSidebar (){
   
   return (
     <aside className="border-l-2 border-primary-500 p-2">
       sidebar
-      {articles?.map((article: DrupalNode) => (
-        <NodeArticleTeaser node={article} key={article.id} />
-      )
-      )}
+      
       
     </aside>
   );
