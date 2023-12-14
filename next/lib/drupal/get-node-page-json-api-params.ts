@@ -9,7 +9,10 @@ export type ResourceType =
   | "node--article"
   | "node--events"
   | "node--service"
-  | "node--cases";
+  | "node--cases"
+  | "taxonomy_term--article_category"
+  | "taxonomy_term--tags";
+
 
 export function getNodePageJsonApiParams(resourceType: ResourceType) {
   const apiParams = new DrupalJsonApiParams().addFilter(
@@ -60,7 +63,7 @@ export function getNodePageJsonApiParams(resourceType: ResourceType) {
 
   // The article content type has an image field, and author information:
   if (resourceType === "node--article") {
-    apiParams.addInclude(["field_image", "uid"]);
+    apiParams.addInclude(["field_image", "uid.field_user_avatar", "field_category", "field_tags"])
     apiParams.addFields(resourceType, [
       "title",
       "body",
@@ -72,11 +75,19 @@ export function getNodePageJsonApiParams(resourceType: ResourceType) {
       "field_excerpt",
       "path",
       "sticky",
-    ]);
+      "field_anchor_nav",
+      "field_category",
+      "field_tags",
+    
+    ])
+    apiParams.addFields("taxonomy_term--article_category", ["name", "path"])
+    apiParams.addFields("taxonomy_term--tags", ["name", "path"])
+    apiParams.addFields("user--user", ["display_name", "field_user_avatar"])
+
   }
 
   if (resourceType === "node--news") {
-    apiParams.addInclude(["field_image", "uid"]);
+    apiParams.addInclude(["field_image", "uid.field_user_avatar"])
     apiParams.addFields(resourceType, [
       "title",
       "body",
@@ -90,6 +101,7 @@ export function getNodePageJsonApiParams(resourceType: ResourceType) {
       "sticky",
       "field_anchor_nav",
     ]);
+    
   }
 
   if (resourceType === "node--events") {
@@ -146,6 +158,12 @@ export function getNodePageJsonApiParams(resourceType: ResourceType) {
       "path",
       "field_logos",
     ]);
+  }
+  if (resourceType === "taxonomy_term--article_category") {
+    apiParams.addFields(resourceType, ["name", "path"]);
+  }
+  if (resourceType === "taxonomy_term--tags") {
+    apiParams.addFields(resourceType, ["name", "path"]);
   }
 
   return apiParams;

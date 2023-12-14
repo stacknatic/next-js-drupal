@@ -1,0 +1,20 @@
+uuid: 76a925c8-b3a4-4633-8d6a-062ac8f0fd8b
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: VZf_tf3P8R-Dz54F3Ps5Fbn1dqwCD_zOVVLNzbaTS64
+name: 'Special offers'
+id: special_offers
+description: 'Special offers newsletter.'
+format: plain
+priority: 0
+receipt: false
+from_name: 'Drush Site-Install'
+subject: '[[simplenews-newsletter:name]] [node:title]'
+from_address: admin@example.com
+hyperlinks: true
+allowed_handlers: {  }
+new_account: none
+access: default
+weight: 0

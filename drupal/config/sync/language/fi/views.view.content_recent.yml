@@ -6,6 +6,3 @@ display:
         options:
           submit_button: Apply
           reset_button_label: Palauta
-          exposed_sorts_label: Lajittele
-          sort_asc_label: Asc
-          sort_desc_label: Desc

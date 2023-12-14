@@ -1,0 +1,37 @@
+uuid: a05dbb2c-eb87-4c2e-b3cc-3e43467562a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_user_avatar
+  module:
+    - svg_image
+    - user
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  field_user_avatar:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  member_for:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden:
+  langcode: true
+  simplenews: true

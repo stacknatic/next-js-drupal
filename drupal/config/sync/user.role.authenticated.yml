@@ -2,12 +2,8 @@ uuid: f181b529-f588-4fa4-a947-cd8873b632b1
 langcode: en
 status: true
 dependencies:
-  config:
-    - rest.resource.user_registration
-    - rest.resource.webform_rest_submit
   module:
     - media
-    - rest
     - simplenews
     - system
 _core:
@@ -18,7 +14,5 @@ weight: 1
 is_admin: false
 permissions:
   - 'access content'
-  - 'restful post user_registration'
-  - 'restful post webform_rest_submit'
   - 'subscribe to newsletters'
   - 'view media'
