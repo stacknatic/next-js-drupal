@@ -17,15 +17,16 @@ export default async function handler(
       const validation = EventRegistrationSchema.safeParse(body);
       // making post request only if the data is valid
       if (validation.success) {
+        const data = validation.data;
         // Submit to Drupal.
         const result = await drupal.fetch(url.toString(), {
           method: "POST",
           body: JSON.stringify({
             webform_id: "event_registration",
-            name: body.name,
-            email: body.email,
-            message: body.message,
-            even_title: body.even_title,
+            name: data.name,
+            email: data.email,
+            message: data.message,
+            even_title: data.even_title,
           }),
           headers: {
             "Content-Type": "application/json",
