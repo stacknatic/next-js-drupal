@@ -7,6 +7,13 @@ export function formatDate(input: string, locale: string): string {
   });
 }
 
+export function formatShortDate(input: string, locale: string): { day: string, month: string } {
+  const date = new Date(input);
+  const day = `${date.getDate()}`;
+  const month = date.toLocaleString(locale, { month: 'short' }).toUpperCase();
+  return { day, month };
+}
+
 export function formatDateComplete(input: string, locale: string): string {
   const date = new Date(input);
   return date.toLocaleDateString(locale, {

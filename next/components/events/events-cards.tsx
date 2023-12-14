@@ -22,7 +22,7 @@ export function EventsCards({ events, heading }: EventsCardsPropsType) {
       <h2 className="pb-6 md:pb-8 text-center text-heading-sm font-bold md:text-heading-md">
         {heading}
       </h2>
-      <ul className="mt-4 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <ul className="lg:flex lg:flex-wrap mt-4 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
         {events?.map((event) => (
           <li key={event.id}>
             <EventCard event={event} />

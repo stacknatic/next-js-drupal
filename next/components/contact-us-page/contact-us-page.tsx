@@ -8,7 +8,7 @@ import BranchMap from '../branch-maps/branchmap'
 export default function ContactUsPage() {
   return (
         <div className='flex flex-col justify-between'>
-            <div className='lg:w-6/12 mx-auto lg:mx-40 justify-center'>
+            <div className='lg:w-6/12 mx-auto justify-center'>
                 <div >
                     <ContactForm />
                 </div>
@@ -18,7 +18,6 @@ export default function ContactUsPage() {
                 </div>
             </div>
             <div>
-                <ContactList />
                 <BranchMap />
             </div>
         </div>

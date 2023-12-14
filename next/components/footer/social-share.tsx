@@ -14,19 +14,19 @@ export function SocialShare() {
       id: 1,
       location: "Facebook",
       url: `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`,
-      icon: <FacebookIcon className="block h-8 w-8 text-white" />,
+      icon: <FacebookIcon className="block h-6 w-6 text-white" />,
     },
     {
       id: 2,
       location: "Twitter",
       url: `https://twitter.com/intent/tweet?url=${pageUrl}`,
-      icon: <TwitterIcon className="block h-8 w-8 text-white" />,
+      icon: <TwitterIcon className="block h-6 w-6 text-white" />,
     },
     {
       id: 3,
       location: "LinkedIn",
       url: `https://www.linkedin.com/shareArticle?mini=true&url=${pageUrl}`,
-      icon: <LinkedInIcon className="block h-8 w-8 text-white" />,
+      icon: <LinkedInIcon className="block h-6 w-6 text-white" />,
     },
   ];
 

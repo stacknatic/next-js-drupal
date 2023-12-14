@@ -19,8 +19,6 @@ export default function Events({ events }: EventCardsPropsType) {
     <>
       {/* <Meta title={events?.title} metatags={events?.metatag} /> */}
       <EventsCards events={events} heading={t("Events")} />
-      <ContactList />
-      <LogoStrip />
     </>
   );
 }

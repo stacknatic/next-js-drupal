@@ -103,7 +103,15 @@ canvas {
   z-index: 1; /* Place the canvas behind other content */
 }
 
-@media only screen and (min-width: 1060px){
+.longDate {
+  display: flex;
+}
+
+.shortDate {
+  display: none;
+}
+
+@media only screen and (min-width: 1200px){
 
   .movingCard{
     height: 400px;
@@ -120,4 +128,31 @@ canvas {
     }
   }
   
+  .eventImageWrapper{
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 60%);
+  }
+  
+ 
+
+  .eventFull{
+    
+    &:hover {
+      cursor: pointer;
+      
+      .eventImage {
+        opacity: 0.9;
+        filter: brightness(40%);
+        transform: scale(1.2) rotate(5deg);
+        transition: 300ms ease-in-out;
+      }
+
+      .shortDate {
+        display: flex;
+        opacity: 1;
+        transform: scale(1.5);
+        transition: 300ms ease-in-out;
+      }
+    }
+  }
 }
+  
