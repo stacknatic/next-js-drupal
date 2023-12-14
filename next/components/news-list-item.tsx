@@ -14,7 +14,7 @@ interface NewsListItemProps {
 
 export function NewsListItem({ news }: NewsListItemProps) {
   const { t } = useTranslation();
-  const author = news.uid?.display_name;
+  // const author = news.uid?.display_name;
   const router = useRouter();
   const date = formatDate(news.created, router.locale);
   return (
@@ -31,7 +31,7 @@ export function NewsListItem({ news }: NewsListItemProps) {
         {news.title}
       </h3>
       <div className="mb-4 line-clamp-2 text-md text-scapaflow">
-        {author && <>{t("posted-by", { author })} - </>}
+        {/* {author && <>{t("posted-by", { author })} - </>} */}
         {date}
       </div>
       <div className="flex flex-col items-start gap-4 sm:flex-row">

@@ -14,7 +14,7 @@ interface ArticleListItemProps {
 
 export function ArticleListItem({ article }: ArticleListItemProps) {
   const { t } = useTranslation();
-  const author = article.uid?.display_name;
+  // const author = article.uid?.display_name;
   const router = useRouter();
   const date = formatDate(article.created, router.locale);
   return (
@@ -31,7 +31,7 @@ export function ArticleListItem({ article }: ArticleListItemProps) {
         {article.title}
       </h3>
       <div className="mb-4 line-clamp-2 text-md text-scapaflow">
-        {author && <>{t("posted-by", { author })} - </>}
+        {/* {author && <>{t("posted-by", { author })} - </>} */}
         {date}
       </div>
       <div className="flex flex-col items-start gap-4 sm:flex-row">
