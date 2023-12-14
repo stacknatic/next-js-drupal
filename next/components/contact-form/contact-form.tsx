@@ -64,7 +64,7 @@ const ContactForm = () => {
 
     return (
         <div>
-                <div className='w-full'>
+                <div className='w-full bg-primary-100'>
                     <div>
                         <div className='grid-cols-1 text-ss bg-slate-800'>
                             <div className=''>
