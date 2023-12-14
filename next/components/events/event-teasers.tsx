@@ -36,7 +36,7 @@ export function EventTeasers({ events, heading }: any) {
             href="/events"
             className={clsx(
               buttonVariants({ variant: "primary" }),
-              "text-base lg:my-10 mt-0 mb-4 inline-flex px-5 py-3 rounded-full border-white",
+              "text-base font-bold lg:my-10 mt-0 mb-4 inline-flex px-5 py-3 rounded-full border-white",
             )}
           >
             {t("All-events")}

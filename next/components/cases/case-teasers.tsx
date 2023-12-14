@@ -30,7 +30,7 @@ export function CaseTeasers({ cases, heading }: any) {
             href="/cases"
             className={clsx(
               buttonVariants({ variant: "primary" }),
-              "text-base lg:my-10 mt-2 mb-4 inline-flex px-5 py-3 rounded-full border-white",
+              "text-base font-bold lg:my-10 mt-2 mb-4 inline-flex px-5 py-3 rounded-full border-white",
             )}
           >
             {t("All-cases")}

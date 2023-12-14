@@ -103,6 +103,27 @@ canvas {
   z-index: 1; /* Place the canvas behind other content */
 }
 
+/***** END HOMEPAGE ANIMATION ******/
+
+#news:checked ~ .check-news {
+  opacity: 1;
+}
+
+#careers:checked ~ .check-careers {
+  opacity: 1;
+}
+
+#events:checked ~ .check-events {
+  opacity: 1;
+}
+
+#privacy:checked ~ .check-privacy {
+  opacity: 1;
+}
+
+/***** END FOOTER CHECKBOX ******/
+
+
 .longDate {
   display: flex;
 }
@@ -132,8 +153,6 @@ canvas {
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0 60%);
   }
   
- 
-
   .eventFull{
     
     &:hover {

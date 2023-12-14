@@ -9,6 +9,7 @@ import {
   NewsletterRegistrationSchema,
   NewsletterRegistrationType,
 } from "@/lib/zod/newsletter-registration";
+import CheckmarkIcon from '@/styles/icons/checkmark.svg';
 
 export function NewsletterRegistration() {
   const router = useRouter();
@@ -76,25 +77,34 @@ export function NewsletterRegistration() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="w-full flex mb-4 max-w-3xl flex-col gap-5 md:pr-[2rem]"
+      className="w-full flex max-w-3xl flex-col lg:p-8 p-4 gap-5 md:pr-[2rem] bg-primary-700 text-white"
     >
       <h3 className="text-heading-sm ">Stay up to date with our newsletter</h3>
       <p>
         "<span className="text-error">*</span>" indicates required fields
       </p>
       <p className="uppercase tracking-wider">I'M INTERESTED IN</p>
-      <div className="w-full flex items-start gap-2">
-        <div className="w-full flex gap-1 items-center ">
-          <input type="checkbox" id="news" {...register("news")} />
-          <label htmlFor="news">Wunder news</label>
+      <div className="w-full flex-col sm:flex sm:flex-row items-start gap-2">
+        <div className="w-full flex gap-1 items-center py-2">
+          <label htmlFor="news" className="cursor-pointer relative flex items-center">
+            <input className="rounded-md w-5 h-5 mr-2 appearance-none border-2 border-white checked:bg-white hover:bg-white" type="checkbox" id="news" {...register("news")} />
+            <CheckmarkIcon className="check-news h-5 w-5 absolute top-0 opacity-0 text-primary-700" />
+            Wunder news
+          </label>
         </div>
-        <div className="w-full flex gap-1 items-center ">
-          <input type="checkbox" id="careers" {...register("careers")} />
-          <label htmlFor="careers">Careers</label>
+        <div className="w-full flex gap-1 items-center py-2">
+          <label htmlFor="careers" className="cursor-pointer relative flex items-center">
+          <input className="rounded-md w-5 h-5 mr-2 appearance-none border-2 border-white checked:bg-white hover:bg-white" type="checkbox" id="careers" {...register("careers")} />
+          Careers
+          <CheckmarkIcon className="check-careers h-5 w-5 absolute top-0 opacity-0 text-primary-700" />
+          </label>
         </div>
-        <div className="w-full flex gap-1 items-center ">
-          <input type="checkbox" id="events" {...register("events")} />
-          <label htmlFor="events">Events</label>
+        <div className="w-full flex gap-1 items-center py-2">
+          <label htmlFor="events" className="cursor-pointer relative flex items-center">
+          <input className="rounded-md w-5 h-5 mr-2 appearance-none border-2 border-white checked:bg-white hover:bg-white" type="checkbox" id="events" {...register("events")} />
+          Events
+          <CheckmarkIcon className="check-events h-5 w-5 absolute top-0 opacity-0 text-primary-700" />
+          </label>
         </div>
       </div>
 
@@ -103,7 +113,7 @@ export function NewsletterRegistration() {
           Email<sup className="text-error text-md">*</sup>
         </label>
         <input
-          className="border-b border-b-1 p-4 ring-0 min-w-[2rem] focus:border-b-2 focus:border-primary-400"
+          className="rounded-md border-b border-b-1 p-4 ring-0 min-w-[2rem] focus:border-b-2 focus:border-primary-400"
           placeholder="email"
           type="email"
           id="email"
@@ -115,10 +125,11 @@ export function NewsletterRegistration() {
       </div>
       <div className="w-full flex flex-col gap-2 pt-4">
         <div className="w-full flex gap-1 items-center ">
-          <input type="checkbox" id="privacy" {...register("privacy")} />
-          <label htmlFor="privacy">
+          <label htmlFor="privacy" className="cursor-pointer relative flex items-center">
+          <input className="rounded-md w-5 h-5 mr-2 appearance-none border-2 border-white checked:bg-white hover:bg-white" type="checkbox" id="privacy" {...register("privacy")} />
             I approve that Wunder processes my personal data according to its
             Privacy Policy.
+            <CheckmarkIcon className="check-privacy h-5 w-5 absolute top-0 opacity-0 text-primary-700" />
           </label>
           <sup className="text-error">*</sup>
         </div>
@@ -130,7 +141,7 @@ export function NewsletterRegistration() {
           registered for all newsletters.
         </p>
       </div>
-      <Button type="submit">
+      <Button type="submit" className="rounded-md ">
         {isSubmitting ? "Submitting....." : "Submit"}
       </Button>
     </form>
