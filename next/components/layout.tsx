@@ -27,7 +27,23 @@ export function Layout({ menus, children }: LayoutProps) {
   const { t } = useTranslation();
   const router = useRouter();
   const isHomePage = router.pathname === "/";
-  
+
+  const { pathname } = router;
+  console.log('pathname', pathname)
+
+  // Create a function to extract the page title from the path
+  const getPageTitle = (path) => {
+    // Your logic to extract the title from the path goes here
+    // For example, you can split the path and capitalize each word
+    const titleArray = path.split('/').filter(Boolean);
+    return titleArray.map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  };
+
+  // Create an array of breadcrumb items dynamically
+  const breadcrumbItems = pathname.split('/').filter(Boolean).map((pathSegment, index, array) => ({
+    title: getPageTitle(pathSegment),
+    url: `/${array.slice(0, index + 1).join('/')}`,
+  }));
 
   return (
     <>
@@ -42,7 +58,9 @@ export function Layout({ menus, children }: LayoutProps) {
         </SkipToContentLink>
         <Header menu={menus.main} />
         <main className="grow" id="main-content">
-          <div className="mx-auto max-w-6xl px-6 py-8">{children}</div>
+          <div className="mx-auto max-w-6xl px-6 py-8">
+            {children}
+          </div>
         </main>
         <Footer menu={menus.footer} />
         <CookieBanner />
