@@ -6,7 +6,6 @@ import type { Menu, MenuItem, MenuItemOptions } from "@/lib/zod/menu";
 import Facebook from "@/styles/icons/facebook.svg";
 import LinkedIn from "@/styles/icons/linkedin.svg";
 import Twitter from "@/styles/icons/twitter.svg";
-
 import WunderCarrot from "@/styles/icons/wunder-carrot.svg";
 import NativeShare from "./nativeShare";
 import { NewsletterRegistration } from "../newsletter-registration";
@@ -18,14 +17,14 @@ interface FooterProps {
 export function Footer({ menu }: FooterProps) {
   // Only show the menu items that match the current locale:
   const { locale } = useRouter();
-  const filteredItems = menu?.filter((link) => link.langcode == locale);
+  const filteredItems = menu.filter((link) => link.langcode == locale);
   return (
     <footer className="border-t border-finnishwinter bg-primary-600">
       <div className="lg:px-6 sm:flex sm:flex-col items-center md:flex-row-reverse md:justify-between md:items-end">
         <NewsletterRegistration />
         <nav className="flex flex-col items-center gap-2 py-8 text-md sm:flex-col sm:justify-between sm:mx-auto">
           <ul className="mr-4 flex flex-wrap gap-x-12 gap-y-4">
-            {filteredItems?.map((link) => {
+            {filteredItems.map((link) => {
               const icon = Array.isArray(link.options)
                 ? null
                 : link.options.attributes.icon;
