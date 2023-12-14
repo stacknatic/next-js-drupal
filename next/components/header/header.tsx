@@ -11,6 +11,7 @@ import WunderIcon from "@/styles/icons/wunder.svg";
 
 import { LanguageSwitcher } from "./language-switcher";
 import { UserMenu } from "./user-menu";
+import { MainMenuFull } from "../main-menu/main-menu-full";
 
 interface HeaderProps {
   menu: Menu;
@@ -19,18 +20,15 @@ interface HeaderProps {
 export function Header({ menu }: HeaderProps) {
   const [isMainMenuOpen, setIsMainMenuOpen] = useState(false);
   const scrollDirection = useScrollDirection();
-  console.log(scrollDirection); // Add this line to debug the scrollDirection state
-
+  
   return (
     <header className={`z-50 flex-shrink-0 border-finnishwinter bg-primary-600 text-white h-20 md:sticky ${ scrollDirection === "down" ? "md:-top-20" : "md:top-0"} transition-all duration-500`}>
       <nav className="mx-auto flex max-w-full flex-row items-center justify-between lg:px-10 px-4 py-4">
         <HomeLink />
         <div className="flex flex-row items-center justify-end gap-6 sm:gap-8">
-          <MainMenu
-            menu={menu}
-            isOpen={isMainMenuOpen}
-            setIsOpen={setIsMainMenuOpen}
-          />
+        <div className="hidden lg:block">
+            <MainMenuFull menu={menu} />
+          </div>
           <ContactLink />
           <SearchLink />
           <UserMenu />
@@ -41,6 +39,11 @@ export function Header({ menu }: HeaderProps) {
           </div>
         </div>
       </nav>
+      <MainMenu
+            menu={menu}
+            isOpen={isMainMenuOpen}
+            setIsOpen={setIsMainMenuOpen}
+          />
     </header>
   );
 }
@@ -61,9 +64,9 @@ function SearchLink() {
   const { t } = useTranslation();
   return (
     <Link href="/search" locale={locale} className="hover:underline">
-      {/* <span className="sr-only sm:not-sr-only sm:mr-2 sm:inline">
+      <span className="sr-only sm:mr-2 sm:inline">
         {t("search")}
-      </span> */}
+      </span>
       <SearchIcon className="inline-block h-6 w-6" aria-hidden="true" />
     </Link>
   );
@@ -74,9 +77,9 @@ function ContactLink() {
   const { t } = useTranslation();
   return (
     <Link href="/contacts" locale={locale} className="hover:underline">
-      {/* <span className="sr-only sm:not-sr-only sm:mr-2 sm:inline">
+      <span className="sr-only sm:mr-2 sm:inline">
         {t("Contact Us")}
-      </span> */}
+      </span>
       <PencilIcon className="inline-block h-6 w-6" aria-hidden="true" />
     </Link>
   );

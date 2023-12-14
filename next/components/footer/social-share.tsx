@@ -1,9 +1,11 @@
 import { useTranslation } from "next-i18next";
 import { useState } from "react";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaFacebook } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
-import FacebookIcon from "@/styles/icons/facebook.svg";
-import LinkedInIcon from "@/styles/icons/linkedin.svg";
-import TwitterIcon from "@/styles/icons/twitter.svg";
+
+
 
 export function SocialShare() {
   const [pageUrl, setPageUrl] = useState<string>("");
@@ -14,19 +16,19 @@ export function SocialShare() {
       id: 1,
       location: "Facebook",
       url: `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`,
-      icon: <FacebookIcon className="block h-6 w-6 text-white" />,
+      icon: <FaFacebook className="block h-6 w-6 text-white" />,
     },
     {
       id: 2,
       location: "Twitter",
       url: `https://twitter.com/intent/tweet?url=${pageUrl}`,
-      icon: <TwitterIcon className="block h-6 w-6 text-white" />,
+      icon: <FaXTwitter className="block h-6 w-6 text-white" />,
     },
     {
       id: 3,
       location: "LinkedIn",
       url: `https://www.linkedin.com/shareArticle?mini=true&url=${pageUrl}`,
-      icon: <LinkedInIcon className="block h-6 w-6 text-white" />,
+      icon: <FaLinkedin className="block h-6 w-6 text-white" />,
     },
   ];
 

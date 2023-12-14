@@ -24,7 +24,7 @@ const NativeShare: React.FC<{ title: string; url: string }> = ({
     
 <div className="flex items-center">
   <span className="text-dark text-xxl mr-2 text-white">Share</span>
-  <LuShare2 onClick={handleShare} className="bg-primary-500 p-2 text-white rounded-lg" size={32} />
+  <LuShare2 onClick={handleShare} className="shadow-xl bg-primary-500 p-2 text-white rounded-lg" size={32} />
 </div>
 
   );

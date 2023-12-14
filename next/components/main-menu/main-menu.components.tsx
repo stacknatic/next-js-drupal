@@ -1,9 +1,9 @@
-import NextLink from "next/link";
-import { useRouter } from "next/router";
-import { useTranslation } from "next-i18next";
-import { Dispatch, forwardRef, ReactNode, SetStateAction } from "react";
 import * as NavigationMenu from "@radix-ui/react-navigation-menu";
 import clsx from "clsx";
+import { useTranslation } from "next-i18next";
+import NextLink from "next/link";
+import { useRouter } from "next/router";
+import { Dispatch, forwardRef, ReactNode, SetStateAction } from "react";
 
 import { MenuItem as MenuItemType } from "@/lib/zod/menu";
 import Chevron from "@/styles/icons/chevron-down.svg";
@@ -24,7 +24,7 @@ export function MenuContainer({
     <div
       className={clsx(
         css.mainMenu,
-        "relative mx-auto font-inter lg:flex lg:justify-start lg:items-center lg:mr-10 lg:pt-0",
+        "relative mx-auto max-w-6xl font-inter tracking-wide",
         !isOpen && "hidden",
       )}
     >
@@ -46,7 +46,7 @@ export const MenuRoot = forwardRef<
       ref={ref}
       {...props}
       className={clsx(
-        "absolute inset-0 z-40 overflow-y-auto overflow-x-hidden border-finnishwinter lg:relative lg:flex lg:items-center lg:justify-center lg:border-none",
+        "absolute inset-0 z-4 overflow-y-auto overflow-x-hidden border-finnishwinter lg:bottom-auto lg:min-h-[75vh]",
         isOpen && "border-t bg-white lg:border",
         isOpen &&
           "after:absolute after:left-[calc(66.67%+1px)] after:h-full after:border-r",
@@ -80,14 +80,13 @@ export function MenuToggle({
 export function MenuList({ children, level }) {
   return (
     <NavigationMenu.List
-    className={clsx(
-      "fixed inset-0 top-[72px] overflow-scroll border-b border-l border-r border-white bg-white lg:relative lg:flex lg:items-center lg:justify-center lg:border-none lg:overflow-visible lg:top-0 lg:w-auto",
-      level === 0 &&
-        "z-10 h-full lg:flex lg:space-x-4 lg:border-none lg:bg-transparent",
-      level === 1 &&
-        "z-20 lg:absolute lg:flex-col lg:bg-primary-600 lg:border lg:shadow-lg",
-      level === 2 && "z-30 "
-    )}
+      className={clsx(
+        "fixed inset-0 top-[74px] overflow-scroll border-b border-l border-r border-white bg-white lg:absolute lg:top-0 lg:w-[min(33.334vw,384px)] lg:overflow-visible ",
+        level === 0 &&
+          "z-10 h-full lg:left-0 lg:z-auto lg:border-primary-600 lg:bg-primary-500",
+        level === 1 && "z-20 lg:left-[min(33.334vw,383px)] lg:z-auto",
+        level === 2 && "z-30 lg:left-[min(33.334vw,383px)] lg:z-auto",
+      )}
     >
       {children}
     </NavigationMenu.List>
@@ -134,10 +133,10 @@ export function MenuItem({
 }) {
   return (
     <NavigationMenu.Item
-    className={clsx(
-      "flex border-b border-finnishwinter bg-white font-bold tracking-widest text-primary-600 underline-offset-4 lg:flex lg:items-center lg:border-none lg:bg-transparent lg:text-mischka lg:hover:bg-gray-200 lg:relative lg:m-0 lg:min-w-600",
-      isTopLevel && "lg:text-mischka lg:hover:relative lg:m-0"
-    )}
+      className={clsx(
+        "flex items-stretch border-b border-finnishwinter bg-white font-bold tracking-widest text-primary-600 underline-offset-4 lg:border-b-0",
+        isTopLevel && "lg:bg-primary-600 lg:text-mischka",
+      )}
       value={value}
     >
       {children}
@@ -163,7 +162,8 @@ export function MenuLink({
       asChild
       active={isActive}
       className={clsx(
-        "block h-full grow p-6 hover:underline data-[active]:underline lg:inline-block lg:p-0 lg:m-2 lg:hover:bg-gray-100 lg:text-xs",
+        !isTitle &&
+          "aria-current:underline block h-full grow p-6 hover:underline data-[active]:underline",
         isTopLevel && "lg:ring-white",
       )}
     >
@@ -183,24 +183,24 @@ export function MenuTrigger({
   return (
     <NavigationMenu.Trigger
       {...disableHoverEvents}
-        className={clsx(
-    "flex w-20 lg:w-5 shrink-0 items-center justify-center ring-inset ring-primary-700 lg:hover:ring-0 hover:ring-2 lg:inline-flex lg:border-none  lg:group-hover:opacity-100 ",
-    isTopLevel
-      ? "lg:aria-expanded:bg-white lg:aria-expanded:text-primary-600"
-      : "lg:aria-expanded:bg-primary-600 lg:aria-expanded:text-white lg:aria-expanded:ring-primary-600",
-  )}
+      className={clsx(
+        "flex w-20 shrink-0 items-center justify-center ring-inset ring-primary-700 hover:ring-2 lg:border-none",
+        isTopLevel
+          ? "lg:ring-white lg:aria-expanded:bg-white lg:aria-expanded:text-primary-600"
+          : "lg:aria-expanded:bg-primary-600 lg:aria-expanded:text-white lg:aria-expanded:ring-primary-600",
+      )}
       aria-label={`${t("show-submenu", { parent })}`}
     >
-      <Chevron className="h-9 w-9 -rotate-90 lg:h-5 lg:w-5 lg:rotate-0" />
+      <Chevron className="h-9 w-9 -rotate-90" />
     </NavigationMenu.Trigger>
   );
 }
-// NAVIGATION MENU NEED TO BE FIXED, IT MUST BE LG:ABSOLUTE, BUT THAT DOESNT WORK
+
 export function MenuContent({ children }) {
   return (
-    <NavigationMenu.Content {...disableHoverEvents} className="absolute lg:group-hover:block lg:z-500 lg:bg-white lg:border lg:shadow-lg">
-  {children}
-</NavigationMenu.Content>
+    <NavigationMenu.Content {...disableHoverEvents}>
+      {children}
+    </NavigationMenu.Content>
   );
 }
 
@@ -208,5 +208,5 @@ export function MenuSubmenu({
   children,
   ...props
 }: NavigationMenu.NavigationMenuSubProps) {
-  return <NavigationMenu.Sub {...props} className="">{children}</NavigationMenu.Sub>;
+  return <NavigationMenu.Sub {...props}>{children}</NavigationMenu.Sub>;
 }
