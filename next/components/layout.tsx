@@ -46,19 +46,19 @@ export function Layout({ menus, children }: LayoutProps) {
           {t("skip-to-main-content")}
         </SkipToContentLink>
         <Header menu={menus?.main} />
-        <div className="main-content-container">
+        <div>
 
-        <main className="grow ml-1" id="main-content">
+        <main className="grow ml-1">
 
           <div className="mx-auto max-w-6xl px-6 py-8">{children}</div>
         </main>
-        {/* {pathname.includes('/articles/') && (
+          {/* {pathname.includes('/articles/') && (
           <ArticleSidebar />
           )} */}
-           {pathname.includes('/news') && (
+           {/* {pathname.includes('/news') && (
           <aside className="border-l-2 border-primary-500">
           </aside>
-          )}
+          )} */}
           
         </div>
         <Footer menu={menus?.footer} />

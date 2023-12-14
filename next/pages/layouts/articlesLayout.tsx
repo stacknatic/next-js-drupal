@@ -1,6 +1,7 @@
 // DynamicPageLayout.tsx
 import React, { ReactNode } from 'react';
 import { usePathname } from 'next/navigation';
+import ArticleSidebar from '@/components/articleSidebar';
 
 
 interface DynamicPageLayoutProps {
@@ -11,18 +12,12 @@ const ArticleLayout: React.FC<DynamicPageLayoutProps> = ({ children }) => {
     const pathname = usePathname();
   return (
     <>
-    <div className='border-2 border-primary-500 rounded-lg ml-1 p-1'>
+    <div className='ml-1 p-1 main-content-container'>
      
       <>{children}</>
 
-      
     </div>
-      {pathname.includes('/articles/') && (
-          <aside className="border-2 border-primary-500 rounded-lg">
-            sample
-          </aside>
-          )}
-          </>
+    </>
   );
 };
 
