@@ -9,9 +9,15 @@ import { Paragraph } from "@/components/paragraph";
 import { drupal } from "@/lib/drupal/drupal-client";
 import { getNodePageJsonApiParams } from "@/lib/drupal/get-node-page-json-api-params";
 import { getCommonPageProps } from "@/lib/get-common-page-props";
-import { ArticleTeaser, validateAndCleanupArticleTeaser } from "@/lib/zod/article-teaser";
+import {
+  ArticleTeaser,
+  validateAndCleanupArticleTeaser,
+} from "@/lib/zod/article-teaser";
 import { NewsTeasers } from "@/components/news/news-teasers";
-import { NewsTeaser, validateAndCleanupNewsTeaser } from "@/lib/zod/news-teaser";
+import {
+  NewsTeaser,
+  validateAndCleanupNewsTeaser,
+} from "@/lib/zod/news-teaser";
 import { Frontpage, validateAndCleanupFrontpage } from "@/lib/zod/frontpage";
 // import { Divider } from "@/ui/divider";
 import Customers from "@/components/customers-partners/customers";
@@ -56,9 +62,9 @@ export default function IndexPage({
         articles={promotedArticleTeasers}
         heading={t("promoted-articles")}
       />
-      <EventTeasers events={events} heading={"Events"}/>
+      <EventTeasers events={events} heading={"Events"} />
       <NewsTeasers news={promotedNewsTeasers} heading={"Recent News"} />
-      <CaseTeasers cases={cases} heading={"Our latest work"}/>
+      <CaseTeasers cases={cases} heading={"Our latest work"} />
       {/* <Divider className="max-w-4xl" /> */}
       <Customers validatedCustomerLogos={validatedCustomerLogos} />
     </>
@@ -85,7 +91,8 @@ export const getStaticProps: GetStaticProps<IndexPageProps> = async (
       "filter[status]": 1,
       "filter[langcode]": context.locale,
       "filter[promote]": 1,
-      "fields[node--article]": "title,path,field_image,uid,created,field_category, field_tags,field_anchor_nav",
+      "fields[node--article]":
+        "title,path,field_image,uid,created,field_category, field_tags,field_anchor_nav",
       include: "field_image,uid",
       sort: "-sticky,-created",
       "page[limit]": 3,
@@ -119,7 +126,7 @@ export const getStaticProps: GetStaticProps<IndexPageProps> = async (
       promotedNewsTeasers: promotedNewsTeasers.map((teaser) =>
         validateAndCleanupNewsTeaser(teaser),
       ),
-      
+
       validatedCustomerLogos: validatedCustomerLogos,
       events: validatedEventTeasers,
       cases: validatedCaseTeasers,
