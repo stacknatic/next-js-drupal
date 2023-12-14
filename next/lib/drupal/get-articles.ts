@@ -32,6 +32,7 @@ export const getArticles = async (
           ...apiParams.getQueryObject(),
           "filter[langcode]": locale,
           "filter[status]": "1",
+          
           page: {
             limit,
             offset,

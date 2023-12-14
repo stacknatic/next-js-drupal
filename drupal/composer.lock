@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1b06047f596a41e1673f5ae551ea11b8",
+    "content-hash": "39f6b2fe218084e2d48e3ab717180306",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1537,6 +1537,54 @@
             "time": "2023-05-17T18:32:04+00:00"
         },
         {
+            "name": "drupal/access_by_ref",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/access_by_ref.git",
+                "reference": "3.0.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/access_by_ref-3.0.1.zip",
+                "reference": "3.0.1",
+                "shasum": "fac912d6dc65d4a6353229f7e64354ba39a1e7e0"
+            },
+            "require": {
+                "drupal/core": "^9.2 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.1",
+                    "datestamp": "1698691307",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Cayenne",
+                    "homepage": "https://www.drupal.org/user/92993"
+                },
+                {
+                    "name": "Marceldeb",
+                    "homepage": "https://www.drupal.org/user/1572532"
+                }
+            ],
+            "description": "Provide CRUD access to nodes based on user or access in a referenced field",
+            "homepage": "https://www.drupal.org/project/access_by_ref",
+            "support": {
+                "source": "https://git.drupalcode.org/project/access_by_ref"
+            }
+        },
+        {
             "name": "drupal/admin_toolbar",
             "version": "3.4.2",
             "source": {
@@ -1674,66 +1722,6 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/anchor_link",
                 "issues": "https://www.drupal.org/project/issues/anchor_link"
-            }
-        },
-        {
-            "name": "drupal/auto_heading_ids",
-            "version": "2.0.0-beta2",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/auto_heading_ids.git",
-                "reference": "2.0.0-beta2"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/auto_heading_ids-2.0.0-beta2.zip",
-                "reference": "2.0.0-beta2",
-                "shasum": "63466896617f57151bd0b51536c02ecb5c7c7da8"
-            },
-            "require": {
-                "drupal/core": "^8 || ^9 || ^10"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "drupal": {
-                    "version": "2.0.0-beta2",
-                    "datestamp": "1692187505",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "bart88",
-                    "homepage": "https://www.drupal.org/user/3198481"
-                },
-                {
-                    "name": "caseyfw",
-                    "homepage": "https://www.drupal.org/user/3150611"
-                },
-                {
-                    "name": "pingers",
-                    "homepage": "https://www.drupal.org/user/56282"
-                },
-                {
-                    "name": "singularo",
-                    "homepage": "https://www.drupal.org/user/143"
-                }
-            ],
-            "description": "This module provides a filter to automatically apply identifiers to headings in content.",
-            "homepage": "https://www.drupal.org/project/auto_heading_ids",
-            "keywords": [
-                "Drupal"
-            ],
-            "support": {
-                "source": "http://cgit.drupalcode.org/auto_heading_ids",
-                "issues": "https://www.drupal.org/project/issues/auto_heading_ids"
             }
         },
         {
@@ -14312,16 +14300,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.48",
+            "version": "1.10.50",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "087ed4b5f4a7a6e8f3bbdfbfe98ce5c181380bc6"
+                "reference": "06a98513ac72c03e8366b5a0cb00750b487032e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/087ed4b5f4a7a6e8f3bbdfbfe98ce5c181380bc6",
-                "reference": "087ed4b5f4a7a6e8f3bbdfbfe98ce5c181380bc6",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/06a98513ac72c03e8366b5a0cb00750b487032e4",
+                "reference": "06a98513ac72c03e8366b5a0cb00750b487032e4",
                 "shasum": ""
             },
             "require": {
@@ -14370,7 +14358,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-12-08T14:34:28+00:00"
+            "time": "2023-12-13T10:59:42+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -17193,7 +17181,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "drupal/auto_heading_ids": 10,
         "drupal/jsonapi_extras": 10,
         "drupal/monolog": 10,
         "drupal/simplei": 10,
@@ -17206,5 +17193,5 @@
         "php": ">=8.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.6.0"
 }

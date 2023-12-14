@@ -85,7 +85,7 @@ export const getStaticProps: GetStaticProps<IndexPageProps> = async (
       "filter[status]": 1,
       "filter[langcode]": context.locale,
       "filter[promote]": 1,
-      "fields[node--article]": "title,path,field_image,uid,created",
+      "fields[node--article]": "title,path,field_image,uid,created,field_category, field_tags,field_anchor_nav",
       include: "field_image,uid",
       sort: "-sticky,-created",
       "page[limit]": 3,
@@ -98,7 +98,7 @@ export const getStaticProps: GetStaticProps<IndexPageProps> = async (
       "filter[status]": 1,
       "filter[langcode]": context.locale,
       "filter[promote]": 1,
-      "fields[node--news]": "title,path,field_image,uid,created,field_anchor_nav",
+      "fields[node--news]": "title,path,field_image,uid,created",
       include: "field_image,uid",
       sort: "-sticky,-created",
       "page[limit]": 3,
@@ -113,8 +113,8 @@ export const getStaticProps: GetStaticProps<IndexPageProps> = async (
     props: {
       ...(await getCommonPageProps(context)),
       frontpage: frontpage ? validateAndCleanupFrontpage(frontpage) : null,
-      promotedArticleTeasers: promotedArticleTeasers.map((teaser) =>
-        validateAndCleanupArticleTeaser(teaser),
+      promotedArticleTeasers: promotedArticleTeasers.map((context) =>
+        validateAndCleanupArticleTeaser(context),
       ),
       promotedNewsTeasers: promotedNewsTeasers.map((teaser) =>
         validateAndCleanupNewsTeaser(teaser),

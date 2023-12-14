@@ -11,7 +11,7 @@ interface TOCElement {
   children: JSX.Element;
 }
 
-const TableOfContents: React.FC<TableOfContentsProps> = ({ postContent }) => {
+const AnchorNavigation: React.FC<TableOfContentsProps> = ({ postContent }) => {
   const [headings, setHeadings] = useState<HTMLElement[]>([]);
 
   useEffect(() => {
@@ -48,9 +48,9 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ postContent }) => {
   };
 
   return (
-    <nav className="mt-4">
-      <h2 className="text-lg font-semibold mb-2">JUMP TO:</h2>
-      <ul className="list-none text-primary-500">
+    <nav className="mt-4 sm:flex items-center gap-2">
+      <h2 className="text-lg font-semibold">JUMP TO:</h2>
+      <ul className="list-none text-primary-500 sm:flex gap-2">
         {createTableOfContents(headings).map((element, index) => (
           <React.Fragment key={index}>{element}</React.Fragment>
         ))}
@@ -59,4 +59,4 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ postContent }) => {
   );
 };
 
-export default TableOfContents;
+export default AnchorNavigation;

@@ -1,4 +1,3 @@
-label: Verkkolomakelähetykset
 display:
   default:
     display_options:
@@ -6,33 +5,14 @@ display:
         options:
           submit_button: Apply
           reset_button_label: Palauta
-          exposed_sorts_label: Lajittele
-          sort_asc_label: Asc
-          sort_desc_label: Desc
-      pager:
-        options:
-          tags:
-            previous: ‹‹
-            next: ››
-          expose:
-            items_per_page_label: 'Merkintöjä sivua kohti'
-            items_per_page_options_all_label: '- Kaikki -'
-            offset_label: Offset
       fields:
         created:
           label: Luotu
         view_webform_submission:
           label: Toimenpiteet
-      arguments:
-        in_draft:
-          exception:
-            title: Kaikki
-      title: Verkkolomakelähetykset
   embed_administer:
     display_options:
       fields:
-        webform_submission_bulk_form:
-          action_title: Toiminto
         created:
           label: Luotu
         operations:
@@ -40,8 +20,6 @@ display:
   embed_manage:
     display_options:
       fields:
-        webform_submission_bulk_form:
-          action_title: Toiminto
         created:
           label: Luotu
         view_webform_submission:

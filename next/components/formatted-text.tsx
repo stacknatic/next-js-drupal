@@ -12,6 +12,8 @@ import parse from "html-react-parser";
 import { isRelative } from "@/lib/utils";
 
 import { env } from "@/env";
+import { add } from "cypress/types/lodash";
+import addId from "@/components/autoID";
 
 const isElement = (domNode: DOMNode): domNode is Element =>
   domNode.type === "tag";
@@ -70,6 +72,10 @@ const options: HTMLReactParserOptions = {
 
         return domNode;
       }
+      case "h2": {
+        addId(domNode);
+        return domNode;
+      }
 
       default: {
         return undefined;
@@ -81,6 +87,7 @@ const options: HTMLReactParserOptions = {
 interface FormattedTextProps extends HTMLAttributes<HTMLDivElement> {
   html: string;
 }
+
 
 export function FormattedText({ html, ...props }: FormattedTextProps) {
   return <div {...props}>{parse(html, options)}</div>;

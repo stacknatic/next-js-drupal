@@ -3,11 +3,14 @@ import { z } from "zod";
 
 import { ArticleBaseSchema } from "@/lib/zod/article";
 
+
 export const ArticleTeaserSchema = ArticleBaseSchema.extend({
   path: z.object({
     alias: z.string(),
   }),
 });
+
+
 
 export function validateAndCleanupArticleTeaser(
   articleTeaser: DrupalNode,
@@ -20,5 +23,4 @@ export function validateAndCleanupArticleTeaser(
     return null;
   }
 }
-
 export type ArticleTeaser = z.infer<typeof ArticleTeaserSchema>;

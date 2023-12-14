@@ -8,7 +8,7 @@ import { HeadingPage } from "@/components/heading--page";
 import { absoluteUrl } from "@/lib/drupal/absolute-url";
 import { formatDate } from "@/lib/utils";
 import { News } from "@/lib/zod/news";
-import TableOfContent from "./toc";
+import AnchorNavigation from "./anchorNavigation";
 
 interface NewsProps {
   news: News;
@@ -17,6 +17,7 @@ interface NewsProps {
 export function News({ news, ...props }: NewsProps) {
   const { t } = useTranslation();
   const router = useRouter();
+  console.log('avatar', news.uid)
   return (
     <div {...props}>
       <Breadcrumbs
@@ -35,6 +36,7 @@ export function News({ news, ...props }: NewsProps) {
         <div className="my-4 text-xl">{news.field_excerpt}</div>
       )} */}
       <div className="mb-4 text-scapaflow">
+       
         {news.uid?.display_name && (
           <span>
             {t("posted-by", { author: news.uid?.display_name })} -{" "}
@@ -48,9 +50,9 @@ export function News({ news, ...props }: NewsProps) {
             src={absoluteUrl(news.field_image.uri.url)}
             width={768}
             height={480}
-            style={{ width: 768, height: 480 }}
+            style={{ width: '100%', height: 'auto' }}
             alt={news.field_image.resourceIdObjMeta.alt}
-            className="object-cover"
+            className="object-cover mx-auto rounded-lg"
             priority
           />
           {news.field_image.resourceIdObjMeta.title && (
@@ -61,7 +63,7 @@ export function News({ news, ...props }: NewsProps) {
         </figure>
       )}
         {news.field_anchor_nav && (
-          <TableOfContent postContent={news.body?.processed} />
+          <AnchorNavigation postContent={news.body?.processed} />
           )}
       {news.body?.processed && (
         <>

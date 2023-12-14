@@ -7,19 +7,10 @@ display:
           label: Nimi
         status:
           label: Tila
-      pager:
-        options:
-          expose:
-            items_per_page_label: 'Merkintöjä sivua kohti'
-            items_per_page_options_all_label: '- Kaikki -'
-            offset_label: Offset
       exposed_form:
         options:
           submit_button: Suodatus
           reset_button_label: Palauta
-          exposed_sorts_label: Lajittele
-          sort_asc_label: Asc
-          sort_desc_label: Desc
       filters:
         status:
           expose:
@@ -29,13 +20,3 @@ display:
       fields:
         entity_label:
           label: Entiteetti
-      pager:
-        options:
-          expose:
-            items_per_page_label: 'Merkintöjä sivua kohti'
-            items_per_page_options_all_label: '- Kaikki -'
-            offset_label: Offset
-      arguments:
-        fid:
-          exception:
-            title: Kaikki
