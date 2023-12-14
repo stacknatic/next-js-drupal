@@ -144,11 +144,7 @@ export function getNodePageJsonApiParams(resourceType: ResourceType) {
   }
 
   if (resourceType === "node--cases") {
-    apiParams.addInclude([
-      "field_image",
-      "field_logos",
-      "uid",
-    ]);
+    apiParams.addInclude(["field_image", "field_logos.field_logo", "uid"]);
     apiParams.addFields(resourceType, [
       "title",
       "body",
@@ -157,6 +153,7 @@ export function getNodePageJsonApiParams(resourceType: ResourceType) {
       "metatag",
       "path",
       "field_logos",
+      "field_logo",
     ]);
   }
   if (resourceType === "taxonomy_term--article_category") {

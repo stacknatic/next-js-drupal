@@ -1,25 +1,25 @@
+import { absoluteUrl } from "@/lib/drupal/absolute-url";
+import Image from "next/image";
+import Link from "next/link";
+
 function CaseProfile({ profiles }) {
-  // console.log(profiles)
   return (
     <>
       {profiles.map((profile) => (
         <li key={profile.id} className="grid gap-2 mb-4">
           <p className="text-heading-sm">
-            {profile.type === "paragraph--logolink"
-              profile.field_logos}
+            {profile.type === "paragraph--logolink" && (
+              <Link href={profile.field_link.full_url}>
+                <Image
+                  src={absoluteUrl(profile.field_logo.uri.url)}
+                  width={40}
+                  height={40}
+                  alt={profile.field_logo.resourceIdObjMeta.alt}
+                  className="object-cover rounded-md"
+                />
+              </Link>
+            )}
           </p>
-          {profile.field_website && (
-            <ul className="flex flex-wrap grap-2">
-              {profile.field_website.map((item, index) => (
-                <li
-                  key={item.title + index}
-                  className="font-bold p-1 rounded-md text-primary-400"
-                >
-                  <a href={item.full_url}>{item.title}</a>
-                </li>
-              ))}
-            </ul>
-          )}
         </li>
       ))}
     </>
