@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.events.body
-    - field.field.node.events.field_anchor_nav
     - field.field.node.events.field_end_date
     - field.field.node.events.field_excerpt
     - field.field.node.events.field_image
@@ -16,9 +15,9 @@ dependencies:
     - node.type.events
   module:
     - datetime
+    - image
     - paragraphs
     - path
-    - svg_image
     - text
 id: node.events.default
 targetEntityType: node
@@ -40,13 +39,6 @@ content:
     weight: 10
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_anchor_nav:
-    type: boolean_checkbox
-    weight: 27
-    region: content
-    settings:
-      display_label: true
     third_party_settings: {  }
   field_end_date:
     type: datetime_default
@@ -189,4 +181,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_anchor_nav: true

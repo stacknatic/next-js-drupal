@@ -18,8 +18,6 @@ settings:
   label_display: visible
   provider: simplenews
   newsletters:
-    weekly_content_update: weekly_content_update
-    special_offers: special_offers
     press_releases: press_releases
     default: default
   default_newsletters: {  }
