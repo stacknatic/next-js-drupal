@@ -14,7 +14,7 @@ export function UserMenu() {
   const { data, status } = useSession();
 
   const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen((o) => !o);
+  const open = () => setIsOpen(true);
   const close = () => setIsOpen(false);
 
   const loginUrl = `/auth/login?callbackUrl=${encodeURIComponent(
@@ -25,12 +25,12 @@ export function UserMenu() {
 
   if (status === "authenticated") {
     return (
-      <div ref={ref}>
+      <div ref={ref} onMouseLeave={close}>
         <span className="sr-only">{t("user-menu")}</span>
         <button
           type="button"
           className="hover:underline"
-          onClick={toggle}
+          onMouseEnter={open}
           aria-expanded={isOpen}
         >
           <span className="sr-only capitalize sm:not-sr-only sm:mr-2 sm:inline">
@@ -70,15 +70,15 @@ export function UserMenu() {
   return (
     <div ref={ref}>
       <span className="sr-only">{t("user-menu")}</span>
-      <button type="button" className="hover:underline" onClick={toggle}>
-        {/* <span className="sr-only capitalize sm:not-sr-only sm:mr-2 sm:inline">
+      <button type="button" className="hover:underline" onMouseEnter={open} onMouseLeave={close}>
+        <span className="sr-only capitalize sm:mr-2 sm:inline">
           {t("account")}
-        </span> */}
+        </span>
         <AccountIcon className="inline-block h-6 w-6" />
       </button>
       <ul
         className={clsx(
-          "absolute z-50 mt-1 w-fit border border-finnishwinter bg-primary-600",
+          "absolute z-50 mt-7 w-fit border border-finnishwinter bg-primary-600",
           !isOpen && "hidden",
         )}
       >

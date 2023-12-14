@@ -42,7 +42,7 @@ export function Footer({ menu }: FooterProps) {
             </span>
           </div>
           <div className="sm:hidden native-share-button">
-            <span className="native-share-button">
+            <span className="native-share-button shadow-md">
               <NativeShare title="Next.js for Drupal" url="https://next-drupal.org"/>
             </span>
           </div>

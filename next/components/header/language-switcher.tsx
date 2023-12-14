@@ -13,7 +13,7 @@ export function LanguageSwitcher() {
   const { locale, locales } = useRouter();
 
   const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen((o) => !o);
+  const open = () => setIsOpen(true);
   const close = () => setIsOpen(false);
 
   // Close on locale change
@@ -24,24 +24,24 @@ export function LanguageSwitcher() {
   const { t } = useTranslation();
 
   return (
-    <div ref={ref}>
+    <div ref={ref} onMouseLeave={close}>
       <span className="sr-only">{t("language-switcher")}</span>
       <button
         type="button"
         className="hover:underline"
-        onClick={toggle}
+        onMouseEnter={open}
         aria-expanded={isOpen}
       >
-        {/* <span className="sr-only sm:not-sr-only sm:mr-2 sm:inline">
+        <span className="sr-only sm:mr-2 sm:inline">
           {languageLinks[locale].name}
-        </span> */}
+        </span>
         <LanguageIcon className="inline-block h-6 w-6" aria-hidden="true" />
       </button>
       <ul
         className={clsx(
-          "absolute z-50 mt-1 w-fit border border-finnishwinter bg-primary-600",
+          "absolute z-50 mt-7 w-fit border border-finnishwinter bg-primary-600",
           !isOpen && "hidden",
-          "right-[65px] md:right-[10px] "
+          "right-[0px]"
         )}
       >
         {locales
@@ -64,3 +64,4 @@ export function LanguageSwitcher() {
     </div>
   );
 }
+
