@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.events.body
-    - field.field.node.events.field_anchor_nav
     - field.field.node.events.field_end_date
     - field.field.node.events.field_excerpt
     - field.field.node.events.field_image
@@ -16,7 +15,7 @@ dependencies:
     - image.style.medium
     - node.type.events
   module:
-    - svg_image
+    - image
     - text
     - user
 id: node.events.teaser

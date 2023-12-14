@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - rest.resource.user_registration
+    - rest.resource.webform_rest_submit
   module:
     - media
     - rest
@@ -17,7 +18,7 @@ weight: 0
 is_admin: false
 permissions:
   - 'access content'
-  - 'access user profiles'
   - 'restful post user_registration'
+  - 'restful post webform_rest_submit'
   - 'subscribe to newsletters'
   - 'view media'
