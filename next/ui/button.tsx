@@ -9,7 +9,7 @@ export const buttonVariants = cva(
       variant: {
         primary: [
           "bg-primary-600 border-primary-600 text-white",
-          "hover:bg-white hover:text-primary-600",
+          "hover:bg-white hover:text-primary-600 hover:border-primary-600",
           "active:bg-white active:text-primary-600",
           "disabled:!border-primary-200 disabled:!text-white disabled:!bg-primary-200",
         ],
@@ -24,6 +24,12 @@ export const buttonVariants = cva(
           "hover:bg-primary-50 hover:text-primary-600 hover:border-transparent",
           "active:bg-primary-50 active:text-primary-600 active:border-transparent",
           "disabled:!border-transparent disabled:!text-primary-200",
+        ],
+        quaternary: [
+          "bg-white text-primary-600 border-primary-600",
+          "hover:border-primary-600",
+          "active:bg-primary-600 active:text-white",
+          "disabled:!border-primary-200 disabled:!text-primary-200 disabled:!bg-white",
         ],
       },
       size: {

@@ -198,7 +198,7 @@ export function MenuTrigger({
 // NAVIGATION MENU NEED TO BE FIXED, IT MUST BE LG:ABSOLUTE, BUT THAT DOESNT WORK
 export function MenuContent({ children }) {
   return (
-    <NavigationMenu.Content {...disableHoverEvents} className="lg:group-hover:block lg:z-500 lg:bg-white lg:border lg:shadow-lg">
+    <NavigationMenu.Content {...disableHoverEvents} className="absolute lg:group-hover:block lg:z-500 lg:bg-white lg:border lg:shadow-lg">
   {children}
 </NavigationMenu.Content>
   );
@@ -208,5 +208,5 @@ export function MenuSubmenu({
   children,
   ...props
 }: NavigationMenu.NavigationMenuSubProps) {
-  return <NavigationMenu.Sub {...props}>{children}</NavigationMenu.Sub>;
+  return <NavigationMenu.Sub {...props} className="">{children}</NavigationMenu.Sub>;
 }

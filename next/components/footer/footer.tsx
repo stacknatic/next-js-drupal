@@ -20,9 +20,9 @@ export function Footer({ menu }: FooterProps) {
   const filteredItems = menu.filter((link) => link.langcode == locale);
   return (
     <footer className="border-t border-finnishwinter bg-primary-600">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="lg:px-6 sm:flex sm:flex-col items-center md:flex-row-reverse md:justify-between md:items-end">
         <NewsletterRegistration />
-        <nav className="flex flex-col items-center gap-2 py-8 text-md sm:flex-row sm:justify-between">
+        <nav className="flex flex-col items-center gap-2 py-8 text-md sm:flex-col sm:justify-between sm:mx-auto">
           <ul className="mr-4 flex flex-wrap gap-x-12 gap-y-4">
             {filteredItems.map((link) => {
               const icon = Array.isArray(link.options)
