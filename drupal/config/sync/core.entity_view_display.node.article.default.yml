@@ -4,13 +4,15 @@ status: true
 dependencies:
   config:
     - field.field.node.article.body
+    - field.field.node.article.field_anchor_nav
+    - field.field.node.article.field_category
     - field.field.node.article.field_excerpt
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
     - image.style.wide
     - node.type.article
   module:
-    - image
+    - svg_image
     - text
     - user
 _core:
@@ -26,6 +28,24 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_anchor_nav:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_category:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
     region: content
   field_excerpt:
     type: basic_string

@@ -2,7 +2,7 @@ uuid: fa94ed70-8b6c-424e-b449-e0774763e15e
 langcode: en
 status: true
 dependencies: {  }
-name: Events
+name: 'john smith'
 id: john_smith
 description: hello
 format: plain

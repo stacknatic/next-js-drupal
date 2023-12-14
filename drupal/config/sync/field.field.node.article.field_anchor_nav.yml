@@ -1,0 +1,23 @@
+uuid: bc1965c4-2178-4227-aaa5-72e4ee6bce57
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_anchor_nav
+    - node.type.article
+id: node.article.field_anchor_nav
+field_name: field_anchor_nav
+entity_type: node
+bundle: article
+label: 'Anchor nav'
+description: 'Enable anchor navigation at the top of the page'
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

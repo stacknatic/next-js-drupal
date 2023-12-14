@@ -1,12 +1,12 @@
-uuid: 0e480bc4-8480-498d-b236-2cdf8d43376a
+uuid: 4beec6cc-5aec-4e14-88ca-bf841a7ba910
 langcode: en
 status: true
 dependencies: {  }
 _core:
-  default_config_hash: Y2qE4TXTKonW7r-A1vHWIYHBjEKWAsjBE58T5AjwaAQ
-name: 'Press releases'
-id: press_releases
-description: 'This is the press release.'
+  default_config_hash: 2dAnRDI42d0569hapLXrbx4-7VPsjU0fozi-WQfzcYE
+name: 'Weekly content update'
+id: weekly_content_update
+description: 'Weekly content update newsletter.'
 format: plain
 priority: 0
 receipt: false
