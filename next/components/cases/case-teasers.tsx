@@ -7,23 +7,21 @@ import ArrowIcon from "@/styles/icons/arrow-down.svg";
 
 import { buttonVariants } from "@/ui/button";
 
-
 export function CaseTeasers({ cases, heading }: any) {
   const { t } = useTranslation();
-  console.log("cases", cases);
   return (
     <>
-      <h2 className="text-heading-sm font-bold md:text-heading-md my-10">
+      <h2 className="text-heading-sm font-bold md:text-heading-md my-10 text-center md:text-left">
         {heading}
       </h2>
-      <ul className="mt-4 grid grid-cols-1 lg:gap-10 gap-1 sm:grid-cols-2 md:grid-cols-3 lg:h-500">
-        {cases?.slice(0, 3).map((project) => (
-          <li key={project}>
+      <ul className="mt-4 grid grid-cols-1 lg:gap-10 gap-1 sm:grid-cols-2 md:grid-cols-3 lg:h-500 ">
+        {cases?.slice(0, 3).map((project, index) => (
+          <li key={index + project.title}>
             <CaseTeaser project={project} />
-            </li>
+          </li>
         ))}
-        </ul>
-        <div className="flex items-center lg:justify-start  lg:mb-24">
+      </ul>
+      <div className="flex items-center lg:justify-start justify-center lg:mb-24">
         {!cases?.length && <p className="py-4">{t("no-content-found")}</p>}
         {cases?.length && (
           <Link

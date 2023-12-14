@@ -7,8 +7,6 @@ import ArrowIcon from "@/styles/icons/arrow-down.svg";
 
 import { buttonVariants } from "@/ui/button";
 
-
-
 // interface LatestEventsProps {
 //   events?: ArticleTeaserType[];
 //   heading: string;
@@ -22,8 +20,8 @@ export function EventTeasers({ events, heading }: any) {
         {heading}
       </h2>
       <ul className="mt-4 grid grid-cols-1 lg:gap-10 gap-1 sm:grid-cols-2 md:grid-cols-3 lg:h-500 ">
-        {events?.slice(0, 3).map((event) => (
-          <li key={event}>
+        {events?.slice(0, 3).map((event, index) => (
+          <li key={index + event.title}>
             <EventTeaser event={event} />
           </li>
         ))}

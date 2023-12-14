@@ -17,17 +17,17 @@ export function NewsTeasers({ news, heading }: LatestNewsProps) {
   const { t } = useTranslation();
   return (
     <>
-      <h2 className="text-heading-sm font-bold md:text-heading-md my-10">
+      <h2 className="text-heading-sm font-bold md:text-heading-md my-10 text-center md:text-left">
         {heading}
       </h2>
-      <ul className="mt-4 grid grid-cols-1 lg:gap-10 gap-1 sm:grid-cols-2 md:grid-cols-3 lg:h-500">
+      <ul className="mt-4 grid grid-cols-1 lg:gap-10 gap-1 sm:grid-cols-2 md:grid-cols-3 lg:h-500 ">
         {news?.map((news) => (
           <li key={news?.id}>
             <NewsTeaser news={news} />
           </li>
         ))}
       </ul>
-      <div className="flex items-center lg:justify-start  lg:mb-24">
+      <div className="flex items-center lg:justify-start justify-center lg:mb-24">
         {!news?.length && <p className="py-4">{t("no-content-found")}</p>}
         {news?.length && (
           <Link
