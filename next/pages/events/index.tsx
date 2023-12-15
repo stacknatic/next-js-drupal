@@ -1,7 +1,5 @@
 import { GetStaticProps } from "next";
 import { useTranslation } from "next-i18next";
-import { ContactList } from "@/components/contact-list";
-import { LogoStrip } from "@/components/logo-strip";
 // import { Meta } from "@/components/meta";
 import { drupal } from "@/lib/drupal/drupal-client";
 import { getCommonPageProps } from "@/lib/get-common-page-props";
