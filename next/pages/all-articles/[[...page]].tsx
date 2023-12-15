@@ -60,12 +60,11 @@ export default function AllArticlesPage({
 
   useEffect(() => {
     let articles = articleTeasers;
-    if (tag) {
       articles = articleTeasers.filter((article) => {
         const tagNames = article.field_tags?.map((tag) => tag.name) || [];
         return tagNames.includes(tag);
       });
-    }
+    
     
     setFilteredArticles(articles);
   }, [tag]);
@@ -73,24 +72,22 @@ export default function AllArticlesPage({
   useEffect(() => {
     let articles = articleTeasers;
     
-    if (goToTag) {
       articles = articleTeasers.filter((article) => {
         const tagNames = article.field_tags?.map((tag) => tag.name) || [];
         return tagNames.includes((goToTag as string));
       });
-    }
+    
 
     setFilteredArticles(articles);
   }, [goToTag]);
 
   useEffect(() => {
     let articles = articleTeasers;
-    if (cat) {
       articles = articles.filter((article) => {
         const catName = article.field_category?.name || '';
         return catName.includes(cat as string);
       });
-    }
+    
     
     setFilteredArticles(articles);
   }, [cat]);
@@ -98,12 +95,11 @@ export default function AllArticlesPage({
   useEffect(() => {
     let articles = articleTeasers;
     
-    if (goToCategory) {
       articles = articles.filter((article) => {
         const catName = article.field_category?.name || '';
         return catName.includes((goToCategory as string));
       });
-    }
+    
 
     setFilteredArticles(articles);
   }, [goToCategory]);
@@ -119,6 +115,7 @@ export default function AllArticlesPage({
 
   const tags = articleTags;
   const categories = articleCategory;
+  // const categories = articleCategory.length > 0 ? articleCategory.map((category) => category.name) : [];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -173,8 +170,10 @@ export default function AllArticlesPage({
       <HeadingPage>{t("all-articles")}</HeadingPage>
       <div className="mt-4 mb-6">
         <span>Filter by: </span>
+        <span className="mr-5">
 
-        <DropDownMenu name={"Category"} menuItems={categories} handleFilter={(item) => handleCatFilter(item)} />&nbsp;&nbsp;&nbsp;&nbsp;
+        <DropDownMenu name={"Category"} menuItems={categories} handleFilter={(item) => handleCatFilter(item)}/>
+        </span>
         <DropDownMenu name={"Tags"} menuItems={tags} handleFilter={(item) => handleTagFilter(item)} />
       </div>
       <ul className="mt-4" ref={containerRef}>
@@ -194,7 +193,6 @@ export default function AllArticlesPage({
          size={45}
          aria-label="Loading Spinner"
          data-testid="loader"
-        //  className="text-primary-500"
        />
  
       )}
