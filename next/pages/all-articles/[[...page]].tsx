@@ -19,6 +19,8 @@ import { ArticleTags } from "@/lib/zod/article-tags";
 import { ArticleCategory } from "@/lib/zod/article-category";
 import { DropDownMenu } from "@/components/drop-down-menu";
 import { useRouter } from "next/router";
+import { CSSProperties } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
 
 interface AllArticlesPageProps extends LayoutProps {
   articleTeasers: ArticleTeaserType[];
@@ -41,6 +43,11 @@ export default function AllArticlesPage({
   const [filteredArticles, setFilteredArticles] = useState<ArticleTeaserType[]>(articleTeasers);
   const router = useRouter();
   const { goToTag, goToCategory } = router.query;
+  
+  const [visibleArticles, setVisibleArticles] = useState(3);
+  const [loading, setLoading] = useState(false);
+  const [canLoadMore, setCanLoadMore] = useState(true);
+  const containerRef = useRef(null);
 
   useEffect(() => {
     let articles = articleTeasers;
@@ -50,10 +57,8 @@ export default function AllArticlesPage({
       // goToCategory === null;
       articles = articleTeasers.filter((article) => {
         const tagNames = article.field_tags?.map((tag) => tag.name) || [];
-        router.push({
-          pathname: '/all-articles',
-          query: { goToTag: tag },
-        }, undefined, { shallow: true });
+        
+        localStorage.setItem('filter', 'tag'+tag);
         return tagNames.includes(tag);
       });
     }
@@ -69,10 +74,8 @@ export default function AllArticlesPage({
       // goToCategory === null;
       articles = articleTeasers.filter((article) => {
         const tagNames = article.field_tags?.map((tag) => tag.name) || [];
-        router.push({
-          pathname: '/all-articles',
-          query: { goToTag: (goToTag as string) },
-        }, undefined, { shallow: true });
+        
+        localStorage.setItem('filter', ('tag'+goToTag as string));
         return tagNames.includes((goToTag as string));
       });
     }
@@ -88,10 +91,8 @@ export default function AllArticlesPage({
       // goToTag === null;
       articles = articles.filter((article) => {
         const catName = article.field_category?.name || '';
-        router.push({
-          pathname: '/all-articles',
-          query: { goToCategory: cat },
-        }, undefined, { shallow: true });
+       
+        localStorage.setItem('filter', 'cat'+cat);
         return catName.includes(cat);
       });
     }
@@ -107,10 +108,8 @@ export default function AllArticlesPage({
       // goToTag === null;
       articles = articles.filter((article) => {
         const catName = article.field_category?.name || '';
-        router.push({
-          pathname: '/all-articles',
-          query: { goToCategory: (goToCategory as string) },
-        }, undefined, { shallow: true });
+       
+        localStorage.setItem('filter', ('cat'+goToCategory as string));
         return catName.includes((goToCategory as string));
       });
     }
@@ -130,6 +129,50 @@ export default function AllArticlesPage({
   const tags = articleTags;
   const categories = articleCategory;
 
+
+
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log('filteredArticles.length', filteredArticles.length);
+      console.log('visibleArticles', visibleArticles);
+      if (
+        canLoadMore &&
+        containerRef.current &&
+        window.innerHeight + window.scrollY >=
+          containerRef.current.offsetTop + containerRef.current.offsetHeight * 0.9
+      ) {
+        setLoading(true);
+        setCanLoadMore(false);
+
+        setTimeout(() => {
+          let remainingArticles = filteredArticles.length - visibleArticles;
+          let articlesToLoad = remainingArticles >= 3 ? 3 : remainingArticles;
+          setVisibleArticles(visibleArticles + articlesToLoad);
+
+          if (visibleArticles < filteredArticles.length) {
+            setCanLoadMore(true);
+          } else {
+            return null;
+          }
+
+
+          // setLoading(false);
+          
+        }, 1000);
+      }
+      if (visibleArticles >= filteredArticles.length) {
+        setCanLoadMore(false);
+        setLoading(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [visibleArticles, canLoadMore, filteredArticles]);
+
   return (
     <>
       <Meta title={t("all-articles")} metatags={[]} />
@@ -148,17 +191,27 @@ export default function AllArticlesPage({
         <DropDownMenu name={"Category"} menuItems={categories} handleFilter={(item) => handleCatFilter(item)} />&nbsp;&nbsp;&nbsp;&nbsp;
         <DropDownMenu name={"Tags"} menuItems={tags} handleFilter={(item) => handleTagFilter(item)} />
       </div>
-      <ul className="mt-4">
-        {filteredArticles?.map((article) => (
+      <ul className="mt-4" ref={containerRef}>
+        {filteredArticles?.slice(0, visibleArticles)
+        .map((article) => (
           <li key={article?.id}>
             <ArticleListItem article={article} />
           </li>
         ))}
+
       </ul>
-      <Pagination
+      {loading && (
+         <ClipLoader
+         loading={loading}
+         size={150}
+         aria-label="Loading Spinner"
+         data-testid="loader"
+       />
+      )}
+      {/* <Pagination
         focusRestoreRef={focusRef}
         paginationProps={paginationProps}
-      />
+      /> */}
     </>
   );
 }
@@ -177,11 +230,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<AllArticlesPageProps> = async (context) => {
   const page = context.params.page;
   const currentPage = parseInt(Array.isArray(page) ? page[0] : page || "1");
-  const PAGE_SIZE = 6;
+  const PAGE_SIZE = 3;
 
   const { totalPages, articles } = await getLatestArticlesItems({
-    limit: PAGE_SIZE,
-    offset: currentPage ? PAGE_SIZE * (currentPage - 1) : 0,
+    limit: 100,
+    // offset: currentPage ? PAGE_SIZE * (currentPage - 1) : 0,
     locale: context.locale,
   });
 
@@ -197,11 +250,11 @@ export const getStaticProps: GetStaticProps<AllArticlesPageProps> = async (conte
   const pageRoot = "/all-articles";
   const prevPage = currentPage - 1;
   const nextPage = currentPage + 1;
-  const prevPageHref =
-    currentPage === 2
-      ? pageRoot
-      : prevEnabled && [pageRoot, prevPage].join("/");
-  const nextPageHref = nextEnabled && [pageRoot, nextPage].join("/");
+  // const prevPageHref =
+  //   currentPage === 2
+  //     ? pageRoot
+  //     : prevEnabled && [pageRoot, prevPage].join("/");
+  // const nextPageHref = nextEnabled && [pageRoot, nextPage].join("/");
 
   const languageLinks = createLanguageLinksForNextOnlyPage(pageRoot, context);
 
@@ -221,8 +274,8 @@ export const getStaticProps: GetStaticProps<AllArticlesPageProps> = async (conte
         totalPages,
         prevEnabled,
         nextEnabled,
-        prevPageHref,
-        nextPageHref,
+        // prevPageHref,
+        // nextPageHref,
       },
       languageLinks,
     },
