@@ -22,7 +22,7 @@ export function EventCard({ event }: EventsCardPropsType) {
     : false;
   const organizers = event.field_organizers
     ? event.field_organizers.map((organizer) => (
-        <li key={organizer.id} className="flex item-center gap-2">
+        <li key={organizer.id} className="flex item-center gap-2 lg:pb-2">
           <BuildingIcon className="h-6 w-6 text-primary-400" />
           <span>{organizer.field_organizer_name}</span>
         </li>
@@ -31,7 +31,7 @@ export function EventCard({ event }: EventsCardPropsType) {
   return (
     <Link
       href={event.path.alias}
-      className="eventFull lg:flex lg:w-[1200px] grid lg:h-[650px] lg:mb-10 h-full rounded-xl  bg-white overflow-hidden transition-all hover:shadow-md relative"
+      className="eventFull lg:flex justify-center lg:w-[976px] grid lg:h-[650px] lg:mb-10 h-full rounded-xl  bg-white overflow-hidden transition-all hover:shadow-md relative"
     >
       <div className="eventImageWrapper w-full">
       {event.field_image && (
@@ -56,7 +56,7 @@ export function EventCard({ event }: EventsCardPropsType) {
         </div>
         )}
         {shortDate ? (
-        <div className="dateBox shortDate top-[-200px] left-[525px] w-16 border-4 bg-transparent text-white p-1 flex-col items-center absolute">
+        <div className="dateBox shortDate top-[-200px] left-[425px] w-16 border-4 bg-transparent text-white p-1 flex-col items-center absolute">
           <span className="text-xl">{shortDate.day}</span>
           <span className="date-month">{shortDate.month}</span>
         </div>
@@ -66,9 +66,9 @@ export function EventCard({ event }: EventsCardPropsType) {
         </div>
         )}
         {/* some event might not have organizers */}
-        {organizers && <ul className="mb-4">{organizers}</ul>}
+        {organizers && <ul className="mb-4 lg:px-20">{organizers}</ul>}
         {/* only render if filed avilable */}
-        {event.field_excerpt && <p>{event.field_excerpt}</p>}
+        {event.field_excerpt && <p className="lg:px-20 lg:pb-6">{event.field_excerpt}</p>}
         {/* <button className="content-end border h-14 py-3 bg-primary-100 rounded-full mt-4 hover:bg-primary-400  text-center">
           Lear more
         </button> */}
