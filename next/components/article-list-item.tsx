@@ -32,14 +32,20 @@ export function ArticleListItem({ article }: ArticleListItemProps) {
       </h3>
       {article.field_category?.name && (
       <span className="mb-2">
-        <span className="ring-1 rounded-sm p-1 bg-primary-500 text-white text-sm">
+        <span className="ring-1 rounded-sm p-1 bg-primary-500 text-white text-sm" key={article.field_category.id}>
         {article.field_category.name}
         </span>
       </span>
 
         )}
+
+
+
+      {article.field_tags && (
+        <span> {article.field_tags.map((tag) => (<span className="mr-1 ring-1 rounded-sm p-1 text-white text-xs bg-primary-400" key={tag.id}>{tag.name}</span>))}</span>
         
-      <span> {article.field_tags.map((tag) => (<span className="mr-1 ring-1 rounded-sm p-1 text-white text-xs bg-primary-400">{tag.name}</span>))}</span>
+      )}
+        
       <div className="mb-4 line-clamp-2 text-md text-scapaflow">
         {author && <>{t("posted-by", { author })} - </>}
         {date}
