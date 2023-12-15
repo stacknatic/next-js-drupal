@@ -1,0 +1,19 @@
+uuid: 37679b9d-9441-4df4-8d99-bb2b05e780b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_organizer_name
+    - paragraphs.paragraphs_type.organizer_detail
+id: paragraph.organizer_detail.field_organizer_name
+field_name: field_organizer_name
+entity_type: paragraph
+bundle: organizer_detail
+label: 'Organizer Name'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

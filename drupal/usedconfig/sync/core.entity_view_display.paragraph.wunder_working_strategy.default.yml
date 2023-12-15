@@ -1,0 +1,33 @@
+uuid: 3fbba7f5-f946-4a4c-a4fd-4e3dbb00d37f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.wunder_working_strategy.field_strategies
+    - field.field.paragraph.wunder_working_strategy.field_strategy_group_heading
+    - paragraphs.paragraphs_type.wunder_working_strategy
+  module:
+    - entity_reference_revisions
+id: paragraph.wunder_working_strategy.default
+targetEntityType: paragraph
+bundle: wunder_working_strategy
+mode: default
+content:
+  field_strategies:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_strategy_group_heading:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

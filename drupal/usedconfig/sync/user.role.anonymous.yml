@@ -1,0 +1,24 @@
+uuid: d2d204c6-7717-49d0-8405-904ea0c681af
+langcode: en
+status: true
+dependencies:
+  config:
+    - rest.resource.user_registration
+    - rest.resource.webform_rest_submit
+  module:
+    - media
+    - rest
+    - simplenews
+    - system
+_core:
+  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'restful post user_registration'
+  - 'restful post webform_rest_submit'
+  - 'subscribe to newsletters'
+  - 'view media'

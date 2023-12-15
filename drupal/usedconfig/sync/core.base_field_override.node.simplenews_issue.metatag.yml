@@ -1,0 +1,20 @@
+uuid: 54f6b20d-bf0d-4606-af22-5360f8420309
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.simplenews_issue
+  module:
+    - metatag
+id: node.simplenews_issue.metatag
+field_name: metatag
+entity_type: node
+bundle: simplenews_issue
+label: 'Metatags (Hidden field for JSON support)'
+description: 'The computed meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag_computed

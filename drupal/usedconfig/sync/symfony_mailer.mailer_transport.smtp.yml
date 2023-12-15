@@ -1,0 +1,18 @@
+uuid: b2e45f43-1df6-4bde-b4b6-0e1adaf909c1
+langcode: en
+status: true
+dependencies: {  }
+id: smtp
+label: SMTP
+plugin: smtp
+configuration:
+  user: admin
+  pass: password
+  host: mailhog.nextdrupalstarterkit.internal
+  port: 1025
+  query:
+    verify_peer: false
+    local_domain: ''
+    restart_threshold: null
+    restart_threshold_sleep: null
+    ping_threshold: null

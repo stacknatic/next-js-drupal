@@ -1,0 +1,19 @@
+uuid: c6443ca4-c334-4e76-9fa5-e87562f4ffb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_our_customers_description
+    - node.type.about_page
+id: node.about_page.field_our_customers_description
+field_name: field_our_customers_description
+entity_type: node
+bundle: about_page
+label: 'Our customers description'
+description: 'A short description about customers'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

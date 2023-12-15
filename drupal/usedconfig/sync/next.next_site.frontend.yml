@@ -1,0 +1,13 @@
+uuid: fb42d2e8-bb5c-4769-9fb8-572e8ab25690
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vUTyg2YBTf8jUw9MJkYIAeacYhZNFYe5PbkAaLxPy9w
+id: frontend
+label: 'Next.js frontend'
+base_url: 'https://frontend.lndo.site'
+preview_url: 'https://frontend.lndo.site/api/preview'
+preview_secret: ''
+revalidate_url: 'https://frontend.lndo.site/api/revalidate'
+revalidate_secret: revalidate_secret_not_secure_used_only_locally

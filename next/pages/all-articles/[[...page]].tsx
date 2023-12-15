@@ -21,7 +21,6 @@ import { DropDownMenu } from "@/components/drop-down-menu";
 import { useRouter } from "next/router";
 import { CSSProperties } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
-import { set } from "cypress/types/lodash";
 
 const override: CSSProperties = {
   display: "block",

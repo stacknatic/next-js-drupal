@@ -1,0 +1,18 @@
+uuid: 8be247f6-618a-4f69-9f17-3024cb7b768a
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:menu_link_content:28aed094-a6de-457c-aee9-529153f843e8'
+name: 'Service category'
+type: service_category
+description: 'This content type is used to create a service category. Service categories are used as references in the Service content type. If you want Service content that belongs to a new category, you need to create the Service category first in order to select the new Service category when creating the new service.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

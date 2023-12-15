@@ -1,0 +1,18 @@
+uuid: c5b294e3-690f-460f-afa3-f148f5caf8ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.speaker_detail
+id: paragraph.speaker_detail.created
+field_name: created
+entity_type: paragraph
+bundle: speaker_detail
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

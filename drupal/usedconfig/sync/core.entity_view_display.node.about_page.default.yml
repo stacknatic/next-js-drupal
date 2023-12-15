@@ -1,0 +1,74 @@
+uuid: 8658a969-150a-4f26-ada1-ff6a3c21610a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.about_page.field_mission_description
+    - field.field.node.about_page.field_mission_statement
+    - field.field.node.about_page.field_our_customers_description
+    - field.field.node.about_page.field_our_partners_descriptions
+    - field.field.node.about_page.field_testimonials
+    - field.field.node.about_page.field_wunder_numers
+    - node.type.about_page
+  module:
+    - entity_reference_revisions
+    - user
+id: node.about_page.default
+targetEntityType: node
+bundle: about_page
+mode: default
+content:
+  field_mission_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_mission_statement:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_our_customers_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_our_partners_descriptions:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_testimonials:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_wunder_numers:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

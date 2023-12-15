@@ -1,0 +1,10 @@
+uuid: cece4e4e-c73d-45d2-9b5e-7e5e7e9a2bb4
+langcode: en
+status: true
+dependencies: {  }
+id: speaker_detail
+label: 'Speaker detail'
+icon_uuid: null
+icon_default: null
+description: 'This paragraph will contain detailed info about a speaker.'
+behavior_plugins: {  }
