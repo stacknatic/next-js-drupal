@@ -21,6 +21,14 @@ import { DropDownMenu } from "@/components/drop-down-menu";
 import { useRouter } from "next/router";
 import { CSSProperties } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
+import { set } from "cypress/types/lodash";
+
+const override: CSSProperties = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "red",
+  fontSize: "1.2rem",
+};
 
 interface AllArticlesPageProps extends LayoutProps {
   articleTeasers: ArticleTeaserType[];
@@ -49,20 +57,16 @@ export default function AllArticlesPage({
   const [canLoadMore, setCanLoadMore] = useState(true);
   const containerRef = useRef(null);
 
+
   useEffect(() => {
     let articles = articleTeasers;
-    
     if (tag) {
-      // setCat(null);
-      // goToCategory === null;
       articles = articleTeasers.filter((article) => {
         const tagNames = article.field_tags?.map((tag) => tag.name) || [];
-        
-        localStorage.setItem('filter', 'tag'+tag);
         return tagNames.includes(tag);
       });
     }
-
+    
     setFilteredArticles(articles);
   }, [tag]);
 
@@ -70,12 +74,8 @@ export default function AllArticlesPage({
     let articles = articleTeasers;
     
     if (goToTag) {
-      // setCat(null);
-      // goToCategory === null;
       articles = articleTeasers.filter((article) => {
         const tagNames = article.field_tags?.map((tag) => tag.name) || [];
-        
-        localStorage.setItem('filter', ('tag'+goToTag as string));
         return tagNames.includes((goToTag as string));
       });
     }
@@ -85,18 +85,13 @@ export default function AllArticlesPage({
 
   useEffect(() => {
     let articles = articleTeasers;
-    
     if (cat) {
-      // setTag(null);
-      // goToTag === null;
       articles = articles.filter((article) => {
         const catName = article.field_category?.name || '';
-       
-        localStorage.setItem('filter', 'cat'+cat);
-        return catName.includes(cat);
+        return catName.includes(cat as string);
       });
     }
-
+    
     setFilteredArticles(articles);
   }, [cat]);
 
@@ -104,12 +99,8 @@ export default function AllArticlesPage({
     let articles = articleTeasers;
     
     if (goToCategory) {
-      // setTag(null);
-      // goToTag === null;
       articles = articles.filter((article) => {
         const catName = article.field_category?.name || '';
-       
-        localStorage.setItem('filter', ('cat'+goToCategory as string));
         return catName.includes((goToCategory as string));
       });
     }
@@ -129,12 +120,8 @@ export default function AllArticlesPage({
   const tags = articleTags;
   const categories = articleCategory;
 
-
-
   useEffect(() => {
     const handleScroll = () => {
-      console.log('filteredArticles.length', filteredArticles.length);
-      console.log('visibleArticles', visibleArticles);
       if (
         canLoadMore &&
         containerRef.current &&
@@ -156,12 +143,11 @@ export default function AllArticlesPage({
           }
 
 
-          // setLoading(false);
+          setLoading(false);
           
         }, 1000);
       }
-      if (visibleArticles >= filteredArticles.length) {
-        setCanLoadMore(false);
+      if (visibleArticles === filteredArticles.length) {
         setLoading(false);
       }
     };
@@ -201,12 +187,16 @@ export default function AllArticlesPage({
 
       </ul>
       {loading && (
-         <ClipLoader
+        <ClipLoader
+         color={"purple"}
          loading={loading}
-         size={150}
+         cssOverride={override}
+         size={45}
          aria-label="Loading Spinner"
          data-testid="loader"
+        //  className="text-primary-500"
        />
+ 
       )}
       {/* <Pagination
         focusRestoreRef={focusRef}
@@ -233,7 +223,7 @@ export const getStaticProps: GetStaticProps<AllArticlesPageProps> = async (conte
   const PAGE_SIZE = 3;
 
   const { totalPages, articles } = await getLatestArticlesItems({
-    limit: 100,
+    limit: 1000,
     // offset: currentPage ? PAGE_SIZE * (currentPage - 1) : 0,
     locale: context.locale,
   });
