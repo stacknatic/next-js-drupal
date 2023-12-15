@@ -21,6 +21,9 @@ import { DropDownMenu } from "@/components/drop-down-menu";
 import { useRouter } from "next/router";
 import { CSSProperties } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
+import { use } from "chai";
+import { set } from "cypress/types/lodash";
+import { filter } from "cypress/types/bluebird";
 
 const override: CSSProperties = {
   display: "block",
@@ -48,6 +51,7 @@ export default function AllArticlesPage({
   const [tag, setTag] = useState<string | null>(null);
   const [cat, setCat] = useState<string | null>(null);
   const [filteredArticles, setFilteredArticles] = useState<ArticleTeaserType[]>(articleTeasers);
+
   const router = useRouter();
   const { goToTag, goToCategory } = router.query;
   
@@ -56,65 +60,52 @@ export default function AllArticlesPage({
   const [canLoadMore, setCanLoadMore] = useState(true);
   const containerRef = useRef(null);
 
-
-  useEffect(() => {
+  const applyFilter = (filter: string, fieldValue: string) => {
     let articles = articleTeasers;
+    if (!fieldValue) return articles;
+
+    if (filter === "field_tags") {
+      setCat(null);
       articles = articleTeasers.filter((article) => {
-        const tagNames = article.field_tags?.map((tag) => tag.name) || [];
-        return tagNames.includes(tag);
+        let tagNames = article.field_tags?.map((tag) => tag.name) || [];
+        return tagNames.includes(fieldValue);
       });
-    
-    
-    setFilteredArticles(articles);
-  }, [tag]);
-
-  useEffect(() => {
-    let articles = articleTeasers;
-    
+    } else if (filter === "field_category") {
+      setTag(null);
       articles = articleTeasers.filter((article) => {
-        const tagNames = article.field_tags?.map((tag) => tag.name) || [];
-        return tagNames.includes((goToTag as string));
+        let catName = article.field_category?.name || '';
+        return catName.includes(fieldValue);
       });
-    
-
+    }
     setFilteredArticles(articles);
-  }, [goToTag]);
+  }
+
+  // useEffect(() => {
+  //   applyFilter("tag", (tag));
+  // }, [tag]);
+
+  // useEffect(() => {
+  //   applyFilter("tag", (goToTag as string));
+  // }, [goToTag]);
+
+  // useEffect(() => {
+  //   applyFilter("category", (cat));
+  // }, [cat]);
+
+  // useEffect(() => {
+  //   applyFilter("category", (goToCategory as string));
+  // }, [goToCategory]);
 
   useEffect(() => {
-    let articles = articleTeasers;
-      articles = articles.filter((article) => {
-        const catName = article.field_category?.name || '';
-        return catName.includes(cat as string);
-      });
-    
-    
-    setFilteredArticles(articles);
-  }, [cat]);
+    applyFilter('field_tags', tag || goToTag as string);
+  }, [tag, goToTag]);
 
   useEffect(() => {
-    let articles = articleTeasers;
-    
-      articles = articles.filter((article) => {
-        const catName = article.field_category?.name || '';
-        return catName.includes((goToCategory as string));
-      });
-    
-
-    setFilteredArticles(articles);
-  }, [goToCategory]);
-
-
-  const handleTagFilter = (item: string) => {
-    setTag(item);
-  };
-
-  const handleCatFilter = (item: string) => {
-    setCat(item);
-  };
+    applyFilter('field_category', cat || goToCategory as string);
+  }, [cat, goToCategory]);
 
   const tags = articleTags;
   const categories = articleCategory;
-  // const categories = articleCategory.length > 0 ? articleCategory.map((category) => category.name) : [];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -139,7 +130,7 @@ export default function AllArticlesPage({
           }
 
 
-          setLoading(false);
+          // setLoading(false);
           
         }, 1000);
       }
@@ -171,9 +162,9 @@ export default function AllArticlesPage({
         <span>Filter by: </span>
         <span className="mr-5">
 
-        <DropDownMenu name={"Category"} menuItems={categories} handleFilter={(item) => handleCatFilter(item)}/>
+        <DropDownMenu name={"Category"} menuItems={categories} handleFilter={(item: string) => setCat(item)}/>
         </span>
-        <DropDownMenu name={"Tags"} menuItems={tags} handleFilter={(item) => handleTagFilter(item)} />
+        <DropDownMenu name={"Tags"} menuItems={tags} handleFilter={(item: string) => setTag(item) } />
       </div>
       <ul className="mt-4" ref={containerRef}>
         {filteredArticles?.slice(0, visibleArticles)
@@ -182,6 +173,11 @@ export default function AllArticlesPage({
             <ArticleListItem article={article} />
           </li>
         ))}
+         {/* {articleTeasers?.map((article) => (
+          <li key={article?.id}>
+            <ArticleListItem article={article} />
+          </li>
+        ))} */}
 
       </ul>
       {loading && (
@@ -221,7 +217,7 @@ export const getStaticProps: GetStaticProps<AllArticlesPageProps> = async (conte
 
   const { totalPages, articles } = await getLatestArticlesItems({
     limit: 1000,
-    // offset: currentPage ? PAGE_SIZE * (currentPage - 1) : 0,
+    offset: currentPage ? PAGE_SIZE * (currentPage - 1) : 0,
     locale: context.locale,
   });
 
