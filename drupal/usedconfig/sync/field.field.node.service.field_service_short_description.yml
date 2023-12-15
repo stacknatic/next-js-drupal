@@ -1,0 +1,19 @@
+uuid: 42b5762e-62a2-42cd-ac74-d82a9cb60e42
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_service_short_description
+    - node.type.service
+id: node.service.field_service_short_description
+field_name: field_service_short_description
+entity_type: node
+bundle: service
+label: 'Service short description'
+description: 'This short description will be shown on the services main page under the service link.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

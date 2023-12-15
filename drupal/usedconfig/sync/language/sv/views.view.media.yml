@@ -1,0 +1,40 @@
+label: Media
+display:
+  default:
+    display_title: Förvald
+    display_options:
+      title: Media
+      fields:
+        media_bulk_form:
+          action_title: Åtgärd
+        bundle:
+          label: Typ
+        status:
+          label: Status
+        operations:
+          label: Funktioner
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Inlägg per sida'
+            items_per_page_options_all_label: '- Alla -'
+            offset_label: Kompensera
+      exposed_form:
+        options:
+          submit_button: Filtrera
+          reset_button_label: Återställ
+          exposed_sorts_label: 'Sortera efter'
+          sort_asc_label: Stigande
+          sort_desc_label: Fallande
+      filters:
+        bundle:
+          expose:
+            label: Typ
+        langcode:
+          expose:
+            label: Språk
+  media_page_list:
+    display_title: Media
+    display_options:
+      menu:
+        title: Media

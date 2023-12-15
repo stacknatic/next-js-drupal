@@ -1,0 +1,19 @@
+uuid: 15397325-d7a1-4bcc-9ffb-2c6ccbcdfe3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_topic
+    - paragraphs.paragraphs_type.numbers
+id: paragraph.numbers.field_topic
+field_name: field_topic
+entity_type: paragraph
+bundle: numbers
+label: Topic
+description: 'Name of the topic such as "Employee" or "Cities" or "Revenue"'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

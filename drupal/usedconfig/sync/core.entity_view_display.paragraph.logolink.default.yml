@@ -1,0 +1,45 @@
+uuid: 21ad47e3-9a7f-42a8-9b79-03e06e200ae0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.logolink.field_link
+    - field.field.paragraph.logolink.field_logo
+    - image.style.medium
+    - paragraphs.paragraphs_type.logolink
+  module:
+    - link
+    - svg_image
+id: paragraph.logolink.default
+targetEntityType: paragraph
+bundle: logolink
+mode: default
+content:
+  field_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_logo:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: medium
+      image_loading:
+        attribute: lazy
+      svg_attributes:
+        width: 250
+        height: 250
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

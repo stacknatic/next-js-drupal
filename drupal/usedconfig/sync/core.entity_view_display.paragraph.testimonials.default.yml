@@ -1,0 +1,38 @@
+uuid: 50dc03f2-c4a7-47d5-88b7-691f6ca41248
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.testimonials.field_testi_image
+    - field.field.paragraph.testimonials.field_testimony
+    - paragraphs.paragraphs_type.testimonials
+  module:
+    - svg_image
+id: paragraph.testimonials.default
+targetEntityType: paragraph
+bundle: testimonials
+mode: default
+content:
+  field_testi_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+      svg_attributes:
+        width: null
+        height: null
+      svg_render_as_image: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_testimony:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+hidden: {  }

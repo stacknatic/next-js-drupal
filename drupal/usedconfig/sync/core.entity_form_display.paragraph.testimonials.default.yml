@@ -1,0 +1,35 @@
+uuid: 3a1eb4ab-8732-4790-a5ab-9a977eacc265
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.testimonials.field_testi_image
+    - field.field.paragraph.testimonials.field_testimony
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.testimonials
+  module:
+    - svg_image
+id: paragraph.testimonials.default
+targetEntityType: paragraph
+bundle: testimonials
+mode: default
+content:
+  field_testi_image:
+    type: image_image
+    weight: 3
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_testimony:
+    type: string_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

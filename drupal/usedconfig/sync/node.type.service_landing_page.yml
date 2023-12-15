@@ -1,0 +1,17 @@
+uuid: 6067b126-ccd5-4bca-94b6-8aaf6fb5cc7e
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Service Landing Page'
+type: service_landing_page
+description: 'This content type is used to store data that will be rendered on the landing page of services other than the service and service category contents. Only ONE content will be generated out of this content type.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,19 @@
+uuid: 81c06bd9-d6aa-4276-84e4-a2697b77b9dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_contact_name
+    - paragraphs.paragraphs_type.contact_person
+id: paragraph.contact_person.field_contact_name
+field_name: field_contact_name
+entity_type: paragraph
+bundle: contact_person
+label: 'Contact Name'
+description: 'Please Enter the full name'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

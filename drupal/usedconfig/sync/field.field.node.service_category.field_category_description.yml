@@ -1,0 +1,19 @@
+uuid: 058ad569-c778-4628-bb5f-0faf809e60f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_category_description
+    - node.type.service_category
+id: node.service_category.field_category_description
+field_name: field_category_description
+entity_type: node
+bundle: service_category
+label: 'Category description'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

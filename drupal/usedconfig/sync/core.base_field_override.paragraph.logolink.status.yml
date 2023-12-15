@@ -1,0 +1,22 @@
+uuid: d04ed46d-bfaa-45b9-a268-75749c716da4
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.logolink
+id: paragraph.logolink.status
+field_name: status
+entity_type: paragraph
+bundle: logolink
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

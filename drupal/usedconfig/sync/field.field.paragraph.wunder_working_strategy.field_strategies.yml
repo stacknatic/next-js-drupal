@@ -1,0 +1,79 @@
+uuid: 1ff5c572-54b5-4510-a292-877a594c3e9a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_strategies
+    - paragraphs.paragraphs_type.heading_description
+    - paragraphs.paragraphs_type.wunder_working_strategy
+  module:
+    - entity_reference_revisions
+id: paragraph.wunder_working_strategy.field_strategies
+field_name: field_strategies
+entity_type: paragraph
+bundle: wunder_working_strategy
+label: Strategies
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      heading_description: heading_description
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 19
+        enabled: false
+      accordion_item:
+        weight: 20
+        enabled: false
+      contact_person:
+        weight: 21
+        enabled: false
+      file_attachments:
+        weight: 22
+        enabled: false
+      formatted_text:
+        weight: 23
+        enabled: false
+      heading_description:
+        weight: 18
+        enabled: true
+      hero:
+        weight: 24
+        enabled: false
+      image:
+        weight: 25
+        enabled: false
+      links:
+        weight: 26
+        enabled: false
+      listing_articles:
+        weight: 27
+        enabled: false
+      logolink:
+        weight: 28
+        enabled: false
+      numbers:
+        weight: 29
+        enabled: false
+      organizer_detail:
+        weight: 30
+        enabled: false
+      speaker_detail:
+        weight: 31
+        enabled: false
+      testimonials:
+        weight: 32
+        enabled: false
+      video:
+        weight: 33
+        enabled: false
+      wunder_working_strategy:
+        weight: 34
+        enabled: false
+field_type: entity_reference_revisions

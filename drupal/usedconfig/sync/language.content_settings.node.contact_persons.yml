@@ -1,0 +1,18 @@
+uuid: 406fa24c-fbbf-42ea-b4c1-dbf6124f52ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.contact_persons
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.contact_persons
+target_entity_type_id: node
+target_bundle: contact_persons
+default_langcode: site_default
+language_alterable: false
