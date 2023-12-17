@@ -1,15 +1,9 @@
 import React from 'react'
-import { ImLocation2 } from 'react-icons/im'
-import { AiOutlineWhatsApp } from 'react-icons/ai'
-import { LiaLinkedinIn } from 'react-icons/lia'
-import { FaGithub } from 'react-icons/fa'
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { useForm } from "react-hook-form";
 
-
 import { StatusMessage } from "@/ui/status-message";
-
 
 type Inputs = {
     name: string;
@@ -17,7 +11,6 @@ type Inputs = {
     subject: string;
     message: string;
 };
-
 
 const ContactForm = () => {
     const router = useRouter();
@@ -45,7 +38,7 @@ const ContactForm = () => {
         });
 
         if (!response.ok) {
-            alert("Error!");
+            alert("Sending message...");
         }
     };
 
@@ -64,71 +57,65 @@ const ContactForm = () => {
 
     return (
         <div>
-                <div className='w-full bg-primary-100'>
-                    <div>
-                        <div className='grid-cols-1 text-ss bg-slate-800'>
-                            <div className=''>
-                                <form className='max-w-6xl mx-auto my-10' onSubmit={handleSubmit(onSubmit, onErrors)} >
-                                    <h1 className='text-md mb-10 flex justify-center'>Get In Touch</h1>
-                                    <div className='grid lg:grid-cols-2 md:grid-col-1 gap-4 pb-8 md:justify-center'>
-                                        <div className='w-full '>
-                                            <input
-                                                type='text'
-                                                id='name'
-                                                placeholder='Full Name'
-                                                className='w-full p-2 rounded-lg'
-                                                {...register("name", {
-                                                    required: true,
-                                                })}
-                                            />
-                                        </div>
-                                        <div className='w-full'>
-                                            <input
-                                                type='email'
-                                                id='email'
-                                                placeholder='Email Address'
-                                                className='w-full p-2 rounded-lg'
-                                                {...register("email", {
-                                                    required: true,
-                                                })}
-                                            />
+            <div className='w-full flex items-center justify-center rounded-xl shadow-inherit '>
+                <form className='mb-2 w-[75%] grid gap-6' onSubmit={handleSubmit(onSubmit, onErrors)} >
+                    <h1 className='mb-10 text-center pt-4 tracking-wide text-[2.5rem] font-bold my-10 text-primary-800'>Leave us a message</h1>
+                    <div className='grid lg:grid-cols-2 md:grid-col-1 gap-4 pb-8 md:justify-center'>
+                        <div className='w-full '>
+                            <input
+                                type='text'
+                                id='name'
+                                placeholder='Full Name *'
+                                className='w-full p-4 rounded-lg outline-none border border-[1px] border-gray-200 focus:border-primary-200 focus:border-[3px] ring-0 focus:border-gray-300'
+                                {...register("name", {
+                                    required: true,
+                                })}
+                            />
+                        </div>
+                        <div className='w-full'>
+                            <input
+                                type='email'
+                                id='email'
+                                placeholder='Email Address *'
+                                className='w-full p-4 rounded-lg outline-none border border-[1px] border-gray-200 focus:border-primary-200 focus:border-[3px] ring-0 focus:border-gray-300'
+                                {...register("email", {
+                                    required: true,
+                                })}
+                            />
 
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <input
-                                            type='text'
-                                            id='subject'
-                                            placeholder='Subject'
-                                            className='w-full p-2 rounded-lg outline-none'
-                                            {...register("subject", {
-                                                required: true,
-                                            })}
-                                        />
-                                    </div>
-                                    <div className='mt-8 mb-10'>
-                                        <textarea
-                                            placeholder='Type in your message'
-                                            id='message'
-                                            rows={10}
-                                            cols={55}
-                                            className='w-full p-2 rounded-lg'
-                                            {...register("message", {
-                                                required: true,
-                                            })}
-                                        />
-                                    </div>
-                                    <div className='text-center'>
-                                    <button className='bg-primary-500 text-white p-3 rounded-lg' type='submit'>Send Message</button>
-                                    </div>
-                                </form>
-                            </div>
                         </div>
                     </div>
-                </div>
-           
-        </div >
+                    <div>
+                        <input
+                            type='text'
+                            id='subject'
+                            placeholder='Subject *'
+                            className='w-full p-4 rounded-lg outline-none border border-[1px] border-gray-200 focus:border-primary-200 focus:border-[3px] ring-0 focus:border-gray-300'
+                            {...register("subject", {
+                                required: true,
+                            })}
+                        />
+                    </div>
+                    <div className='mt-8 mb-10'>
+                        <textarea
+                            placeholder='Type in your message *'
+                            id='message'
+                            rows={10}
+                            cols={55}
+                            className='w-full p-4 rounded-lg outline-none border border-[1px] border-gray-200 focus:border-primary-200 focus:border-[3px] ring-0 focus:border-gray-300'
+                            {...register("message", {
+                                required: true,
+                            })}
+                        />
+                    </div>
+                    <div className='text-center pb-5'>
+                        <button className='bg-primary-500 text-white px-[6rem] py-5 rounded-lg' type='submit'>Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     )
 }
 
 export default ContactForm
+
