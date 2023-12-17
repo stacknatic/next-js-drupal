@@ -21,14 +21,10 @@ import { DropDownMenu } from "@/components/drop-down-menu";
 import { useRouter } from "next/router";
 import { CSSProperties } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
-import { use } from "chai";
-import { set } from "cypress/types/lodash";
-import { filter } from "cypress/types/bluebird";
 
 const override: CSSProperties = {
   display: "block",
   margin: "0 auto",
-  borderColor: "red",
   fontSize: "1.2rem",
 };
 
@@ -80,22 +76,6 @@ export default function AllArticlesPage({
     setFilteredArticles(articles);
   }
 
-  // useEffect(() => {
-  //   applyFilter("tag", (tag));
-  // }, [tag]);
-
-  // useEffect(() => {
-  //   applyFilter("tag", (goToTag as string));
-  // }, [goToTag]);
-
-  // useEffect(() => {
-  //   applyFilter("category", (cat));
-  // }, [cat]);
-
-  // useEffect(() => {
-  //   applyFilter("category", (goToCategory as string));
-  // }, [goToCategory]);
-
   useEffect(() => {
     applyFilter('field_tags', tag || goToTag as string);
   }, [tag, goToTag]);
@@ -127,11 +107,7 @@ export default function AllArticlesPage({
             setCanLoadMore(true);
           } else {
             return null;
-          }
-
-
-          // setLoading(false);
-          
+          }          
         }, 1000);
       }
       if (visibleArticles === filteredArticles.length) {
@@ -173,28 +149,19 @@ export default function AllArticlesPage({
             <ArticleListItem article={article} />
           </li>
         ))}
-         {/* {articleTeasers?.map((article) => (
-          <li key={article?.id}>
-            <ArticleListItem article={article} />
-          </li>
-        ))} */}
-
       </ul>
       {loading && (
+        <span className="text-primary-500">
+
         <ClipLoader
-         color={"purple"}
          loading={loading}
          cssOverride={override}
          size={45}
          aria-label="Loading Spinner"
          data-testid="loader"
-       />
- 
+         />
+        </span>
       )}
-      {/* <Pagination
-        focusRestoreRef={focusRef}
-        paginationProps={paginationProps}
-      /> */}
     </>
   );
 }
@@ -257,8 +224,6 @@ export const getStaticProps: GetStaticProps<AllArticlesPageProps> = async (conte
         totalPages,
         prevEnabled,
         nextEnabled,
-        // prevPageHref,
-        // nextPageHref,
       },
       languageLinks,
     },
