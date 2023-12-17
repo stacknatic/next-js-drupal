@@ -1,0 +1,31 @@
+uuid: 95313b2f-10df-4706-b214-920e1cd2b6f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.contact_persons.field_contact_person
+    - node.type.contact_persons
+  module:
+    - entity_reference_revisions
+    - user
+id: node.contact_persons.default
+targetEntityType: node
+bundle: contact_persons
+mode: default
+content:
+  field_contact_person:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

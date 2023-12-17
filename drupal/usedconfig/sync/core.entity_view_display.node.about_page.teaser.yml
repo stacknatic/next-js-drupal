@@ -1,0 +1,33 @@
+uuid: 6ceb0073-f4cc-41a3-925a-611329e9d4b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.about_page.field_mission_description
+    - field.field.node.about_page.field_mission_statement
+    - field.field.node.about_page.field_our_customers_description
+    - field.field.node.about_page.field_our_partners_descriptions
+    - field.field.node.about_page.field_testimonials
+    - field.field.node.about_page.field_wunder_numers
+    - node.type.about_page
+  module:
+    - user
+id: node.about_page.teaser
+targetEntityType: node
+bundle: about_page
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_mission_description: true
+  field_mission_statement: true
+  field_our_customers_description: true
+  field_our_partners_descriptions: true
+  field_testimonials: true
+  field_wunder_numers: true
+  langcode: true

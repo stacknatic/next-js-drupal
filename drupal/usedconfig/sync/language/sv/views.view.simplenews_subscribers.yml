@@ -1,0 +1,44 @@
+label: Prenumeranter
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Apply
+          reset_button_label: Återställ
+          exposed_sorts_label: 'Sortera efter'
+          sort_asc_label: Stigande
+          sort_desc_label: Fallande
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Inlägg per sida'
+            items_per_page_options_all_label: '- Alla -'
+            offset_label: Kompensera
+      fields:
+        mail:
+          label: E-post
+        user_name:
+          label: Användarnamn
+        subscriptions_target_id:
+          label: Prenumerationer
+        status:
+          label: Aktiv
+        created:
+          label: Skapad
+        operations:
+          label: Funktioner
+      filters:
+        mail:
+          expose:
+            label: E-post
+        subscriptions_target_id:
+          expose:
+            label: Nyhetsbrev
+        status:
+          expose:
+            label: Aktiv
+        subscriptions_status:
+          expose:
+            label: Status
+      title: Prenumeranter

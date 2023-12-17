@@ -1,0 +1,18 @@
+uuid: b51d66f0-1c98-4f83-9051-00c10147957d
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.wunder_working_strategy
+id: paragraph.wunder_working_strategy.created
+field_name: created
+entity_type: paragraph
+bundle: wunder_working_strategy
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

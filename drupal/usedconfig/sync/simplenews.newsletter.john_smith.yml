@@ -1,0 +1,22 @@
+uuid: fa94ed70-8b6c-424e-b449-e0774763e15e
+langcode: en
+status: true
+dependencies: {  }
+name: 'john smith'
+id: john_smith
+description: hello
+format: plain
+priority: 0
+receipt: true
+from_name: 'Drush Site-Install'
+subject: '[[simplenews-newsletter:name]] [node:title]'
+from_address: admin@example.com
+hyperlinks: true
+allowed_handlers:
+  simplenews_all: '0'
+  simplenews_new_users: '0'
+  simplenews_site_mail: '0'
+  simplenews_subscribers_by_role: '0'
+new_account: none
+access: default
+weight: 0

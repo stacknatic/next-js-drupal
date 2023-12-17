@@ -1,0 +1,10 @@
+uuid: 9940447a-471a-44ac-a87a-df2726fcf203
+langcode: en
+status: true
+dependencies: {  }
+id: logolink
+label: LogoLink
+icon_uuid: null
+icon_default: null
+description: 'This paragraph will contain logo and link '
+behavior_plugins: {  }

@@ -7,7 +7,7 @@ import { getNodePageJsonApiParams } from "@/lib/drupal/get-node-page-json-api-pa
 import siteConfig from "@/site.config";
 
 type GetArticlesArgs = {
-  limit?: number;
+  limit?: number | null;
   offset?: number;
   locale?: string;
 };

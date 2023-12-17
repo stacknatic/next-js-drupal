@@ -19,6 +19,14 @@ import { ArticleTags } from "@/lib/zod/article-tags";
 import { ArticleCategory } from "@/lib/zod/article-category";
 import { DropDownMenu } from "@/components/drop-down-menu";
 import { useRouter } from "next/router";
+import { CSSProperties } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
+
+const override: CSSProperties = {
+  display: "block",
+  margin: "0 auto",
+  fontSize: "1.2rem",
+};
 
 interface AllArticlesPageProps extends LayoutProps {
   articleTeasers: ArticleTeaserType[];
@@ -39,96 +47,80 @@ export default function AllArticlesPage({
   const [tag, setTag] = useState<string | null>(null);
   const [cat, setCat] = useState<string | null>(null);
   const [filteredArticles, setFilteredArticles] = useState<ArticleTeaserType[]>(articleTeasers);
+
   const router = useRouter();
   const { goToTag, goToCategory } = router.query;
+  
+  const [visibleArticles, setVisibleArticles] = useState(3);
+  const [loading, setLoading] = useState(false);
+  const [canLoadMore, setCanLoadMore] = useState(true);
+  const containerRef = useRef(null);
 
-  useEffect(() => {
+  const applyFilter = (filter: string, fieldValue: string) => {
     let articles = articleTeasers;
-    
-    if (tag) {
-      // setCat(null);
-      // goToCategory === null;
+    if (!fieldValue) return articles;
+
+    if (filter === "field_tags") {
+      setCat(null);
       articles = articleTeasers.filter((article) => {
-        const tagNames = article.field_tags?.map((tag) => tag.name) || [];
-        router.push({
-          pathname: '/all-articles',
-          query: { goToTag: tag },
-        }, undefined, { shallow: true });
-        return tagNames.includes(tag);
+        let tagNames = article.field_tags?.map((tag) => tag.name) || [];
+        return tagNames.includes(fieldValue);
       });
-    }
-
-    setFilteredArticles(articles);
-  }, [tag]);
-
-  useEffect(() => {
-    let articles = articleTeasers;
-    
-    if (goToTag) {
-      // setCat(null);
-      // goToCategory === null;
+    } else if (filter === "field_category") {
+      setTag(null);
       articles = articleTeasers.filter((article) => {
-        const tagNames = article.field_tags?.map((tag) => tag.name) || [];
-        router.push({
-          pathname: '/all-articles',
-          query: { goToTag: (goToTag as string) },
-        }, undefined, { shallow: true });
-        return tagNames.includes((goToTag as string));
+        let catName = article.field_category?.name || '';
+        return catName.includes(fieldValue);
       });
     }
-
     setFilteredArticles(articles);
-  }, [goToTag]);
+  }
 
   useEffect(() => {
-    let articles = articleTeasers;
-    
-    if (cat) {
-      // setTag(null);
-      // goToTag === null;
-      articles = articles.filter((article) => {
-        const catName = article.field_category?.name || '';
-        router.push({
-          pathname: '/all-articles',
-          query: { goToCategory: cat },
-        }, undefined, { shallow: true });
-        return catName.includes(cat);
-      });
-    }
-
-    setFilteredArticles(articles);
-  }, [cat]);
+    applyFilter('field_tags', tag || goToTag as string);
+  }, [tag, goToTag]);
 
   useEffect(() => {
-    let articles = articleTeasers;
-    
-    if (goToCategory) {
-      // setTag(null);
-      // goToTag === null;
-      articles = articles.filter((article) => {
-        const catName = article.field_category?.name || '';
-        router.push({
-          pathname: '/all-articles',
-          query: { goToCategory: (goToCategory as string) },
-        }, undefined, { shallow: true });
-        return catName.includes((goToCategory as string));
-      });
-    }
-
-    setFilteredArticles(articles);
-  }, [goToCategory]);
-
-
-  const handleTagFilter = (item: string) => {
-    setTag(item);
-  };
-
-  const handleCatFilter = (item: string) => {
-    setCat(item);
-  };
+    applyFilter('field_category', cat || goToCategory as string);
+  }, [cat, goToCategory]);
 
   const tags = articleTags;
   const categories = articleCategory;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (
+        canLoadMore &&
+        containerRef.current &&
+        window.innerHeight + window.scrollY >=
+          containerRef.current.offsetTop + containerRef.current.offsetHeight * 0.9
+      ) {
+        setLoading(true);
+        setCanLoadMore(false);
+
+        setTimeout(() => {
+          let remainingArticles = filteredArticles.length - visibleArticles;
+          let articlesToLoad = remainingArticles >= 3 ? 3 : remainingArticles;
+          setVisibleArticles(visibleArticles + articlesToLoad);
+
+          if (visibleArticles < filteredArticles.length) {
+            setCanLoadMore(true);
+          } else {
+            return null;
+          }          
+        }, 1000);
+      }
+      if (visibleArticles === filteredArticles.length) {
+        setLoading(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [visibleArticles, canLoadMore, filteredArticles]);
 
   return (
     <>
@@ -144,21 +136,32 @@ export default function AllArticlesPage({
       <HeadingPage>{t("all-articles")}</HeadingPage>
       <div className="mt-4 mb-6">
         <span>Filter by: </span>
+        <span className="mr-5">
 
-        <DropDownMenu name={"Category"} menuItems={categories} handleFilter={(item) => handleCatFilter(item)} />&nbsp;&nbsp;&nbsp;&nbsp;
-        <DropDownMenu name={"Tags"} menuItems={tags} handleFilter={(item) => handleTagFilter(item)} />
+        <DropDownMenu name={"Category"} menuItems={categories} handleFilter={(item: string) => setCat(item)}/>
+        </span>
+        <DropDownMenu name={"Tags"} menuItems={tags} handleFilter={(item: string) => setTag(item) } />
       </div>
-      <ul className="mt-4">
-        {filteredArticles?.map((article) => (
+      <ul className="mt-4" ref={containerRef}>
+        {filteredArticles?.slice(0, visibleArticles)
+        .map((article) => (
           <li key={article?.id}>
             <ArticleListItem article={article} />
           </li>
         ))}
       </ul>
-      <Pagination
-        focusRestoreRef={focusRef}
-        paginationProps={paginationProps}
-      />
+      {loading && (
+        <span className="text-primary-500">
+
+        <ClipLoader
+         loading={loading}
+         cssOverride={override}
+         size={45}
+         aria-label="Loading Spinner"
+         data-testid="loader"
+         />
+        </span>
+      )}
     </>
   );
 }
@@ -177,10 +180,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<AllArticlesPageProps> = async (context) => {
   const page = context.params.page;
   const currentPage = parseInt(Array.isArray(page) ? page[0] : page || "1");
-  const PAGE_SIZE = 6;
+  const PAGE_SIZE = 3;
 
   const { totalPages, articles } = await getLatestArticlesItems({
-    limit: PAGE_SIZE,
+    limit: 1000,
     offset: currentPage ? PAGE_SIZE * (currentPage - 1) : 0,
     locale: context.locale,
   });
@@ -197,11 +200,11 @@ export const getStaticProps: GetStaticProps<AllArticlesPageProps> = async (conte
   const pageRoot = "/all-articles";
   const prevPage = currentPage - 1;
   const nextPage = currentPage + 1;
-  const prevPageHref =
-    currentPage === 2
-      ? pageRoot
-      : prevEnabled && [pageRoot, prevPage].join("/");
-  const nextPageHref = nextEnabled && [pageRoot, nextPage].join("/");
+  // const prevPageHref =
+  //   currentPage === 2
+  //     ? pageRoot
+  //     : prevEnabled && [pageRoot, prevPage].join("/");
+  // const nextPageHref = nextEnabled && [pageRoot, nextPage].join("/");
 
   const languageLinks = createLanguageLinksForNextOnlyPage(pageRoot, context);
 
@@ -221,8 +224,6 @@ export const getStaticProps: GetStaticProps<AllArticlesPageProps> = async (conte
         totalPages,
         prevEnabled,
         nextEnabled,
-        prevPageHref,
-        nextPageHref,
       },
       languageLinks,
     },
