@@ -21,6 +21,8 @@ import { DropDownMenu } from "@/components/drop-down-menu";
 import { useRouter } from "next/router";
 import { CSSProperties } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
+import { use } from "chai";
+import { set } from "cypress/types/lodash";
 
 const override: CSSProperties = {
   display: "block",
@@ -58,6 +60,7 @@ export default function AllArticlesPage({
 
   const applyFilter = (filter: string, fieldValue: string) => {
     let articles = articleTeasers;
+  
     if (!fieldValue) return articles;
 
     if (filter === "field_tags") {
@@ -82,10 +85,12 @@ export default function AllArticlesPage({
 
   useEffect(() => {
     applyFilter('field_category', cat || goToCategory as string);
-  }, [cat, goToCategory]);
+  }, [cat, goToCategory]);  
 
+  
   const tags = articleTags;
   const categories = articleCategory;
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -109,6 +114,8 @@ export default function AllArticlesPage({
             return null;
           }          
         }, 1000);
+
+        setCanLoadMore(false);
       }
       if (visibleArticles === filteredArticles.length) {
         setLoading(false);
@@ -137,10 +144,11 @@ export default function AllArticlesPage({
       <div className="mt-4 mb-6">
         <span>Filter by: </span>
         <span className="mr-5">
-
         <DropDownMenu name={"Category"} menuItems={categories} handleFilter={(item: string) => setCat(item)}/>
         </span>
         <DropDownMenu name={"Tags"} menuItems={tags} handleFilter={(item: string) => setTag(item) } />
+        <button onClick={() => {setFilteredArticles(articleTeasers)}} className="ml-3 p-2 z-10 rounded-md bg-white shadow-lg ring-1 ring-opacity-5 ring-inset">Show All</button>
+
       </div>
       <ul className="mt-4" ref={containerRef}>
         {filteredArticles?.slice(0, visibleArticles)
