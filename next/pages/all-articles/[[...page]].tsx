@@ -20,8 +20,7 @@ import { ArticleCategory } from "@/lib/zod/article-category";
 import { DropDownMenu } from "@/components/drop-down-menu";
 import { useRouter } from "next/router";
 import { CSSProperties } from "react";
-import ClipLoader from "react-spinners/ClipLoader";
-import { use } from "chai";
+import FadeLoader from "react-spinners/FadeLoader";
 import { set } from "cypress/types/lodash";
 
 const override: CSSProperties = {
@@ -48,6 +47,7 @@ export default function AllArticlesPage({
   const focusRef = useRef<HTMLDivElement>(null);
   const [tag, setTag] = useState<string | null>(null);
   const [cat, setCat] = useState<string | null>(null);
+  const [all, setAll] = useState<string | null>(null);
   const [filteredArticles, setFilteredArticles] = useState<ArticleTeaserType[]>(articleTeasers);
 
   const router = useRouter();
@@ -62,14 +62,21 @@ export default function AllArticlesPage({
     let articles = articleTeasers;
   
     if (!fieldValue) return articles;
+    if(fieldValue === "all"){
+      setTag(null);
+      setCat(null);
+      return articles;
+    };
 
     if (filter === "field_tags") {
+      setAll(null);
       setCat(null);
       articles = articleTeasers.filter((article) => {
         let tagNames = article.field_tags?.map((tag) => tag.name) || [];
         return tagNames.includes(fieldValue);
       });
     } else if (filter === "field_category") {
+      setAll(null);
       setTag(null);
       articles = articleTeasers.filter((article) => {
         let catName = article.field_category?.name || '';
@@ -80,12 +87,17 @@ export default function AllArticlesPage({
   }
 
   useEffect(() => {
+    applyFilter('all_articles', all);
+  }, [all]);
+
+  useEffect(() => {
     applyFilter('field_tags', tag || goToTag as string);
   }, [tag, goToTag]);
 
   useEffect(() => {
     applyFilter('field_category', cat || goToCategory as string);
-  }, [cat, goToCategory]);  
+  }, [cat, goToCategory]);
+  
 
   
   const tags = articleTags;
@@ -147,7 +159,7 @@ export default function AllArticlesPage({
         <DropDownMenu name={"Category"} menuItems={categories} handleFilter={(item: string) => setCat(item)}/>
         </span>
         <DropDownMenu name={"Tags"} menuItems={tags} handleFilter={(item: string) => setTag(item) } />
-        <button onClick={() => {setFilteredArticles(articleTeasers)}} className="ml-3 p-2 z-10 rounded-md bg-white shadow-md ring-1 ring-opacity-5 ring-inset">All</button>
+        <button onClick={() => setAll("all category")} className="ml-3 p-2 z-10 rounded-md bg-white shadow-md ring-1 ring-opacity-5 ring-inset">All</button>
 
       </div>
       <ul className="mt-4" ref={containerRef}>
@@ -161,12 +173,13 @@ export default function AllArticlesPage({
       {loading && (
         <span className="text-primary-500">
 
-        <ClipLoader
+        <FadeLoader
          loading={loading}
          cssOverride={override}
-         size={45}
+        //  size={45}
          aria-label="Loading Spinner"
          data-testid="loader"
+         color= {"#653cc5"}
          />
         </span>
       )}
