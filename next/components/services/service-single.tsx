@@ -34,6 +34,7 @@ export default function ServiceSingle({
       <h1 className="text-[3rem] text-center md:text-left  py-16">
         {service.field_service_name}
       </h1>
+      
       <div className="grid md:grid-cols-2 gap-6  p-4 rounded-xl">
         <div className="flex flex-col gap-8 rounded-xl p-4">
           <p className="uppercase text-xl font-light tracking-widest text-center md:text-left">
