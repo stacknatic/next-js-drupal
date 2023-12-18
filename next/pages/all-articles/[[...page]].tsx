@@ -141,13 +141,13 @@ export default function AllArticlesPage({
         ]}
       />
       <HeadingPage>{t("all-articles")}</HeadingPage>
-      <div className="mt-4 mb-6">
+      <div className="mt-4 mb-6 flex items-center">
         <span>Filter by: </span>
-        <span className="mr-5">
+        <span className="mr-5 ml-1">
         <DropDownMenu name={"Category"} menuItems={categories} handleFilter={(item: string) => setCat(item)}/>
         </span>
         <DropDownMenu name={"Tags"} menuItems={tags} handleFilter={(item: string) => setTag(item) } />
-        <button onClick={() => {setFilteredArticles(articleTeasers)}} className="ml-3 p-2 z-10 rounded-md bg-white shadow-lg ring-1 ring-opacity-5 ring-inset">Show All</button>
+        <button onClick={() => {setFilteredArticles(articleTeasers)}} className="ml-3 p-2 z-10 rounded-md bg-white shadow-md ring-1 ring-opacity-5 ring-inset">All</button>
 
       </div>
       <ul className="mt-4" ref={containerRef}>
@@ -208,11 +208,6 @@ export const getStaticProps: GetStaticProps<AllArticlesPageProps> = async (conte
   const pageRoot = "/all-articles";
   const prevPage = currentPage - 1;
   const nextPage = currentPage + 1;
-  // const prevPageHref =
-  //   currentPage === 2
-  //     ? pageRoot
-  //     : prevEnabled && [pageRoot, prevPage].join("/");
-  // const nextPageHref = nextEnabled && [pageRoot, nextPage].join("/");
 
   const languageLinks = createLanguageLinksForNextOnlyPage(pageRoot, context);
 
