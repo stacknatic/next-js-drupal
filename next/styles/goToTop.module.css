@@ -1,0 +1,14 @@
+.goToTopButton {
+    position: fixed;
+    bottom: 15px;
+    right: 8px;
+    color: #ff669d;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 3.5rem;
+    z-index: 10;
+  }
+
+  

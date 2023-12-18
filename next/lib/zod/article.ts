@@ -25,11 +25,13 @@ export const ArticleSchema = ArticleBaseSchema.extend({
     processed: z.string(),
   }),
   field_user_avatar: ImageShape.optional(),
-
+  
   uid: z.object({
     id: z.string(),
     display_name: z.string(),
     field_user_avatar: ImageShape.optional(),
+    // field_first_name: z.string().optional().nullable(),
+    // field_last_name: z.string().optional().nullable(),
   }),
 });
 
