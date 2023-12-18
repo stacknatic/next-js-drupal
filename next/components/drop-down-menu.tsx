@@ -79,8 +79,8 @@ export function DropDownMenu({
                 {({ active }) => (
                   <button
                   className={classNames(
-                    active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                    'block px-4 py-2 text-sm'
+                    active ? 'bg-primary-500 w-full text-white text-left' : 'text-gray-700',
+                    'block px-4 py-2 text-sm w-full text-left'
                     )}
                     onClick={() => {
                       handleFilter?.(item?.name);
