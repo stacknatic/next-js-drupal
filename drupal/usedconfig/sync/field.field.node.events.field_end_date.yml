@@ -1,0 +1,21 @@
+uuid: f522bfbb-e257-4195-9cfb-e2169d4b0d86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_end_date
+    - node.type.events
+  module:
+    - datetime
+id: node.events.field_end_date
+field_name: field_end_date
+entity_type: node
+bundle: events
+label: 'End Date'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

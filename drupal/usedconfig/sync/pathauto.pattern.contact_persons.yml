@@ -1,0 +1,35 @@
+uuid: 7083fc85-0861-47b6-b511-6437f64f5319
+langcode: en
+status: true
+dependencies:
+  module:
+    - language
+    - node
+id: contact_persons
+label: 'Contact Persons'
+type: 'canonical_entities:node'
+pattern: 'contact_persons/[node:title]'
+selection_criteria:
+  35a8180c-8b01-4f78-9e10-e2f1afbc6da3:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 35a8180c-8b01-4f78-9e10-e2f1afbc6da3
+    context_mapping:
+      node: node
+    bundles:
+      contact_persons: contact_persons
+  17bf0f4b-bb17-4dbc-b037-50d7ab52b8e6:
+    id: language
+    negate: false
+    uuid: 17bf0f4b-bb17-4dbc-b037-50d7ab52b8e6
+    context_mapping:
+      language: 'node:langcode:language'
+    langcodes:
+      en: en
+      fi: fi
+      sv: sv
+selection_logic: and
+weight: -10
+relationships:
+  'node:langcode:language':
+    label: Language

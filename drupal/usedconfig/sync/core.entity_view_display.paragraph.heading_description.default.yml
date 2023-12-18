@@ -1,0 +1,29 @@
+uuid: 2fe159d0-4feb-4ccf-9ccb-51d3674d0246
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.heading_description.field_heading_desc_description
+    - field.field.paragraph.heading_description.field_heading_desc_heading
+    - paragraphs.paragraphs_type.heading_description
+id: paragraph.heading_description.default
+targetEntityType: paragraph
+bundle: heading_description
+mode: default
+content:
+  field_heading_desc_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_heading_desc_heading:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

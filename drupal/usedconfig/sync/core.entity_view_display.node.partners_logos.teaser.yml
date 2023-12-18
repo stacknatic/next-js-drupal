@@ -1,0 +1,23 @@
+uuid: f4a30d4d-29c4-4207-82fb-314113160813
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.partners_logos.field_logos
+    - node.type.partners_logos
+  module:
+    - user
+id: node.partners_logos.teaser
+targetEntityType: node
+bundle: partners_logos
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_logos: true
+  langcode: true

@@ -1,0 +1,10 @@
+uuid: 0260e052-0271-40dd-ab4d-67f139ad9d21
+langcode: en
+status: true
+dependencies: {  }
+id: heading_description
+label: 'Heading description'
+icon_uuid: null
+icon_default: null
+description: 'This paragraph is used to store info in Heading : description structure. It can be think as key: value data structure.'
+behavior_plugins: {  }

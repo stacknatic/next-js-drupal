@@ -1,0 +1,18 @@
+uuid: bdc4caf6-35f5-4d87-adf3-c7ba70b7fea4
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Contact Persons'
+type: contact_persons
+description: 'This content type holds information about all contact persons in the organization. Only one instance of this content type be created. If additional instances are being created, they will not rendered in the front end.  '
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

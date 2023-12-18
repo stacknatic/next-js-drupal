@@ -1,0 +1,8 @@
+_core:
+  default_config_hash: 4qVz27mvzjCZOQkd03vi4Ipqcf8m53p6xPVW-G0tXIA
+default_transport: smtp
+override:
+  simplenews: 3
+  simplenews_newsletter: 3
+  update: 3
+  user: 3

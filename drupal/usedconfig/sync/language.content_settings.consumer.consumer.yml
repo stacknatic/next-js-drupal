@@ -1,0 +1,17 @@
+uuid: b699577f-39d1-45f0-aa4e-38c07332dd68
+langcode: en
+status: true
+dependencies:
+  module:
+    - consumers
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: consumer.consumer
+target_entity_type_id: consumer
+target_bundle: consumer
+default_langcode: site_default
+language_alterable: false

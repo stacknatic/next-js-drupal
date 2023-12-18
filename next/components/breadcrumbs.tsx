@@ -26,7 +26,7 @@ export function Breadcrumbs({ items, ...props }: BreadcrumbsProps) {
   }
 
   return (
-    <nav className="py-4 text-text" {...props}>
+    <nav className="py-4 text-text hidden md:flex" {...props}>
       <ol className="flex">
         {items.map((item, index) => (
           <li key={index} className="flex items-center leading-none truncate">

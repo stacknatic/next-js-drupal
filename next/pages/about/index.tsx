@@ -31,7 +31,7 @@ const Page = ({
         <p className="md:text-lg text-xs md:pl-12 md:mt-[10vh] mt-9 font-semibold text-center md:text-left">
           WUNDER IN NUMBERS
         </p>
-        <div className="bg-tranquil overflow-hidden mt-4 md:py-10 md:mt-9">
+        <div className="overflow-hidden mt-4 md:py-10 md:mt-9">
           <div className="flex justify-around text-center space-x-6 ">
             {validatedAboutPage.field_wunder_numers &&
             Array.isArray(validatedAboutPage.field_wunder_numers) ? (

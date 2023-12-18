@@ -74,13 +74,13 @@ export function EventRegistration({ eventTitle }: { eventTitle: string }) {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="w-full flex mb-4 max-w-3xl flex-col gap-5 md:pr-[2rem]"
+      className="w-full mx-auto flex mb-4 max-w-3xl flex-col md:gap-2 gap-5 md:px-[2rem]"
     >
-      <h3 className="text-heading-sm ">Join us</h3>
-      <div className="w-full flex flex-col gap-3">
+      <h3 className="text-heading-sm mt-4 md:font-bold">Join?</h3>
+      <div className="w-full flex flex-col gap-3 md:gap-2">
         <label htmlFor="name">Name</label>
         <input
-          className="border border-1 p-4 rounded-md ring-0 focus:border-2 focus:border-primary-400 bg-none"
+          className="border border-1 p-4 md:p-2 rounded-md ring-0 focus:border-2 focus:border-primary-400 bg-none"
           placeholder="name"
           type="text"
           id="name"
@@ -90,10 +90,10 @@ export function EventRegistration({ eventTitle }: { eventTitle: string }) {
         />
         {errors.name && <p className="text-error">{errors.name.message}</p>}
       </div>
-      <div className="w-full flex flex-col gap-3">
+      <div className="w-full flex flex-col gap-3 md:gap-2">
         <label htmlFor="email">Email</label>
         <input
-          className="border border-1 p-4 rounded-md ring-0 min-w-[2rem] focus:border-2 focus:border-primary-400"
+          className="border border-1 p-4 md:p-2 rounded-md ring-0 min-w-[2rem] focus:border-2 focus:border-primary-400"
           placeholder="email"
           type="email"
           id="email"
@@ -103,11 +103,10 @@ export function EventRegistration({ eventTitle }: { eventTitle: string }) {
         />
         {errors.email && <p className="text-error">{errors.email.message}</p>}
       </div>
-      <div></div>
-      <div className="w-full flex flex-col gap-3">
+      <div className="w-full flex flex-col gap-3 md:gap-2">
         <label htmlFor="message">Message</label>
         <textarea
-          className="border border-1 p-4 rounded-md ring-0 min-h-[12rem] focus:border-2 focus:border-primary-400"
+          className="border border-1 p-4 md:p-2 rounded-md ring-0 min-h-[8rem] focus:border-2 focus:border-primary-400"
           placeholder="message"
           id="message"
           {...register("message", {
@@ -118,8 +117,8 @@ export function EventRegistration({ eventTitle }: { eventTitle: string }) {
           <p className="text-error">{errors.message.message}</p>
         )}
       </div>
-      <Button type="submit">
-        {isSubmitting ? "Submitting....." : "Submit"}
+      <Button type="submit" className="rounded-full mt-2">
+        {isSubmitting ? "Joining....." : "Want to join"}
       </Button>
     </form>
   );

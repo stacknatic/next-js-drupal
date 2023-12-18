@@ -121,7 +121,7 @@ export function NewsletterRegistration() {
             required: true,
           })}
         />
-        {errors.email && <p className="text-error">{errors.email.message}</p>}
+        {errors.email && <p className="text-secondary-400">{errors.email.message}</p>}
       </div>
       <div className="w-full flex flex-col gap-2 pt-4">
         <div className="w-full flex gap-1 items-center ">
@@ -134,14 +134,14 @@ export function NewsletterRegistration() {
           <sup className="font-bold">*</sup>
         </div>
         {errors.privacy && (
-          <p className="text-error">{errors.privacy.message}</p>
+          <p className="text-secondary-400">{errors.privacy.message}</p>
         )}
         <p className="py-4">
           If you do not select any of the newsletter option, you will be
           registered for all newsletters.
         </p>
       </div>
-      <Button variant="quinary" type="submit" className="rounded-md shadow-xl">
+      <Button variant="quinary" type="submit" className="rounded-full shadow-xl">
         {isSubmitting ? "Subscribing....." : "Subscribe"}
       </Button>
     </form>

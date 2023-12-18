@@ -1,0 +1,19 @@
+uuid: bd9add99-14ed-4fb5-9cfa-0dd21d446853
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_position
+    - paragraphs.paragraphs_type.contact_person
+id: paragraph.contact_person.field_position
+field_name: field_position
+entity_type: paragraph
+bundle: contact_person
+label: Position
+description: 'Position of the contact person in the organization.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

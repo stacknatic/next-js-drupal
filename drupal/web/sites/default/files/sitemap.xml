@@ -222,7 +222,7 @@
   <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/articles/nextjs-and-seo-improving-search-engine-visibility"/>
   <xhtml:link rel="alternate" hreflang="fi" href="https://frontend.lndo.site/fi/articles/nextjs-ja-seo-hakukonenakyvyyden-parantaminen"/>
   <xhtml:link rel="alternate" hreflang="sv" href="https://frontend.lndo.site/sv/articles/nextjs-och-seo-forbattra-synligheten-i-sokmotorer"/>
-  <lastmod>2023-10-25T09:09:17+00:00</lastmod>
+  <lastmod>2023-12-15T19:11:32+00:00</lastmod>
   <priority>0.5</priority>
  </url>
  <url>
@@ -230,7 +230,7 @@
   <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/articles/nextjs-and-seo-improving-search-engine-visibility"/>
   <xhtml:link rel="alternate" hreflang="fi" href="https://frontend.lndo.site/fi/articles/nextjs-ja-seo-hakukonenakyvyyden-parantaminen"/>
   <xhtml:link rel="alternate" hreflang="sv" href="https://frontend.lndo.site/sv/articles/nextjs-och-seo-forbattra-synligheten-i-sokmotorer"/>
-  <lastmod>2023-10-25T09:09:17+00:00</lastmod>
+  <lastmod>2023-12-15T19:11:32+00:00</lastmod>
   <priority>0.5</priority>
  </url>
  <url>
@@ -238,7 +238,7 @@
   <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/articles/nextjs-and-seo-improving-search-engine-visibility"/>
   <xhtml:link rel="alternate" hreflang="fi" href="https://frontend.lndo.site/fi/articles/nextjs-ja-seo-hakukonenakyvyyden-parantaminen"/>
   <xhtml:link rel="alternate" hreflang="sv" href="https://frontend.lndo.site/sv/articles/nextjs-och-seo-forbattra-synligheten-i-sokmotorer"/>
-  <lastmod>2023-10-25T09:09:17+00:00</lastmod>
+  <lastmod>2023-12-15T19:11:32+00:00</lastmod>
   <priority>0.5</priority>
  </url>
  <url>
@@ -314,6 +314,24 @@
   <priority>0.5</priority>
  </url>
  <url>
+  <loc>https://frontend.lndo.site/en/cases/nunc-refoveo</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/cases/nunc-refoveo"/>
+  <lastmod>2023-12-14T18:21:49+00:00</lastmod>
+  <priority>0.5</priority>
+ </url>
+ <url>
+  <loc>https://frontend.lndo.site/en/cases/facilisi</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/cases/facilisi"/>
+  <lastmod>2023-12-14T18:22:48+00:00</lastmod>
+  <priority>0.5</priority>
+ </url>
+ <url>
+  <loc>https://frontend.lndo.site/en/cases/magna</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/cases/magna"/>
+  <lastmod>2023-12-14T18:17:51+00:00</lastmod>
+  <priority>0.5</priority>
+ </url>
+ <url>
   <loc>https://frontend.lndo.site/en/events/wunder-day</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/events/wunder-day"/>
   <lastmod>2023-12-08T10:29:05+00:00</lastmod>
@@ -322,39 +340,13 @@
  <url>
   <loc>https://frontend.lndo.site/en/events/letalis</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/events/letalis"/>
-  <lastmod>2023-11-24T06:25:23+00:00</lastmod>
+  <lastmod>2023-12-14T18:02:39+00:00</lastmod>
   <priority>0.5</priority>
  </url>
  <url>
   <loc>https://frontend.lndo.site/en/events/voco</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/events/voco"/>
-  <lastmod>2023-11-24T06:25:44+00:00</lastmod>
-  <priority>0.5</priority>
- </url>
- <url>
-  <loc>https://frontend.lndo.site/en/events/in</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/events/in"/>
-  <xhtml:link rel="alternate" hreflang="fi" href="https://frontend.lndo.site/fi/events/in"/>
-  <lastmod>2023-11-24T06:24:40+00:00</lastmod>
-  <priority>0.5</priority>
- </url>
- <url>
-  <loc>https://frontend.lndo.site/fi/events/in</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/events/in"/>
-  <xhtml:link rel="alternate" hreflang="fi" href="https://frontend.lndo.site/fi/events/in"/>
-  <lastmod>2023-11-24T06:24:40+00:00</lastmod>
-  <priority>0.5</priority>
- </url>
- <url>
-  <loc>https://frontend.lndo.site/en/events/brevitas-euismod</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/events/brevitas-euismod"/>
-  <lastmod>2023-11-24T06:26:13+00:00</lastmod>
-  <priority>0.5</priority>
- </url>
- <url>
-  <loc>https://frontend.lndo.site/en/events/pertineo-uxor</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/events/pertineo-uxor"/>
-  <lastmod>2023-11-24T06:26:35+00:00</lastmod>
+  <lastmod>2023-12-14T18:01:52+00:00</lastmod>
   <priority>0.5</priority>
  </url>
  <url>

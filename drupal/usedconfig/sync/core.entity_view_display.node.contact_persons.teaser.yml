@@ -1,0 +1,23 @@
+uuid: fbdca780-76e7-455d-a2ee-d064a8224d4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.contact_persons.field_contact_person
+    - node.type.contact_persons
+  module:
+    - user
+id: node.contact_persons.teaser
+targetEntityType: node
+bundle: contact_persons
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_contact_person: true
+  langcode: true

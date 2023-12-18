@@ -11,7 +11,7 @@ interface EventsCardsPropsType {
 export function EventsCards({ events, heading }: EventsCardsPropsType) {
   const { t } = useTranslation();
   return (
-    <div className="grid justify-center">
+    <div className="md:px-16">
       <Breadcrumbs
         items={[
           {
@@ -19,9 +19,9 @@ export function EventsCards({ events, heading }: EventsCardsPropsType) {
           },
         ]}
       />
-      <h2 className="pb-6 md:pb-8 text-center text-heading-sm font-bold md:text-heading-md">
+      <h1 className="text-[4rem] text-center md:text-left py-16">
         {heading}
-      </h2>
+      </h1>
       <ul className="lg:flex lg:flex-wrap mt-4 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
         {events?.map((event) => (
           <li key={event.id}>

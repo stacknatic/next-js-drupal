@@ -1,0 +1,27 @@
+uuid: 02129fb7-d63b-41a9-975f-1c2a98660da0
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.service_landing_page.field_page_title
+    - field.field.node.service_landing_page.field_service_page_statement
+    - field.field.node.service_landing_page.field_wunder_working_strategy
+    - node.type.service_landing_page
+  module:
+    - user
+id: node.service_landing_page.teaser
+targetEntityType: node
+bundle: service_landing_page
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_page_title: true
+  field_service_page_statement: true
+  field_wunder_working_strategy: true
+  langcode: true
