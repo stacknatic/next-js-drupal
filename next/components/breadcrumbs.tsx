@@ -26,33 +26,24 @@ export function Breadcrumbs({ items, ...props }: BreadcrumbsProps) {
   }
 
   return (
-    <nav className="py-4 text-text hidden md:flex" {...props}>
-      <ol className="flex">
+    <nav className="breadcrumb-container" {...props}>
         {items.map((item, index) => (
-          <li key={index} className="flex items-center leading-none truncate">
+          <span key={index}>
             {item.url ? (
               <Link href={item.url} passHref legacyBehavior={true}>
-                  <a className="underline text-link">{item.title.charAt(0).toUpperCase() + item.title.slice(1)}</a>
+                  <span className="underline text-link">{item.title.charAt(0).toUpperCase() + item.title.slice(1)}</span>
                 </Link>
+              //   <Link href={item.url} passHref legacyBehavior={true} className="mr-1">
+              //   {item.title}
+              // </Link>
             ) : (
                 `${item.title.charAt(0).toUpperCase()}${item.title.slice(1)}`
             )}
             {index !== items.length - 1 && (
-              <svg
-                className="w-3 h-3 mx-1"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="m13 17 5-5-5-5M6 17l5-5-5-5" />
-              </svg>
+             <span className = "mx-2">/</span>
             )}
-          </li>
+          </span>
         ))}
-      </ol>
     </nav>
   );
 }

@@ -1,5 +1,6 @@
 *{
   overscroll-behavior: none;
+  scroll-behavior: smooth;
 }
 
 @tailwind base;
@@ -91,6 +92,10 @@
   text-decoration: underline;
 }
 
+h2{
+  font-weight: bold;
+}
+
 /***** END COOKIE BANNER ******/
 
 canvas {
@@ -179,3 +184,13 @@ canvas {
     }
   }
 }
+
+.breadcrumb-container{
+  display: block;
+  font-size: 1rem;
+
+}
+
+
+
+  
