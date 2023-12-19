@@ -27,9 +27,9 @@ export function ArticleListItem({ article }: ArticleListItemProps) {
           : "border-finnishwinter bg-white",
       )}
     >
-      <h3 className="mb-2 line-clamp-2 text-heading-xs font-bold">
+      <h2 className="mb-2 line-clamp-2 text-heading-xs font-bold">
         {article.title}
-      </h3>
+      </h2>
       {article.field_category?.name && (
       <span className="mb-2">
         <span className="ring-1 rounded-sm p-1 bg-primary-500 text-white text-sm" key={article.field_category.id}>

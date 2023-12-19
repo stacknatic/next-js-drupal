@@ -26,33 +26,24 @@ export function Breadcrumbs({ items, ...props }: BreadcrumbsProps) {
   }
 
   return (
-    <nav className="py-4 text-text hidden md:flex" {...props}>
-      <ol className="flex">
-        {items.map((item, index) => (
-          <li key={index} className="flex items-center leading-none truncate">
+    <nav className="breadcrumb-container" {...props}>
+      {items.map((item, index) => (
+        <span key={index} itemScope itemType="http://schema.org/ListItem">
+          <span itemProp="name">
             {item.url ? (
               <Link href={item.url} passHref legacyBehavior={true}>
-                  <a className="underline text-link">{item.title.charAt(0).toUpperCase() + item.title.slice(1)}</a>
-                </Link>
+                <a className="underline text-link">
+                  {item.title.charAt(0).toUpperCase() + item.title.slice(1)}
+                </a>
+              </Link>
             ) : (
-                `${item.title.charAt(0).toUpperCase()}${item.title.slice(1)}`
+              `${item.title.charAt(0).toUpperCase()}${item.title.slice(1)}`
             )}
-            {index !== items.length - 1 && (
-              <svg
-                className="w-3 h-3 mx-1"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="m13 17 5-5-5-5M6 17l5-5-5-5" />
-              </svg>
-            )}
-          </li>
-        ))}
-      </ol>
+          </span>
+          <meta itemProp="position" content={(index + 1).toString()} />
+          {index !== items.length - 1 && <span className="mx-2">/</span>}
+        </span>
+      ))}
     </nav>
   );
 }

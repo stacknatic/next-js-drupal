@@ -4,6 +4,8 @@ status: false
 dependencies:
   module:
     - simplenews
+  # theme:
+  #   - starterkit_theme
 _core:
   default_config_hash: dn5HMSUPcQau_HymiyBf7VrdN2kK8Xvs9otLQ-6Oe2k
 id: simplenewssubscription_all
