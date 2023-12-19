@@ -21,7 +21,7 @@ export function ContactList({ contactPersons }) {
                 width={100}
                 height={100}
                 alt={field_contact_image.resourceIdObjMeta.alt}
-                className="circle-clip"
+                className="circle-clip blur-sm"
               />
             </div>
             <p className="font-bold">{field_contact_name}</p>
