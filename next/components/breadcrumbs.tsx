@@ -27,23 +27,23 @@ export function Breadcrumbs({ items, ...props }: BreadcrumbsProps) {
 
   return (
     <nav className="breadcrumb-container" {...props}>
-        {items.map((item, index) => (
-          <span key={index}>
+      {items.map((item, index) => (
+        <span key={index} itemScope itemType="http://schema.org/ListItem">
+          <span itemProp="name">
             {item.url ? (
               <Link href={item.url} passHref legacyBehavior={true}>
-                  <span className="underline text-link">{item.title.charAt(0).toUpperCase() + item.title.slice(1)}</span>
-                </Link>
-              //   <Link href={item.url} passHref legacyBehavior={true} className="mr-1">
-              //   {item.title}
-              // </Link>
+                <a className="underline text-link">
+                  {item.title.charAt(0).toUpperCase() + item.title.slice(1)}
+                </a>
+              </Link>
             ) : (
-                `${item.title.charAt(0).toUpperCase()}${item.title.slice(1)}`
-            )}
-            {index !== items.length - 1 && (
-             <span className = "mx-2">/</span>
+              `${item.title.charAt(0).toUpperCase()}${item.title.slice(1)}`
             )}
           </span>
-        ))}
+          <meta itemProp="position" content={(index + 1).toString()} />
+          {index !== items.length - 1 && <span className="mx-2">/</span>}
+        </span>
+      ))}
     </nav>
   );
 }
