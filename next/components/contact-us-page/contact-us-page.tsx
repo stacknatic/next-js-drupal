@@ -1,25 +1,20 @@
 import React from 'react'
 import ContactForm from '../contact-form/contact-form'
-import ContactFormSocial from '../contact-form/contact-form-social'
-import MapsCarousel from '../contact-form/carousel-maps'
 import { ContactList } from '../contact-list'
 import BranchMap from '../branch-maps/branchmap'
 
-export default function ContactUsPage() {
-  return (
+export default function ContactUsPage({ contactPersons }) {
+    return (
         <div className='flex flex-col justify-between'>
-            <div className='lg:w-6/12 mx-auto justify-center'>
+            <div className='w-full mx-auto justify-center'>
                 <div >
                     <ContactForm />
                 </div>
-                <div>
-                    <ContactFormSocial />
-                    <MapsCarousel />
-                </div>
             </div>
+            <ContactList contactPersons={contactPersons} />
             <div>
                 <BranchMap />
             </div>
         </div>
-  )
+    )
 }

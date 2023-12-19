@@ -1,78 +1,46 @@
 import NextImage from "next/image";
 import { useTranslation } from "next-i18next";
+import { absoluteUrl } from '@/lib/drupal/absolute-url';
 
-interface Contact {
-  image: string;
-  name: string;
-  title: string;
-  phoneNumber: string;
-  email: string;
-  id: number;
-}
 
-const contacts: Contact[] = [
-  {
-    image: "/john_dean.jpg",
-    name: "John Dean",
-    title: "CFO",
-    phoneNumber: "+358445123456",
-    email: "john.dean@example.com",
-    id: 1,
-  },
-  {
-    image: "/charlie_dean.jpg",
-    name: "Charlie Dean",
-    title: "CTO",
-    phoneNumber: "+358445123458",
-    email: "charlie.dean@example.com",
-    id: 3,
-  },
-  {
-    image: "/jane_dean.jpg",
-    name: "Jane Dean",
-    title: "CEO",
-    phoneNumber: "+358445123457",
-    email: "jane.dean@example.com",
-    id: 2,
-  },
-];
-
-export function ContactList() {
+export function ContactList({ contactPersons }) {
   const { t } = useTranslation();
+
   return (
     <section className="py-8">
-      <h2 className="text-heading-sm font-bold md:text-heading-md">
-        {t("contact")}
+      <h2 className="text-heading-sm font-bold md:text-heading-md tracking-widest text-center text-primary-800 mt-[8rem] mb-[2rem]">
+        {t("Contact us")}
       </h2>
       <ul className="grid auto-rows-max grid-cols-1 justify-items-center gap-4 py-4 sm:grid-cols-2 md:grid-cols-3">
-        {contacts?.map(({ id, image, name, title, phoneNumber, email }) => (
+        {contactPersons.field_contact_person?.map(({ id, field_contact_image, field_contact_name, field_contact_phone, field_position, field_contact_email
+        }) => (
           <li key={id} className="grid justify-items-center p-4">
             <div className="mb-6 flex h-[100px] items-center justify-center overflow-hidden">
               <NextImage
-                src={image}
+                src={absoluteUrl(field_contact_image.uri.url)}
                 width={100}
                 height={100}
-                alt={t("image-of", { name })}
-                className="circle-clip"
+                alt={field_contact_image.resourceIdObjMeta.alt}
+                className="circle-clip blur-sm"
               />
             </div>
-            <p className="font-bold">{name}</p>
-            <p>{title}</p>
+            <p className="font-bold">{field_contact_name}</p>
+            <p>{field_position}</p>
             <a
-              href={`tel:${phoneNumber}`}
+              href={`tel:${field_contact_phone}`}
               target="_blank"
               rel="noreferrer"
               className="hyperlink no-underline hover:underline"
             >
-              {phoneNumber}
+              {field_contact_phone}
             </a>
             <a
-              href={`mailto:${email}`}
+              href={`mailto:${field_contact_email}`}
               target="_blank"
               rel="noreferrer"
               className="hyperlink no-underline hover:underline"
             >
-              {email}
+              {field_contact_email}
             </a>
           </li>
         ))}
