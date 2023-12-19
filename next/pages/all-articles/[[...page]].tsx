@@ -20,7 +20,8 @@ import { ArticleCategory } from "@/lib/zod/article-category";
 import { DropDownMenu } from "@/components/drop-down-menu";
 import { useRouter } from "next/router";
 import { CSSProperties } from "react";
-import ClipLoader from "react-spinners/ClipLoader";
+import FadeLoader from "react-spinners/FadeLoader";
+import { set } from "cypress/types/lodash";
 
 const override: CSSProperties = {
   display: "block",
@@ -46,6 +47,7 @@ export default function AllArticlesPage({
   const focusRef = useRef<HTMLDivElement>(null);
   const [tag, setTag] = useState<string | null>(null);
   const [cat, setCat] = useState<string | null>(null);
+  const [all, setAll] = useState<string | null>(null);
   const [filteredArticles, setFilteredArticles] = useState<ArticleTeaserType[]>(articleTeasers);
 
   const router = useRouter();
@@ -56,18 +58,35 @@ export default function AllArticlesPage({
   const [canLoadMore, setCanLoadMore] = useState(true);
   const containerRef = useRef(null);
 
+  const resetFilters = () => {
+    setAll(null);
+    setCat(null);
+    setTag(null);
+  }
+
   const applyFilter = (filter: string, fieldValue: string) => {
     let articles = articleTeasers;
+  
     if (!fieldValue) return articles;
+    if(fieldValue === "all"){
+      resetFilters();   
+      return articles;
+    };
 
     if (filter === "field_tags") {
-      setCat(null);
+      resetFilters();
+      router.push({
+        pathname: '/all-articles',
+      });
       articles = articleTeasers.filter((article) => {
         let tagNames = article.field_tags?.map((tag) => tag.name) || [];
         return tagNames.includes(fieldValue);
       });
     } else if (filter === "field_category") {
-      setTag(null);
+      resetFilters();
+      router.push({
+        pathname: '/all-articles',
+      });
       articles = articleTeasers.filter((article) => {
         let catName = article.field_category?.name || '';
         return catName.includes(fieldValue);
@@ -77,15 +96,22 @@ export default function AllArticlesPage({
   }
 
   useEffect(() => {
+    applyFilter('all_articles', all);
+  }, [all]);
+
+  useEffect(() => {
     applyFilter('field_tags', tag || goToTag as string);
   }, [tag, goToTag]);
 
   useEffect(() => {
     applyFilter('field_category', cat || goToCategory as string);
   }, [cat, goToCategory]);
+  
 
+  
   const tags = articleTags;
   const categories = articleCategory;
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -109,6 +135,8 @@ export default function AllArticlesPage({
             return null;
           }          
         }, 1000);
+
+        setCanLoadMore(false);
       }
       if (visibleArticles === filteredArticles.length) {
         setLoading(false);
@@ -134,13 +162,14 @@ export default function AllArticlesPage({
         ]}
       />
       <HeadingPage>{t("all-articles")}</HeadingPage>
-      <div className="mt-4 mb-6">
+      <div className="mt-4 mb-6 flex items-center">
         <span>Filter by: </span>
-        <span className="mr-5">
-
+        <span className="mr-5 ml-1">
         <DropDownMenu name={"Category"} menuItems={categories} handleFilter={(item: string) => setCat(item)}/>
         </span>
         <DropDownMenu name={"Tags"} menuItems={tags} handleFilter={(item: string) => setTag(item) } />
+        <button onClick={() => setAll("all category")} className="ml-3 p-2 z-10 rounded-md bg-white shadow-md ring-1 ring-opacity-5 ring-inset">All</button>
+
       </div>
       <ul className="mt-4" ref={containerRef}>
         {filteredArticles?.slice(0, visibleArticles)
@@ -153,12 +182,13 @@ export default function AllArticlesPage({
       {loading && (
         <span className="text-primary-500">
 
-        <ClipLoader
+        <FadeLoader
          loading={loading}
          cssOverride={override}
-         size={45}
+        //  size={45}
          aria-label="Loading Spinner"
          data-testid="loader"
+         color= {"#653cc5"}
          />
         </span>
       )}
@@ -200,11 +230,6 @@ export const getStaticProps: GetStaticProps<AllArticlesPageProps> = async (conte
   const pageRoot = "/all-articles";
   const prevPage = currentPage - 1;
   const nextPage = currentPage + 1;
-  // const prevPageHref =
-  //   currentPage === 2
-  //     ? pageRoot
-  //     : prevEnabled && [pageRoot, prevPage].join("/");
-  // const nextPageHref = nextEnabled && [pageRoot, nextPage].join("/");
 
   const languageLinks = createLanguageLinksForNextOnlyPage(pageRoot, context);
 

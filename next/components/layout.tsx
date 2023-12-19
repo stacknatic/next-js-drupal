@@ -13,6 +13,7 @@ import { Menu } from "@/lib/zod/menu";
 import { SkipToContentLink } from "@/ui/skip-to-content-link";
 import CookieBanner from "./cookieBanner";
 import { useRouter } from "next/router";
+import GoToTopButton from "./goToTop";
 
 export interface LayoutProps {
   menus: {
@@ -48,6 +49,7 @@ export function Layout({ menus, children }: LayoutProps) {
         <CookieBanner />
       </div>
       <PreviewBanner isVisible={isPreviewVisible} />
+      <GoToTopButton />
     </>
   );
 }

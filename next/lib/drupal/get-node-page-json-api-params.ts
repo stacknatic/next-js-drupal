@@ -78,11 +78,9 @@ export function getNodePageJsonApiParams(resourceType: ResourceType) {
       "field_anchor_nav",
       "field_category",
       "field_tags",
-    
     ])
     apiParams.addFields("taxonomy_term--article_category", ["name", "path"])
     apiParams.addFields("taxonomy_term--tags", ["name", "path"])
-    apiParams.addFields("user--user", ["display_name", "field_user_avatar"])
 
   }
 

@@ -39,7 +39,7 @@ export function Article({ article, ...props }: ArticleProps) {
         />
       {article.field_category && (
         <span>Category:
-        <span className="ml-2 mr-1">
+        <span className="ml-2 mr-1" key={article.field_category.id}>
           <Link href={`/all-articles?goToCategory=${article.field_category.name}`} className="ring-1 rounded-sm p-1 bg-primary-500 text-white text-xs">
           {article.field_category.name}
           </Link>
@@ -51,7 +51,7 @@ export function Article({ article, ...props }: ArticleProps) {
       {article.field_tags && (
         <div className="mt-1">
         <span>Tags:{article.field_tags.map((tag) => (
-          <span className="ml-2 mr-1">
+          <span className="ml-2 mr-1" key={tag.id}>
           <Link href={`/all-articles?goToTag=${tag.name}`} className="text-primary-500">
           {tag.name}
           </Link>
