@@ -38,69 +38,73 @@ export function UserMenu() {
           </span>
           <AccountIcon className="inline-block h-6 w-6" />
         </button>
+        <div className="absolute z-50 pt-1 ">
         <ul
           className={clsx(
-            "absolute z-50 mt-1 w-fit border border-finnishwinter bg-mischka",
+            "w-fit border border-finnishwinter bg-mischka",
             !isOpen && "hidden",
           )}
         >
           <li>
             <Link
-              className="block p-2 hover:bg-primary-50"
+              className="block p-2 hover:underline"
               href="/dashboard"
               onClick={close}
             >
-              {t("user-dashboard")}
+              {t("user-dashboard").toUpperCase()}
             </Link>
           </li>
           <li>
             <button
               type="button"
-              className="block w-full p-2 text-left hover:bg-primary-50"
+              className="block w-full p-2 text-left hover:underline"
               onClick={() => void signOut()}
             >
-              {t("log-out")}
+              {t("log-out").toUpperCase()}
             </button>
           </li>
         </ul>
+        </div>
       </div>
     );
   }
 
   return (
-    <div ref={ref}>
+    <div ref={ref} onMouseLeave={close}>
       <span className="sr-only">{t("user-menu")}</span>
-      <button type="button" className="hover:underline" onMouseEnter={open} onMouseLeave={close}>
+      <button type="button" className="hover:underline" onMouseEnter={open} >
         <span className="sr-only capitalize sm:mr-2 sm:inline">
           {t("account")}
         </span>
         <AccountIcon className="inline-block h-6 w-6" />
       </button>
+      <div className="absolute z-50 pt-7">
       <ul
         className={clsx(
-          "absolute z-50 mt-7 w-fit border border-finnishwinter bg-primary-600",
+          " w-fit border border-finnishwinter bg-primary-600",
           !isOpen && "hidden",
         )}
       >
         <li>
           <Link
-            className="block p-2 hover:bg-primary-50"
+            className="block p-2 hover:underline"
             href={loginUrl}
             onClick={close}
           >
-            {t("log-in")}
+            {t("log-in").toUpperCase()}
           </Link>
         </li>
         <li>
           <Link
-            className="block p-2 hover:bg-primary-50"
+            className="block p-2 hover:underline"
             href="/auth/register"
             onClick={close}
           >
-            {t("register")}
+            {t("register").toUpperCase()}
           </Link>
         </li>
       </ul>
+      </div>
     </div>
   );
 }

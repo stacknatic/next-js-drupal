@@ -50,7 +50,7 @@ export function EventCard({ event }: EventsCardPropsType) {
         </h3>
         {/* only render if date is available */}
         {longDate && (
-          <div className="dateBox longDate lg:hidden p-4 flex items-center gap-x-2 absolute top-4 left-4 bg-graysuit rounded-full">
+          <div className="dateBox longDate lg:hidden p-4 flex items-center gap-x-2 absolute top-4 left-4 bg-white rounded-full">
           <CalenderIcon className="h-6 w-6 text-primary-400" />
           <time>{longDate}</time>
         </div>

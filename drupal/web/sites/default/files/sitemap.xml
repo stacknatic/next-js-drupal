@@ -332,6 +332,36 @@
   <priority>0.5</priority>
  </url>
  <url>
+  <loc>https://frontend.lndo.site/en/cases/eligo-nostrud</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/cases/eligo-nostrud"/>
+  <lastmod>2023-12-19T09:28:38+00:00</lastmod>
+  <priority>0.5</priority>
+ </url>
+ <url>
+  <loc>https://frontend.lndo.site/en/cases/venio</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/cases/venio"/>
+  <lastmod>2023-12-19T09:28:38+00:00</lastmod>
+  <priority>0.5</priority>
+ </url>
+ <url>
+  <loc>https://frontend.lndo.site/en/cases/eligo-melior</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/cases/eligo-melior"/>
+  <lastmod>2023-12-19T09:28:38+00:00</lastmod>
+  <priority>0.5</priority>
+ </url>
+ <url>
+  <loc>https://frontend.lndo.site/en/cases/te</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/cases/te"/>
+  <lastmod>2023-12-19T09:28:38+00:00</lastmod>
+  <priority>0.5</priority>
+ </url>
+ <url>
+  <loc>https://frontend.lndo.site/en/cases/jugis-qui</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/cases/jugis-qui"/>
+  <lastmod>2023-12-19T09:28:38+00:00</lastmod>
+  <priority>0.5</priority>
+ </url>
+ <url>
   <loc>https://frontend.lndo.site/en/events/wunder-day</loc>
   <xhtml:link rel="alternate" hreflang="en" href="https://frontend.lndo.site/en/events/wunder-day"/>
   <lastmod>2023-12-08T10:29:05+00:00</lastmod>

@@ -37,11 +37,11 @@ export function LanguageSwitcher() {
         </span>
         <LanguageIcon className="inline-block h-6 w-6" aria-hidden="true" />
       </button>
+      <div className="absolute z-50 pt-7 right-[0px]">
       <ul
         className={clsx(
-          "absolute z-50 mt-7 w-fit border border-finnishwinter bg-primary-600",
+          "w-fit border border-finnishwinter bg-primary-600",
           !isOpen && "hidden",
-          "right-[0px]"
         )}
       >
         {locales
@@ -51,16 +51,17 @@ export function LanguageSwitcher() {
             return (
               <li key={l}>
                 <Link
-                  className="block p-2 hover:bg-primary-50"
+                  className="block p-2 hover:underline"
                   locale={l}
                   href={path}
                 >
-                  {name}
+                  {name.toUpperCase()}
                 </Link>
               </li>
             );
           })}
       </ul>
+      </div>
     </div>
   );
 }

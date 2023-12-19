@@ -89,7 +89,7 @@ export default function Register() {
                 required: true,
               })}
               aria-invalid={errors.email ? "true" : "false"}
-              className="inset-0 h-12 w-full rounded border border-neu-200 p-2 text-body-sm text-neu-400 ring-offset-4 focus:ring-4"
+              className="inset-0 h-12 w-full rounded border-lg border-neu-200 p-2 text-body-sm text-neu-400 ring-offset-4 focus:ring-4"
             />
             {errors.email && errors.email.type === "required" && (
               <ErrorRequired fieldTranslatedLabelKey={"email"} />
@@ -105,13 +105,13 @@ export default function Register() {
               {...register("name", {
                 required: true,
               })}
-              className="inset-0 h-12 w-full rounded border border-neu-200 p-2 text-body-sm text-neu-400 ring-offset-4 focus:ring-4"
+              className="inset-0 h-12 w-full rounded border-lg border-neu-200 p-2 text-body-sm text-neu-400 ring-offset-4 focus:ring-4"
             />
             {errors.name && errors.name.type === "required" && (
               <ErrorRequired fieldTranslatedLabelKey={"name"} />
             )}
           </div>
-          <Button type="submit">{t("register")}</Button>
+          <Button type="submit" className="rounded-full">{t("register")}</Button>
         </form>
       </div>
     </>

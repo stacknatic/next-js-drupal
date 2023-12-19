@@ -23,7 +23,7 @@ export function CaseCard({ project }: CasesCardPropsType) {
   return (
     <Link
       href={project.path.alias}
-      className="grid h-full rounded-md border border-finnishwinter bg-white overflow-hidden transition-all hover:shadow-md relative"
+      className="relative grid transition-all hover:shadow-md rounded-3xl mb-12"
     >
       {project.field_image && (
         <Image
@@ -31,20 +31,13 @@ export function CaseCard({ project }: CasesCardPropsType) {
           width={384}
           height={240}
           alt={project.field_image.resourceIdObjMeta.alt}
-          className="w-full object-cover"
+          className="max-w-full object-cover mx-auto min-h-[40vh] lg:h-[400px] rounded-3xl brightness-50 hover:brightness-100"
         />
       )}
-      <h3 className=" justify-self-center self-center line-clamp-2 text-xl font-bold py-6 border-b">
+      <div className="info absolute bottom-0 my-4 line-clamp-2 text-sm text-center text-white w-webkit-fill-available">
+      <h3 className=" mb-4 line-clamp-1 text-heading-xs font-bold text-center mx-4">
         {project.title}
       </h3>
-      <div className="grid gird-col-1 p-4">
-        {/* some project might not have clients */}
-        {/* {clients && <ul className="mb-4">{clients}</ul>} */}
-        {/* only render if filed avilable */}
-        {project.field_excerpt && <p>{project.field_excerpt}</p>}
-        <button className="content-end border h-14 py-3 bg-primary-100 rounded-full mt-4 hover:bg-primary-400  text-center">
-          Learn more
-        </button>
       </div>
     </Link>
   );
