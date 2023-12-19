@@ -22,7 +22,7 @@ export default async function handler(
           "filter[status]": 1,
           "filter[langcode]": languagePrefix,
           "fields[node--article]": "title,path,field_image,uid,created,field_category,field_tags,field_anchor_nav",
-          include: "field_image",
+          include: "field_image, uid.field_user_avatar, field_category, field_tags",
           sort: "-sticky,-created",
           "page[limit]": limit,
         },
