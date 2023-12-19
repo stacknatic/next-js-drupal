@@ -29,7 +29,7 @@ export function Header({ menu }: HeaderProps) {
         <div className="hidden lg:block">
             <MainMenuFull menu={menu} />
           </div>
-          <ContactLink />
+          {/* <ContactLink /> */}
           <SearchLink />
           <UserMenu />
           <LanguageSwitcher />
@@ -72,18 +72,18 @@ function SearchLink() {
   );
 }
 
-function ContactLink() {
-  const { locale } = useRouter();
-  const { t } = useTranslation();
-  return (
-    <Link href="/contacts" locale={locale} className="hover:underline">
-      <span className="sr-only sm:mr-2 sm:inline">
-        {t("Contact Us")}
-      </span>
-      <PencilIcon className="inline-block h-6 w-6" aria-hidden="true" />
-    </Link>
-  );
-}
+// function ContactLink() {
+//   const { locale } = useRouter();
+//   const { t } = useTranslation();
+//   return (
+//     <Link href="/contacts" locale={locale} className="hover:underline">
+//       <span className="sr-only sm:mr-2 sm:inline">
+//         {t("Contact Us")}
+//       </span>
+//       <PencilIcon className="inline-block h-6 w-6" aria-hidden="true" />
+//     </Link>
+//   );
+// }
 
 function useScrollDirection() {
   const [scrollDirection, setScrollDirection] = useState(null);

@@ -18,7 +18,7 @@ export function ParagraphText({ paragraph }: { paragraph: FormattedTextType }) {
       <FormattedText
         html={paragraph.field_formatted_text.processed}
         className={clsx(
-        "lg:text-left lg:px-44 text-md/2xl text-mischka sm:text-lg font-bold lg:text-heading-lg text-center mx-4 lg:mx-0 mb-6",
+        "lg:text-left lg:px-44 text-md/2xl text-primary-600 sm:text-lg font-bold lg:text-heading-lg text-center mx-4 lg:mx-0 mb-6",
         paragraph.field_heading && "mt-4",
         )}
       />
@@ -26,7 +26,7 @@ export function ParagraphText({ paragraph }: { paragraph: FormattedTextType }) {
             href="/cases"
             className={clsx(
               buttonVariants({ variant: "quaternary" }),
-              "text-base font-bold lg:ml-44 lg:mt-6 inline-flex mx-auto mb-10 mt-6 p-2 lg:px-5 lg:py-3 rounded-full border-white",
+              "text-base font-bold lg:ml-44 lg:mt-6 inline-flex mx-auto mb-10 mt-6 p-2 lg:px-5 lg:py-3 rounded-full border",
             )}
           >
             {t("Hear what our clients say")}

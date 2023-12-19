@@ -41,7 +41,7 @@ function EventSingle({ event }: { event: EventSingleType }) {
           className="w-full object-cover rounded-xl md:h-96 md:my-6 z-1000"
         />
         )}
-        <div className="mt-6 md:ml-6 md:mt-[-50px] md:pt-4 md:shadow-2xl md:rounded-2xl z-50 md:bg-white md:w-[700px] md:px-8">
+        <div className="mt-6 md:ml-6 md:mt-[-50px] md:pt-4 md:shadow-2xl md:rounded-2xl z-50 md:bg-white md:w-[1000px] md:px-8">
         <h2 className="text-heading-lg font-bold">{event.title}</h2>
         {date && (
           <div className="text-xl flex items-center gap-x-2 mt-4">

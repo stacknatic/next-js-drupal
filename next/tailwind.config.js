@@ -19,7 +19,8 @@ module.exports = {
       white: "#ffffff",
       fog: "#baa2ff",
       tranquil: "#f7ffff",
-      bittersweet: "#FF7060",
+      // bittersweet: "#FF7060",
+      bittersweet: "#FFF48A",
 
       info: "#221f2d",
       success: "#007f6c",

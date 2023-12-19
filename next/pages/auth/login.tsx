@@ -81,7 +81,7 @@ export default function LogIn() {
               {...register("username", {
                 required: true,
               })}
-              className="inset-0 h-12 w-full rounded border border-neu-200 p-2 text-body-sm text-neu-400 ring-offset-4 focus:ring-4"
+              className="inset-0 h-12 w-full rounded-lg border border-neu-200 p-2 text-body-sm text-neu-400 ring-offset-4 focus:ring-4"
             />
             {errors.username && errors.username.type === "required" && (
               <ErrorRequired fieldTranslatedLabelKey={"username"} />
@@ -98,18 +98,18 @@ export default function LogIn() {
               {...register("password", {
                 required: true,
               })}
-              className="inset-0 h-12 w-full rounded border border-neu-200 p-2 text-body-sm text-neu-400 ring-offset-4 focus:ring-4"
+              className="inset-0 h-12 w-full rounded-lg border border-neu-200 p-2 text-body-sm text-neu-400 ring-offset-4 focus:ring-4"
             />
             {errors.password && errors.password.type === "required" && (
               <ErrorRequired fieldTranslatedLabelKey={"password"} />
             )}
           </div>
 
-          <Button type="submit" disabled={isSubmitting}>
+          <Button type="submit" disabled={isSubmitting} className="rounded-full">
             {t("log-in")}
           </Button>
         </form>
-        <Link className="inline-block mt-2" href={resetPasswordBackendUrl}>
+        <Link className="inline-block mt-4" href={resetPasswordBackendUrl}>
           {t("reset-your-password")}
         </Link>
       </div>
