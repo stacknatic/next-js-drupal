@@ -38,6 +38,8 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
                   <p className='md:text-[3em] text-primary-600 font-bold text-xl'>
                     {/* {number.field_number} */}
                     <CountUp start={0} end={number.field_number} enableScrollSpy scrollSpyDelay={500} separator="" />
+                    {number.field_topic === 'clients' && <span>&nbsp;X</span>}
+                    {number.field_topic === 'wunderers' && <span>&nbsp;+</span>}
                   </p>
                   <p className='md:tracking-widest uppercase tracking-tighter text-error md:text-xs text-[8px] md:mt-1'>
                     {number.field_topic}
