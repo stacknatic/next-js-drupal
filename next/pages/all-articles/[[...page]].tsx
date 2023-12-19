@@ -58,26 +58,35 @@ export default function AllArticlesPage({
   const [canLoadMore, setCanLoadMore] = useState(true);
   const containerRef = useRef(null);
 
+  const resetFilters = () => {
+    setAll(null);
+    setCat(null);
+    setTag(null);
+  }
+
   const applyFilter = (filter: string, fieldValue: string) => {
     let articles = articleTeasers;
   
     if (!fieldValue) return articles;
     if(fieldValue === "all"){
-      setTag(null);
-      setCat(null);
+      resetFilters();   
       return articles;
     };
 
     if (filter === "field_tags") {
-      setAll(null);
-      setCat(null);
+      resetFilters();
+      router.push({
+        pathname: '/all-articles',
+      });
       articles = articleTeasers.filter((article) => {
         let tagNames = article.field_tags?.map((tag) => tag.name) || [];
         return tagNames.includes(fieldValue);
       });
     } else if (filter === "field_category") {
-      setAll(null);
-      setTag(null);
+      resetFilters();
+      router.push({
+        pathname: '/all-articles',
+      });
       articles = articleTeasers.filter((article) => {
         let catName = article.field_category?.name || '';
         return catName.includes(fieldValue);
