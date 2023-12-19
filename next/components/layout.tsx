@@ -28,7 +28,7 @@ export function Layout({ menus, children }: LayoutProps) {
   const { t } = useTranslation();
   const router = useRouter();
   const isHomePage = router.pathname === "/";
-  
+
 
   return (
     <>
