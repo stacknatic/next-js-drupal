@@ -16,9 +16,9 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
         <div className=''>
             <section className=''>
                 <div className='md:pt-5 pt-2 md:pl-10 pl-2 tracking-wider text-primary-800 font-bold'>
-                    <p className="md:text-2xl text-md md:w-1/2 leading-normal capitalize">
+                    <h2 className="md:text-2xl text-md md:w-1/2 leading-normal capitalize">
                         {validatedAboutPage.field_mission_description}
-                    </p>
+                    </h2>
                 </div>
                 <div className='md:mt-10 md:w-[60vw] md:text-md text-xs px-3 mt-5 md:pl-10 leading-loose'>
                     <p>
@@ -27,9 +27,9 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
                 </div>
             </section>
             <section>
-                <p className='text-sm md:pl-12 md:mt-[10vh] mt-9 text-center md:text-left tracking-widest'>
+                <h2 className='text-sm md:pl-12 md:mt-[10vh] mt-9 text-center md:text-left tracking-widest'>
                     WUNDER IN NUMBERS
-                </p>
+                </h2>
                 <div className='bg-tranquil overflow-hidden mt-4 md:py-10 md:mt-9'>
                     <div className='flex justify-around text-center space-x-6 '>
                         {validatedAboutPage.field_wunder_numers && Array.isArray(validatedAboutPage.field_wunder_numers) ?
@@ -54,9 +54,9 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
 
             </section>
             <section className='pb-10'>
-                <p className='text-sm md:pl-12 md:mt-[10vh] mt-9 tracking-widest text-center md:text-left uppercase'>
+                <h2 className='text-sm md:pl-12 md:mt-[10vh] mt-9 tracking-widest text-center md:text-left uppercase'>
                     Our Customers
-                </p>
+                </h2>
                 <div className='rounded-2xl md:mt-10 py-2'>
                     <p className='md:px-9 md:text-sm md:mb-[6em] text-xs leading-loose px-3'>
                         {validatedAboutPage.field_our_customers_description}
@@ -65,9 +65,9 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
                 </div>
             </section>
             <section className='pb-10'>
-                <p className='text-sm md:pl-12 md:mt-[10vh] mt-9 tracking-widest text-center md:text-left uppercase'>
+                <h2 className='text-sm md:pl-12 md:mt-[10vh] mt-9 tracking-widest text-center md:text-left uppercase'>
                     Our Partners
-                </p>
+                </h2>
                 <div className='rounded-2xl md:mt-10 py-2'>
                     <p className='md:px-9 md:text-sm md:mb-[6em] text-xs leading-loose px-3'>
                         {validatedAboutPage.field_our_partners_descriptions}
@@ -77,9 +77,9 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
             </section>
             <article className='pb-[10em]'>
                 <div className=''>
-                    <p className='text-sm pb-5 md:pl-12 md:mt-[10vh] mt-2 tracking-widest uppercase text-center md:text-left'>
+                    <h2 className='text-sm pb-5 md:pl-12 md:mt-[10vh] mt-2 tracking-widest uppercase text-center md:text-left'>
                         Testimonials
-                    </p>
+                    </h2>
                     <div className='md:flex grid ss:grid-cols-3 gap-x-5 md:justify-around md:gap-x-10 mt-5 gap-y-5 '>
                         {validatedAboutPage.field_testimonials.length > 0 && Array.isArray(validatedAboutPage.field_testimonials) ? validatedAboutPage.field_testimonials.map((testimonial) => (
                             <div key={testimonial.id} className='bg-finnishwinter rounded-lg flex flex-col items-center pb-4'>
