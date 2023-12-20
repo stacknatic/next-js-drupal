@@ -49,7 +49,6 @@ export default async function handler(
             "Content-Type": "application/json",
           },
         });
-        console.log(result);
         if (result.ok) {
           res.status(200).end();
         } else {
