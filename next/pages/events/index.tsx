@@ -6,6 +6,8 @@ import { getCommonPageProps } from "@/lib/get-common-page-props";
 import { EventsCards } from "@/components/events/events-cards";
 import { EventCardType } from "@/lib/zod/event-card";
 import { validatedEventsTeaser } from "@/lib/drupal/get-event-teasers";
+import { Meta } from "@/components/meta";
+import { Metatag } from "@/lib/zod/metatag";
 
 interface EventCardsPropsType {
   events: EventCardType[];
@@ -13,9 +15,10 @@ interface EventCardsPropsType {
 
 export default function Events({ events }: EventCardsPropsType) {
   const { t } = useTranslation();
+  console.log(events);
   return (
     <>
-      {/* <Meta title={events?.title} metatags={events?.metatag} /> */}
+      <Meta title={t("Events")} metatags={events.at(0)?.metatag} />
       <EventsCards events={events} heading={t("Events")} />
     </>
   );

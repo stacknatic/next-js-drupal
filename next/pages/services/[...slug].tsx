@@ -1,3 +1,4 @@
+import { Meta } from "@/components/meta";
 import ServiceSingle from "@/components/services/service-single";
 import {
   LanguageLinks,
@@ -27,14 +28,15 @@ export default function Service({
   services,
   serviceCategories,
 }: ServicePageProps) {
-  
-
   return (
-    <ServiceSingle
-      service={service}
-      services={services}
-      serviceCategories={serviceCategories}
-    />
+    <>
+      <Meta title={service.title} metatags={service.metatag} />
+      <ServiceSingle
+        service={service}
+        services={services}
+        serviceCategories={serviceCategories}
+      />
+    </>
   );
 }
 

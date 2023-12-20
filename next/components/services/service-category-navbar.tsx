@@ -22,9 +22,9 @@ export default function ServiceCategoryNavbar({
         );
         return (
           <div key={category.id} className="flex flex-col gap-4">
-            <h3>
+            <h2>
               <Link
-                className="text-primary-400 uppercase tracking-widest text-lg hover:border-b hover:border-primary-300"
+                className="uppercase tracking-widest text-lg text-primary-600 hover:pb-1 hover:border-b hover:text-info"
                 href={`/services#${category.field_category_name.replaceAll(
                   " ",
                   "",
@@ -32,19 +32,20 @@ export default function ServiceCategoryNavbar({
               >
                 {category.field_category_name}
               </Link>
-            </h3>
+            </h2>
             <p>{category.field_category_description}</p>
-            <div className="flex flex-col gap-2 items-start text-primary-400 text-lg ">
+            <ul className="flex flex-col gap-2 items-start text-primary-400 text-lg ">
               {serviceOfThisCategory.map((service) => (
-                <Link
-                  className="hover:border-b hover:border-primary-300"
-                  key={service.id}
-                  href={service.path.alias}
-                >
-                  {service.field_service_name}
-                </Link>
+                <li key={service.id}>
+                  <Link
+                    className="text-primary-600 hover:pb-1 hover:border-b hover:text-info"
+                    href={service.path.alias}
+                  >
+                    {service.field_service_name}
+                  </Link>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
         );
       })}

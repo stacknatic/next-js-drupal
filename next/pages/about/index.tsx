@@ -26,7 +26,7 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
                 <div className='md:py-16 py-8 pt-2 tracking-wider'>
                     <p className="text-heading-lg md:text-heading-xl text-primary-800 font-bold text-center md:text-left py-8 md:py-16">
                         {validatedAboutPage.field_mission_description}
-                    </p>
+                    </h2>
                 </div>
                 <div className='px-8 md:px-16 md:mx-auto md:text-md text-xs leading-loose'>
                     <p>
@@ -64,7 +64,7 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
             <section className='md:mx-auto pb-10'>
                 <p className='text-sm md:mt-[10vh] mt-9 tracking-widest text-center md:text-left uppercase'>
                     Our Customers
-                </p>
+                </h2>
                 <div className='rounded-2xl md:mt-10 py-2'>
                     <p className='px-8 md:px-16 md:text-sm md:mb-[6em] text-xs leading-loose'>
                         {validatedAboutPage.field_our_customers_description}
@@ -75,7 +75,7 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
             <section className=' md:mx-auto pb-10'>
                 <p className='text-sm md:mt-[10vh] mt-9 tracking-widest text-center md:text-left uppercase'>
                     Our Partners
-                </p>
+                </h2>
                 <div className='rounded-2xl md:mt-10 py-2'>
                     <p className='px-8 md:px-16 md:text-sm md:mb-[6em] text-xs leading-loose'>
                         {validatedAboutPage.field_our_partners_descriptions}
@@ -114,31 +114,29 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
 }
 
 export async function getStaticProps(context) {
-    try {
-        const validatedCustomerLogos = await getValidatedCustomerLogos(context);
-        const validatedPartnerLogos = await getValidatedPartnerLogos(context);
-        const validatedAboutPage = await getValidatedCleanAboutPage(context);
+  try {
+    const validatedCustomerLogos = await getValidatedCustomerLogos(context);
+    const validatedPartnerLogos = await getValidatedPartnerLogos(context);
+    const validatedAboutPage = await getValidatedCleanAboutPage(context);
 
-        return {
-            props: {
-                ...(await getCommonPageProps(context)),
-                validatedCustomerLogos: validatedCustomerLogos,
-                validatedPartnerLogos: validatedPartnerLogos,
-                validatedAboutPage: validatedAboutPage,
-            },
-        };
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        return {
-            props: {
-                ...(await getCommonPageProps(context)),
-                validatedCustomerLogos: { field_logos: [] }, // Provide a default value in case of an error
-                validatedPartnerLogos: { field_logos: [] }, // Provide a default value in case of an error
-            },
-        };
-    }
-};
+    return {
+      props: {
+        ...(await getCommonPageProps(context)),
+        validatedCustomerLogos: validatedCustomerLogos,
+        validatedPartnerLogos: validatedPartnerLogos,
+        validatedAboutPage: validatedAboutPage,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return {
+      props: {
+        ...(await getCommonPageProps(context)),
+        validatedCustomerLogos: { field_logos: [] }, // Provide a default value in case of an error
+        validatedPartnerLogos: { field_logos: [] }, // Provide a default value in case of an error
+      },
+    };
+  }
+}
 
 export default Page;
-
-

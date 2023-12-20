@@ -1,8 +1,11 @@
 import { z } from "zod";
+import { MetatagsSchema } from "./metatag";
 
 export const ServiceBaseSchema = z.object({
   type: z.literal("node--service"),
   id: z.string(),
+  title: z.string(),
+  metatag: MetatagsSchema.optional().nullable(),
   path: z.object({ alias: z.string() }),
   field_service_name: z.string(),
   field_service_short_description: z.string(),

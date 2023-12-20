@@ -34,9 +34,9 @@ export function ArticleTeaser({ article }: ArticleTeaserProps) {
         <div className="info absolute bottom-0 my-4 line-clamp-2 text-sm text-center text-white ">
           {/* {author && <>{t("posted-by", { author })} - </>} */}
           {date}
-          <h3 className="mb-4 line-clamp-1 text-heading-xs font-bold text-center mx-4">
+          <h2 className="mb-4 line-clamp-1 text-heading-xs font-bold text-center mx-4">
             {article.title}
-          </h3>
+          </h2>
         </div>
       </div>
     </Link>
