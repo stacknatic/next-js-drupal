@@ -25,7 +25,7 @@ function CaseSingle({ project }: { project: CaseSingleType }) {
           ]}
         />
         <div className="flex flex-col items-center md:inline-block text-center md:text-start h-full rounded-md overflow-hidden transition-all row-span-2">
-        <h3 className="text-heading-lg md:text-heading-xl text-primary-800 font-bold text-center md:text-left py-8 md:py-16">
+        <h3 className="text-heading-lg md:text-heading-xl text-primary-800 font-bold text-center md:text-left py-8 md:pt-16 md:pb-6">
           {project.title}
         </h3>
         {project.field_logos.length > 0 && (

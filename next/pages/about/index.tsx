@@ -26,7 +26,7 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
                 <div className='md:py-16 py-8 pt-2 tracking-wider'>
                     <p className="text-heading-lg md:text-heading-xl text-primary-800 font-bold text-center md:text-left py-8 md:py-16">
                         {validatedAboutPage.field_mission_description}
-                    </h2>
+                    </p>
                 </div>
                 <div className='px-8 md:px-16 md:mx-auto md:text-md text-xs leading-loose'>
                     <p>
@@ -64,7 +64,7 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
             <section className='md:mx-auto pb-10'>
                 <p className='text-sm md:mt-[10vh] mt-9 tracking-widest text-center md:text-left uppercase'>
                     Our Customers
-                </h2>
+                </p>
                 <div className='rounded-2xl md:mt-10 py-2'>
                     <p className='px-8 md:px-16 md:text-sm md:mb-[6em] text-xs leading-loose'>
                         {validatedAboutPage.field_our_customers_description}
@@ -75,7 +75,7 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
             <section className=' md:mx-auto pb-10'>
                 <p className='text-sm md:mt-[10vh] mt-9 tracking-widest text-center md:text-left uppercase'>
                     Our Partners
-                </h2>
+                </p>
                 <div className='rounded-2xl md:mt-10 py-2'>
                     <p className='px-8 md:px-16 md:text-sm md:mb-[6em] text-xs leading-loose'>
                         {validatedAboutPage.field_our_partners_descriptions}

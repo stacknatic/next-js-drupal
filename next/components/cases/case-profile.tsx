@@ -12,8 +12,8 @@ function CaseProfile({ profiles }) {
               <Link href={profile.field_link.full_url}>
                 <Image
                   src={absoluteUrl(profile.field_logo.uri.url)}
-                  width={40}
-                  height={40}
+                  width={100}
+                  height={100}
                   alt={profile.field_logo.resourceIdObjMeta.alt}
                   className="object-cover rounded-md"
                 />
