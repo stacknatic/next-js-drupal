@@ -7,6 +7,7 @@ import { getCommonPageProps } from "@/lib/get-common-page-props";
 import { CasesCards } from "@/components/cases/cases-cards";
 import { CaseCardType } from "@/lib/zod/case-card";
 import { validatedCasesTeaser } from "@/lib/drupal/get-case-teasers";
+import { Meta } from "@/components/meta";
 
 interface CaseCardsPropsType {
   cases: CaseCardType[];
@@ -16,7 +17,7 @@ export default function Cases({ cases }: CaseCardsPropsType) {
   const { t } = useTranslation();
   return (
     <>
-      {/* <Meta title={cases?.title} metatags={cases?.metatag} /> */}
+      <Meta title={t("Cases")} />
       <CasesCards cases={cases} heading={t("Cases")} />
     </>
   );

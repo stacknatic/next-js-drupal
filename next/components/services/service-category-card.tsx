@@ -44,9 +44,8 @@ export default function ServiceCategoryCard({
           {serviecsOfThisCategory.map((service) => (
             <li key={service.id}>
               <Link
-                className="text-[1.5rem] text-primary-600 pb-1 border-b hover:text-info"
+                className="text-[1.5rem] text-primary-600 hover:pb-1 hover:border-b hover:text-info"
                 href={service.path.alias}
-                target="_blanck"
               >
                 {service.field_service_name}
               </Link>

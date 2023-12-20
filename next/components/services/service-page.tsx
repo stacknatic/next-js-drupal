@@ -52,13 +52,17 @@ export default function ServicePage({
         <p className="uppercase tracking-widest">Jump to:</p>
         <ul className="flex gap-4">
           {serviceCategories.map((cat) => (
-            <Link
-              className="text-[#5651e5] border-b border-primary-300"
-              key={cat.id}
-              href={`/services#${cat.field_category_name.replaceAll(" ", "")}`}
-            >
-              {cat.field_category_name}
-            </Link>
+            <li key={cat.id}>
+              <Link
+                className="text-[#5651e5] border-b border-primary-300"
+                href={`/services#${cat.field_category_name.replaceAll(
+                  " ",
+                  "",
+                )}`}
+              >
+                {cat.field_category_name}
+              </Link>
+            </li>
           ))}
         </ul>
       </div>

@@ -11,8 +11,8 @@ export async function validatedCasesTeaser(context) {
         "filter[status]": 1,
         "filter[langcode]": context.locale,
         "fields[node--cases]":
-          "id,title,path,body,field_excerpt,field_logos,field_image",
-         include: "field_logos.field_logo,field_image",
+          "id,title,metatag,path,body,field_excerpt,field_logos,field_image",
+        include: "field_logos.field_logo,field_image",
       },
     },
   );
