@@ -5,10 +5,10 @@ import { useTranslation } from "next-i18next";
 
 import { absoluteUrl } from "@/lib/drupal/absolute-url";
 import { formatDate } from "@/lib/utils";
-import { NewsTeaser } from "@/lib/zod/news-teaser";
+import { NewsTeaser as NewsTeaserType } from "@/lib/zod/news-teaser";
 
 interface NewsTeaserProps {
-  news: NewsTeaser;
+  news: NewsTeaserType;
 }
 
 export function NewsTeaser({ news }: NewsTeaserProps) {
