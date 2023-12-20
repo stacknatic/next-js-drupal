@@ -24,7 +24,7 @@ export default function Services({
 }: ServicesPropType) {
   return (
     <>
-      <Meta title={t("Services")} metatags={services.at(0).metatag} />
+      <Meta title={t("Services")} />
       <ServicePage
         services={services}
         serviceCategories={serviceCategories}
