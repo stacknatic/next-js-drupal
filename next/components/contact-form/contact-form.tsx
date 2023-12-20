@@ -60,7 +60,7 @@ const ContactForm = () => {
             <div className='w-full flex items-center justify-center rounded-xl shadow-inherit '>
                 <form className='mb-2 w-[75%] grid gap-6' onSubmit={handleSubmit(onSubmit, onErrors)} >
                     <h1 className='mb-10 text-center pt-4 tracking-wide text-[2.5rem] font-bold my-10 text-primary-800'>Leave us a message</h1>
-                    <div className='grid lg:grid-cols-2 md:grid-col-1 gap-4 pb-8 md:justify-center'>
+                    <div className='grid lg:grid-cols-2 md:grid-col-1 gap-4 pb-8 lg:justify-center'>
                         <div className='w-full '>
                             <input
                                 type='text'
@@ -109,7 +109,7 @@ const ContactForm = () => {
                         />
                     </div>
                     <div className='text-center pb-5'>
-                        <button className='bg-primary-500 text-white px-[6rem] py-5 rounded-lg' type='submit'>Send Message</button>
+                        <button className='bg-primary-500 text-white px-[6rem] py-5 rounded-full' type='submit'>Send Message</button>
                     </div>
                 </form>
             </div>

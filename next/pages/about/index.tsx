@@ -30,12 +30,12 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
                 <p className='text-sm md:pl-12 md:mt-[10vh] mt-9 text-center md:text-left tracking-widest'>
                     WUNDER IN NUMBERS
                 </p>
-                <div className='bg-tranquil overflow-hidden mt-4 md:py-10 md:mt-9'>
+                <div className='overflow-hidden mt-4 md:py-10 md:mt-9'>
                     <div className='flex justify-around text-center space-x-6 '>
                         {validatedAboutPage.field_wunder_numers && Array.isArray(validatedAboutPage.field_wunder_numers) ?
                             validatedAboutPage.field_wunder_numers.map((number) => (
                                 <div key={number.id}>
-                                    <p className='md:text-[3em] text-primary-600 font-bold text-xl'>
+                                    <p className='sm:text-[3em] text-primary-600 font-bold text-lg'>
                                         {/* {number.field_number} */}
                                         <CountUp start={0} end={number.field_number} enableScrollSpy scrollSpyDelay={500} separator="" />
                                         {number.field_topic === 'clients' && <span>&nbsp;X</span>}

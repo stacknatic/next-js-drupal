@@ -19,8 +19,8 @@ function EventSingle({ event }: { event: EventSingleType }) {
     : false;
 
   return (
-    <article className="md:relative grid md:grid-cols-1 md:gap-1 gap-2 px-4 ">
-      <div className="grid grid-cols-1 content-start h-full rounded-md  overflow-hidden transition-all row-span-2">
+    <article className="md:relative grid md:grid-cols-1 md:gap-1 gap-2 px-4 ">  
+    <div className="my-4 grid grid-cols-1 content-start h-full rounded-md  overflow-hidden transition-all row-span-2">   
         <Breadcrumbs
           items={[
             {

@@ -18,7 +18,7 @@ export default function ServicePage({
   serviceLandingPage,
 }: ServicesPropType) {
   return (
-    <div className="px-16">
+    <div className="px-4 md:px-8 lg:px-16">
       <Breadcrumbs
         items={[
           {
