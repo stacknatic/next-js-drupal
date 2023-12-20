@@ -11,7 +11,7 @@ export async function validatedEventsTeaser(context) {
         "filter[status]": 1,
         "filter[langcode]": context.locale,
         "fields[node--events]":
-          "id,title,path,field_excerpt,field_start_date,field_image,field_organizers",
+          "id,title,metatag,path,field_excerpt,field_start_date,field_image,field_organizers",
         include: "field_image,field_organizers",
         sort: "-field_start_date",
       },

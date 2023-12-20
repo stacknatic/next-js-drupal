@@ -1,6 +1,7 @@
 import { DrupalNode } from "next-drupal";
 import { string, z } from "zod";
 import { ImageShape } from "@/lib/zod/paragraph";
+import { MetatagsSchema } from "./metatag";
 
 export const WebSiteSchema = z.object({
   title: z.string(),
@@ -24,6 +25,7 @@ export const EventCardSchema = z.object({
   type: z.literal("node--events"),
   id: z.string(),
   title: z.string(),
+  metatag: MetatagsSchema.optional().nullable(),
   path: z.object({ alias: z.string() }),
   field_start_date: z.string().nullable(),
   field_image: ImageShape.nullable(),
@@ -32,4 +34,4 @@ export const EventCardSchema = z.object({
 });
 
 export type EventCardType = z.infer<typeof EventCardSchema>;
-export type OrganizerType= z.infer<typeof OrganizerSchema>
+export type OrganizerType = z.infer<typeof OrganizerSchema>;
