@@ -9,7 +9,6 @@ export const ArticleBaseSchema = z.object({
   type: z.literal("node--article"),
   id: z.string(),
   created: z.string(),
-  changed: z.string(),
   sticky: z.boolean().optional(),
   title: z.string(),
   field_excerpt: z.string().optional().nullable(),
@@ -26,7 +25,7 @@ export const ArticleSchema = ArticleBaseSchema.extend({
     processed: z.string(),
   }),
   field_user_avatar: ImageShape.optional(),
-  
+  changed: z.string(),
   uid: z.object({
     id: z.string(),
     display_name: z.string(),
