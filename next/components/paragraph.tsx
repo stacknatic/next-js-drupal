@@ -6,7 +6,7 @@ import { ParagraphImage } from "@/components/paragraph--image";
 import { ParagraphLinks } from "@/components/paragraph--links";
 import { ParagraphListingArticles } from "@/components/paragraph--listing-articles";
 import { ParagraphText } from "@/components/paragraph--text";
-import { Paragraph } from "@/lib/zod/paragraph";
+import { Paragraph as ParagraphType } from "@/lib/zod/paragraph";
 
 // Use dynamic imports to defer loading a component until after initial page load: https://nextjs.org/docs/advanced-features/dynamic-import
 const ParagraphVideo = dynamic(() =>
@@ -17,7 +17,7 @@ const ParagraphAccordion = dynamic(() =>
   import("./paragraph--accordion").then((mod) => mod.ParagraphAccordion),
 );
 
-export function Paragraph({ paragraph }: { paragraph: Paragraph }) {
+export function Paragraph({ paragraph }: { paragraph: ParagraphType }) {
   if (!paragraph) {
     return null;
   }
