@@ -79,7 +79,7 @@ export function NewsletterRegistration() {
       onSubmit={handleSubmit(onSubmit)}
       className="w-full flex max-w-3xl flex-col lg:p-8 p-4 gap-5 md:pr-[2rem] bg-primary-700 text-white"
     >
-      <h3 className="text-heading-sm ">Stay up to date with our newsletter</h3>
+      <h2 className="text-heading-sm ">Stay up to date with our newsletter</h2>
       <p>
         "<span className="font-bold">*</span>" indicates required fields
       </p>
@@ -113,7 +113,7 @@ export function NewsletterRegistration() {
           Email<sup className="font-bold">*</sup>
         </label>
         <input
-          className="rounded-md border-b border-b-1 p-4 ring-0 min-w-[2rem] focus:border-b-2 focus:border-primary-400"
+          className="text-info rounded-md p-4 min-w-[2rem] "
           placeholder="email"
           type="email"
           id="email"

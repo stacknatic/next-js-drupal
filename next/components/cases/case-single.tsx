@@ -13,7 +13,7 @@ function CaseSingle({ project }: { project: CaseSingleType }) {
   const router = useRouter();
 
   return (
-    <article className="md:px-4">
+    <article>
         <Breadcrumbs
           items={[
             {
