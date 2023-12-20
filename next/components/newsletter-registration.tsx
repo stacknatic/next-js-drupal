@@ -1,14 +1,15 @@
-import { useRouter } from "next/router";
-import { useTranslation } from "next-i18next";
-import { useForm } from "react-hook-form";
-import { Button } from "@/ui/button";
-import { StatusMessage } from "@/ui/status-message";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+import React, { useState, useRef, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
+import { useForm } from 'react-hook-form';
+import { Button } from '@/ui/button';
+import { StatusMessage } from '@/ui/status-message';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 import {
   NewsletterRegistrationSchema,
   NewsletterRegistrationType,
-} from "@/lib/zod/newsletter-registration";
+} from '@/lib/zod/newsletter-registration';
 import CheckmarkIcon from '@/styles/icons/checkmark.svg';
 
 export function NewsletterRegistration() {
@@ -23,13 +24,32 @@ export function NewsletterRegistration() {
     resolver: zodResolver(NewsletterRegistrationSchema),
   });
 
+  const [showStatusMessage, setShowStatusMessage] = useState(false);
+  const statusMessageRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (statusMessageRef.current && !statusMessageRef.current.contains(event.target)) {
+        setShowStatusMessage(false);
+      }
+    }
+
+    if (showStatusMessage) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showStatusMessage]);
+
   const onSubmit = async (data: NewsletterRegistrationType) => {
     const formdataValidation = NewsletterRegistrationSchema.safeParse(data);
 
-    // reset();
     if (formdataValidation.success) {
       let validData = formdataValidation.data;
-      // if none is selected for news, careers and events, the user will be registered for all the newsletters
       if (!validData.careers && !validData.news && !validData.events) {
         validData = { ...validData, careers: true, news: true, events: true };
       }
@@ -43,32 +63,29 @@ export function NewsletterRegistration() {
           careers: validData.careers,
           events: validData.events,
         }),
-        // This will record the submission with the right language:
         headers: {
           "accept-language": router.locale,
         },
       });
-      if (!response.ok) {
+
+      if (response.ok) {
+        setShowStatusMessage(true);
+      } else {
         alert("Error!");
       }
     }
   };
 
-  // const onErrors = (errors) => console.error(errors);
-
-  if (isSubmitSuccessful) {
+  if (showStatusMessage) {
     return (
-      <div className="md:pr-[2rem]">
+      <div ref={statusMessageRef} className="md:pr-[2rem]">
         <StatusMessage
           level="success"
-          className="mx-auto w-full max-w-3xl rounded-md"
+          className="mx-auto w-full max-w-3xl rounded-md bg-secondary-100 absolute bottom-[100px]"
         >
           <p className="mb-4">
-            You have been successfully registered to the news letters!
+            You have been successfully registered to the newsletters!
           </p>
-          <Button type="button" onClick={() => reset()}>
-            X
-          </Button>
         </StatusMessage>
       </div>
     );
@@ -79,7 +96,7 @@ export function NewsletterRegistration() {
       onSubmit={handleSubmit(onSubmit)}
       className="w-full flex max-w-3xl flex-col lg:p-8 p-4 gap-5 md:pr-[2rem] bg-primary-700 text-white"
     >
-      <h3 className="text-heading-sm ">Stay up to date with our newsletter</h3>
+      <h2 className="text-heading-sm ">Stay up to date with our newsletter</h2>
       <p>
         "<span className="font-bold">*</span>" indicates required fields
       </p>
@@ -113,7 +130,7 @@ export function NewsletterRegistration() {
           Email<sup className="font-bold">*</sup>
         </label>
         <input
-          className="rounded-md border-b border-b-1 p-4 ring-0 min-w-[2rem] focus:border-b-2 focus:border-primary-400"
+          className="text-info rounded-md p-4 min-w-[2rem] "
           placeholder="email"
           type="email"
           id="email"

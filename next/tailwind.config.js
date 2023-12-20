@@ -20,7 +20,7 @@ module.exports = {
       fog: "#baa2ff",
       tranquil: "#f7ffff",
       // bittersweet: "#FF7060",
-      bittersweet: "#FFF48A",
+      bittersweet: "#ede7f8",
 
       info: "#221f2d",
       success: "#007f6c",

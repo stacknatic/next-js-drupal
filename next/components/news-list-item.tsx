@@ -21,7 +21,7 @@ export function NewsListItem({ news }: NewsListItemProps) {
     <Link
       href={news.path.alias}
       className={classNames(
-        "relative mb-4 grid h-full rounded border  p-4 transition-all hover:shadow-md",
+        "relative mb-8 grid h-full rounded-xl border  p-4 transition-all hover:shadow-md",
         news.sticky
           ? "border-primary-100 bg-primary-50"
           : "border-finnishwinter bg-white",
@@ -40,7 +40,7 @@ export function NewsListItem({ news }: NewsListItemProps) {
             src={absoluteUrl(news.field_image.uri.url)}
             width={500}
             height={300}
-            className="w-full sm:w-40"
+            className="w-full sm:w-40 rounded-xl"
             alt={news.field_image.resourceIdObjMeta.alt}
           />
         )}

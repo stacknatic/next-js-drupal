@@ -1,15 +1,15 @@
-import { useRouter } from "next/router";
-import { useTranslation } from "next-i18next";
-import { useForm } from "react-hook-form";
-import { Button } from "@/ui/button";
-import { StatusMessage } from "@/ui/status-message";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
+import React, { useState, useRef, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
+import { useForm } from 'react-hook-form';
+import { Button } from '@/ui/button';
+import { StatusMessage } from '@/ui/status-message';
+import { zodResolver } from '@hookform/resolvers/zod';
 import {
   BaseEventRegistrationSchema,
   EventRegistrationInputType,
   EventRegistrationSchema,
-} from "@/lib/zod/event-registration";
+} from '@/lib/zod/event-registration';
 
 export function EventRegistration({ eventTitle }: { eventTitle: string }) {
   const router = useRouter();
@@ -23,12 +23,33 @@ export function EventRegistration({ eventTitle }: { eventTitle: string }) {
     resolver: zodResolver(BaseEventRegistrationSchema),
   });
 
+  const [showStatusMessage, setShowStatusMessage] = useState(false);
+  const statusMessageRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (statusMessageRef.current && !statusMessageRef.current.contains(event.target as Node)) {
+        setShowStatusMessage(false);
+      }
+    }
+
+    if (showStatusMessage) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showStatusMessage]);
+
   const onSubmit = async (data: EventRegistrationInputType) => {
     const formdataValidation = EventRegistrationSchema.safeParse({
       ...data,
       even_title: eventTitle,
     });
-    reset();
+
     if (formdataValidation.success) {
       const validData = formdataValidation.data;
       const response = await fetch(`/api/event-registration`, {
@@ -39,33 +60,30 @@ export function EventRegistration({ eventTitle }: { eventTitle: string }) {
           message: validData.message,
           even_title: validData.even_title,
         }),
-        // This will record the submission with the right language:
         headers: {
           "accept-language": router.locale,
         },
       });
 
-      if (!response.ok) {
+      if (response.ok) {
+        setShowStatusMessage(true);
+        reset();
+      } else {
         alert("Error!");
       }
     }
   };
 
-  // const onErrors = (errors) => console.error(errors);
-
-  if (isSubmitSuccessful) {
+  if (showStatusMessage) {
     return (
-      <div className="md:pr-[2rem]">
+      <div ref={statusMessageRef}>
         <StatusMessage
           level="success"
-          className="mx-auto w-full max-w-3xl rounded-md"
+          className="mx-auto w-full max-w-3xl rounded-md bg-secondary-100"
         >
           <p className="mb-4">
             You have been successfully registered to the event!
           </p>
-          <Button type="button" onClick={() => reset()}>
-            X
-          </Button>
         </StatusMessage>
       </div>
     );

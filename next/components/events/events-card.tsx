@@ -31,7 +31,7 @@ export function EventCard({ event }: EventsCardPropsType) {
   return (
     <Link
       href={event.path.alias}
-      className="eventFull lg:flex justify-center lg:w-[976px] grid lg:h-[650px] lg:mb-10 h-full rounded-xl  bg-white overflow-hidden transition-all hover:shadow-md relative"
+      className="eventFull shadow md:shadow-none lg:flex justify-center lg:w-[976px] grid lg:h-[650px] lg:mb-10 h-full rounded-xl  bg-white overflow-hidden transition-all hover:shadow-md relative"
     >
       <div className="eventImageWrapper w-full">
         {event.field_image && (
@@ -44,7 +44,7 @@ export function EventCard({ event }: EventsCardPropsType) {
           />
         )}
       </div>
-      <div className="eventInfo lg:z-10 lg:bg-white lg:min-h-[265px] lg:rounded-xl lg:shadow-md lg:mx-8 lg:absolute lg:top-[350px] grid gird-col-1 p-4">
+      <div className="eventInfo lg:z-10 lg:bg-white lg:min-h-[310px] lg:rounded-xl lg:shadow-md lg:mx-8 lg:absolute lg:top-[310px] grid gird-col-1 p-4">
         <h2 className=" justify-self-center self-center line-clamp-2 text-xl font-bold py-6 border-b">
           {event.title}
         </h2>
@@ -56,7 +56,7 @@ export function EventCard({ event }: EventsCardPropsType) {
           </div>
         )}
         {shortDate ? (
-          <div className="dateBox shortDate top-[-200px] left-[425px] w-16 border-4 bg-transparent text-white p-1 flex-col items-center absolute">
+          <div className="dateBox shortDate top-[-190px] left-[425px] w-16 border-4 bg-transparent text-white p-1 flex-col items-center absolute">
             <span className="text-xl">{shortDate.day}</span>
             <span className="date-month">{shortDate.month}</span>
           </div>
@@ -66,7 +66,7 @@ export function EventCard({ event }: EventsCardPropsType) {
           </div>
         )}
         {/* some event might not have organizers */}
-        {organizers && <ul className="mb-4 lg:px-20">{organizers}</ul>}
+        {organizers && <ul className="my-4 lg:px-20">{organizers}</ul>}
         {/* only render if filed avilable */}
         {event.field_excerpt && (
           <p className="lg:px-20 lg:pb-6">{event.field_excerpt}</p>

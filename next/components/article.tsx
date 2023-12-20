@@ -48,7 +48,7 @@ export function Article({ article, ...props }: ArticleProps) {
       )}
 
       {article.field_tags && (
-        <div className="mt-1">
+        <div className="mt-4 mb-[-40px]">
           <span>
             Tags:
             {article.field_tags.map((tag) => (
@@ -66,15 +66,15 @@ export function Article({ article, ...props }: ArticleProps) {
       )}
       <HeadingPage>{article.title}</HeadingPage>
       {article.field_excerpt && (
-        <div className="my-4 text-xl">{article.field_excerpt}</div>
+        <div className="my-4 text-xl md:px-16">{article.field_excerpt}</div>
       )}
-      <div className="mb-4 text-scapaflow flex flex-wrap align-middle gap-1 items-center">
+      <div className="mb-4 md:px-16 text-scapaflow flex align-middle gap-2 items-center">
         {article.uid?.field_user_avatar?.uri.url && (
           <Image
             src={absoluteUrl(article.uid?.field_user_avatar?.uri.url)}
             width={50}
             height={50}
-            className={avatar.userAvatar}
+            className={`my-4 ${avatar.userAvatar}`}
             alt={article.uid?.display_name}
           />
         )}
@@ -91,14 +91,14 @@ export function Article({ article, ...props }: ArticleProps) {
 
       </div>
       {article.field_image && (
-        <figure>
+        <figure className="md:px-16">
           <Image
             src={absoluteUrl(article.field_image.uri.url)}
             width={768}
             height={480}
             style={{ width: "100%", height: "auto" }}
             alt={article.field_image.resourceIdObjMeta.alt}
-            className="object-cover mx-auto rounded-lg"
+            className="object-cover mx-auto rounded-xl mt-4"
             priority
           />
           {article.field_image.resourceIdObjMeta.title && (
@@ -113,7 +113,7 @@ export function Article({ article, ...props }: ArticleProps) {
       )}
       {article.body && (
         <FormattedText
-          className="mt-4 text-md/xl text-scapaflow sm:text-lg"
+          className="mt-4 md:mx-32 text-md/xl text-scapaflow sm:text-lg"
           html={article.body?.processed}
         />
       )}

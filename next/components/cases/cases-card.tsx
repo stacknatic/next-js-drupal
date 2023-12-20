@@ -31,7 +31,7 @@ export function CaseCard({ project }: CasesCardPropsType) {
           width={384}
           height={240}
           alt={project.field_image.resourceIdObjMeta.alt}
-          className="max-w-full object-cover mx-auto min-h-[40vh] lg:h-[400px] rounded-3xl brightness-50 hover:brightness-100"
+          className="max-w-full object-cover mx-auto min-h-[40vh] rounded-2xl brightness-50 hover:brightness-100"
         />
       )}
       <div className="info absolute bottom-0 my-4 line-clamp-2 text-sm text-center text-white w-webkit-fill-available">

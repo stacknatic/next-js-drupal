@@ -62,10 +62,10 @@ export default function IndexPage({
         articles={promotedArticleTeasers}
         heading={t("promoted-articles")}
       />
-      <EventTeasers events={events} heading={"Events"} />
-      <NewsTeasers news={promotedNewsTeasers} heading={"Recent News"} />
-      <CaseTeasers cases={cases} heading={"Our latest work"} />
       {/* <Divider className="max-w-4xl" /> */}
+      <EventTeasers events={events} heading={t("Events")} />
+      <NewsTeasers news={promotedNewsTeasers} heading={t("Recent News")} />
+      <CaseTeasers cases={cases} heading={t("Our latest work")} />
       <Customers validatedCustomerLogos={validatedCustomerLogos} />
     </>
   );
