@@ -6,6 +6,9 @@ const nextConfig = {
   //   // Enables the styled-components SWC transform
   //   styledComponents: true,
   // },
+  experimental: {
+    forceSwcTransforms: true,
+  },
   reactStrictMode: true,
   images: {
     domains: [process.env.NEXT_IMAGE_DOMAIN],

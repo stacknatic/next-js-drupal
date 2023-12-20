@@ -1,8 +1,8 @@
 import { Paragraph } from "@/components/paragraph";
-import type { Page } from "@/lib/zod/page";
+import type { Page as PageType } from "@/lib/zod/page";
 
 interface PageProps {
-  page: Page;
+  page: PageType;
 }
 
 export function Page({ page }: PageProps) {
