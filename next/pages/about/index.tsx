@@ -23,12 +23,12 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
                  ]}
             />
             <section>
-                <div className='md:pt-5 pt-2 tracking-wider text-primary-800 font-bold'>
-                    <p className="md:text-2xl text-md md:w-1/2 leading-normal capitalize">
+                <div className='md:py-16 py-8 pt-2 tracking-wider text-primary-800 font-bold'>
+                    <p className="md:text-heading-xl text-md md:w-1/2 leading-normal capitalize">
                         {validatedAboutPage.field_mission_description}
                     </p>
                 </div>
-                <div className='md:mt-10 px-8 md:px-16 md:mx-auto md:text-md text-xs mt-5 leading-loose'>
+                <div className='px-8 md:px-16 md:mx-auto md:text-md text-xs leading-loose'>
                     <p>
                         {validatedAboutPage.field_mission_statement}
                     </p>

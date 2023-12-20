@@ -27,28 +27,28 @@ export default function ServicePage({
           },
         ]}
       />
-      <h1 className="text-[4rem] text-center md:text-left  py-16">
+      <h1 className="text-heading-lg md:text-heading-xl text-primary-800 font-bold text-center md:text-left py-8 md:py-16">
         {serviceLandingPage.field_page_title}
       </h1>
-      <p className="uppercase text-xl font-light tracking-widest text-center md:text-left">
+      <p className="uppercase text-xl tracking-widest text-center md:text-left md:px-16">
         {serviceLandingPage.field_service_page_statement}
       </p>
 
-      <h2 className="text-primary-500 text-center md:text-left  py-16 text-[2rem]">
+      <h2 className="text-primary-500 text-center md:text-left  py-16 text-[2rem] md:px-16">
         {
           serviceLandingPage.field_wunder_working_strategy
             .field_strategy_group_heading
         }
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-primary-400 hover:bg-primary-600 rounded-xl p-4">
+      <div className="md:mx-16 grid grid-cols-1 md:grid-cols-2 gap-6 bg-primary-400 hover:bg-primary-600 rounded-xl p-4">
         {serviceLandingPage.field_wunder_working_strategy.field_strategies.map(
           (item) => (
             <ServiceStrategyCard key={item.id} strategy={item} />
           ),
         )}
       </div>
-      <div className="flex gap-4 text-md md:text-lg py-16">
+      <div className="md:px-16 flex gap-4 text-md md:text-lg py-16">
         <p className="uppercase tracking-widest">Jump to:</p>
         <ul className="flex gap-4">
           {serviceCategories.map((cat) => (
@@ -62,7 +62,7 @@ export default function ServicePage({
           ))}
         </ul>
       </div>
-      <div className="grid gap-16 justify-center">
+      <div className="md:px-16 grid gap-16 justify-center">
         {serviceCategories.map((category) => (
           <ServiceCategoryCard
             key={category.id}

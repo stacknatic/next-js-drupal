@@ -19,10 +19,10 @@ export function CasesCards({ cases, heading }: CasesCardsPropsType) {
           },
         ]}
       />
-      <h2 className="pb-6 md:pb-8 text-center text-heading-sm font-bold md:text-heading-md">
+      <h2 className="text-heading-lg md:text-heading-xl text-primary-800 font-bold text-center md:text-left py-8 md:py-16">
         {heading}
       </h2>
-      <ul className="mt-4 grid grid-cols-1 ld:gap-10 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="md:px-16 px-8 grid grid-cols-1 ld:gap-10 gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {cases?.map((project) => (
           <li key={project.id}>
             <CaseCard project={project} />

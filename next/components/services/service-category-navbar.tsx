@@ -21,7 +21,7 @@ export default function ServiceCategoryNavbar({
             category.field_category_name,
         );
         return (
-          <div key={category.id} className="flex flex-col gap-4 px-4">
+          <div key={category.id} className="flex flex-col gap-4">
             <h3>
               <Link
                 className="text-primary-400 uppercase tracking-widest text-lg hover:border-b hover:border-primary-300"

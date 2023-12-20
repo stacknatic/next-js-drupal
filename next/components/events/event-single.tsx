@@ -40,10 +40,10 @@ function EventSingle({ event }: { event: EventSingleType }) {
           width={384}
           height={240}
           alt={event.field_image.resourceIdObjMeta.alt}
-          className="w-full object-cover rounded-xl md:h-96 md:my-6 z-1000"
+          className="w-full object-cover rounded-xl md:h-96 md:my-8"
         />
         )}
-        <div className="mt-6 md:ml-6 md:mt-[-50px] md:pt-4 md:shadow-2xl md:rounded-2xl z-50 md:bg-white md:w-[920px] md:px-8">
+        <div className="mt-6 md:ml-6 md:mt-[-50px] md:pt-4 md:shadow-2xl md:rounded-2xl z-50 md:bg-white md:w-[935px] md:px-8">
         <h2 className="text-heading-lg font-bold">{event.title}</h2>
         {date && (
           <div className="text-xl flex items-center gap-x-2 mt-4">
@@ -73,7 +73,7 @@ function EventSingle({ event }: { event: EventSingleType }) {
         </div>
         {event.body && (
         <FormattedText
-          className="mt-8 md:mt-16 md:mb-8 text-md/xl text-scapaflow sm:text-lg md:w-[800px] md:mx-auto"
+          className="mt-8 md:mt-16 md:mb-8 text-md/xl text-scapaflow sm:text-lg md:mx-16"
           html={event.body.processed}
         />
         )}

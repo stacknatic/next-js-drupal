@@ -21,7 +21,7 @@ export function ArticleListItem({ article }: ArticleListItemProps) {
     <Link
       href={article.path.alias}
       className={classNames(
-        "relative mb-4 grid h-full rounded border  p-4 transition-all hover:shadow-md",
+        "relative mb-4 grid h-full rounded-2xl border  p-4 transition-all hover:shadow-md",
         article.sticky
           ? "border-primary-100 bg-primary-50"
           : "border-finnishwinter bg-white",
@@ -56,7 +56,7 @@ export function ArticleListItem({ article }: ArticleListItemProps) {
             src={absoluteUrl(article.field_image.uri.url)}
             width={500}
             height={300}
-            className="w-full sm:w-40 rounded-sm"
+            className="w-full sm:w-40 rounded-xl"
             alt={article.field_image.resourceIdObjMeta.alt}
           />
         )}

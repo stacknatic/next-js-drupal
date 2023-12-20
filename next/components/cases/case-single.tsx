@@ -25,12 +25,12 @@ function CaseSingle({ project }: { project: CaseSingleType }) {
             },
           ]}
         />
-        <div className="flex flex-col items-center md:inline-block text-center md:text-start my-4 h-full rounded-md  overflow-hidden transition-all row-span-2">
-        <h3 className="mt-4 md:mt-8 pb-8 line-clamp-1 text-heading-xs md:text-heading-md lg:text-heading-lg font-bold">
+        <div className="flex flex-col items-center md:inline-block text-center md:text-start h-full rounded-md overflow-hidden transition-all row-span-2">
+        <h3 className="text-heading-lg md:text-heading-xl text-primary-800 font-bold text-center md:text-left py-8 md:py-16">
           {project.title}
         </h3>
         {project.field_logos.length > 0 && (
-          <div className=" mb-4 md:mb-8">
+          <div className=" mb-4 md:mb-8 md:mx-16 mx-8">
             {/* <AnchorNavigation postContent={project.body?.processed}/> */}
             <ul className="text-heading-xs mt-4">
               <CaseProfile profiles={project.field_logos} />
@@ -42,6 +42,7 @@ function CaseSingle({ project }: { project: CaseSingleType }) {
           Contact us
         </button> */}
       
+      <div className="md:px-16 px-8">
       {project.field_image && (
         <Image
           src={absoluteUrl(project.field_image.uri.url)}
@@ -51,9 +52,10 @@ function CaseSingle({ project }: { project: CaseSingleType }) {
           className="w-full object-cover rounded-2xl mb-8 md:mb-16"
         />
       )}
+      </div>
       {project.body && (
         <FormattedText
-          className="my-4 text-md/xl sm:text-lg md:w-[800px] md:mx-auto"
+          className="mt-8 md:mt-16 md:mb-8 text-md/xl text-scapaflow sm:text-lg md:mx-32"
           html={project.body.processed}
         />
       )}

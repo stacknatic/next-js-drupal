@@ -161,7 +161,7 @@ export default function AllArticlesPage({
           },
         ]}
       />
-      <HeadingPage>{t("all-articles")}</HeadingPage>
+      <HeadingPage>{t("Articles")}</HeadingPage>
       <div className="mt-4 mb-6 flex items-center">
         <span>Filter by: </span>
         <span className="mr-5 ml-1">

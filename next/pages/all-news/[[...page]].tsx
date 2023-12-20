@@ -38,11 +38,11 @@ export default function AllNewsPage({
       <Breadcrumbs
         items={[
           {
-            title: t("All News")
+            title: t("all-news")
           }
         ]}
       />
-      <HeadingPage>{t("All News")}</HeadingPage>
+      <HeadingPage>{t("News")}</HeadingPage>
       <ul className="mt-4">
         {newsTeasers?.map((news) => (
           <li key={news.id}>
