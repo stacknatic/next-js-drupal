@@ -8,6 +8,8 @@ import { ServiceDataType } from "@/lib/zod/services";
 import { ServiceCategoryType } from "@/lib/zod/service-categories";
 import { getValidatedCleanServicesLandingPage } from "@/lib/drupal/get-service-landing-page";
 import { ServiceLandingPageType } from "@/lib/zod/service-landing-page";
+import { Meta } from "@/components/meta";
+import { t } from "i18next";
 
 type ServicesPropType = {
   services: ServiceDataType[];
@@ -21,11 +23,14 @@ export default function Services({
   serviceLandingPage,
 }: ServicesPropType) {
   return (
-    <ServicePage
-      services={services}
-      serviceCategories={serviceCategories}
-      serviceLandingPage={serviceLandingPage}
-    />
+    <>
+      <Meta title={t("Services")} metatags={services.at(0).metatag} />
+      <ServicePage
+        services={services}
+        serviceCategories={serviceCategories}
+        serviceLandingPage={serviceLandingPage}
+      />
+    </>
   );
 }
 

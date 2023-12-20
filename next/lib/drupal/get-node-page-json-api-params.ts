@@ -13,7 +13,6 @@ export type ResourceType =
   | "taxonomy_term--article_category"
   | "taxonomy_term--tags";
 
-
 export function getNodePageJsonApiParams(resourceType: ResourceType) {
   const apiParams = new DrupalJsonApiParams().addFilter(
     "field_site.meta.drupal_internal__target_id",
@@ -63,7 +62,12 @@ export function getNodePageJsonApiParams(resourceType: ResourceType) {
 
   // The article content type has an image field, and author information:
   if (resourceType === "node--article") {
-    apiParams.addInclude(["field_image", "uid.field_user_avatar", "field_category", "field_tags"])
+    apiParams.addInclude([
+      "field_image",
+      "uid.field_user_avatar",
+      "field_category",
+      "field_tags",
+    ]);
     apiParams.addFields(resourceType, [
       "title",
       "body",
@@ -78,14 +82,13 @@ export function getNodePageJsonApiParams(resourceType: ResourceType) {
       "field_anchor_nav",
       "field_category",
       "field_tags",
-    ])
-    apiParams.addFields("taxonomy_term--article_category", ["name", "path"])
-    apiParams.addFields("taxonomy_term--tags", ["name", "path"])
-
+    ]);
+    apiParams.addFields("taxonomy_term--article_category", ["name", "path"]);
+    apiParams.addFields("taxonomy_term--tags", ["name", "path"]);
   }
 
   if (resourceType === "node--news") {
-    apiParams.addInclude(["field_image", "uid.field_user_avatar"])
+    apiParams.addInclude(["field_image", "uid.field_user_avatar"]);
     apiParams.addFields(resourceType, [
       "title",
       "body",
@@ -99,7 +102,6 @@ export function getNodePageJsonApiParams(resourceType: ResourceType) {
       "sticky",
       "field_anchor_nav",
     ]);
-    
   }
 
   if (resourceType === "node--events") {
@@ -127,7 +129,9 @@ export function getNodePageJsonApiParams(resourceType: ResourceType) {
     apiParams.addInclude(["field_service_category", "field_service_image"]);
     apiParams.addFilter("status", "1");
     apiParams.addFields(resourceType, [
-      "id,title",
+      "id",
+      "metatag",
+      "title",
       "path",
       "field_service_description",
       "field_service_short_description",
