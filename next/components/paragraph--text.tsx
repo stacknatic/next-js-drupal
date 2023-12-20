@@ -25,7 +25,7 @@ export function ParagraphText({ paragraph }: { paragraph: FormattedTextType }) {
       <Link
             href="/cases"
             className={clsx(
-              buttonVariants({ variant: "quaternary" }),
+              buttonVariants({ variant: "primary" }),
               "text-base font-bold lg:ml-44 lg:mt-6 inline-flex mx-auto mb-10 mt-6 p-2 lg:px-5 lg:py-3 rounded-full border",
             )}
           >

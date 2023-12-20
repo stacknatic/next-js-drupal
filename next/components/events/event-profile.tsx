@@ -1,12 +1,15 @@
-// icon imports
-import YoutubeIcon from "@/styles/icons/youtube.svg";
-import FacebookIcon from "@/styles/icons/facebook.svg";
-import LinkedInIcon from "@/styles/icons/linkedin.svg";
-import TwitterIcon from "@/styles/icons/twitter.svg";
-import InstagramIcon from "@/styles/icons/instagram.svg";
+import { useTranslation } from "react-i18next";
+import { FaLinkedin } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaYoutube } from "react-icons/fa";
+
+
+
 
 function EventProfile({ profiles }) {
-  // console.log("profiles", profiles);
+  const { t } = useTranslation();
   return (
     <>
       {profiles.map((profile) => (
@@ -31,36 +34,36 @@ function EventProfile({ profiles }) {
           <ul className="flex flex-wrap gap-2">
             {profile.field_linkedin?.full_url && (
               <li>
-                <a href={profile.field_linkedin.full_url}>
-                  <LinkedInIcon className="h-6 w-6 text-primary-400" />
+                <a href={profile.field_linkedin.full_url} aria-label="Linkedin">
+                <FaLinkedin className="h-6 w-6 text-primary-400"/>
                 </a>
               </li>
             )}
             {profile.field_instagram?.full_url && (
               <li>
-                <a href={profile.field_instagram.full_url}>
-                  <InstagramIcon className="h-6 w-6 text-primary-400" />
+                <a href={profile.field_instagram.full_url} aria-label="Instagram">
+                <FaInstagram className="h-6 w-6 text-primary-400"/>
                 </a>
               </li>
             )}
             {profile.field_facebook?.full_url && (
               <li>
-                <a href={profile.field_facebook.full_url}>
-                  <FacebookIcon className="h-6 w-6 text-primary-400" />
+                <a href={profile.field_facebook.full_url} aria-label="Facebook">
+                <FaFacebook className="h-6 w-6 text-primary-400"/>
                 </a>
               </li>
             )}
             {profile.field_twitter?.full_url && (
               <li>
-                <a href={profile.field_twitter.full_url}>
-                  <TwitterIcon className="h-6 w-6 text-primary-400" />
+                <a href={profile.field_twitter.full_url} aria-label="Twitter">
+                <FaXTwitter className="h-6 w-6 text-primary-400"/>
                 </a>
               </li>
             )}
             {profile.field_youtube?.full_url && (
               <li>
-                <a href={profile.field_youtube.full_url}>
-                  <YoutubeIcon className="h-6 w-6 text-primary-400" />
+                <a href={profile.field_youtube.full_url} aria-label="Youtube">
+                <FaYoutube className="h-6 w-6 text-primary-400"/>
                 </a>
               </li>
             )}

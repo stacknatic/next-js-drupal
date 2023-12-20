@@ -6,15 +6,13 @@ import { FormattedText } from "../formatted-text";
 import CaseProfile from "./case-profile";
 import { Breadcrumbs } from "../breadcrumbs";
 import { CaseSingleType } from "@/lib/zod/case-single";
-import AnchorNavigation from "../anchorNavigation";
 
 function CaseSingle({ project }: { project: CaseSingleType }) {
   const { t } = useTranslation();
   const router = useRouter();
 
   return (
-    <article className="grid md:grid-cols-2 md:gap-1 gap-2 px-4">
-      <div className="grid grid-cols-1 content-start h-full rounded-md  overflow-hidden transition-all row-span-2">
+    <article>
         <Breadcrumbs
           items={[
             {
@@ -26,31 +24,33 @@ function CaseSingle({ project }: { project: CaseSingleType }) {
             },
           ]}
         />
+        <div className="flex flex-col items-center md:inline-block text-center md:text-start h-full rounded-md overflow-hidden transition-all row-span-2">
+        <h3 className="text-heading-lg md:text-heading-xl text-primary-800 font-bold text-center md:text-left py-8 md:pt-16 md:pb-6">
+          {project.title}
+        </h3>
         {project.field_logos.length > 0 && (
-          <div className=" mb-4 md:mb-8">
-            <h3 className="text-heading-sm mt-8 ">Client</h3>
-            <AnchorNavigation postContent={project.body?.processed}/>
+          <div className=" mb-4 md:mb-8 md:mx-16 mx-8">
             <ul className="text-heading-xs mt-4">
               <CaseProfile profiles={project.field_logos} />
             </ul>
           </div>
         )}
-        <button className="border py-2 px-7 mb-4 bg-primary-100 rounded hover:bg-primary-400  justify-self-start">
-          Contact us
-        </button>
-      </div>
+        </div>
+      
+      <div className="md:px-16 px-8">
       {project.field_image && (
         <Image
           src={absoluteUrl(project.field_image.uri.url)}
           width={384}
           height={240}
           alt={project.field_image.resourceIdObjMeta.alt}
-          className="w-full object-cover rounded-md"
+          className="w-full object-cover rounded-2xl mb-8 md:mb-16"
         />
       )}
+      </div>
       {project.body && (
         <FormattedText
-          className="mt-4 text-md/xl sm:text-lg "
+          className="mt-8 md:mt-16 md:mb-8 text-md/xl text-scapaflow sm:text-lg md:mx-32"
           html={project.body.processed}
         />
       )}

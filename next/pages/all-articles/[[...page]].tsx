@@ -161,8 +161,8 @@ export default function AllArticlesPage({
           },
         ]}
       />
-      <HeadingPage>{t("all-articles")}</HeadingPage>
-      <div className="mt-4 mb-6 flex items-center">
+      <HeadingPage>{t("Articles")}</HeadingPage>
+      <div className="mt-4 mb-6 flex items-center md:px-16 px-8">
         <span>Filter by: </span>
         <span className="mr-5 ml-1">
         <DropDownMenu name={"Category"} menuItems={categories} handleFilter={(item: string) => setCat(item)}/>
@@ -171,7 +171,7 @@ export default function AllArticlesPage({
         <button onClick={() => setAll("all category")} className="ml-3 p-2 z-10 rounded-md bg-white shadow-md ring-1 ring-opacity-5 ring-inset">All</button>
 
       </div>
-      <ul className="mt-4" ref={containerRef}>
+      <ul className="mt-4 md:px-16 px-8" ref={containerRef}>
         {filteredArticles?.slice(0, visibleArticles)
         .map((article) => (
           <li key={article?.id}>

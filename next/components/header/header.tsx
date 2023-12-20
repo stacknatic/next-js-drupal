@@ -22,19 +22,17 @@ export function Header({ menu }: HeaderProps) {
   const scrollDirection = useScrollDirection();
   
   return (
-    <header className={`z-50 flex-shrink-0 border-finnishwinter bg-primary-600 text-white h-20 md:sticky ${ scrollDirection === "down" ? "md:-top-20" : "md:top-0"} transition-all duration-500`}>
+    <header className={`z-50 flex-shrink-0 border-finnishwinter bg-primary-600 text-white h-20 md:sticky fixed top-0 w-full ${ scrollDirection === "down" ? "md:-top-20" : "md:top-0"} transition-all duration-500`}>
       <nav className="mx-auto flex max-w-full flex-row items-center justify-between lg:px-10 px-4 py-4">
         <HomeLink />
         <div className="flex flex-row items-center justify-end gap-6 sm:gap-8">
         <div className="hidden lg:block">
             <MainMenuFull menu={menu} />
           </div>
-          {/* <ContactLink /> */}
           <SearchLink />
           <UserMenu />
           <LanguageSwitcher />
           <div className="flex lg:hidden">
-            {/* Hamburger Menu for smaller screens */}
             <MenuToggle isOpen={isMainMenuOpen} setIsOpen={setIsMainMenuOpen} />
           </div>
         </div>
@@ -71,19 +69,6 @@ function SearchLink() {
     </Link>
   );
 }
-
-// function ContactLink() {
-//   const { locale } = useRouter();
-//   const { t } = useTranslation();
-//   return (
-//     <Link href="/contacts" locale={locale} className="hover:underline">
-//       <span className="sr-only sm:mr-2 sm:inline">
-//         {t("Contact Us")}
-//       </span>
-//       <PencilIcon className="inline-block h-6 w-6" aria-hidden="true" />
-//     </Link>
-//   );
-// }
 
 function useScrollDirection() {
   const [scrollDirection, setScrollDirection] = useState(null);

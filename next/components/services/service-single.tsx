@@ -19,7 +19,7 @@ export default function ServiceSingle({
   serviceCategories,
 }: ServicePageProps) {
   return (
-    <div className="px-16">
+    <>
       <Breadcrumbs
         items={[
           {
@@ -31,12 +31,12 @@ export default function ServiceSingle({
           },
         ]}
       />
-      <h1 className="text-[3rem] text-center md:text-left  py-16">
+      <h1 className="text-heading-lg md:text-heading-xl text-primary-800 font-bold text-center md:text-left py-8 md:py-16">
         {service.field_service_name}
       </h1>
       
-      <div className="grid md:grid-cols-2 gap-6  p-4 rounded-xl">
-        <div className="flex flex-col gap-8 rounded-xl p-4">
+      <div className="grid md:grid-cols-2 gap-6 md:px-16 rounded-xl">
+        <div className="flex flex-col gap-8 rounded-xl py-4">
           <p className="uppercase text-xl font-light tracking-widest text-center md:text-left">
             {service.field_service_statement}
           </p>
@@ -60,11 +60,11 @@ export default function ServiceSingle({
           alt={service.field_service_image.resourceIdObjMeta.alt}
           className="w-full h-auto object-cover rounded-md"
         />
-        <p className="order-3 md:col-span-2 p-4 rounded-xl">
+        <p className="order-3 md:col-span-2 md:px-16 rounded-xl">
           {service.field_service_description}
         </p>
       </div>
-      <div className="mt-16  p-4 rounded-xl ">
+      <div className="mt-16  p-16 rounded-xl ">
         <div className="grid gap-16 justify-center">
           <ServiceCategoryNavbar
             services={services}
@@ -72,6 +72,6 @@ export default function ServiceSingle({
           />
         </div>
       </div>
-    </div>
+    </>
   );
 }
