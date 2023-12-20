@@ -58,9 +58,9 @@ const BranchMap = () => {
         <div className='w-full mt-5'>
             <div className="flex justify-around mt-10">
                 {offices.map((location, index) => (
-                    <h1 key={index} onClick={() => handleOfficeClick(index)} className={`cursor-pointer ${index === activeOffice ? 'text-primary-700 tracking-wider underline' : 'text-gray-500 tracking-wider'}`}>
+                    <h3 key={index} onClick={() => handleOfficeClick(index)} className={`cursor-pointer ${index === activeOffice ? 'text-primary-700 tracking-wider underline' : 'text-gray-500 tracking-wider'}`}>
                         {location.name}
-                    </h1>
+                    </h3>
                 ))}
             </div>
             <div className='w-full h-[30em] my-5  ' ref={mapRef} />
@@ -68,8 +68,8 @@ const BranchMap = () => {
                 <div className='sm:grid sm:grid-cols-3 sm:gap-4 mt-10 grid-cols-1' >
                     {offices.map((address, index) => (
                         <div key={index} className="mb-5 leading-10">
-                            <h1 className='text-lg font-bold pb-2'>{address.name}</h1>
-                            <h1>{address.address}</h1>
+                            <h3 className='text-lg font-bold pb-2'>{address.name}</h3>
+                            <h4>{address.address}</h4>
                             <p>{address.postal}</p>
                             <p>{address.country}</p>
                             <p><a href="mailto:{address.email}" className='underline text-primary-500'>{address.email}</a></p>

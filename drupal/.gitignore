@@ -48,6 +48,8 @@
 !/web/sites/default/files/**/case_*.*
 !/web/sites/default/files/**/contact_*.*
 !/web/sites/default/files/**/article_*.*
+!/web/sites/default/files/**/contact_*.*
+!/web/sites/default/files/**/event_*.*
 
 !/web/sites/default/files/**/frontpage_*.*
 

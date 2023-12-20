@@ -36,9 +36,9 @@ export function NewsTeaser({ news }: NewsTeaserProps) {
           {/* commenting out the following line because uid is not part of news */}
           {/* {author && <>{t("posted-by", { author })} - </>} */}
           {date}
-          <h3 className="mb-4 line-clamp-1 text-heading-xs font-bold text-center mx-4">
+          <h2 className="mb-4 line-clamp-1 text-heading-xs font-bold text-center mx-4">
             {news.title}
-          </h3>
+          </h2>
         </div>
       </div>
     </Link>

@@ -73,6 +73,7 @@ export function getNodePageJsonApiParams(resourceType: ResourceType) {
       "body",
       "uid",
       "created",
+      "changed",
       "field_image",
       "status",
       "metatag",

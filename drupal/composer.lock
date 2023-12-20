@@ -2029,16 +2029,16 @@
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "10.1.7",
+            "version": "10.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
-                "reference": "6a2d817ccb59fdb7e6b3720a1478b0d00b475445"
+                "reference": "97bd91856535a354e9b1b815f0957893e26b6622"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-composer-scaffold/zipball/6a2d817ccb59fdb7e6b3720a1478b0d00b475445",
-                "reference": "6a2d817ccb59fdb7e6b3720a1478b0d00b475445",
+                "url": "https://api.github.com/repos/drupal/core-composer-scaffold/zipball/97bd91856535a354e9b1b815f0957893e26b6622",
+                "reference": "97bd91856535a354e9b1b815f0957893e26b6622",
                 "shasum": ""
             },
             "require": {
@@ -2073,9 +2073,9 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/10.1.7"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/10.2.0"
             },
-            "time": "2023-11-15T23:23:43+00:00"
+            "time": "2023-11-15T23:23:28+00:00"
         },
         {
             "name": "drupal/core-recommended",
@@ -3094,17 +3094,17 @@
         },
         {
             "name": "drupal/migrate_source_csv",
-            "version": "3.5.0",
+            "version": "3.6.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/migrate_source_csv.git",
-                "reference": "8.x-3.5"
+                "reference": "8.x-3.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/migrate_source_csv-8.x-3.5.zip",
-                "reference": "8.x-3.5",
-                "shasum": "ddddba22fa7b4a54f05a606db33986b23b1a69ea"
+                "url": "https://ftp.drupal.org/files/projects/migrate_source_csv-8.x-3.6.zip",
+                "reference": "8.x-3.6",
+                "shasum": "60b5e7dcb5d7a68ed0a43693fe67e7d26b1a9d83"
             },
             "require": {
                 "drupal/core": ">=9.1",
@@ -3117,8 +3117,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.5",
-                    "datestamp": "1645538421",
+                    "version": "8.x-3.6",
+                    "datestamp": "1702995930",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3798,17 +3798,17 @@
         },
         {
             "name": "drupal/simple_sitemap",
-            "version": "4.1.7",
+            "version": "4.1.8",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/simple_sitemap.git",
-                "reference": "4.1.7"
+                "reference": "4.1.8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/simple_sitemap-4.1.7.zip",
-                "reference": "4.1.7",
-                "shasum": "3d55ee386b0ebb81ed4c3461451a9e32a15d93d7"
+                "url": "https://ftp.drupal.org/files/projects/simple_sitemap-4.1.8.zip",
+                "reference": "4.1.8",
+                "shasum": "391f64048ccd5ee3ba6a4cffa9ad523ce9bd8a57"
             },
             "require": {
                 "drupal/core": "^9.3 || ^10",
@@ -3817,8 +3817,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "4.1.7",
-                    "datestamp": "1698936269",
+                    "version": "4.1.8",
+                    "datestamp": "1702898385",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3970,17 +3970,17 @@
         },
         {
             "name": "drupal/subrequests",
-            "version": "3.0.7",
+            "version": "3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/subrequests.git",
-                "reference": "3.0.7"
+                "reference": "3.0.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/subrequests-3.0.7.zip",
-                "reference": "3.0.7",
-                "shasum": "f78f5a382583007b8844fc26b9f4ba7b58f9fa3d"
+                "url": "https://ftp.drupal.org/files/projects/subrequests-3.0.9.zip",
+                "reference": "3.0.9",
+                "shasum": "7b110a449daf29626af510a3f8950763c47c3e91"
             },
             "require": {
                 "drupal/core": "^8 || ^9 || ^10",
@@ -3992,8 +3992,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.7",
-                    "datestamp": "1682600732",
+                    "version": "3.0.9",
+                    "datestamp": "1702936217",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4306,27 +4306,27 @@
         },
         {
             "name": "drupal/webform_rest",
-            "version": "4.0.3",
+            "version": "4.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/webform_rest.git",
-                "reference": "4.0.3"
+                "reference": "4.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform_rest-4.0.3.zip",
-                "reference": "4.0.3",
-                "shasum": "31a11f9ccec1372cc297d01e254bab926d0b9dcf"
+                "url": "https://ftp.drupal.org/files/projects/webform_rest-4.1.0.zip",
+                "reference": "4.1.0",
+                "shasum": "ccdb351c28631b0edd284edfd5c4f58408645520"
             },
             "require": {
                 "drupal/core": "^8.7.7 || ^9 || ^10",
-                "drupal/webform": "*"
+                "drupal/webform": "^6.1"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "4.0.3",
-                    "datestamp": "1684134659",
+                    "version": "4.1.0",
+                    "datestamp": "1702831078",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4339,30 +4339,31 @@
             ],
             "authors": [
                 {
-                    "name": "dgaspara",
-                    "homepage": "https://www.drupal.org/user/3557179"
+                    "name": "DÃ©bora Antunes (dgaspara)",
+                    "homepage": "https://www.drupal.org/u/dgaspara"
                 },
                 {
-                    "name": "imclean",
-                    "homepage": "https://www.drupal.org/user/112588"
+                    "name": "Ian McLean (imclean),",
+                    "homepage": "https://www.drupal.org/u/imclean"
                 },
                 {
-                    "name": "joaomarques736",
-                    "homepage": "https://www.drupal.org/user/3557181"
+                    "name": "JoÃ£o Marques (joaomarques736)",
+                    "homepage": "https://www.drupal.org/u/joaomarques736"
                 },
                 {
-                    "name": "nsalves",
-                    "homepage": "https://www.drupal.org/user/3557178"
+                    "name": "Nelson Alves (nsalves)",
+                    "homepage": "https://www.drupal.org/u/nsalves"
                 },
                 {
                     "name": "pmaiacar",
                     "homepage": "https://www.drupal.org/user/3575425"
                 }
             ],
-            "description": "Allows retrieving webform elements and submitting webforms via REST",
+            "description": "Retrieve and submit webforms via REST.",
             "homepage": "https://www.drupal.org/project/webform_rest",
             "support": {
-                "source": "https://git.drupalcode.org/project/webform_rest"
+                "source": "https://git.drupalcode.org/project/webform_rest",
+                "issues": "https://www.drupal.org/project/issues/webform_rest"
             }
         },
         {
@@ -5841,16 +5842,16 @@
         },
         {
             "name": "league/csv",
-            "version": "9.12.0",
+            "version": "9.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/csv.git",
-                "reference": "c1dc31e23eb3cd0f7b537ee1a669d5f58d5cfe21"
+                "reference": "3690cc71bfe8dc3b6daeef356939fac95348f0a8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/csv/zipball/c1dc31e23eb3cd0f7b537ee1a669d5f58d5cfe21",
-                "reference": "c1dc31e23eb3cd0f7b537ee1a669d5f58d5cfe21",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/3690cc71bfe8dc3b6daeef356939fac95348f0a8",
+                "reference": "3690cc71bfe8dc3b6daeef356939fac95348f0a8",
                 "shasum": ""
             },
             "require": {
@@ -5865,11 +5866,11 @@
                 "ext-xdebug": "*",
                 "friendsofphp/php-cs-fixer": "^v3.22.0",
                 "phpbench/phpbench": "^1.2.15",
-                "phpstan/phpstan": "^1.10.46",
+                "phpstan/phpstan": "^1.10.50",
                 "phpstan/phpstan-deprecation-rules": "^1.1.4",
                 "phpstan/phpstan-phpunit": "^1.3.15",
                 "phpstan/phpstan-strict-rules": "^1.5.2",
-                "phpunit/phpunit": "^10.4.2",
+                "phpunit/phpunit": "^10.5.3",
                 "symfony/var-dumper": "^6.4.0"
             },
             "suggest": {
@@ -5926,7 +5927,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-12-01T17:54:07+00:00"
+            "time": "2023-12-16T11:03:20+00:00"
         },
         {
             "name": "league/event",
@@ -11742,16 +11743,16 @@
         },
         {
             "name": "composer/ca-bundle",
-            "version": "1.3.7",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "76e46335014860eec1aa5a724799a00a2e47cc85"
+                "reference": "b66d11b7479109ab547f9405b97205640b17d385"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/76e46335014860eec1aa5a724799a00a2e47cc85",
-                "reference": "76e46335014860eec1aa5a724799a00a2e47cc85",
+                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/b66d11b7479109ab547f9405b97205640b17d385",
+                "reference": "b66d11b7479109ab547f9405b97205640b17d385",
                 "shasum": ""
             },
             "require": {
@@ -11763,7 +11764,7 @@
                 "phpstan/phpstan": "^0.12.55",
                 "psr/log": "^1.0",
                 "symfony/phpunit-bridge": "^4.2 || ^5",
-                "symfony/process": "^2.5 || ^3.0 || ^4.0 || ^5.0 || ^6.0"
+                "symfony/process": "^2.5 || ^3.0 || ^4.0 || ^5.0 || ^6.0 || ^7.0"
             },
             "type": "library",
             "extra": {
@@ -11798,7 +11799,7 @@
             "support": {
                 "irc": "irc://irc.freenode.org/composer",
                 "issues": "https://github.com/composer/ca-bundle/issues",
-                "source": "https://github.com/composer/ca-bundle/tree/1.3.7"
+                "source": "https://github.com/composer/ca-bundle/tree/1.4.0"
             },
             "funding": [
                 {
@@ -11814,7 +11815,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-08-30T09:31:38+00:00"
+            "time": "2023-12-18T12:05:55+00:00"
         },
         {
             "name": "composer/class-map-generator",
@@ -14253,16 +14254,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.24.4",
+            "version": "1.24.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "6bd0c26f3786cd9b7c359675cb789e35a8e07496"
+                "reference": "fedf211ff14ec8381c9bf5714e33a7a552dd1acc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/6bd0c26f3786cd9b7c359675cb789e35a8e07496",
-                "reference": "6bd0c26f3786cd9b7c359675cb789e35a8e07496",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/fedf211ff14ec8381c9bf5714e33a7a552dd1acc",
+                "reference": "fedf211ff14ec8381c9bf5714e33a7a552dd1acc",
                 "shasum": ""
             },
             "require": {
@@ -14294,9 +14295,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.24.4"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.24.5"
             },
-            "time": "2023-11-26T18:29:22+00:00"
+            "time": "2023-12-16T09:33:33+00:00"
         },
         {
             "name": "phpstan/phpstan",
@@ -15855,16 +15856,16 @@
         },
         {
             "name": "seld/jsonlint",
-            "version": "1.10.0",
+            "version": "1.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/jsonlint.git",
-                "reference": "594fd6462aad8ecee0b45ca5045acea4776667f1"
+                "reference": "76d449a358ece77d6f1d6331c68453e657172202"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/594fd6462aad8ecee0b45ca5045acea4776667f1",
-                "reference": "594fd6462aad8ecee0b45ca5045acea4776667f1",
+                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/76d449a358ece77d6f1d6331c68453e657172202",
+                "reference": "76d449a358ece77d6f1d6331c68453e657172202",
                 "shasum": ""
             },
             "require": {
@@ -15891,7 +15892,7 @@
                 {
                     "name": "Jordi Boggiano",
                     "email": "j.boggiano@seld.be",
-                    "homepage": "http://seld.be"
+                    "homepage": "https://seld.be"
                 }
             ],
             "description": "JSON Linter",
@@ -15903,7 +15904,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/jsonlint/issues",
-                "source": "https://github.com/Seldaek/jsonlint/tree/1.10.0"
+                "source": "https://github.com/Seldaek/jsonlint/tree/1.10.1"
             },
             "funding": [
                 {
@@ -15915,7 +15916,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-05-11T13:16:46+00:00"
+            "time": "2023-12-18T13:03:25+00:00"
         },
         {
             "name": "seld/phar-utils",

@@ -68,7 +68,7 @@ export function Article({ article, ...props }: ArticleProps) {
       {article.field_excerpt && (
         <div className="my-4 text-xl">{article.field_excerpt}</div>
       )}
-      <div className="mb-4 text-scapaflow flex align-middle gap-2 items-center">
+      <div className="mb-4 text-scapaflow flex flex-wrap align-middle gap-1 items-center">
         {article.uid?.field_user_avatar?.uri.url && (
           <Image
             src={absoluteUrl(article.uid?.field_user_avatar?.uri.url)}
@@ -83,7 +83,12 @@ export function Article({ article, ...props }: ArticleProps) {
             {t("posted-by", { author: article.uid?.display_name })} -{" "}
           </span>
         )}
-        <span>{formatDate(article.created, router.locale)}</span>
+          <span> Published on: {formatDate(article.created, router.locale)}</span>
+          {article.changed && (
+          <span>| Updated on: {formatDate(article.changed, router.locale)}</span>
+        )
+        }
+
       </div>
       {article.field_image && (
         <figure>
