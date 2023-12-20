@@ -44,9 +44,7 @@ const Page = ({
         </p>
         <div className="overflow-hidden mt-4 md:py-10 md:mt-9">
           {validatedAboutPage.field_wunder_numers && (
-            <div
-              className={`grid grid-cols-${validatedAboutPage.field_wunder_numers.length} justify-between text-center space-x-6`}
-            >
+            <div className="grid grid-cols-5 justify-between text-center space-x-6">
               {validatedAboutPage.field_wunder_numers &&
               Array.isArray(validatedAboutPage.field_wunder_numers) ? (
                 validatedAboutPage.field_wunder_numers.map((number) => (
