@@ -13,7 +13,7 @@ export const variants = cva(
     variants: {
       level: {
         info: "bg-info/15",
-        success: "bg-success/15",
+        success: "bg-[#a7f2bb]",
         warning: "bg-warning/15",
         error: "bg-error/15",
       },
