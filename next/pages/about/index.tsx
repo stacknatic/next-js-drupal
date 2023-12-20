@@ -43,33 +43,38 @@ const Page = ({
           WUNDER IN NUMBERS
         </p>
         <div className="overflow-hidden mt-4 md:py-10 md:mt-9">
-          <div className="flex justify-around text-center space-x-6 ">
-            {validatedAboutPage.field_wunder_numers &&
-            Array.isArray(validatedAboutPage.field_wunder_numers) ? (
-              validatedAboutPage.field_wunder_numers.map((number) => (
-                <div key={number.id}>
-                  <p className="sm:text-[3em] text-primary-600 font-bold text-lg">
-                    {/* {number.field_number} */}
-                    <CountUp
-                      start={0}
-                      end={number.field_number}
-                      enableScrollSpy
-                      scrollSpyDelay={500}
-                      separator=""
-                    />
-                    {number.field_topic === "clients" && <span>&nbsp;X</span>}
-                    {number.field_topic === "wunderers" && <span>&nbsp;+</span>}
-                  </p>
-                  <p className="md:tracking-widest uppercase tracking-tighter text-error md:text-xs text-[8px] md:mt-1">
-                    {number.field_topic}
-                  </p>
-                </div>
-              ))
-            ) : (
-              // Handle the case where field_wunder_numers is not an array or undefined
-              <p>No data available for WUNDER IN NUMBERS.</p>
-            )}
-          </div>
+          {validatedAboutPage.field_wunder_numers && (
+            <div
+              className={`grid grid-cols-${validatedAboutPage.field_wunder_numers.length} justify-between text-center space-x-6`}
+            >
+              {validatedAboutPage.field_wunder_numers &&
+              Array.isArray(validatedAboutPage.field_wunder_numers) ? (
+                validatedAboutPage.field_wunder_numers.map((number) => (
+                  <div key={number.id}>
+                    <p className="sm:text-[3em] text-primary-600 font-bold text-lg">
+                      {/* {number.field_number} */}
+                      <CountUp
+                        end={Number(number.field_number)}
+                        enableScrollSpy
+                        scrollSpyDelay={500}
+                        separator=""
+                      />
+                      {number.field_topic === "clients" && <span>&nbsp;X</span>}
+                      {number.field_topic === "wunderers" && (
+                        <span>&nbsp;+</span>
+                      )}
+                    </p>
+                    <p className="md:tracking-widest uppercase tracking-tighter text-error md:text-xs text-[8px] md:mt-1">
+                      {number.field_topic}
+                    </p>
+                  </div>
+                ))
+              ) : (
+                // Handle the case where field_wunder_numers is not an array or undefined
+                <p>No data available for WUNDER IN NUMBERS.</p>
+              )}
+            </div>
+          )}
         </div>
       </section>
       <section className="md:mx-auto pb-10">
