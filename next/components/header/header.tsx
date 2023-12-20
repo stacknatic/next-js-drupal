@@ -77,7 +77,6 @@ function useScrollDirection() {
     let lastScrollY = window.scrollY;
 
     const updateScrollDirection = () => {
-      console.log("scrolling", window.scrollY, lastScrollY);
       const scrollY = window.scrollY;
       const direction = scrollY > lastScrollY ? "down" : "up";
       if (direction !== scrollDirection && (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)) {

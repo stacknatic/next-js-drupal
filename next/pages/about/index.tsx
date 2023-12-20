@@ -23,8 +23,8 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
                  ]}
             />
             <section>
-                <div className='md:py-16 py-8 pt-2 tracking-wider text-primary-800 font-bold'>
-                    <p className="md:text-heading-xl text-md md:w-1/2 leading-normal capitalize">
+                <div className='md:py-16 py-8 pt-2 tracking-wider'>
+                    <p className="text-heading-lg md:text-heading-xl text-primary-800 font-bold text-center md:text-left py-8 md:py-16">
                         {validatedAboutPage.field_mission_description}
                     </p>
                 </div>

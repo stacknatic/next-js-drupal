@@ -6,7 +6,6 @@ import { FormattedText } from "../formatted-text";
 import CaseProfile from "./case-profile";
 import { Breadcrumbs } from "../breadcrumbs";
 import { CaseSingleType } from "@/lib/zod/case-single";
-import AnchorNavigation from "../anchorNavigation";
 
 function CaseSingle({ project }: { project: CaseSingleType }) {
   const { t } = useTranslation();
@@ -31,16 +30,12 @@ function CaseSingle({ project }: { project: CaseSingleType }) {
         </h3>
         {project.field_logos.length > 0 && (
           <div className=" mb-4 md:mb-8 md:mx-16 mx-8">
-            {/* <AnchorNavigation postContent={project.body?.processed}/> */}
             <ul className="text-heading-xs mt-4">
               <CaseProfile profiles={project.field_logos} />
             </ul>
           </div>
         )}
         </div>
-        {/* <button className="border py-2 px-7 mb-4 bg-primary-100 rounded hover:bg-primary-400  justify-self-start">
-          Contact us
-        </button> */}
       
       <div className="md:px-16 px-8">
       {project.field_image && (

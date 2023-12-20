@@ -34,14 +34,14 @@ export function News({ news, ...props }: NewsProps) {
       {/* {news.field_excerpt && (
         <div className="my-4 text-xl">{news.field_excerpt}</div>
       )} */}
-      <div className="mb-4 text-scapaflow">
+      <div className="mb-8 text-scapaflow md:px-16 px-8">
         {news.uid?.display_name && (
           <span>{t("posted-by", { author: news.uid?.display_name })} - </span>
         )}
         <span>{formatDate(news.created, router.locale)}</span>
       </div>
       {news.field_image && (
-        <figure>
+        <figure className="md:px-16 px-8">
           <Image
             src={absoluteUrl(news.field_image.uri.url)}
             width={768}
@@ -64,7 +64,7 @@ export function News({ news, ...props }: NewsProps) {
       {news.body?.processed && (
         <>
           <FormattedText
-            className="mt-4 text-md/xl text-scapaflow sm:text-lg"
+            className="mt-8 md:mt-16 md:mb-8 text-md/xl text-scapaflow sm:text-lg md:mx-32"
             html={news.body?.processed}
           />
         </>
