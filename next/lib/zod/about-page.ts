@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { MetatagsSchema } from "./metatag";
 
 export const WunderNumbersSchema = z.object({
   id: z.string(),
@@ -21,6 +22,8 @@ export const TestimonialsSchema = z.object({
 
 export const AboutPageBaseSchema = z.object({
   id: z.string(),
+  title: z.string(),
+  metatag: MetatagsSchema.optional(),
   field_mission_statement: z.string(),
   field_mission_description: z.string(),
   field_our_customers_description: z.string(),

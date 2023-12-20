@@ -1,18 +1,24 @@
-import React from 'react';
-import { getValidatedCustomerLogos } from '@/lib/drupal/get-customer-logos';
-import { getValidatedPartnerLogos } from '@/lib/drupal/get-partner-logos';
-import { getValidatedCleanAboutPage } from '@/lib/drupal/get-about-page';
-import { getCommonPageProps } from '@/lib/get-common-page-props';
-import Link from 'next/link';
-import Image from 'next/image';
+import React from "react";
+import { getValidatedCustomerLogos } from "@/lib/drupal/get-customer-logos";
+import { getValidatedPartnerLogos } from "@/lib/drupal/get-partner-logos";
+import { getValidatedCleanAboutPage } from "@/lib/drupal/get-about-page";
+import { getCommonPageProps } from "@/lib/get-common-page-props";
+import Link from "next/link";
+import Image from "next/image";
 import Customers from "@/components/customers-partners/customers";
 import Partners from "@/components/customers-partners/partners";
-import { absoluteUrl } from '@/lib/drupal/absolute-url';
-import CountUp from 'react-countup'
+import { absoluteUrl } from "@/lib/drupal/absolute-url";
+import CountUp from "react-countup";
+import { Meta } from "@/components/meta";
 
 const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPage }) => {
 
     return (
+      <>
+           <Meta
+        title={validatedAboutPage?.title}
+        metatags={validatedAboutPage?.metatag}
+      />
         <div className=''>
             <section className=''>
                 <div className='md:pt-5 pt-2 md:pl-10 pl-2 tracking-wider text-primary-800 font-bold'>
@@ -102,35 +108,34 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
                 </div>
             </article>
         </div>
+        </>
     );
 }
 
 export async function getStaticProps(context) {
-    try {
-        const validatedCustomerLogos = await getValidatedCustomerLogos(context);
-        const validatedPartnerLogos = await getValidatedPartnerLogos(context);
-        const validatedAboutPage = await getValidatedCleanAboutPage(context);
+  try {
+    const validatedCustomerLogos = await getValidatedCustomerLogos(context);
+    const validatedPartnerLogos = await getValidatedPartnerLogos(context);
+    const validatedAboutPage = await getValidatedCleanAboutPage(context);
 
-        return {
-            props: {
-                ...(await getCommonPageProps(context)),
-                validatedCustomerLogos: validatedCustomerLogos,
-                validatedPartnerLogos: validatedPartnerLogos,
-                validatedAboutPage: validatedAboutPage,
-            },
-        };
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        return {
-            props: {
-                ...(await getCommonPageProps(context)),
-                validatedCustomerLogos: { field_logos: [] }, // Provide a default value in case of an error
-                validatedPartnerLogos: { field_logos: [] }, // Provide a default value in case of an error
-            },
-        };
-    }
-};
+    return {
+      props: {
+        ...(await getCommonPageProps(context)),
+        validatedCustomerLogos: validatedCustomerLogos,
+        validatedPartnerLogos: validatedPartnerLogos,
+        validatedAboutPage: validatedAboutPage,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return {
+      props: {
+        ...(await getCommonPageProps(context)),
+        validatedCustomerLogos: { field_logos: [] }, // Provide a default value in case of an error
+        validatedPartnerLogos: { field_logos: [] }, // Provide a default value in case of an error
+      },
+    };
+  }
+}
 
 export default Page;
-
-

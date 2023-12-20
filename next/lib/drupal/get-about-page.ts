@@ -10,7 +10,7 @@ export async function getValidatedCleanAboutPage(context) {
     params: {
       "filter[status]": 1,
       "fields[node--about_page]":
-        "title,field_mission_statement,field_mission_description,field_our_customers_description,field_our_partners_descriptions,field_wunder_numers,field_testimonials",
+        "title,metatag,field_mission_statement,field_mission_description,field_our_customers_description,field_our_partners_descriptions,field_wunder_numers,field_testimonials",
       include: "field_wunder_numers,field_testimonials.field_testi_image",
     },
   });

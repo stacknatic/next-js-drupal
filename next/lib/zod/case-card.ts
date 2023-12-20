@@ -1,6 +1,7 @@
 import { DrupalNode } from "next-drupal";
 import { string, z } from "zod";
 import { ImageShape } from "@/lib/zod/paragraph";
+import { MetatagsSchema } from "./metatag";
 
 // export const LinkSchema = z.object({
 //   title: z.string(),
@@ -19,12 +20,13 @@ export const LinkLogoSchema = z.object({
     }),
     resourceIdObjMeta: z.object({
       alt: z.string(),
-    })
+    }),
   }),
 });
 
 export const CaseCardSchema = z.object({
   type: z.literal("node--cases"),
+  metatag: MetatagsSchema.optional().nullable(),
   id: z.string(),
   title: z.string(),
   path: z.object({ alias: z.string().nullable() }),
@@ -34,4 +36,4 @@ export const CaseCardSchema = z.object({
 });
 
 export type CaseCardType = z.infer<typeof CaseCardSchema>;
-export type LinkLogoType= z.infer<typeof LinkLogoSchema>
+export type LinkLogoType = z.infer<typeof LinkLogoSchema>;
