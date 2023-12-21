@@ -85,7 +85,7 @@ export function NewsletterRegistration() {
       <div ref={statusMessageRef} className="md:pr-[2rem]">
         <StatusMessage
           level="success"
-          className="mx-auto w-full max-w-3xl rounded-md bg-secondary-100 absolute bottom-[100px]"
+          className="mx-auto w-full max-w-3xl rounded-md"
         >
           <p className="mb-4">
             You have been successfully registered to the newsletters!

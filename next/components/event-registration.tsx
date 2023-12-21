@@ -1,15 +1,15 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
-import { useForm } from 'react-hook-form';
-import { Button } from '@/ui/button';
-import { StatusMessage } from '@/ui/status-message';
-import { zodResolver } from '@hookform/resolvers/zod';
+import React, { useState, useRef, useEffect } from "react";
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
+import { useForm } from "react-hook-form";
+import { Button } from "@/ui/button";
+import { StatusMessage } from "@/ui/status-message";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
   BaseEventRegistrationSchema,
   EventRegistrationInputType,
   EventRegistrationSchema,
-} from '@/lib/zod/event-registration';
+} from "@/lib/zod/event-registration";
 
 export function EventRegistration({ eventTitle }: { eventTitle: string }) {
   const router = useRouter();
@@ -28,19 +28,22 @@ export function EventRegistration({ eventTitle }: { eventTitle: string }) {
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (statusMessageRef.current && !statusMessageRef.current.contains(event.target as Node)) {
+      if (
+        statusMessageRef.current &&
+        !statusMessageRef.current.contains(event.target as Node)
+      ) {
         setShowStatusMessage(false);
       }
     }
 
     if (showStatusMessage) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     } else {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [showStatusMessage]);
 
@@ -79,7 +82,7 @@ export function EventRegistration({ eventTitle }: { eventTitle: string }) {
       <div ref={statusMessageRef}>
         <StatusMessage
           level="success"
-          className="mx-auto w-full max-w-3xl rounded-md bg-secondary-100"
+          className="mx-auto w-full max-w-3xl rounded-md"
         >
           <p className="mb-4">
             You have been successfully registered to the event!
