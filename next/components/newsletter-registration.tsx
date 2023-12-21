@@ -1,16 +1,16 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next';
-import { useForm } from 'react-hook-form';
-import { Button } from '@/ui/button';
-import { StatusMessage } from '@/ui/status-message';
-import { z } from 'zod';
-import { zodResolver } from '@hookform/resolvers/zod';
+import React, { useState, useRef, useEffect } from "react";
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
+import { useForm } from "react-hook-form";
+import { Button } from "@/ui/button";
+import { StatusMessage } from "@/ui/status-message";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
   NewsletterRegistrationSchema,
   NewsletterRegistrationType,
-} from '@/lib/zod/newsletter-registration';
-import CheckmarkIcon from '@/styles/icons/checkmark.svg';
+} from "@/lib/zod/newsletter-registration";
+import CheckmarkIcon from "@/styles/icons/checkmark.svg";
 
 export function NewsletterRegistration() {
   const router = useRouter();
@@ -29,19 +29,22 @@ export function NewsletterRegistration() {
 
   useEffect(() => {
     function handleClickOutside(event) {
-      if (statusMessageRef.current && !statusMessageRef.current.contains(event.target)) {
+      if (
+        statusMessageRef.current &&
+        !statusMessageRef.current.contains(event.target)
+      ) {
         setShowStatusMessage(false);
       }
     }
 
     if (showStatusMessage) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     } else {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [showStatusMessage]);
 
@@ -70,6 +73,7 @@ export function NewsletterRegistration() {
 
       if (response.ok) {
         setShowStatusMessage(true);
+        reset();
       } else {
         alert("Error!");
       }
@@ -81,7 +85,7 @@ export function NewsletterRegistration() {
       <div ref={statusMessageRef} className="md:pr-[2rem]">
         <StatusMessage
           level="success"
-          className="mx-auto w-full max-w-3xl rounded-md bg-secondary-100 absolute bottom-[100px]"
+          className="mx-auto w-full max-w-3xl rounded-md"
         >
           <p className="mb-4">
             You have been successfully registered to the newsletters!
@@ -103,24 +107,48 @@ export function NewsletterRegistration() {
       <p className="uppercase tracking-wider">I'M INTERESTED IN</p>
       <div className="w-full flex-col sm:flex sm:flex-row items-start gap-2">
         <div className="w-full flex gap-1 items-center py-2">
-          <label htmlFor="news" className="cursor-pointer relative flex items-center">
-            <input className="rounded-md w-5 h-5 mr-2 appearance-none border-2 border-white checked:bg-white hover:bg-white" type="checkbox" id="news" {...register("news")} />
+          <label
+            htmlFor="news"
+            className="cursor-pointer relative flex items-center"
+          >
+            <input
+              className="rounded-md w-5 h-5 mr-2 appearance-none border-2 border-white checked:bg-white hover:bg-white"
+              type="checkbox"
+              id="news"
+              {...register("news")}
+            />
             <CheckmarkIcon className="check-news h-5 w-5 absolute top-0 opacity-0 text-primary-700" />
             Wunder news
           </label>
         </div>
         <div className="w-full flex gap-1 items-center py-2">
-          <label htmlFor="careers" className="cursor-pointer relative flex items-center">
-          <input className="rounded-md w-5 h-5 mr-2 appearance-none border-2 border-white checked:bg-white hover:bg-white" type="checkbox" id="careers" {...register("careers")} />
-          Careers
-          <CheckmarkIcon className="check-careers h-5 w-5 absolute top-0 opacity-0 text-primary-700" />
+          <label
+            htmlFor="careers"
+            className="cursor-pointer relative flex items-center"
+          >
+            <input
+              className="rounded-md w-5 h-5 mr-2 appearance-none border-2 border-white checked:bg-white hover:bg-white"
+              type="checkbox"
+              id="careers"
+              {...register("careers")}
+            />
+            Careers
+            <CheckmarkIcon className="check-careers h-5 w-5 absolute top-0 opacity-0 text-primary-700" />
           </label>
         </div>
         <div className="w-full flex gap-1 items-center py-2">
-          <label htmlFor="events" className="cursor-pointer relative flex items-center">
-          <input className="rounded-md w-5 h-5 mr-2 appearance-none border-2 border-white checked:bg-white hover:bg-white" type="checkbox" id="events" {...register("events")} />
-          Events
-          <CheckmarkIcon className="check-events h-5 w-5 absolute top-0 opacity-0 text-primary-700" />
+          <label
+            htmlFor="events"
+            className="cursor-pointer relative flex items-center"
+          >
+            <input
+              className="rounded-md w-5 h-5 mr-2 appearance-none border-2 border-white checked:bg-white hover:bg-white"
+              type="checkbox"
+              id="events"
+              {...register("events")}
+            />
+            Events
+            <CheckmarkIcon className="check-events h-5 w-5 absolute top-0 opacity-0 text-primary-700" />
           </label>
         </div>
       </div>
@@ -138,12 +166,19 @@ export function NewsletterRegistration() {
             required: true,
           })}
         />
-        {errors.email && <p className="text-secondary-400">{errors.email.message}</p>}
+        {errors.email && (
+          <p className="text-secondary-400">{errors.email.message}</p>
+        )}
       </div>
       <div className="w-full flex flex-col gap-2 pt-4">
         <div className="w-full flex gap-1 items-center ">
           <label htmlFor="privacy" className="cursor-pointer relative">
-          <input className="rounded-md w-5 h-5 mr-2 mb-[-4px] appearance-none border-2 border-white checked:bg-white hover:bg-white" type="checkbox" id="privacy" {...register("privacy")} />
+            <input
+              className="rounded-md w-5 h-5 mr-2 mb-[-4px] appearance-none border-2 border-white checked:bg-white hover:bg-white"
+              type="checkbox"
+              id="privacy"
+              {...register("privacy")}
+            />
             I approve that Wunder processes my personal data according to its
             Privacy Policy.
             <CheckmarkIcon className="check-privacy h-5 w-5 absolute top-0 opacity-0 text-primary-700" />
@@ -158,7 +193,11 @@ export function NewsletterRegistration() {
           registered for all newsletters.
         </p>
       </div>
-      <Button variant="quinary" type="submit" className="rounded-full shadow-xl">
+      <Button
+        variant="quinary"
+        type="submit"
+        className="rounded-full shadow-xl"
+      >
         {isSubmitting ? "Subscribing....." : "Subscribe"}
       </Button>
     </form>

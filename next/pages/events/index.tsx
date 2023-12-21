@@ -15,7 +15,6 @@ interface EventCardsPropsType {
 
 export default function Events({ events }: EventCardsPropsType) {
   const { t } = useTranslation();
-  console.log(events);
   return (
     <>
       <Meta title={t("Events")} metatags={events.at(0)?.metatag} />

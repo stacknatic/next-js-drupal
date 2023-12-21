@@ -25,7 +25,7 @@ export function MainMenuFull({ menu }: MainMenuFullProps) {
     <div>
       <nav
         aria-label="primary"
-        className="relative z-20 flex-col px-6 flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row"
+        className="relative z-50 flex-col px-6 flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row"
       >
         <ul className="flex flex-col md:flex-row">
           {menu.map((item) => (
@@ -69,7 +69,7 @@ export function MainMenuFull({ menu }: MainMenuFullProps) {
               </Link>
               {item.items && item.items.length > 0 && (
                 <div
-                  className={`absolute z-10 ${
+                  className={`absolute z-50 ${
                     visibleSubmenu === item.id ? "block" : "hidden"
                   } bg-transparent`}
                 >

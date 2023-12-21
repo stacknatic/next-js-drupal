@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { getServerSession } from "next-auth/next";
+// import { getServerSession } from "next-auth/next";
 
 import { drupal } from "@/lib/drupal/drupal-client";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
+// import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
 export default async function handler(
   req: NextApiRequest,
@@ -10,14 +10,14 @@ export default async function handler(
 ) {
   // Because we want to allow only registered users to submit
   // to the contact webform, let's get the session:
-  const session = await getServerSession(req, res, authOptions);
+  // const session = await getServerSession(req, res, authOptions);
   // The locale is passed in this header:
   const languagePrefix = req.headers["accept-language"];
 
   // if there is no session, return 401:
-  if (!session) {
-    res.status(401).end();
-  }
+  // if (!session) {
+  //   res.status(401).end();
+  // }
 
   try {
     if (req.method === "POST") {
@@ -37,7 +37,7 @@ export default async function handler(
         headers: {
           "Content-Type": "application/json",
           // Pass the token to authenticate the request:
-          Authorization: `Bearer ${session.accessToken}`,
+          // Authorization: `Bearer ${session.accessToken}`,
         },
       });
 
