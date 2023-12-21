@@ -54,7 +54,6 @@ const ContactForm = () => {
       </StatusMessage>
     );
   }
-
   return (
     <div>
       <div className="w-full flex items-center justify-center rounded-xl shadow-inherit ">

@@ -34,7 +34,7 @@ export default function ServicePage({
         {serviceLandingPage.field_service_page_statement}
       </p>
 
-      <h2 className="text-primary-500 text-center md:text-left  py-16 text-[2rem] md:px-16">
+      <h2 className="text-primary-500 text-center md:text-left py-16 text-heading-sm md:px-16">
         {
           serviceLandingPage.field_wunder_working_strategy
             .field_strategy_group_heading
