@@ -1,11 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
-import classNames from "classnames";
 
 import { absoluteUrl } from "@/lib/drupal/absolute-url";
-import { formatDate } from "@/lib/utils";
+import { formatShortDate } from "@/lib/utils";
 import { NewsTeaser } from "@/lib/zod/news-teaser";
 
 interface NewsListItemProps {
@@ -14,38 +12,33 @@ interface NewsListItemProps {
 
 export function NewsListItem({ news }: NewsListItemProps) {
   const { t } = useTranslation();
-  // const author = news.uid?.display_name;
   const router = useRouter();
-  const date = formatDate(news.created, router.locale);
+  const date = formatShortDate(news.created, router.locale);
+  const imageUrl = news.field_image ? absoluteUrl(news.field_image.uri.url) : '';
   return (
-    <Link
-      href={news.path.alias}
-      className={classNames(
-        "relative mb-8 grid h-full rounded-xl border  p-4 transition-all hover:shadow-md",
-        news.sticky
-          ? "border-primary-100 bg-primary-50"
-          : "border-finnishwinter bg-white",
-      )}
-    >
-      <h3 className="mb-2 line-clamp-2 text-heading-xs font-bold">
-        {news.title}
-      </h3>
-      <div className="mb-4 line-clamp-2 text-md text-scapaflow">
-        {/* {author && <>{t("posted-by", { author })} - </>} */}
-        {date}
-      </div>
-      <div className="flex flex-col items-start gap-4 sm:flex-row">
-        {news.field_image && (
-          <Image
-            src={absoluteUrl(news.field_image.uri.url)}
-            width={500}
-            height={300}
-            className="w-full sm:w-40 rounded-xl"
-            alt={news.field_image.resourceIdObjMeta.alt}
-          />
-        )}
-        <p>{news.field_excerpt}</p>
-      </div>
-    </Link>
+    <div className="container mt-4 mb-10">
+        <Link
+          href={news.path.alias}
+          className="parent"
+        >
+          <div
+          className="card"
+          style={{backgroundImage: `url(${imageUrl})`,}}
+          >
+            <div className="content-box">
+              <h2 className="card-title">{news.title}</h2>
+              <p className="card-content">{news.field_excerpt}</p>
+            </div>
+            <div className="date-box">
+              {date && (
+                <div className="top-[00px] left-[-2px] w-20 font-bold bg-transparent text-white p-1 flex-col items-center absolute">
+                  <span className="text-xl">{date.day}</span>
+                  <span className="date-month">{date.month}</span>
+                </div>
+              )}
+            </div>
+          </div>
+        </Link>
+    </div>
   );
 }

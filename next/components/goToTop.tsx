@@ -36,7 +36,7 @@ const GoToTopButton = () => {
     <div>
       {isVisible && (
       
-        <FaCircleArrowUp className={`secondary-500 ${gotToTop.goToTopButton}`} onClick={scrollToTop} />
+        <FaCircleArrowUp className={`${gotToTop.goToTopButton}`} onClick={scrollToTop} />
       )}
     </div>
   );
