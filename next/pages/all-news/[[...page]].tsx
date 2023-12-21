@@ -43,7 +43,7 @@ export default function AllNewsPage({
         ]}
       />
       <HeadingPage>{t("News")}</HeadingPage>
-      <ul className="mt-4 md:px-16 px-8">
+      <ul className="md:px-16 px-8 grid grid-cols-1 lg:gap-10 gap-6 sm:grid-cols-2">
         {newsTeasers?.map((news) => (
           <li key={news.id}>
             <NewsListItem news={news} />

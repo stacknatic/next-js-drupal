@@ -189,4 +189,82 @@ canvas {
   display: block;
   font-size: 1rem;
 }
+
+/***** NEWS CARDS ******/
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.parent {
+  perspective: 1000px;
+}
+
+.card {
+  width: 400px;
+  height: 500px;
+  padding-top: 250px;
+  transform-style: preserve-3d;
+  background-position: center center;
+  background-size: cover;
+  transition: all 0.5s ease-in-out;
+  border-radius: 25px;
+}
+.card:hover {
+  background-position: 80% 20%;
+  transform: rotate3d(0.5, 1, 0, 30deg);
+}
+
+.content-box {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.811);
+  border-radius: 0px 0px 10px 10px;
+  box-shadow: rgba(91, 55, 191, 0.785) 0px 20px 50px -25px;
+  transition: all 0.5s ease-in-out;
+  padding: 50px 25px 25px 25px;
+  transform-style: preserve-3d;
+}
+.content-box .card-title {
+  color: white;
+  font-size: 25px;
+  font-weight: 900;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 20px);
+}
+.content-box .card-title:hover {
+  transform: translate3d(0px, 0px, 50px);
+}
+.content-box .card-content {
+  padding-top: 15px;
+  font-size: 12px;
+  color: #b9b9b9;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 20px);
+}
+.content-box .card-content:hover {
+  transform: translate3d(0px, 0px, 50px);
+}
+
+.date-box {
+  position: absolute;
+  top: 214px;
+  left: 25px;
+  height: 75px;
+  width: 75px;
+  background-color: black;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: #5b37bf 0px 20px 60px 0px, #261da1 0px 18px 36px -18px;
+  transform: translate3d(0px, 0px, 50px);
+}
+
+.date-box span {
+  display: block;
+  text-align: center;
+}
+
   

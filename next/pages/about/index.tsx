@@ -23,11 +23,10 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
                  ]}
             />
             <section>
-                <div className='md:py-16 py-8 pt-2 tracking-wider'>
                     <p className="text-heading-lg md:text-heading-xl text-primary-800 font-bold text-center md:text-left py-8 md:py-16">
                         {validatedAboutPage.field_mission_description}
                     </p>
-                </div>
+
                 <div className='px-8 md:px-16 md:mx-auto md:text-md text-xs leading-loose'>
                     <p>
                         {validatedAboutPage.field_mission_statement}
@@ -35,7 +34,7 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
                 </div>
             </section>
             <section>
-                <p className='text-sm md:mt-[10vh] mt-9 text-center md:text-left tracking-widest'>
+                <p className='text-xl md:mt-[10vh] mt-9 text-center md:text-left tracking-widest'>
                     WUNDER IN NUMBERS
                 </p>
                 <div className='overflow-hidden mt-4 md:py-10 md:mt-9'>
@@ -62,7 +61,7 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
 
             </section>
             <section className='md:mx-auto pb-10'>
-                <p className='text-sm md:mt-[10vh] mt-9 tracking-widest text-center md:text-left uppercase'>
+                <p className='text-xl md:mt-[10vh] mt-9 tracking-widest text-center md:text-left uppercase'>
                     Our Customers
                 </p>
                 <div className='rounded-2xl md:mt-10 py-2'>
@@ -73,7 +72,7 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
                 </div>
             </section>
             <section className=' md:mx-auto pb-10'>
-                <p className='text-sm md:mt-[10vh] mt-9 tracking-widest text-center md:text-left uppercase'>
+                <p className='text-xl md:mt-[10vh] mt-9 tracking-widest text-center md:text-left uppercase'>
                     Our Partners
                 </p>
                 <div className='rounded-2xl md:mt-10 py-2'>
@@ -85,7 +84,7 @@ const Page = ({ validatedCustomerLogos, validatedPartnerLogos, validatedAboutPag
             </section>
             <article className='md:mx-auto pb-[10em]'>
                 <div className=''>
-                    <p className='text-sm pb-5 md:mt-[10vh] mt-2 tracking-widest uppercase text-center md:text-left'>
+                    <p className='text-xl pb-5 md:mt-[10vh] mt-2 tracking-widest uppercase text-center md:text-left'>
                         Testimonials
                     </p>
                     <div className='px-8 md:px-16 md:flex grid ss:grid-cols-3 gap-x-5 md:justify-around md:gap-x-10 mt-5 gap-y-5 '>
